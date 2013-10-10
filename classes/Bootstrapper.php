@@ -18,4 +18,11 @@ class Bootstrapper extends \Controller
 		return $objT->parse();
 	}
 
+	public function parseWidgetHook($strBuffer, $objWidget)
+	{
+		if(TL_MODE == 'BE') return $strBuffer;
+
+		return static::generateForm($objWidget, empty($objWidget->label));
+	}
+
 }
