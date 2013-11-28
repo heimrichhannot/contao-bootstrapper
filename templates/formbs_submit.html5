@@ -1,0 +1,3 @@
+<div class="form-group<?php echo $this->field->hasErrors() ? ' has-error': ''; ?><?php echo $this->field->groupClass ? ' ' .  $this->field->groupClass : '';?>">
+	<?php echo $this->field->generate(); ?>
+</div>

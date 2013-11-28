@@ -1,0 +1,12 @@
+<div class="form-group<?php echo $this->field->hasErrors() ? ' has-error': ''; ?><?php echo $this->field->groupClass ? ' ' .  $this->field->groupClass : '';?>">
+	<?php if(!$this->hideLabel): ?>
+		<?php $this->field->addAttributes(array('class' => 'control-label')); ?>
+		<?php echo $this->field->generateLabel();	?>
+		<?php $this->field->addAttributes(array('class' => '')); ?>
+	<?php endif; ?>
+	<?php $this->field->addAttributes(array('class' => 'form-control')); ?>
+	<?php echo $this->field->generate(); ?>
+	<?php if($this->field->hasErrors()): ?>
+		<span class="help-block error" data-original-title="<?php echo str_replace('"', '',$this->field->getErrorAsString()); ?>"><?php echo $this->field->getErrorAsString(); ?></span>
+	<?php endif; ?>
+</div>
