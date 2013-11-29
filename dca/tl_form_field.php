@@ -7,7 +7,7 @@ $dc = &$GLOBALS['TL_DCA']['tl_form_field'];
  */
 foreach($dc['palettes'] as $key => $palette)
 {
-	if(in_array($key, array('__selector__', 'fieldset'))) continue;
+	if(in_array($key, array('__selector__'))) continue;
 
 	// add bootstrapper form-group class to all palettes
 	$dc['palettes'][$key] = str_replace('class', 'class, groupClass', $palette);

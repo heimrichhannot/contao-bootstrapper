@@ -35,10 +35,5 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'formbs_submit'   => 'system/modules/bootstrapper/templates',
-	'formbs_checkbox' => 'system/modules/bootstrapper/templates',
-	'formbs_radio'    => 'system/modules/bootstrapper/templates',
-	'formbs_captcha'  => 'system/modules/bootstrapper/templates',
-	'formbs_textarea' => 'system/modules/bootstrapper/templates',
-	'formbs_text'     => 'system/modules/bootstrapper/templates',
+	'bootstrapper_form' => 'system/modules/bootstrapper/templates',
 ));
