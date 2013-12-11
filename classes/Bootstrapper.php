@@ -13,6 +13,12 @@ class Bootstrapper extends \Controller
 		$strTemplate = 'bootstrapper_form';
 
 		$objT = new \FrontendTemplate($strTemplate);
+		// check if field is part of a sub palette
+// 		$dc = $GLOBALS['TL_DCA']['tl_calendar_events'];
+// 		// add alias as hidden field, for trigger the save callback (generateAlias)
+// 		$dc['fields']['alias']['inputType'] = 'hidden';
+		
+		
 		$objT->field = $objWidget;
 		$objT->hideLabel = $hideLabel;
 		return $objT->parse();

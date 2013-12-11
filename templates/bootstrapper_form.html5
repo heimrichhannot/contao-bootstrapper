@@ -10,6 +10,12 @@
 	<?php if($this->field->rte): ?>
 		<?php $this->field->addAttributes(array('class' => $this->field->rte)); ?>
 	<?php endif; ?>
+	<?php if($this->field->submitOnChange): ?>
+		<?php $this->field->addAttributes(array('class' => 'submitOnChange')); ?>
+	<?php endif; ?>
+	<?php if($this->field->subpalette): ?>
+		<?php $this->field->addAttributes(array('class' => 'subpalette_' . $this->field->subpalette)); ?>
+	<?php endif; ?>
 	<?php if($this->field->type == 'captcha'): ?>
 			<div class="form-horizontal clearfix">
 				<?php $strQuestion = $this->field->generateQuestion(); ?>
