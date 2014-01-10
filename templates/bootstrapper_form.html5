@@ -27,7 +27,25 @@
 				</div>
 			</div>
 	<?php else: ?>
+		<?php if($this->field->datepicker): ?>
+			<div class="input-group datepicker" data-format="<?php echo Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat']); ?>">
+		<?php endif; ?>
+		
+		<?php if($this->field->timepicker): ?>
+			<div class="input-group timepicker" data-format="<?php echo Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat']); ?>">
+		<?php endif; ?>
+		
 		<?php echo $this->field->generate(); ?>
+		
+		<?php if($this->field->timepicker): ?>
+			<span class="input-group-addon"><i class="icon icon-time"></i></span>
+			</div>
+		<?php endif; ?>
+		
+		<?php if($this->field->datepicker): ?>
+			<span class="input-group-addon"><i class="icon icon-calendar"></i></span>
+			</div>
+		<?php endif; ?>
 	<?php endif; ?>
 	<?php if($this->field->hasErrors()): ?>
 		<span class="help-block error" data-original-title="<?php echo str_replace('"', '',$this->field->getErrorAsString()); ?>"><?php echo $this->field->getErrorAsString(); ?></span>

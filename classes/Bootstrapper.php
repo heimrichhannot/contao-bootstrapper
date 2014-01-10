@@ -31,4 +31,11 @@ class Bootstrapper extends \Controller
 		return static::generateForm($objWidget, empty($objWidget->label));
 	}
 
+	public static function formatPhpDateToJsDate($format)
+	{
+		$PHPFormatOptions = array('y', 'Y', 'm', 'd');
+		$JSFormatOptions = array('yy', 'yyyy', 'mm', 'dd');
+		$JSFormat = str_replace($PHPFormatOptions, $JSFormatOptions, $PHPFormat);
+		return $JSFormat;
+	}
 }
