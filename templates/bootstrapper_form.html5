@@ -28,11 +28,13 @@
 			</div>
 	<?php else: ?>
 		<?php if($this->field->datepicker): ?>
-			<div class="input-group datepicker" data-format="<?php echo Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat']); ?>">
+			<?php $this->field->addAttribute('data-format', Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat'])); ?>	
+			<div class="input-group datepicker">
 		<?php endif; ?>
 		
 		<?php if($this->field->timepicker): ?>
-			<div class="input-group timepicker" data-format="<?php echo Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat']); ?>">
+			<?php $this->field->addAttribute('data-format', Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat'])); ?>
+			<div class="input-group timepicker">
 		<?php endif; ?>
 		
 		<?php echo $this->field->generate(); ?>

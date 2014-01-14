@@ -33,9 +33,9 @@ class Bootstrapper extends \Controller
 
 	public static function formatPhpDateToJsDate($format)
 	{
-		$PHPFormatOptions = array('y', 'Y', 'm', 'd');
-		$JSFormatOptions = array('yy', 'yyyy', 'mm', 'dd');
-		$JSFormat = str_replace($PHPFormatOptions, $JSFormatOptions, $PHPFormat);
+		$PHPFormatOptions = array('y', 'Y', 'i', 'd', 'm');
+		$JSFormatOptions = array('YY', 'YYYY', 'mm', 'DD', 'MM');
+		$JSFormat = str_replace($PHPFormatOptions, $JSFormatOptions, $format);
 		return $JSFormat;
 	}
 }
