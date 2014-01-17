@@ -28,7 +28,7 @@ class Bootstrapper extends \Controller
 	{
 		if(TL_MODE == 'BE') return $strBuffer;
 
-		return static::generateForm($objWidget, empty($objWidget->label));
+		return static::generateForm($objWidget, strlen($objWidget->label) == 0);
 	}
 	
 	public static function formatPhpDateToJsDate($php_format) {
