@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2013 Leo Feyer
+ * Copyright (c) 2005-2014 Leo Feyer
  *
  * @package Bootstrapper
  * @link    https://contao.org
@@ -35,5 +35,6 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'bootstrapper_form' => 'system/modules/bootstrapper/templates',
+	'fe_page'           => 'system/modules/bootstrapper/templates/frontend',
+	'bootstrapper_form' => 'system/modules/bootstrapper/templates/widgets',
 ));
