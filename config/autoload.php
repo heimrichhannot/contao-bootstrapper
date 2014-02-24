@@ -35,6 +35,9 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'fe_page'           => 'system/modules/bootstrapper/templates/frontend',
-	'bootstrapper_form' => 'system/modules/bootstrapper/templates/widgets',
+	'fe_page'             => 'system/modules/bootstrapper/templates/frontend',
+	'nav_navbar_collapse' => 'system/modules/bootstrapper/templates/navigation',
+	'nav_navbar'          => 'system/modules/bootstrapper/templates/navigation',
+	'nav_list_unstyles'   => 'system/modules/bootstrapper/templates/navigation',
+	'bootstrapper_form'   => 'system/modules/bootstrapper/templates/widgets',
 ));

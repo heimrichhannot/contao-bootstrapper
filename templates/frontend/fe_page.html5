@@ -6,14 +6,15 @@
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta charset="<?php echo $this->charset; ?>">
-	<title><?php echo $this->pageTitle; ?> - <?php echo $this->mainTitle; ?></title>
+	<title><?php echo $this->pageTitle; ?><?php if($this->pageTitle != $this->mainTitle): ?> - <?php echo $this->mainTitle; ?><?php endif;?></title>
 	<base href="<?php echo $this->base; ?>">
 
 	<meta name="robots" content="<?php echo $this->robots; ?>">
 	<meta name="description" content="<?php echo $this->description; ?>">
 	<meta name="keywords" content="<?php echo $this->keywords; ?>">
 	<meta name="generator" content="Contao Open Source CMS">
-	<link rel="shortcut icon" href="/files/{CHANGE_THIS}/theme/img/favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="/files/{CHANGE_THIS}/theme/img/logos/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/files/{CHANGE_THIS}/theme/img/logos/icons/apple-touch-icon-precomposed.png">
 
 	<?php echo $this->viewport; ?>
 	<?php echo $this->framework; ?>
@@ -77,8 +78,8 @@
 
 	<?php echo $this->getCustomSections('bottom'); ?>
 
-	<?php echo $this->mootools; ?>
 	<?php echo $this->mooScripts; ?>
+	<?php echo $this->mootools; ?>
 	<?php echo $this->head; ?>
 
 	<?php if (!$this->disableCron): ?>
