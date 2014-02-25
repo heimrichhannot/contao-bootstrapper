@@ -35,6 +35,7 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
+	'mod_search_simple'   => 'system/modules/bootstrapper/templates/modules',
 	'fe_page'             => 'system/modules/bootstrapper/templates/frontend',
 	'nav_navbar_collapse' => 'system/modules/bootstrapper/templates/navigation',
 	'nav_navbar'          => 'system/modules/bootstrapper/templates/navigation',
