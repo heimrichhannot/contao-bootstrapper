@@ -2,16 +2,17 @@
 global $objPage;
 global $accordionIterator;
 $accordionIterator++;
-$this->accordionID = strtolower($objPage->title) . $accordionIterator;
+$this->accordionID = standardize(strtolower($objPage->title) . $accordionIterator);
 $this->open = $accordionIterator == 1;
 
 if($this->ptable == 'tl_article')
 {
 	$objArticle = \ArticleModel::findByPk($this->pid);
-	
+
 	if($objArticle !== null)
 	{
-		$this->parentID = standardize($objArticle->alias);
+		$arrCss = deserialize($objArticle->cssID, true);
+		$this->parentID = $arrCss[0] ? $arrCss[0] : standardize($objArticle->alias);
 	}
 }
 
