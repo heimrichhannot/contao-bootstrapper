@@ -43,5 +43,6 @@ TemplateLoader::addFiles(array
 	'nav_list_unstyles'   => 'system/modules/bootstrapper/templates/navigation',
 	'ce_accordion_start'  => 'system/modules/bootstrapper/templates/elements',
 	'ce_accordion_stop'   => 'system/modules/bootstrapper/templates/elements',
+	'pagination'          => 'system/modules/bootstrapper/templates/pagination',
 	'bootstrapper_form'   => 'system/modules/bootstrapper/templates/widgets',
 ));
