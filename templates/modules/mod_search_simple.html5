@@ -5,7 +5,7 @@
 		<?php endif; ?>
 		<div class="form-group">
 			<label for="ctrl_keywords_<?php echo $this->uniqueId; ?>" class="col-lg-1 control-label pull-right"><i class="fa fa-search"></i><span class="invisible"><?php echo $this->keywordLabel; ?></span></label>
-			<div class="col-lg-11">
+			<div class="col-lg-11 col-xs-12">
 				<input type="search" name="keywords" id="ctrl_keywords_<?php echo $this->uniqueId; ?>" class="input-sm text form-control" value="<?php echo $this->keyword; ?>" placeholder="<?php echo $this->keywordLabel; ?>" autocomplete="off" autocorrect="off" autocapitalize="off" role="combobox" aria-owns="ctrl_keywords_<?php echo $this->uniqueId; ?>" aria-haspopup="true" aria-autocomplete="both">
 			</div>
 		</div>
