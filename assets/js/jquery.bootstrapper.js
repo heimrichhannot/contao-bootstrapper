@@ -8,7 +8,7 @@
 			toggleCollapseFromHash : function(){
 				var $toggle = $(location.hash + '.collapse');
 				
-				if($toggle.length < 1) return false;
+				if(!location.hash || $toggle.length < 1) return false;
 				
 				// close all open panels
 				$toggle.closest('.panel-group').find('.collapse').removeClass('in');
