@@ -4,6 +4,7 @@
 			init : function(){
 				this.toggleCollapseFromHash();
 				this.navFollowLinkIfItemsOpen();
+				this.addChosenSupport();
 			},
 			toggleCollapseFromHash : function(){
 				var $toggle = $(location.hash + '.collapse');
@@ -23,6 +24,9 @@
 						window.location = this.href;
 					}
 				});
+			},
+			addChosenSupport : function(){
+				$('select.tl_chosen').chosen();
 			}
 	};
 	

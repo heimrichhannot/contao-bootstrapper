@@ -16,6 +16,9 @@
 	<?php if($this->field->subpalette): ?>
 		<?php $this->field->addAttributes(array('class' => 'subpalette_' . $this->field->subpalette)); ?>
 	<?php endif; ?>
+	<?php if($this->field->chosen && ($this->field->blankOptionLabel || $this->field->placeHolder)): ?>
+		<?php $this->field->addAttribute('data-placeholder', $this->field->placeHolder ? $this->field->placeHolder: $this->field->blankOptionLabel)?>
+	<?php endif;?>
 	<?php if($this->field->type == 'captcha'): ?>
 			<div class="form-horizontal clearfix">
 				<?php $strQuestion = $this->field->generateQuestion(); ?>
@@ -53,3 +56,17 @@
 		<span class="help-block error" data-original-title="<?php echo str_replace('"', '',$this->field->getErrorAsString()); ?>"><?php echo $this->field->getErrorAsString(); ?></span>
 	<?php endif; ?>
 </div>
+
+<?php if($this->field->type == 'password'): // confirmation?>
+	<div class="form-group <?php echo $this->field->id; ?>-confirm<?php echo $this->field->hasErrors() ? ' has-error': ''; ?><?php echo $this->field->groupClass ? ' ' .  $this->field->groupClass : '';?>">
+		<?php $this->field->addAttribute('placeholder', $GLOBALS['TL_LANG']['MSC']['confirmation']); ?>
+		<?php if(!$this->hideLabel): ?>
+			<?php echo $this->field->generateConfirmationLabel();	?>
+			<?php $this->field->addAttributes(array('class' => '')); ?>
+		<?php endif; ?>
+		<div class="input-group password">
+			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+		<?php echo $this->field->generateConfirmation(); ?>
+		</div>
+	</div>
+<?php endif; ?>
