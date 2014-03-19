@@ -21,6 +21,7 @@ class Bootstrapper extends \Controller
 		
 		$objT->field = $objWidget;
 		$objT->hideLabel = $hideLabel;
+		
 		return $objT->parse();
 	}
 
