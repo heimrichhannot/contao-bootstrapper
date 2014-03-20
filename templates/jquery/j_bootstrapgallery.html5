@@ -1,19 +1,26 @@
-<link rel="stylesheet" href="http://blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+<?php 
+$GLOBALS['TL_USER_CSS']['blueimp-gallery'] = 'system/modules/bootstrapper/assets/vendor/blueimp-gallery/css/blueimp-gallery.min.css|screen|static|3.1.1';
 
-<!--<link rel="stylesheet" href="<?php echo TL_ASSETS_URL; ?>assets/jquery/bootstrap-gallery/css/bootstrap-image-gallery.min.css">-->
+$GLOBALS['TL_JAVASCRIPT']['blueimp-gallery-jquery'] = 'system/modules/bootstrapper/assets/vendor/blueimp-gallery/js/jquery.blueimp-gallery.min.js|static';
+?>
 
+<script>
+	(function($){
+		$(document).ready(function(){
+				var $blueimpHtml = $('<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls"><div class="slides"></div><h3 class="title"></h3><a class="prev">‹</a><a class="next">›</a><a class="close">×</a><a class="play-pause"></a><ol class="indicator"></ol></div>');
 
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-    <ol class="indicator"></ol>
-</div>
+				$blueimpHtml.appendTo('body');
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
+				$('a[data-lightbox]').each(function(k, item){
+					var $this = $(this),
+							galleryId = $this.data('lightbox');
 
-<!--<script src="<?php echo TL_ASSETS_URL; ?>assets/jquery/bootstrap-gallery/js/bootstrap-image-gallery.min.js"></script>-->
+					if(galleryId){
+						$this.attr('data-gallery', '#blueimp-gallery-' + galleryId);
+					}
+				});
+		});
+		
+	})(jQuery);
+</script>
+
