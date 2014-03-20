@@ -45,4 +45,5 @@ TemplateLoader::addFiles(array
 	'ce_accordion_stop'   => 'system/modules/bootstrapper/templates/elements',
 	'pagination'          => 'system/modules/bootstrapper/templates/pagination',
 	'bootstrapper_form'   => 'system/modules/bootstrapper/templates/widgets',
+	'j_bootstrapgallery'  => 'system/modules/bootstrapper/templates/jquery',
 ));
