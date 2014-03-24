@@ -19,6 +19,9 @@
 	<?php echo $this->viewport; ?>
 	<?php echo $this->framework; ?>
 	<?php echo $this->stylesheets; ?>
+	<?php echo $this->mooScripts; ?>
+	<?php echo $this->mootools; ?>
+	<?php echo $this->head; ?>
 	<script src="/system/modules/bootstrapper/assets/vendor/modernizr-2.6.2.min.js"></script>
 
 </head>
@@ -77,10 +80,6 @@
 	<?php endif; ?>
 
 	<?php echo $this->getCustomSections('bottom'); ?>
-
-	<?php echo $this->mooScripts; ?>
-	<?php echo $this->mootools; ?>
-	<?php echo $this->head; ?>
 
 	<?php if (!$this->disableCron): ?>
 		<script>
