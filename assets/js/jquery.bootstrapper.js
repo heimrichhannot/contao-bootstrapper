@@ -3,6 +3,7 @@
 	var Bootstrapper = {
 			init : function(){
 				this.toggleCollapseFromHash();
+				this.openModalFromHash();
 				this.navFollowLinkIfItemsOpen();
 				this.addChosenSupport();
 			},
@@ -16,6 +17,9 @@
 				
 				// toggle anchor panel id
 				$toggle.addClass('in');
+			},
+			openModalFromHash : function() {
+				$(location.hash).modal('show');
 			},
 			navFollowLinkIfItemsOpen : function(){
 				// trigger click on open items
