@@ -30,7 +30,7 @@
 				});
 			},
 			addChosenSupport : function(){
-				$('select.tl_chosen').chosen();
+				$('select.tl_chosen').chosen({width: '100%'}); // 100% = responsive support
 			}
 	};
 	
