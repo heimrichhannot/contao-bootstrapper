@@ -4,6 +4,8 @@
 			init : function(){
 				this.toggleCollapseFromHash();
 				this.openModalFromHash();
+				this.initModalNavigation();
+				this.initModalRemoteUpdate();
 				this.navFollowLinkIfItemsOpen();
 				this.addChosenSupport();
 			},
@@ -20,6 +22,18 @@
 			},
 			openModalFromHash : function() {
 				$(location.hash).modal('show');
+			},
+			initModalNavigation : function() {
+				$('.modal').on('click', '.modal-next', function(e) {
+					e.preventDefault();
+					
+					window.location = $(this).attr('href');
+				});
+			},
+			initModalRemoteUpdate: function() {
+				$('body').on('hidden.bs.modal', '.modal', function () {
+					$(this).removeData('bs.modal');
+				});
 			},
 			navFollowLinkIfItemsOpen : function(){
 				// trigger click on open items
