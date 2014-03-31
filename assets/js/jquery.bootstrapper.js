@@ -34,6 +34,21 @@
 				$('body').on('hidden.bs.modal', '.modal', function () {
 					$(this).removeData('bs.modal');
 				});
+				
+				$('a[data-toggle="modal"][data-remote]').on('click', function(e) {
+					e.preventDefault();
+					
+					var $this = $(this),
+						$target = $($this.data('target'));
+					
+					$.ajax({url:$this.attr('href')}).done(function(data){
+						$target.find('.modal-content').replaceWith(data).end().modal();
+					});
+					
+					// Now return a false (negating the link action) to prevent Bootstrap's JS 3.1.1
+					// from throwing a 'preventDefault' error due to us overriding the anchor usage.
+					return false;
+				});
 			},
 			navFollowLinkIfItemsOpen : function(){
 				// trigger click on open items
