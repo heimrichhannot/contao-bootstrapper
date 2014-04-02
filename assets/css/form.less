@@ -37,3 +37,11 @@
 		}
 	}
 }
+
+p.error {
+	padding: @alert-padding;
+	margin-bottom: @line-height-computed;
+	border: 1px solid transparent;
+	border-radius: @alert-border-radius;
+	.alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
+}
