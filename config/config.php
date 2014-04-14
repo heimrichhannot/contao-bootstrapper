@@ -9,9 +9,17 @@ $GLOBALS['TL_USER_CSS']['maps-bootstrap'] = 'system/modules/bootstrapper/assets/
 $GLOBALS['TL_USER_CSS']['carousel-bootstrap'] = 'system/modules/bootstrapper/assets/css/carousel.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['colorbox-bootstrap'] = 'system/modules/bootstrapper/assets/css/colorbox.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['chosen-bootstrap'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-chosen/bootstrap-chosen.less|screen|static|3.1.1';
+$GLOBALS['TL_USER_CSS']['eonasdan-bootstrap-datetimepicker']		= 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css|screen|static|2.1.20';
 
 if(TL_MODE == 'FE')
 {
-	$GLOBALS['TL_JAVASCRIPT']['chosen'] = 'system/modules/bootstrapper/assets/vendor/chosen/chosen.jquery.js|static';
-	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.js|static';
+	$GLOBALS['TL_JAVASCRIPT']['chosen'] = 'system/modules/bootstrapper/assets/vendor/chosen/chosen.jquery.js';
+	
+	// bootstrap-datetimepicker
+	$GLOBALS['TL_JAVASCRIPT']['moment']																= 'system/modules/bootstrapper/assets/vendor/moment/min/moment.min.js|static';
+	$GLOBALS['TL_JAVASCRIPT']['eonasdan-bootstrap-datetimepicker']		= 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js';
+	$GLOBALS['TL_JAVASCRIPT']['eonasdan-bootstrap-datetimepicker-de']	= 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.de.js';
+	
+	// needs to be after vendor libs
+	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.js';
 }

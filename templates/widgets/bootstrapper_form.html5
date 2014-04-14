@@ -1,4 +1,4 @@
-<div class="form-group <?php echo $this->field->id; ?> <?php echo $this->field->name; ?><?php echo $this->field->hasErrors() ? ' has-error': ''; ?><?php echo $this->field->groupClass ? ' ' .  $this->field->groupClass : '';?>">
+<div class="form-group <?php echo $this->field->id; ?><?php echo $this->field->hasErrors() ? ' has-error': ''; ?><?php echo $this->field->groupClass ? ' ' .  $this->field->groupClass : '';?>">
 	<?php if(!$this->hideLabel): ?>
 		<?php $this->field->addAttributes(array('class' => 'control-label')); ?>
 		<?php echo $this->field->generateLabel();	?>
@@ -43,7 +43,7 @@
 		<?php echo $this->field->generate(); ?>
 		
 		<?php if($this->field->timepicker): ?>
-			<span class="input-group-addon"><i class="fa fa-time"></i></span>
+			<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
 			</div>
 		<?php endif; ?>
 		

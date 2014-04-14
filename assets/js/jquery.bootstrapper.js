@@ -8,6 +8,29 @@
 				this.initModalRemoteUpdate();
 				this.navFollowLinkIfItemsOpen();
 				this.addChosenSupport();
+				this.initDateTimePicker();
+			},
+			initDateTimePicker : function(){
+				var defaults = {
+					language: $('html').attr('lang'),
+					icons : {
+						time: 'fa fa-clock-o',
+						date: 'fa fa-calendar',
+						up:   'fa fa-chevron-up',
+						down: 'fa fa-chevron-down'
+					}
+				};
+				
+				$('.datepicker').each(function(k, item){
+					var $this = $(this);
+					$this.datetimepicker($.extend({pickTime: false, format: $this.attr('data-format')}, defaults));
+				});
+				
+				$('.timepicker').each(function(k, item){
+					var $this = $(this);
+					
+					$this.datetimepicker($.extend({pickDate: false, minuteStepping : 15, format: $this.attr('data-format')}, defaults));
+				});
 			},
 			toggleCollapseFromHash : function(){
 				var $toggle = $(location.hash + '.collapse');
