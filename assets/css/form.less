@@ -26,6 +26,10 @@
 			}
 		}
 		
+		p.error{
+			display: none;
+		}
+		
 		input{
 			margin-left: -20px;
 			min-height: 0;
@@ -35,6 +39,25 @@
 		legend {
 				display: none;
 		}
+	}
+	
+	// fix: addAttributes cant be removed
+	&.control-label{
+		text-align: left;
+	}
+}
+
+.form-group{
+	.captcha_text{
+		text-align: left;
+		font-weight: bold;
+		line-height: @input-height-base;
+	}
+}
+
+.input-group{
+	.input-group-addon{
+		cursor: pointer;
 	}
 }
 

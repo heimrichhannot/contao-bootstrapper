@@ -20,14 +20,14 @@
 		<?php $this->field->addAttribute('data-placeholder', $this->field->placeHolder ? $this->field->placeHolder: $this->field->blankOptionLabel)?>
 	<?php endif;?>
 	<?php if($this->field->type == 'captcha'): ?>
-			<div class="form-horizontal clearfix">
-				<?php $strQuestion = $this->field->generateQuestion(); ?>
-				<?php $strQuestion = str_replace($this->field->class, 'pull-left control-label', $strQuestion); ?>
-				<?php echo $strQuestion; ?>
+			<div class="form-horizontal clearfix row">
 				<?php $strField = $this->field->generate(); ?>
-				<div class="<?php echo $this->field->class ? str_replace('form-control', '', $this->field->class) : '';?>">
+				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 <?php echo $this->field->class ? str_replace('form-control', '', $this->field->class) : '';?>">
 					<?php echo $strField; ?>
 				</div>
+				<?php $strQuestion = $this->field->generateQuestion(); ?>
+				<?php $strQuestion = str_replace($this->field->class, 'control-label col-xs-12 col-sm-12 col-md-4 col-lg-4', $strQuestion); ?>
+				<?php echo $strQuestion; ?>
 			</div>
 	<?php else: ?>
 		<?php if($this->field->datepicker): ?>
@@ -37,10 +37,23 @@
 		
 		<?php if($this->field->timepicker): ?>
 			<?php $this->field->addAttribute('data-format', Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat'])); ?>
+			<?php if($this->field->minuteSteps):?>
+				<?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
+			<?php endif;?>
 			<div class="input-group timepicker">
 		<?php endif; ?>
 		
+		<?php if($this->field->type == 'password'): // confirmation?>
+			<div class="input-group password">
+				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+		<?php endif; ?>
+		
 		<?php echo $this->field->generate(); ?>
+		
+		<?php if($this->field->type == 'password'): // confirmation?>
+			</div>
+		<?php endif; ?>
+		
 		
 		<?php if($this->field->timepicker): ?>
 			<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>

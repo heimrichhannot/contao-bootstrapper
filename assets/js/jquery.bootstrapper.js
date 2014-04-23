@@ -22,14 +22,17 @@
 				};
 				
 				$('.datepicker').each(function(k, item){
-					var $this = $(this);
-					$this.datetimepicker($.extend({pickTime: false, format: $this.attr('data-format')}, defaults));
+					var $this = $(this),
+						$input = $this.find('input');
+					
+					$this.datetimepicker($.extend({pickTime: false, format: $input.data('format')}, defaults));
 				});
 				
 				$('.timepicker').each(function(k, item){
-					var $this = $(this);
+					var $this = $(this),
+						$input = $this.find('input');
 					
-					$this.datetimepicker($.extend({pickDate: false, minuteStepping : 15, format: $this.attr('data-format')}, defaults));
+					$this.datetimepicker($.extend({pickDate: false, minuteStepping : $input.data('steps'), format: $input.data('format')}, defaults));
 				});
 			},
 			toggleCollapseFromHash : function(){
