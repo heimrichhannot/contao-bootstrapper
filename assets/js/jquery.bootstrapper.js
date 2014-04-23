@@ -47,7 +47,11 @@
 				$toggle.addClass('in');
 			},
 			openModalFromHash : function() {
-				$(location.hash).modal('show');
+				var $toggle = $(location.hash);
+				
+				if(!location.hash || $toggle.length < 1) return false;
+				
+				$toggle.modal('show');
 			},
 			initModalNavigation : function() {
 				$('.modal').on('click', '.modal-next', function(e) {
