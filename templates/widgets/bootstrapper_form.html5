@@ -30,12 +30,12 @@
 				<?php echo $strQuestion; ?>
 			</div>
 	<?php else: ?>
-		<?php if($this->field->datepicker): ?>
+		<?php if($this->field->datepicker || $this->field->rgxp == 'date'): ?>
 			<?php $this->field->addAttribute('data-format', Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat'])); ?>	
 			<div class="input-group datepicker">
 		<?php endif; ?>
 		
-		<?php if($this->field->timepicker): ?>
+		<?php if($this->field->timepicker || $this->field->rgxp == 'time'): ?>
 			<?php $this->field->addAttribute('data-format', Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat'])); ?>
 			<?php if($this->field->minuteSteps):?>
 				<?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
@@ -55,12 +55,12 @@
 		<?php endif; ?>
 		
 		
-		<?php if($this->field->timepicker): ?>
+		<?php if($this->field->timepicker || $this->field->rgxp == 'time'): ?>
 			<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
 			</div>
 		<?php endif; ?>
 		
-		<?php if($this->field->datepicker): ?>
+		<?php if($this->field->datepicker || $this->field->rgxp == 'date'): ?>
 			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 			</div>
 		<?php endif; ?>
