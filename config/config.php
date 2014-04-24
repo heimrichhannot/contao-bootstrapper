@@ -1,8 +1,19 @@
 <?php
 
+/**
+ * Front end form fields
+ */
+$GLOBALS['TL_FFL']['submit'] = '\HeimrichHannot\FormButtonSubmit';
 
+
+/**
+ * HOOKS
+ */
 $GLOBALS['TL_HOOKS']['parseWidget'][] = array('Bootstrapper', 'parseWidgetHook');
 
+/**
+ * CSS
+ */
 $GLOBALS['TL_USER_CSS']['form-bootstrap'] = 'system/modules/bootstrapper/assets/css/form.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['pagination-bootstrap'] = 'system/modules/bootstrapper/assets/css/pagination.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['maps-bootstrap'] = 'system/modules/bootstrapper/assets/css/maps.less|screen|static|3.1.1';
@@ -11,6 +22,9 @@ $GLOBALS['TL_USER_CSS']['colorbox-bootstrap'] = 'system/modules/bootstrapper/ass
 $GLOBALS['TL_USER_CSS']['chosen-bootstrap'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-chosen/bootstrap-chosen.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['eonasdan-bootstrap-datetimepicker']		= 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css|screen|static|2.1.20';
 
+/**
+ * JS
+ */
 if(TL_MODE == 'FE')
 {
 	$GLOBALS['TL_JAVASCRIPT']['chosen'] = 'system/modules/bootstrapper/assets/vendor/chosen/chosen.jquery.js';

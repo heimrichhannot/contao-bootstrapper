@@ -26,7 +26,10 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Classes
-	'HeimrichHannot\Bootstrapper' => 'system/modules/bootstrapper/classes/Bootstrapper.php',
+	'HeimrichHannot\Bootstrapper'     => 'system/modules/bootstrapper/classes/Bootstrapper.php',
+
+	// Forms
+	'HeimrichHannot\FormButtonSubmit' => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
 ));
 
 
