@@ -49,7 +49,7 @@
 			openModalFromHash : function() {
 				var $toggle = $(location.hash);
 				
-				if(!location.hash || $toggle.length < 1) return false;
+				if(!location.hash || $toggle.length < 1 || !$toggle.hasClass('modal')) return false;
 				
 				$toggle.modal('show');
 			},
