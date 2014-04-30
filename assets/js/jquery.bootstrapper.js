@@ -52,6 +52,7 @@
 			initDateTimePicker : function(){
 				var defaults = {
 					language: $('html').attr('lang'),
+					startDate: new moment({ y: 1900 }),
 					icons : {
 						time: 'fa fa-clock-o',
 						date: 'fa fa-calendar',
