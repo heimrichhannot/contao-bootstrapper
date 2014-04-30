@@ -1,8 +1,18 @@
+
 <div class="modal-content">
 	<div class="modal-header">
+		<!-- indexer::stop -->
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<!-- indexer::continue -->
 	</div>
 	<div class="modal-body">
+		<?php ob_start();
+		print_r($this->headline);
+		print "\n";
+		file_put_contents(TL_ROOT . '/debug.txt', ob_get_contents(), FILE_APPEND);
+		ob_end_clean();
+		
+		?>
 		<div class="layout_full block<?php echo $this->class; ?>" data-history-delete="<?php echo $this->alias; ?>" data-history-base="{{link_url::9}}">
 			<?php if ($this->hasSubHeadline): ?>
 				<p class="sub"><?php echo $this->subHeadline; ?></p>
