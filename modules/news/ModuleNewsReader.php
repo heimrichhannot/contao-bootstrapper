@@ -10,7 +10,7 @@ class ModuleNewsReader extends \Contao\ModuleNewsReader
 		{
 			$this->strTemplate = 'mod_newsreader_modal';
 			$this->news_template = $this->news_template_modal;
-			die(parent::generate());
+			die($this->replaceInsertTags(parent::generate()));
 		}
 		
 		return parent::generate();
