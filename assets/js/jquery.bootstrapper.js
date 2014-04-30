@@ -9,6 +9,45 @@
 				this.navFollowLinkIfItemsOpen();
 				this.addChosenSupport();
 				this.initDateTimePicker();
+				
+				// show news in modal window 
+				this.setUrlHistoryFromModalLink();
+				this.loadModalFromUrl();
+				this.onCloseModal();
+			},
+			onCloseModal : function(){
+				$('.modal').on('hide.bs.modal', function (e) {
+
+					var $this = $(this),
+						$news = $this.find('.layout_full'),
+						pageAlias = $('body').data('page-alias') == 'startseite' ? '' : $('body').data('page-alias'),
+						modalHistoryDelete = $this.data('history-delete'),
+						newsHistoryDelete = $news.data('history-delete'),
+						newsHistoryBase = $news.data('history-base'),
+						newHistory = location.href.replace('/' + (newsHistoryDelete ? newsHistoryDelete : modalHistoryDelete) , '');
+					
+					newHistory = pageAlias != newsHistoryBase ? newHistory.replace(newsHistoryBase, pageAlias) : newHistory;
+						
+					// reset history
+					history.pushState(null, null, newHistory);
+				});
+			},
+			setUrlHistoryFromModalLink : function(){
+				$('[data-toggle="modal"]').on('click', function(e){
+					
+					e.stopPropagation();
+					
+					var $this = $(this);
+					
+					$('.modal').data('history-back', window.location);
+					
+					history.pushState(null, null, $this.attr('href'));
+					
+					
+				});
+			},
+			loadModalFromUrl : function(){
+				$('.modal.in').modal('show');
 			},
 			initDateTimePicker : function(){
 				var defaults = {

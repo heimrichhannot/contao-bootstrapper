@@ -5,6 +5,10 @@
  */
 $GLOBALS['TL_FFL']['submit'] = '\HeimrichHannot\FormButtonSubmit';
 
+/**
+ * Front end modules
+ */
+$GLOBALS['FE_MOD']['news']['newsreader'] = '\HeimrichHannot\ModuleNewsReader';
 
 /**
  * HOOKS
