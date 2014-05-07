@@ -29,48 +29,51 @@
 
 	<?php echo $this->getCustomSections('top'); ?>
 
-	<div id="wrapper" class="container">
-
-		<?php if ($this->header): ?>
-			<header id="header">
-				<div class="inside">
-					<?php echo $this->header; ?>
-				</div>
-			</header>
-		<?php endif; ?>
-
-		<?php echo $this->getCustomSections('before'); ?>
-
-		<div id="container">
-			<div id="main">
-				<div class="inside">
-					<?php echo $this->main; ?>
-				</div>
-			<?php echo $this->getCustomSections('main'); ?>
-		</div>
-
-		<?php if ($this->left): ?>
-				<aside id="left">
+	<div id="wrapper-gap">
+		<div id="wrapper" class="container">
+	
+			<?php if ($this->header): ?>
+				<header id="header">
 					<div class="inside">
-						<?php echo $this->left; ?>
+						<?php echo $this->header; ?>
 					</div>
-				</aside>
+				</header>
 			<?php endif; ?>
-
-			<?php if ($this->right): ?>
-				<aside id="right">
+	
+			<?php echo $this->getCustomSections('before'); ?>
+	
+			<div id="container">
+				<div id="main">
 					<div class="inside">
-						<?php echo $this->right; ?>
+						<?php echo $this->main; ?>
 					</div>
-				</aside>
-			<?php endif; ?>
-			<div id="push"></div>
+				<?php echo $this->getCustomSections('main'); ?>
+			</div>
+	
+			<?php if ($this->left): ?>
+					<aside id="left">
+						<div class="inside">
+							<?php echo $this->left; ?>
+						</div>
+					</aside>
+				<?php endif; ?>
+	
+				<?php if ($this->right): ?>
+					<aside id="right">
+						<div class="inside">
+							<?php echo $this->right; ?>
+						</div>
+					</aside>
+				<?php endif; ?>
+				<div id="push"></div>
+			</div>
+	
+			<?php echo $this->getCustomSections('after'); ?>
+	
+	
 		</div>
-
-		<?php echo $this->getCustomSections('after'); ?>
-
-
 	</div>
+	
 	<?php if ($this->footer): ?>
 		<footer id="footer">
 			<div class="inside container">
