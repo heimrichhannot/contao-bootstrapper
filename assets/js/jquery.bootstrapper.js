@@ -63,7 +63,7 @@
 				});
 				
 				// click support
-				crsl.on('click', '.carousel-indicators', function(){
+				crsl.on('click', '.carousel-control, .carousel-indicators', function(){
 					percent = 0;
 					clearInterval(barInterval);
 					bar.addClass('carousel-transition').css({width:'0%'});

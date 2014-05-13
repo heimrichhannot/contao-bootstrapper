@@ -26,7 +26,7 @@ $GLOBALS['TL_USER_CSS']['carousel-bootstrap'] = 'system/modules/bootstrapper/ass
 $GLOBALS['TL_USER_CSS']['colorbox-bootstrap'] = 'system/modules/bootstrapper/assets/css/colorbox.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['chosen-bootstrap'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-chosen/bootstrap-chosen.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['eonasdan-bootstrap-datetimepicker']		= 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css|screen|static|2.1.20';
-$GLOBALS['TL_USER_CSS']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/css/bootstrap-touch-carousel.css';
+//$GLOBALS['TL_USER_CSS']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/css/bootstrap-touch-carousel.css';
 /**
  * JS
  */
@@ -40,7 +40,7 @@ if(TL_MODE == 'FE')
 	$GLOBALS['TL_JAVASCRIPT']['eonasdan-bootstrap-datetimepicker-de']	= 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.de.js';
 	
 	// bootstrap gallery gesture/touch support
-	$GLOBALS['TL_JAVASCRIPT']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/js/bootstrap-touch-carousel.js';
+	//$GLOBALS['TL_JAVASCRIPT']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/js/bootstrap-touch-carousel.js';
 	
 	// needs to be after vendor libs
 	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.js';
