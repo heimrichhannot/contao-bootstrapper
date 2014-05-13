@@ -14,6 +14,64 @@
 				this.setUrlHistoryFromModalLink();
 				this.loadModalFromUrl();
 				this.onCloseModal();
+				this.initCarouselProgressBar();
+			},
+			initCarouselProgressBar : function(){
+				
+				var percent = 0,
+					bar = $('.carousel-progress .progress-bar'),
+					text = bar.find('.sr-only'),
+					crsl = $('.carousel'),
+					delay = 200,
+					step = Math.floor(delay * 100 / parseInt(crsl.data('interval')));
+				
+				function progressBarCarousel() {
+					
+					if(percent > 0){
+						bar.removeClass('carousel-transition');
+					}
+					
+					if (percent >= 100) {
+						text.text('100%');
+						bar.css({width:'100%'});
+						percent = 100;
+						crsl.carousel('next');
+						bar.addClass('carousel-transition');
+						return false;
+					}
+					
+					bar.css({width:percent+'%'});
+					text.text(percent + '%');
+					percent += step;
+				}
+				
+				var barInterval = setInterval(progressBarCarousel, delay);
+				
+				// disable default interval
+				crsl.carousel({
+					interval: false,
+					pause: false
+				}).on('slid.bs.carousel', function () {
+					percent=0;
+				});
+				
+				// hover support
+				crsl.hover(function(){
+					clearInterval(barInterval);
+				},function(){
+					barInterval = setInterval(progressBarCarousel, delay);
+				});
+				
+				// click support
+				crsl.on('click', '.carousel-indicators', function(){
+					percent = 0;
+					clearInterval(barInterval);
+					bar.addClass('carousel-transition').css({width:'0%'});
+				});
+				
+				// gestures/touch support
+				
+				
 			},
 			onCloseModal : function(){
 				$('.modal').on('hide.bs.modal', function (e) {

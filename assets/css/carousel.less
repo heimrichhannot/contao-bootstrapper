@@ -42,6 +42,27 @@
 	}
 
 	.carousel-control {
-		z-index: 2;
+		z-index: 2; 
 	}
+} 
+
+.carousel-progress{
+	margin-bottom: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 3px;
+	.opacity(0.3);
+	  
+	.progress-bar{
+		.transition(width 200ms linear);
+		
+		&.carousel-transition{
+			.transition(none);
+		}
+		
+	}
+	
 }
