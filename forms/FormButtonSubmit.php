@@ -16,7 +16,7 @@ class FormButtonSubmit extends \FormSubmit
 		}
 
 		// Return the regular button as button not input
-		return sprintf('<button type="submit" id="ctrl_%s" class="submit%s"%s%s%s</button>',
+		return sprintf('<button type="submit" id="ctrl_%s" class="submit%s"%s%s<span class="before"></span><span>%s</span><span class="after"></span></button>',
 						$this->strId,
 						(($this->strClass != '') ? ' ' . $this->strClass : ''),
 						$this->getAttributes(),
