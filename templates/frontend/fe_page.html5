@@ -16,13 +16,13 @@
 	<link rel="shortcut icon" href="/files/{CHANGE_THIS}/theme/img/logos/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="/files/{CHANGE_THIS}/theme/img/logos/icons/apple-touch-icon-precomposed.png">
 
+	<script src="/system/modules/bootstrapper/assets/vendor/modernizr-2.6.2.min.js"></script>
 	<?php echo $this->viewport; ?>
 	<?php echo $this->framework; ?>
 	<?php echo $this->stylesheets; ?>
 	<?php echo $this->mooScripts; ?>
 	<?php echo $this->mootools; ?>
 	<?php echo $this->head; ?>
-	<script src="/system/modules/bootstrapper/assets/vendor/modernizr-2.6.2.min.js"></script>
 
 </head>
 <body id="top" class="{{ua::class}}<?php if ($this->class): ?> <?php echo $this->class; ?><?php endif; ?>"<?php if ($this->onload): ?> onload="<?php echo $this->onload; ?>"<?php endif; ?>>
