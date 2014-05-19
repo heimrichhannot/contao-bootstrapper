@@ -15,6 +15,15 @@
 				this.loadModalFromUrl();
 				this.onCloseModal();
 				this.initCarouselProgressBar();
+				this.initGalleryCarousel();
+			},
+			initGalleryCarousel : function(){
+				$('.ce_gallery ul').each(function(){
+					var $this = $(this);
+					if($this.find('li').length > 1){
+						$this.elastislide();
+					}						
+				});
 			},
 			initCarouselProgressBar : function(){
 				
