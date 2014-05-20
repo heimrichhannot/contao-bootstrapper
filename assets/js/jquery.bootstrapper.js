@@ -35,7 +35,6 @@
 					step = Math.floor(delay * 100 / parseInt(crsl.data('interval')));
 				
 				function progressBarCarousel() {
-					
 					if(percent > 0){
 						bar.removeClass('carousel-transition');
 					}
@@ -60,8 +59,13 @@
 				crsl.carousel({
 					interval: false,
 					pause: false
-				}).on('slid.bs.carousel', function () {
+				})
+				.on('slide.bs.carousel', function(){
+					clearInterval(barInterval);
+				})
+				.on('slid.bs.carousel', function () {
 					percent=0;
+					barInterval = setInterval(progressBarCarousel, delay);
 				});
 				
 				// hover support
