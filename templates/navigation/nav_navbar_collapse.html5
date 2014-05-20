@@ -14,7 +14,7 @@
 		<li <?php if ($item['class']): ?>class="<?php echo $item['class']; ?>" <?php endif; ?>>
 			<a href="<?php echo $item['href']; ?>"
 			<?php if ($item['class'] || $item['subpages'] > 0): ?>
-			class="<?php echo $item['class']; ?><?php if($item['subpages'] > 0):?> dropdown-toggle<?php endif; ?>"
+			class="<?php echo $item['class']; ?><?php if($item['subitems']):?> dropdown-toggle<?php endif; ?>"
 			<?php endif; ?>
 			<?php if ($item['accesskey'] != ''): ?>
 			accesskey="<?php echo $item['accesskey']; ?>"
@@ -26,7 +26,7 @@
 			rel="nofollow"
 			<?php endif; ?>
 			<?php echo $item['target']; ?>
-			<?php if($item['subpages'] > 0):?>
+			<?php if($item['subitems']):?>
 			data-toggle="dropdown"
 			<?php endif; ?>
 			data-hover="<?php echo $item['link']; ?>">
