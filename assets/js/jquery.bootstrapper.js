@@ -194,7 +194,9 @@
 			navFollowLinkIfItemsOpen : function(){
 				// trigger click on open items
 				$('.nav-collapse').on('click', '.trail a, .open a', function(e){
-					if(this.href !== undefined){
+					var $this = $(this);
+					
+					if(this.href !== undefined && !$this.hasClass('submenu')){
 						window.location = this.href;
 					}
 				});
