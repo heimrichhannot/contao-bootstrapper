@@ -201,7 +201,7 @@
 					}
 					
 					// submenu is already open - follow parent link
-					if($this.hasClass('submenu') && $this.hasClass('open'))
+					if($this.hasClass('submenu') && $this.hasClass('dropdown-toggle'))
 					{
 						window.location = this.href;
 					}
