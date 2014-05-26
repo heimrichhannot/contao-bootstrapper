@@ -199,6 +199,12 @@
 					if(this.href !== undefined && !$this.hasClass('submenu')){
 						window.location = this.href;
 					}
+					
+					// submenu is already open - follow parent link
+					if($this.hasClass('submenu') && $this.hasClass('open'))
+					{
+						window.location = this.href;
+					}
 				});
 			},
 			addChosenSupport : function(){
