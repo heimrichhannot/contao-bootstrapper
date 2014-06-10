@@ -16,6 +16,13 @@
 				this.onCloseModal();
 				this.initCarouselProgressBar();
 				this.initGalleryCarousel();
+				
+				this.addPlaceholderTagSupport();
+			},
+			addPlaceholderTagSupport : function(){
+				if(!Modernizr.input.placeholder){
+					$('input, textarea').placeholder();
+				}
 			},
 			initGalleryCarousel : function(){
 				$('.ce_gallery ul').each(function(){

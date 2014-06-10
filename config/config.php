@@ -47,6 +47,8 @@ if(TL_MODE == 'FE')
 	// bootstrap gallery gesture/touch support
 	//$GLOBALS['TL_JAVASCRIPT']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/js/bootstrap-touch-carousel.js';
 	
+	$GLOBALS['TL_JAVASCRIPT']['jquery-placeholder'] = 'system/modules/bootstrapper/assets/vendor/jquery.placeholder.js';
+	
 	// needs to be after vendor libs
 	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.js';
 }
