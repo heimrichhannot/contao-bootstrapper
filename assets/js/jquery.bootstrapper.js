@@ -1,6 +1,6 @@
 (function($){
 	
-	var Bootstrapper = {
+	var	Bootstrapper = {
 			init : function(){
 				this.toggleCollapseFromHash();
 				this.openModalFromHash();
@@ -220,7 +220,10 @@
 	};
 	
 	$(document).ready(function(){
-		Bootstrapper.init();
+		// determine if bootstrap 3 is loaded
+		if((typeof $().emulateTransitionEnd == 'function')){
+			Bootstrapper.init();
+		}
 	});
 	
 })(jQuery);
