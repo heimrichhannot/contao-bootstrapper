@@ -25,14 +25,14 @@ ClassLoader::addNamespaces(array
  */
 ClassLoader::addClasses(array
 (
+	// Forms
+	'HeimrichHannot\FormButtonSubmit' => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
+
 	// Modules
 	'HeimrichHannot\ModuleNewsReader' => 'system/modules/bootstrapper/modules/news/ModuleNewsReader.php',
 
 	// Classes
 	'HeimrichHannot\Bootstrapper'     => 'system/modules/bootstrapper/classes/Bootstrapper.php',
-
-	// Forms
-	'HeimrichHannot\FormButtonSubmit' => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
 ));
 
 
@@ -41,19 +41,20 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'mod_search_advanced'     => 'system/modules/bootstrapper/templates/modules',
-	'mod_search_simple'       => 'system/modules/bootstrapper/templates/modules',
-	'mod_password'            => 'system/modules/bootstrapper/templates/modules',
-	'mod_newsreader_modal'    => 'system/modules/bootstrapper/templates/modules/news',
-	'fe_page'                 => 'system/modules/bootstrapper/templates/frontend',
-	'nav_navbar_collapse'     => 'system/modules/bootstrapper/templates/navigation',
-	'nav_navbar'              => 'system/modules/bootstrapper/templates/navigation',
-	'nav_list_unstyles'       => 'system/modules/bootstrapper/templates/navigation',
-	'ce_accordion_start'      => 'system/modules/bootstrapper/templates/elements',
-	'ce_accordion_stop'       => 'system/modules/bootstrapper/templates/elements',
-	'pagination'              => 'system/modules/bootstrapper/templates/pagination',
-	'bootstrapper_form'       => 'system/modules/bootstrapper/templates/widgets',
-	'j_bootstrapgallery'      => 'system/modules/bootstrapper/templates/jquery',
-	'news_full_modal_content' => 'system/modules/bootstrapper/templates/news',
-	'news_full_modal'         => 'system/modules/bootstrapper/templates/news',
+	'nav_navbar'                => 'system/modules/bootstrapper/templates/navigation',
+	'nav_list_unstyles'         => 'system/modules/bootstrapper/templates/navigation',
+	'nav_navbar_collapse'       => 'system/modules/bootstrapper/templates/navigation',
+	'nav_navbar_collapse_hover' => 'system/modules/bootstrapper/templates/navigation',
+	'pagination'                => 'system/modules/bootstrapper/templates/pagination',
+	'fe_page'                   => 'system/modules/bootstrapper/templates/frontend',
+	'j_bootstrapgallery'        => 'system/modules/bootstrapper/templates/jquery',
+	'news_full_modal'           => 'system/modules/bootstrapper/templates/news',
+	'news_full_modal_content'   => 'system/modules/bootstrapper/templates/news',
+	'mod_search_simple'         => 'system/modules/bootstrapper/templates/modules',
+	'mod_password'              => 'system/modules/bootstrapper/templates/modules',
+	'mod_newsreader_modal'      => 'system/modules/bootstrapper/templates/modules/news',
+	'mod_search_advanced'       => 'system/modules/bootstrapper/templates/modules',
+	'ce_accordion_start'        => 'system/modules/bootstrapper/templates/elements',
+	'ce_accordion_stop'         => 'system/modules/bootstrapper/templates/elements',
+	'bootstrapper_form'         => 'system/modules/bootstrapper/templates/widgets',
 ));

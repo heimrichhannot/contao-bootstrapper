@@ -6,7 +6,7 @@
 				this.openModalFromHash();
 				this.initModalNavigation();
 				this.initModalRemoteUpdate();
-				this.navFollowLinkIfItemsOpen();
+				//this.navFollowLinkIfItemsOpen(); not required when using navDropdownOnHover 
 				this.addChosenSupport();
 				this.initDateTimePicker();
 				

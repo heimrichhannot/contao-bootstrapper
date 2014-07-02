@@ -49,6 +49,8 @@ if(TL_MODE == 'FE')
 	
 	$GLOBALS['TL_JAVASCRIPT']['jquery-placeholder'] = 'system/modules/bootstrapper/assets/vendor/jquery.placeholder.js';
 	
+	$GLOBALS['TL_JAVASCRIPT']['bootstrap-hover-dropdown'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-hover-dropdown-master/bootstrap-hover-dropdown.js';
+	
 	// needs to be after vendor libs
 	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.js';
 }
