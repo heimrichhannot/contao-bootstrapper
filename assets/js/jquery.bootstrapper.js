@@ -16,7 +16,6 @@
 				this.onCloseModal();
 				this.initCarouselProgressBar();
 				this.initGalleryCarousel();
-				
 				this.addPlaceholderTagSupport();
 			},
 			addPlaceholderTagSupport : function(){
@@ -200,7 +199,7 @@
 			},
 			navFollowLinkIfItemsOpen : function(){
 				// trigger click on open items
-				$('.nav-collapse').on('click', '.trail a, .open a', function(e){
+				$('.nav-collapse').on('click', '.open a', function(e){
 					var $this = $(this);
 					
 					if(this.href !== undefined && !$this.hasClass('submenu')){
