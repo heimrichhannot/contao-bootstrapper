@@ -53,7 +53,7 @@
                     // in this callback but continue to propagate
                     return true;
                 }
-
+                window.clearTimeout(timeout);
                 openDropdown(event);
             }, function () {
                 timeout = window.setTimeout(function () {
@@ -61,12 +61,23 @@
                     $this.trigger(hideEvent);
                 }, settings.delay);
             });
-
+            
+            // clear timeout if hovering submenu
+            $allDropdowns.find('.dropdown-menu').hover(function(){
+            	window.clearTimeout(timeout);
+            }, function(){
+            	timeout = window.setTimeout(function () {
+                    $parent.removeClass('open');
+                    $this.trigger(hideEvent);
+                }, settings.delay);
+            });
+            
+            
             // this helps with button groups!
             $this.hover(function (event) {
                 // this helps prevent a double event from firing.
                 // see https://github.com/CWSpear/bootstrap-hover-dropdown/issues/55
-                if(!$parent.hasClass('open') && !$parent.is(event.target)) {
+                if($parent.hasClass('open') && !$parent.is(event.target)) {
                     // stop this event, stop executing any code
                     // in this callback but continue to propagate
                     return true;
