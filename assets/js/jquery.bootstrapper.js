@@ -6,7 +6,7 @@
 				this.openModalFromHash();
 				this.initModalNavigation();
 				this.initModalRemoteUpdate();
-				//this.navFollowLinkIfItemsOpen(); not required when using navDropdownOnHover 
+				this.navFollowLinkIfItemsOpen(); 
 				this.addChosenSupport();
 				this.initDateTimePicker();
 				
@@ -199,17 +199,19 @@
 			},
 			navFollowLinkIfItemsOpen : function(){
 				// trigger click on open items
-				$('.nav-collapse').on('click', '.open a', function(e){
-					var $this = $(this);
-					
-					if(this.href !== undefined && !$this.hasClass('submenu')){
-						window.location = this.href;
-					}
+				$('.nav-collapse').on('click', 'a[data-toggle="dropdown"]', function(e){
+					var $this = $(this),
+						$parent = $this.parent('li');
 					
 					// submenu is already open - follow parent link
-					if($this.hasClass('submenu') && $this.hasClass('dropdown-toggle'))
+					if(this.href !== undefined && $parent.hasClass('open'))
 					{
-						window.location = this.href;
+						if(this.target){
+							window.open(this.href, this.target);
+						}else{
+							window.location = this.href;
+						}
+							
 					}
 				});
 			},
