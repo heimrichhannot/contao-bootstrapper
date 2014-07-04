@@ -6,6 +6,7 @@
 				this.openModalFromHash();
 				this.initModalNavigation();
 				this.initModalRemoteUpdate();
+				this.initNavbar();
 				this.navFollowLinkIfItemsOpen(); 
 				this.addChosenSupport();
 				this.initDateTimePicker();
@@ -17,6 +18,15 @@
 				this.initCarouselProgressBar();
 				this.initGalleryCarousel();
 				this.addPlaceholderTagSupport();
+			},
+			initNavbar : function(){
+				$('.navbar-collapse').on('shown.bs.collapse', function(){
+					$('body').addClass('navbar-xs-open');
+				});
+				
+				$('.navbar-collapse').on('hide.bs.collapse', function(){
+					$('body').removeClass('navbar-xs-open');
+				});
 			},
 			addPlaceholderTagSupport : function(){
 				if(!Modernizr.input.placeholder){
