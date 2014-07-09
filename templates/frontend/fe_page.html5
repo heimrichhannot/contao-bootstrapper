@@ -25,7 +25,7 @@
 	<?php echo $this->head; ?>
 
 </head>
-<body id="top" class="{{ua::class}}<?php if ($this->class): ?> <?php echo $this->class; ?><?php endif; ?>"<?php if ($this->onload): ?> onload="<?php echo $this->onload; ?>"<?php endif; ?>>
+<body id="top" class="{{page::alias}} {{ua::class}}<?php if ($this->class): ?> <?php echo $this->class; ?><?php endif; ?>"<?php if ($this->onload): ?> onload="<?php echo $this->onload; ?>"<?php endif; ?>>
 
 	<?php echo $this->getCustomSections('top'); ?>
 
