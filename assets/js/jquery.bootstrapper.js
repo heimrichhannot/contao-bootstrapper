@@ -18,6 +18,7 @@
 				this.initCarouselProgressBar();
 				this.initGalleryCarousel();
 				this.addPlaceholderTagSupport();
+				this.initJQueryValidation();
 			},
 			initNavbar : function(){
 				$('.navbar-collapse').on('shown.bs.collapse', function(){
@@ -32,6 +33,12 @@
 				if(!Modernizr.input.placeholder){
 					$('input, textarea').placeholder();
 				}
+			},
+			initJQueryValidation : function(){
+				$('form.jquery-validation').validate({
+					errorClass: 'error',
+					focusInvalid: false
+				})
 			},
 			initGalleryCarousel : function(){
 				$('.ce_gallery ul').each(function(){
