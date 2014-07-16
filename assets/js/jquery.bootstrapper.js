@@ -35,10 +35,12 @@
 				}
 			},
 			initJQueryValidation : function(){
-				$('form.jquery-validation').validate({
-					errorClass: 'error',
-					focusInvalid: false
-				})
+				if ($('form.jquery-validation').length > 0) {
+					$('form.jquery-validation').validate({
+						errorClass: 'error',
+						focusInvalid: false
+					});
+				}
 			},
 			initGalleryCarousel : function(){
 				$('.ce_gallery ul').each(function(){
