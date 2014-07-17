@@ -16,7 +16,7 @@
 	<link rel="shortcut icon" href="/files/{CHANGE_THIS}/theme/img/logos/favicon.ico" type="image/x-icon">
 	<link rel="apple-touch-icon" href="/files/{CHANGE_THIS}/theme/img/logos/icons/apple-touch-icon-precomposed.png">
 
-	<script src="/system/modules/bootstrapper/assets/vendor/modernizr-2.6.2.min.js"></script>
+	<script src="system/modules/bootstrapper/assets/vendor/modernizr-2.6.2.min.js"></script>
 	<?php echo $this->viewport; ?>
 	<?php echo $this->framework; ?>
 	<?php echo $this->stylesheets; ?>
