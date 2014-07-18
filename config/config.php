@@ -47,6 +47,10 @@ if(TL_MODE == 'FE')
 	// bootstrap gallery gesture/touch support
 	//$GLOBALS['TL_JAVASCRIPT']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/js/bootstrap-touch-carousel.js';
 	
+	$GLOBALS['TL_JAVASCRIPT']['jquery-validation'] = 'system/modules/bootstrapper/assets/vendor/validation/jquery.validate.min.js';
+	$GLOBALS['TL_JAVASCRIPT']['jquery-validation-locale'] = 'system/modules/bootstrapper/assets/vendor/validation/methods_de.min.js';
+	$GLOBALS['TL_JAVASCRIPT']['jquery-validation-locale'] = 'system/modules/bootstrapper/assets/vendor/validation/messages_de.min.js';
+	
 	$GLOBALS['TL_JAVASCRIPT']['jquery-placeholder'] = 'system/modules/bootstrapper/assets/vendor/jquery.placeholder.js';
 	
 	$GLOBALS['TL_JAVASCRIPT']['bootstrap-hover-dropdown'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-hover-dropdown-master/bootstrap-hover-dropdown.js';
