@@ -47,6 +47,7 @@ TemplateLoader::addFiles(array
 	'nav_navbar_collapse_hover' => 'system/modules/bootstrapper/templates/navigation',
 	'pagination'                => 'system/modules/bootstrapper/templates/pagination',
 	'fe_page'                   => 'system/modules/bootstrapper/templates/frontend',
+	'fe_page_styleguide'        => 'system/modules/bootstrapper/templates/frontend',
 	'j_bootstrapgallery'        => 'system/modules/bootstrapper/templates/jquery',
 	'news_full_modal'           => 'system/modules/bootstrapper/templates/news',
 	'news_full_modal_content'   => 'system/modules/bootstrapper/templates/news',
@@ -56,5 +57,6 @@ TemplateLoader::addFiles(array
 	'mod_search_advanced'       => 'system/modules/bootstrapper/templates/modules',
 	'ce_accordion_start'        => 'system/modules/bootstrapper/templates/elements',
 	'ce_accordion_stop'         => 'system/modules/bootstrapper/templates/elements',
+	'styleguide_bs3'            => 'system/modules/bootstrapper/templates/styleguides',
 	'bootstrapper_form'         => 'system/modules/bootstrapper/templates/widgets',
 ));
