@@ -14,28 +14,16 @@
     <meta name="keywords" content="<?php echo $this->keywords; ?>">
     <meta name="generator" content="Contao Open Source CMS">
 
-    <script src="/system/modules/bootstrapper/assets/vendor/modernizr-2.6.2.min.js"></script>
+    <script src="system/modules/bootstrapper/assets/vendor/modernizr-2.6.2.min.js"></script>
     <?php echo $this->viewport; ?>
     <?php echo $this->framework; ?>
     <?php echo $this->stylesheets; ?>
     <?php echo $this->mooScripts; ?>
     <?php echo $this->mootools; ?>
     <?php echo $this->head; ?>
-    <script>
-        $(document).ready(function(){
-            $('#myTab a').click(function (e) {
-                e.preventDefault()
-                $(this).tab('show')
-            });
-
-            $('.bs-example-tooltips button').tooltip();
-
-            $('.bs-popover-example button').popover();
-        })
-    </script>
 
 </head>
-<body id="top" class="{{ua::class}}<?php if ($this->class): ?> <?php echo $this->class; ?><?php endif; ?>"<?php if ($this->onload): ?> onload="<?php echo $this->onload; ?>"<?php endif; ?>>
+<body id="top" class="{{page::alias}} {{ua::class}}<?php if ($this->class): ?> <?php echo $this->class; ?><?php endif; ?>"<?php if ($this->onload): ?> onload="<?php echo $this->onload; ?>"<?php endif; ?>>
 
 <?php echo $this->getCustomSections('top'); ?>
 
@@ -55,8 +43,7 @@
         <div id="container">
             <div id="main">
                 <div class="inside">
-                    <?php $objT = new \FrontendTemplate('styleguide_bs3'); ?>
-                    <?php echo $objT->parse(); ?>
+                    <?php echo $this->main; ?>
                 </div>
                 <?php echo $this->getCustomSections('main'); ?>
             </div>

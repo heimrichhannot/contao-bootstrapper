@@ -26,13 +26,14 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Forms
-	'HeimrichHannot\FormButtonSubmit' => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
+	'HeimrichHannot\FormButtonSubmit'  => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
 
 	// Modules
-	'HeimrichHannot\ModuleNewsReader' => 'system/modules/bootstrapper/modules/news/ModuleNewsReader.php',
+	'HeimrichHannot\ModuleNewsReader'  => 'system/modules/bootstrapper/modules/news/ModuleNewsReader.php',
 
 	// Classes
-	'HeimrichHannot\Bootstrapper'     => 'system/modules/bootstrapper/classes/Bootstrapper.php',
+	'HeimrichHannot\BootstrapperHooks' => 'system/modules/bootstrapper/classes/BootstrapperHooks.php',
+	'HeimrichHannot\Bootstrapper'      => 'system/modules/bootstrapper/classes/Bootstrapper.php',
 ));
 
 
