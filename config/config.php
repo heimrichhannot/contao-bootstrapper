@@ -13,7 +13,7 @@ $GLOBALS['FE_MOD']['news']['newsreader'] = '\HeimrichHannot\ModuleNewsReader';
 /**
  * HOOKS
  */
-$GLOBALS['TL_HOOKS']['parseWidget'][] = array('BootstrapperHooks', 'parseWidgetHook');
+$GLOBALS['TL_HOOKS']['parseWidget'][] = array('\HeimrichHannot\BootstrapperHooks', 'parseWidgetHook');
 $GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('HeimrichHannot\BootstrapperHooks', 'replaceInsertTagsHooks');
 
 /**

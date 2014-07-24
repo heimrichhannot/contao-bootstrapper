@@ -9,7 +9,7 @@ class BootstrapperHooks extends \Controller
     {
         if(TL_MODE == 'BE') return $strBuffer;
 
-        return static::generateForm($objWidget, strlen($objWidget->label) == 0);
+        return Bootstrapper::generateForm($objWidget, strlen($objWidget->label) == 0);
     }
 
     public function replaceInsertTagsHooks($strTag)
