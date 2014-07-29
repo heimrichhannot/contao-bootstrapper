@@ -57,7 +57,9 @@ TemplateLoader::addFiles(array
 	'mod_newsreader_modal'      => 'system/modules/bootstrapper/templates/modules/news',
 	'mod_search_advanced'       => 'system/modules/bootstrapper/templates/modules',
 	'ce_accordion_start'        => 'system/modules/bootstrapper/templates/elements',
+	'ce_hyperlink'              => 'system/modules/bootstrapper/templates/elements',
 	'ce_accordion_stop'         => 'system/modules/bootstrapper/templates/elements',
 	'styleguide_bs3'            => 'system/modules/bootstrapper/templates/styleguides',
 	'bootstrapper_form'         => 'system/modules/bootstrapper/templates/widgets',
+	'block_button'              => 'system/modules/bootstrapper/templates/block',
 ));
