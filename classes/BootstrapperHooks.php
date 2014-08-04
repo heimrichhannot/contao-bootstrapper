@@ -38,6 +38,17 @@ class BootstrapperHooks extends \Controller
                 return '</u>';
             }
 
+			if(strpos($params[0], 'i') === 0)
+			{
+				$strClass = $params[1] ? ' class="' . $params[1] . '"':'';
+				return '<i' . $strClass . '>';
+			}
+
+			if(strpos($params[0], '/i') === 0)
+			{
+				return '</i>';
+			}
+
             if(strpos($params[0], 'loremipsum') === 0)
             {
                 $text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
@@ -64,6 +75,7 @@ class BootstrapperHooks extends \Controller
                 return $text;
             }
         }
+
         return false;
     }
 }

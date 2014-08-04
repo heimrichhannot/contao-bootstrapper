@@ -5,7 +5,7 @@
 <?php preg_match('/(btn)(\s?)|[-?][a-zA-Z]*(\s?)/', $this->class, $arrMatches); ?>
 
   <?php echo $this->embed_pre; ?>
-    <a href="<?php echo $this->href; ?>" class="hyperlink_txt<?php if(!empty($arrMatches[1])):?> <?php echo $this->class; ?><?php endif; ?>" title="<?php echo $this->linkTitle; ?>"<?php echo $this->attribute; ?><?php echo $this->target; ?>>
+    <a href="<?php echo $this->href; ?>" class="hyperlink_txt<?php if(!empty($arrMatches[1])):?> <?php echo $this->class; ?><?php endif; ?>" title="<?php echo specialchars($this->linkTitle, true); ?>"<?php echo $this->attribute; ?><?php echo $this->target; ?>>
       <?php echo $this->link; ?>
     </a>
   <?php echo $this->embed_post; ?>
