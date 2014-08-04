@@ -62,8 +62,6 @@
                 }
                 window.clearTimeout(timeoutClose);
 
-                console.log($parent.siblings());
-
                 var isChildMenu = $parent.parents('.dropdown-menu').length;
 
                 timeoutOpen = window.setTimeout(function(){
@@ -78,13 +76,20 @@
                 timeoutClose = window.setTimeout(function () {
                     $parent.removeClass('open');
                     $this.trigger(hideEvent);
-                }, timeoutOpen ? settings.delayClose : settings.delaySwitch);
+                }, timeoutOpen && !isChildMenu ? settings.delayClose : settings.delaySwitch);
             });
             
             // clear timeout if hovering submenu
             $allDropdowns.find('.dropdown-menu').hover(function(){
             	window.clearTimeout(timeoutClose);
             }, function(){
+
+                var isChildMenu = $(this).parents('.dropdown-menu').length;
+
+                if(isChildMenu){
+                    return true;
+                }
+
                 timeoutClose = window.setTimeout(function () {
                     $parent.removeClass('open');
                     $this.trigger(hideEvent);
