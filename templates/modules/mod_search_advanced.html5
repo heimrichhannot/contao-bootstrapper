@@ -7,7 +7,7 @@
 		
 		<div class="form-group">
 			<label for="ctrl_keywords_<?php echo $this->uniqueId; ?>" class="invisible"><?php echo $this->keywordLabel; ?></label>
-			<input type="search" name="keywords" id="ctrl_keywords_<?php echo $this->uniqueId; ?>" class="text form-control" value="<?php echo $this->keyword; ?>" placeholder="<?php echo $this->keywordLabel; ?>" autocomplete="off" autocorrect="off" autocapitalize="off" role="combobox" aria-owns="ctrl_keywords_<?php echo $this->uniqueId; ?>" aria-haspopup="true" aria-autocomplete="both">
+			<input type="search" name="keywords" id="ctrl_keywords_<?php echo $this->uniqueId; ?>" class="text form-control" value="<?php echo $this->keyword; ?>" placeholder="<?php echo $this->keywordLabel; ?>">
 		</div>
 		<div class="form-group">
 			<button type="submit" id="ctrl_submit_<?php echo $this->uniqueId; ?>" class="submit btn btn-primary"><?php echo $this->search; ?></button>
