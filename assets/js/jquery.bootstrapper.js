@@ -19,7 +19,29 @@
 				this.initGalleryCarousel();
 				this.addPlaceholderTagSupport();
 				this.initJQueryValidation();
+                this.initScrollClass();
 			},
+            initScrollClass : function()
+            {
+                $(window).on('scroll', function(e){
+
+                    var distanceY = $(window).scrollTop();
+
+                    $('[data-spy="scroll"]').each(function(){
+                       var $this = $(this),
+                           scrollClass = $this.data('scrollclass'),
+                           offset = $this.data('offset') ? $this.data('offset') : 1;
+
+                       if(scrollClass == null) return true; // continue
+
+                       if(distanceY > offset){
+                           $this.addClass(scrollClass);
+                       }else{
+                           $this.removeClass(scrollClass);
+                       }
+                    });
+                });
+            },
 			initNavbar : function(){
 				$('.navbar-collapse').on('shown.bs.collapse', function(){
 					$('body').addClass('navbar-xs-open');
