@@ -11,7 +11,8 @@
  *
  * http://cameronspear.com/blog/bootstrap-dropdown-on-hover-plugin/
  */
-;(function ($, window, undefined) {
+;
+(function ($, window, undefined) {
     // outside the scope of the jQuery plugin to
     // keep track of all dropdowns
     var $allDropdowns = $();
@@ -21,7 +22,7 @@
     $.fn.dropdownHover = function (options) {
         // don't do anything if touch is supported
         // (plugin causes some issues on mobile)
-        if('ontouchstart' in document) return this; // don't want to affect chaining
+        if ('ontouchstart' in document) return this; // don't want to affect chaining
 
         // the element we really care about
         // is the dropdown-toggle's parent
@@ -42,20 +43,19 @@
                     delaySwitch: $(this).data('delay-switch'),
                     instantlyCloseOthers: $(this).data('close-others')
                 },
-                showEvent   = 'show.bs.dropdown',
-                hideEvent   = 'hide.bs.dropdown',
-                // shownEvent  = 'shown.bs.dropdown',
-                // hiddenEvent = 'hidden.bs.dropdown',
+                showEvent = 'show.bs.dropdown',
+                hideEvent = 'hide.bs.dropdown',
+            // shownEvent  = 'shown.bs.dropdown',
+            // hiddenEvent = 'hidden.bs.dropdown',
                 settings = $.extend(true, {}, defaults, options, data),
                 timeoutOpen,
                 timeoutClose;
 
-
             $parent.hover(function (event) {
 
                 // so a neighbor can't open the dropdown
-            	// FIX: see https://github.com/CWSpear/bootstrap-hover-dropdown/issues/55
-                if($parent.hasClass('open') && !$this.is(event.target)) {
+                // FIX: see https://github.com/CWSpear/bootstrap-hover-dropdown/issues/55
+                if ($parent.hasClass('open') && !$this.is(event.target)) {
                     // stop this event, stop executing any code
                     // in this callback but continue to propagate
                     return true;
@@ -66,10 +66,9 @@
 
                 window.clearTimeout(timeoutClose);
 
-                timeoutOpen = window.setTimeout(function(){
+                timeoutOpen = window.setTimeout(function () {
                     openDropdown(event);
                 }, siblingIsOpen || isChildMenu ? settings.delaySwitch : settings.delayOpen);
-
 
 
             }, function () {
@@ -82,15 +81,15 @@
                     $this.trigger(hideEvent);
                 }, timeoutOpen && !isChildMenu ? settings.delayClose : settings.delaySwitch);
             });
-            
+
             // clear timeout if hovering submenu
-            $allDropdowns.find('.dropdown-menu').hover(function(){
-            	window.clearTimeout(timeoutClose);
-            }, function(){
+            $allDropdowns.find('.dropdown-menu').hover(function () {
+                window.clearTimeout(timeoutClose);
+            }, function () {
 
                 var isChildMenu = $(this).parents('.dropdown-menu').length;
 
-                if(isChildMenu){
+                if (isChildMenu) {
                     return true;
                 }
 
@@ -99,13 +98,13 @@
                     $this.trigger(hideEvent);
                 }, timeoutOpen > 0 ? settings.delayClose : 0);
             });
-            
-            
+
+
             // this helps with button groups!
             $this.hover(function (event) {
                 // this helps prevent a double event from firing.
                 // see https://github.com/CWSpear/bootstrap-hover-dropdown/issues/55
-                if($parent.hasClass('open') && !$parent.is(event.target)) {
+                if ($parent.hasClass('open') && !$parent.is(event.target)) {
                     // stop this event, stop executing any code
                     // in this callback but continue to propagate
                     return true;
@@ -114,7 +113,7 @@
             });
 
             // handle submenus
-            $parent.find('.dropdown-submenu').each(function (){
+            $parent.find('.dropdown-submenu').each(function () {
                 var $this = $(this);
                 var subTimeout;
                 $this.hover(function () {
@@ -133,12 +132,12 @@
             function openDropdown(event) {
                 $allDropdowns.find(':focus').blur();
 
-                if(settings.instantlyCloseOthers === true){
+                if (settings.instantlyCloseOthers === true) {
 
                     // not the first level
-                    if($this.parents('.dropdown-menu').length && $this.siblings().parent().hasClass('open')){
+                    if ($this.parents('.dropdown-menu').length && $this.siblings().parent().hasClass('open')) {
                         $this.siblings().parent().removeClass('open');
-                    }else{
+                    } else {
                         $this.parent('li').siblings().removeClass('open');
                     }
                 }
@@ -152,6 +151,39 @@
     };
 
     $(document).ready(function () {
+
+        // touch support -> click
+        if (Modernizr.touch) {
+            var $allDropDowns = $('[data-hover="dropdown"]'),
+                $allActiveDropDowns = $('[data-hover="dropdown"].trail, [data-hover="dropdown"].active'),
+                isMobile = Modernizr.mq("screen and (max-width: 767px)");
+            $allDropDowns.attr('data-toggle', 'dropdown');
+            $allDropDowns.removeAttr('data-hover', '');
+
+
+            // mobile support
+            if(isMobile){
+                $allActiveDropDowns.parent().addClass('open');
+            }
+
+            // bootstraps clearMenus function closes all dropdowns per default, we need trail and active to stay open
+            $allDropDowns.parent().on('hide.bs.dropdown', function (e) {
+                var $this = $(this);
+
+                if ($this.hasClass('trail') || $this.hasClass('active')) {
+                    e.preventDefault();
+                }
+            });
+
+            // hide sibling dropdowns only
+            $allDropDowns.on('click', function (e) {
+                var $this = $(this);
+                $this.parent().siblings().removeClass('open');
+            });
+
+            return false;
+        }
+
         // apply dropdownHover to all elements with the data-hover="dropdown" attribute
         $('[data-hover="dropdown"]').dropdownHover();
     });
