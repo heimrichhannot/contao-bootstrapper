@@ -31,12 +31,12 @@
 			</div>
 	<?php else: ?>
 		<?php if($this->field->datepicker || $this->field->rgxp == 'date'): ?>
-			<?php $this->field->addAttribute('data-format', Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat'])); ?>	
+			<?php $this->field->addAttribute('data-format', $GLOBALS['TL_CONFIG']['dateFormat']); ?>
 			<div class="input-group datepicker">
 		<?php endif; ?>
 		
 		<?php if($this->field->timepicker || $this->field->rgxp == 'time'): ?>
-			<?php $this->field->addAttribute('data-format', Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat'])); ?>
+			<?php $this->field->addAttribute('data-format', $GLOBALS['TL_CONFIG']['timeFormat']); ?>
 			<?php if($this->field->minuteSteps):?>
 				<?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
 			<?php endif;?>

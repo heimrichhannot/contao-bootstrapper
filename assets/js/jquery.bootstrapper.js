@@ -181,8 +181,8 @@
         },
         initDateTimePicker: function () {
             var defaults = {
-                language: $('html').attr('lang'),
-                startDate: new moment({ y: 1900 }),
+                lang: $('html').attr('lang'),
+                startDate: new Date(),
                 icons: {
                     time: 'fa fa-clock-o',
                     date: 'fa fa-calendar',
@@ -195,14 +195,18 @@
                 var $this = $(this),
                     $input = $this.find('input');
 
-                $this.datetimepicker($.extend({pickTime: false, format: $input.data('format')}, defaults));
+                $this.datetimepicker($.extend({timepicker: false, format: $input.data('format')}, defaults));
             });
 
             $('.timepicker').each(function (k, item) {
                 var $this = $(this),
                     $input = $this.find('input');
 
-                $this.datetimepicker($.extend({pickDate: false, minuteStepping: $input.data('steps'), format: $input.data('format')}, defaults));
+                $input.datetimepicker($.extend({datepicker: false, step: $input.data('steps'), format: $input.data('format')}, defaults));
+
+                $this.find('.input-group-addon').click(function(){
+                    $input.datetimepicker('show');
+                });
             });
         },
         toggleCollapseFromHash: function () {
