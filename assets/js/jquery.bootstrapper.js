@@ -11,6 +11,7 @@
             this.supportNestedDropdowns();
             this.addChosenSupport();
             this.initDateTimePicker();
+			this.initSlider();
 
             // show news in modal window
             this.setUrlHistoryFromModalLink();
@@ -209,6 +210,9 @@
                 });
             });
         },
+		initSlider: function() {
+			$('input.slider').slider();
+		},
         toggleCollapseFromHash: function () {
             var $toggle = $(location.hash + '.collapse');
 
