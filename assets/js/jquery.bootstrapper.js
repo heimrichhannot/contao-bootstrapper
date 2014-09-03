@@ -21,6 +21,7 @@
             this.initGalleryCarousel();
             this.addPlaceholderTagSupport();
             this.initJQueryValidation();
+			this.initAjaxForms();
             this.initScrollClass();
         },
         supportNestedDropdowns: function () {
@@ -77,6 +78,25 @@
                 });
             }
         },
+		initAjaxForms: function() {
+			$('body').on('submit', '.ajax-form', function(e) {
+				var $form = $(this);
+				e.preventDefault();
+
+				console.log($form.serializeArray());
+
+				$.ajax(
+					$form.attr('action'),
+					$form.serializeArray().extend({
+						method: $(this).attr('method')
+					}),
+					function(data) {
+						if ($($.parseHTML(data)).find($form.data('replace')).length > 0)
+							$form.html(data);
+					}
+				);
+			});
+		},
         initGalleryCarousel: function () {
             $('.ce_gallery ul').each(function () {
                 var $this = $(this);
