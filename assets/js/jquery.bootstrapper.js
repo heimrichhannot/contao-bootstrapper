@@ -21,6 +21,7 @@
             this.initGalleryCarousel();
             this.addPlaceholderTagSupport();
             this.initJQueryValidation();
+			this.initAjaxForms();
             this.initScrollClass();
             this.initSelect2();
         },
@@ -83,6 +84,26 @@
                 });
             }
         },
+		initAjaxForms: function() {
+			$('body').on('submit', '.ajax-form', function(e) {
+				var $form = $(this);
+				e.preventDefault();
+
+				$.ajax(
+					$form.attr('action'),
+					{
+						data: $form.serializeArray(),
+						method: $(this).attr('method'),
+						success: function(data) {
+							var $newContent = $($.parseHTML(data)).find($form.data('replace'));
+							if ($newContent.length > 0) {
+								$($form.data('replace')).html($newContent);
+							}
+						}
+					}
+				);
+			});
+		},
         initGalleryCarousel: function () {
             $('.ce_gallery ul').each(function () {
                 var $this = $(this);
