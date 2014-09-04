@@ -83,16 +83,17 @@
 				var $form = $(this);
 				e.preventDefault();
 
-				console.log($form.serializeArray());
-
 				$.ajax(
 					$form.attr('action'),
-					$form.serializeArray().extend({
-						method: $(this).attr('method')
-					}),
-					function(data) {
-						if ($($.parseHTML(data)).find($form.data('replace')).length > 0)
-							$form.html(data);
+					{
+						data: $form.serializeArray(),
+						method: $(this).attr('method'),
+						success: function(data) {
+							var $newContent = $($.parseHTML(data)).find($form.data('replace'));
+							if ($newContent.length > 0) {
+								$($form.data('replace')).html($newContent);
+							}
+						}
 					}
 				);
 			});
