@@ -29,6 +29,7 @@ $GLOBALS['TL_USER_CSS']['chosen-bootstrap']     = 'system/modules/bootstrapper/a
 $GLOBALS['TL_USER_CSS']['datetimepicker']       = 'system/modules/bootstrapper/assets/vendor/datetimepicker/jquery.datetimepicker.css|screen|static|2.3.4';
 $GLOBALS['TL_USER_CSS']['elastislide']          = 'system/modules/bootstrapper/assets/vendor/elastislide-responsive-carousel/css/elastislide.css|screen|static|1.1.0';
 $GLOBALS['TL_USER_CSS']['bootstrap-slider']     = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/css/bootstrap-slider.css|screen|static|3.0.0';
+$GLOBALS['TL_USER_CSS']['select2']              = '/system/modules/bootstrapper/assets/vendor/select2/select2.css|screen|static|3.5.1';
 
 //$GLOBALS['TL_USER_CSS']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/css/bootstrap-touch-carousel.css';
 /**
@@ -38,7 +39,7 @@ if (TL_MODE == 'FE') {
 	$GLOBALS['TL_JAVASCRIPT']['chosen'] = 'system/modules/bootstrapper/assets/vendor/chosen/chosen.jquery.js';
 
 	// bootstrap-datetimepicker
-	$GLOBALS['TL_JAVASCRIPT']['moment']         = 'system/modules/bootstrapper/assets/vendor/moment/min/moment.min.js|static';
+	$GLOBALS['TL_JAVASCRIPT']['moment']         = 'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales.min.js|static';
 	$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] = 'system/modules/bootstrapper/assets/vendor/datetimepicker/jquery.datetimepicker.js';
 	//$GLOBALS['TL_JAVASCRIPT']['eonasdan-bootstrap-datetimepicker-de']	= 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.de.js';
 
@@ -57,6 +58,9 @@ if (TL_MODE == 'FE') {
 	$GLOBALS['TL_JAVASCRIPT']['bootstrap-hover-dropdown'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-hover-dropdown-master/bootstrap-hover-dropdown.js';
 
 	$GLOBALS['TL_JAVASCRIPT']['bootstrap-slider'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/js/bootstrap-slider.js';
+
+	$GLOBALS['TL_JAVASCRIPT']['select2']    = 'system/modules/bootstrapper/assets/vendor/select2/select2.js|static';
+	$GLOBALS['TL_JAVASCRIPT']['select2.de'] = '/system/modules/bootstrapper/assets/vendor/select2/select2_locale_de.js|static';
 
 	// needs to be after vendor libs
 	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.js';

@@ -22,6 +22,12 @@
             this.addPlaceholderTagSupport();
             this.initJQueryValidation();
             this.initScrollClass();
+            this.initSelect2();
+        },
+        initSelect2 : function(){
+            $('select').select2({
+                minimumResultsForSearch: 10
+            });
         },
         supportNestedDropdowns: function () {
             $('ul.dropdown-menu').on('click', 'a[data-toggle="dropdown"]', function (event) {
