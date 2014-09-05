@@ -2,28 +2,29 @@
 
     var Bootstrapper = {
         init: function () {
-            this.toggleCollapseFromHash();
-            this.openModalFromHash();
-            this.initModalNavigation();
-            this.initModalRemoteUpdate();
-            this.initNavbar();
-            this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
+			this.initFastClick();
+			this.toggleCollapseFromHash();
+			this.openModalFromHash();
+			this.initModalNavigation();
+			this.initModalRemoteUpdate();
+			this.initNavbar();
+			this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
             this.supportNestedDropdowns();
-            this.addChosenSupport();
-            this.initDateTimePicker();
-			this.initSlider();
+			this.addChosenSupport();
+			this.initDateTimePicker();
 
-            // show news in modal window
+			this.initSlider();
+			// show news in modal window
             this.setUrlHistoryFromModalLink();
-            this.loadModalFromUrl();
-            this.onCloseModal();
-            this.initCarouselProgressBar();
-            this.initGalleryCarousel();
-            this.addPlaceholderTagSupport();
-            this.initJQueryValidation();
+			this.loadModalFromUrl();
+			this.onCloseModal();
+			this.initCarouselProgressBar();
+			this.initGalleryCarousel();
+			this.addPlaceholderTagSupport();
+			this.initJQueryValidation();
 			this.initAjaxForms();
-            this.initScrollClass();
-            this.initSelect2();
+			this.initScrollClass();
+			this.initSelect2();
         },
         initSelect2 : function(){
             $('select').select2({
@@ -306,7 +307,10 @@
         },
         addChosenSupport: function () {
             $('select.tl_chosen').chosen({width: '100%'}); // 100% = responsive support
-        }
+        },
+		initFastClick: function () {
+			FastClick.attach(document.body);
+		}
     };
 
     $(document).ready(function () {
