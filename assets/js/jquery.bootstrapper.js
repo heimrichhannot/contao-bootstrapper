@@ -89,6 +89,8 @@
 				var $form = $(this);
 				e.preventDefault();
 
+				$form.parent().addClass('loading');
+
 				$.ajax(
 					$form.attr('action'),
 					{
