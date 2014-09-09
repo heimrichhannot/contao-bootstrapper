@@ -87,18 +87,24 @@
         },
 		initAjaxForms: function() {
 			$('body').on('submit', '.ajax-form', function(e) {
-				var $form = $(this);
+				var $form = $(this),
+					$formData = $form.serializeArray();
+
 				e.preventDefault();
 
-				$form.parent().addClass('loading');
+				$formData.push({
+					name: 'isAjax',
+					value: '1'
+				});
 
 				$.ajax(
 					$form.attr('action'),
 					{
-						data: $form.serializeArray(),
+						data: $formData,
 						method: $(this).attr('method'),
 						success: function(data) {
-							var $newContent = $($.parseHTML(data)).find($form.data('replace'));
+							var $newContent = $($.parseHTML(data)).closest($form.data('replace'));
+
 							if ($newContent.length > 0) {
 								$($form.data('replace')).html($newContent);
 							}
