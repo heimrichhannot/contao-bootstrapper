@@ -28,7 +28,7 @@ $GLOBALS['TL_USER_CSS']['colorbox-bootstrap']   = 'system/modules/bootstrapper/a
 $GLOBALS['TL_USER_CSS']['chosen-bootstrap']     = 'system/modules/bootstrapper/assets/vendor/bootstrap-chosen/bootstrap-chosen.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['datetimepicker']       = 'system/modules/bootstrapper/assets/vendor/datetimepicker/jquery.datetimepicker.css|screen|static|2.3.4';
 $GLOBALS['TL_USER_CSS']['elastislide']          = 'system/modules/bootstrapper/assets/vendor/elastislide-responsive-carousel/css/elastislide.css|screen|static|1.1.0';
-$GLOBALS['TL_USER_CSS']['bootstrap-slider']     = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/css/bootstrap-slider.css|screen|static|3.0.0';
+$GLOBALS['TL_USER_CSS']['bootstrap-slider']     = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/less/bootstrap-slider.less|screen|static|3.0.0';
 $GLOBALS['TL_USER_CSS']['select2']              = '/system/modules/bootstrapper/assets/vendor/select2/select2.css|screen|static|3.5.1';
 
 //$GLOBALS['TL_USER_CSS']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/css/bootstrap-touch-carousel.css';
