@@ -38,32 +38,32 @@ $GLOBALS['TL_USER_CSS']['select2']              = '/system/modules/bootstrapper/
 if (TL_MODE == 'FE') {
 	$GLOBALS['TL_JAVASCRIPT']['fastclick'] = '/system/modules/bootstrapper/assets/vendor/fastclick-1.0.3/lib/fastclick.js|static';
 
-	$GLOBALS['TL_JAVASCRIPT']['chosen'] = 'system/modules/bootstrapper/assets/vendor/chosen/chosen.jquery.js';
+	$GLOBALS['TL_JAVASCRIPT']['chosen'] = 'system/modules/bootstrapper/assets/vendor/chosen/chosen.jquery.js|static';
 
 	// bootstrap-datetimepicker
 	$GLOBALS['TL_JAVASCRIPT']['moment']         = 'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales.min.js|static';
-	$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] = 'system/modules/bootstrapper/assets/vendor/datetimepicker/jquery.datetimepicker.js';
+	$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] = 'system/modules/bootstrapper/assets/vendor/datetimepicker/jquery.datetimepicker.js|static';
 	//$GLOBALS['TL_JAVASCRIPT']['eonasdan-bootstrap-datetimepicker-de']	= 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.de.js';
 
 	// codrops elastislide
-	$GLOBALS['TL_JAVASCRIPT']['elastislide'] = 'system/modules/bootstrapper/assets/vendor/elastislide-responsive-carousel/js/jquery.elastislide.js|1.1.0';
+	$GLOBALS['TL_JAVASCRIPT']['elastislide'] = 'system/modules/bootstrapper/assets/vendor/elastislide-responsive-carousel/js/jquery.elastislide.js|static';
 
 	// bootstrap gallery gesture/touch support
 	//$GLOBALS['TL_JAVASCRIPT']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/js/bootstrap-touch-carousel.js';
 
-	$GLOBALS['TL_JAVASCRIPT']['jquery-validation']        = 'system/modules/bootstrapper/assets/vendor/validation/jquery.validate.min.js';
-	$GLOBALS['TL_JAVASCRIPT']['jquery-validation-locale'] = 'system/modules/bootstrapper/assets/vendor/validation/methods_de.min.js';
-	$GLOBALS['TL_JAVASCRIPT']['jquery-validation-locale'] = 'system/modules/bootstrapper/assets/vendor/validation/messages_de.min.js';
+	$GLOBALS['TL_JAVASCRIPT']['jquery-validation']        = 'system/modules/bootstrapper/assets/vendor/validation/jquery.validate.min.js|static';
+	$GLOBALS['TL_JAVASCRIPT']['jquery-validation-locale'] = 'system/modules/bootstrapper/assets/vendor/validation/methods_de.min.js|static';
+	$GLOBALS['TL_JAVASCRIPT']['jquery-validation-locale'] = 'system/modules/bootstrapper/assets/vendor/validation/messages_de.min.js|static';
 
-	$GLOBALS['TL_JAVASCRIPT']['jquery-placeholder'] = 'system/modules/bootstrapper/assets/vendor/jquery.placeholder.js';
+	$GLOBALS['TL_JAVASCRIPT']['jquery-placeholder'] = 'system/modules/bootstrapper/assets/vendor/jquery.placeholder.js|static';
 
-	$GLOBALS['TL_JAVASCRIPT']['bootstrap-hover-dropdown'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-hover-dropdown-master/bootstrap-hover-dropdown.js';
+	$GLOBALS['TL_JAVASCRIPT']['bootstrap-hover-dropdown'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-hover-dropdown-master/bootstrap-hover-dropdown.js|static';
 
-	$GLOBALS['TL_JAVASCRIPT']['bootstrap-slider'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/js/bootstrap-slider.js';
+	$GLOBALS['TL_JAVASCRIPT']['bootstrap-slider'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/js/bootstrap-slider.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['select2']    = 'system/modules/bootstrapper/assets/vendor/select2/select2.js|static';
 	$GLOBALS['TL_JAVASCRIPT']['select2.de'] = '/system/modules/bootstrapper/assets/vendor/select2/select2_locale_de.js|static';
 
 	// needs to be after vendor libs
-	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.js';
+	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.js|static';
 }
