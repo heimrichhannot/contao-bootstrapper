@@ -25,6 +25,34 @@
 			this.initAjaxForms();
 			this.initScrollClass();
 			this.initSelect2();
+            this.megaMenuEqualHeight();
+        },
+        megaMenuEqualHeight : function(){
+
+            // if level_3 submenu higher than level_2, we need to determine the max height of both and set it
+            // otherwise, menu items will overlap the parent wrapper, because absolute positioned items wont inflate the parent wrapper
+            $('[data-equal-height="ul.nav"]').each(function(){
+
+                var $this = $(this),
+                    maxInnerHeight = 0,
+                    maxOuterHeight = 0;
+
+                $this.find($this.data('equal-height')).each(function(){
+                    var actualInnerHeight = $(this).actual('innerHeight');
+                        actualOuterHeight = $(this).actual('outerHeight', { includeMargin : true });
+
+                    if(actualOuterHeight > maxOuterHeight){
+                        maxOuterHeight = actualOuterHeight;
+                    }
+
+                    if(actualInnerHeight > maxInnerHeight){
+                        maxInnerHeight = actualInnerHeight;
+                    }
+                });
+
+                $this.height(maxOuterHeight);
+                $this.find('.submenu-wrapper').height(maxInnerHeight);
+            });
         },
         initSelect2 : function(){
             $('select').select2({
