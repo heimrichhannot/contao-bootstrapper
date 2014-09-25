@@ -8,7 +8,7 @@
 				var $this = $(this),
 					galleryId = $this.data('lightbox');
 
-				if(!$this.data('gallery') && galleryId){
+				if(!$this.data('gallery') && galleryId ){
 					$this.attr('data-gallery', '#blueimp-gallery-' + galleryId);
 				}
 			});
