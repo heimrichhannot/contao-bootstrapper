@@ -1,68 +1,45 @@
-[![GitHub version](https://badge.fury.io/gh/MohammadYounes%2FAlertifyJS.svg)](http://badge.fury.io/gh/MohammadYounes%2FAlertifyJS)
-[![NuGet version](https://badge.fury.io/nu/AlertifyJS.svg)](http://badge.fury.io/nu/AlertifyJS)
+[![build status](https://secure.travis-ci.org/fabien-d/alertify.js.png)](http://travis-ci.org/fabien-d/alertify.js)
 
-AlertifyJS
-==========
+Alertify is an unobtrusive customizable JavaScript notification system.
 
-AlertifyJS is a javascript framework for developing pretty browser dialogs and notifications.
+## Features
 
-> AlertifyJS is an extreme makeover of <a href="http://www.github.com/fabien-d/alertify.js">alertify.js</a> by <a href="http://www.github.com/fabien-d">@fabien-d</a>
+* Fully customizable alert, confirm and prompt dialogs
+* Fully customizable unobtrusive notification system
+* Callback parameter handling both OK and Cancel button clicks
+* Chaining which allows queued dialogs
 
+## Examples
 
+http://fabien-d.github.com/alertify.js/
 
-####Install with [NuGet](https://www.nuget.org/packages/AlertifyJS/)
+## Usage
 
-```
-Install-Package AlertifyJS
-```
+See wiki [How to Use](http://github.com/fabien-d/alertify.js/wiki/How-to-Use)
 
+## Changeset
 
-Documentation
-==========
-Check out the interactive documentaion at http://alertifyjs.com
+See wiki [Changeset](http://github.com/fabien-d/alertify.js/wiki/Changeset)
 
-[![alertifyjs-dialog](https://cloud.githubusercontent.com/assets/4712046/4170670/0d50b04c-3535-11e4-87a7-1ce62dd0d77e.png)](http://alertifyjs.com)
+## Contributing
 
+See wiki [Submitting a Pull Request](https://github.com/fabien-d/alertify.js/wiki/Submitting-a-Pull-Request)
 
-Browser support
-==========
-Last two versions.
+## Where is it being tested?
 
+* Microsoft Internet Explorer 7+ (Standards Mode)
+* Google Chrome
+* Mozilla FireFox
+* Apple Safari
+* Opera
+* iOS
+* Android
 
+## License
 
-Running documentation locally
-==========
-* Clone the repo
-```
-git clone git@github.com:MohammadYounes/AlertifyJS.git
-```
+Alertify is licensed under MIT http://www.opensource.org/licenses/MIT
 
-* Install dev dependencies
-```
-npm update; npm install;
-```
+### Copyright
 
-* Build the project
-```
-grunt
-```
-
-* Start documnetation server
-```
-docpad run
-```
-* Open your browser to http://localhost:9778/
-
-Community Contribution
-==========
-
-* [alertifyjs-rails](https://github.com/mkhairi/alertifyjs-rails) by **[@mkhairi](https://github.com/mkhairi)**
-
-Bugs & Questions
-==========
-Please review the guidelines for [contributing](https://github.com/MohammadYounes/AlertifyJS/blob/master/CONTRIBUTING.md).
-
-
-
-------
-Contact: [Mohammad@alertifyjs.com](mailto:Mohammad@alertifyjs.com)
+Copyright (c) 2012, Fabien Doiron  
+<fabien.doiron@gmail.com>, [@fabien_doiron](http://twitter.com/fabien_doiron)
