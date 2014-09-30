@@ -32,6 +32,11 @@
 	<?php echo $this->stylesheets; ?>
 	<?php echo $this->mooScripts; ?>
 	<?php echo $this->head; ?>
+
+	<!--[if lt IE 9]>
+	<script src="<?php echo TL_ASSETS_URL; ?>assets/html5shiv/<?php echo HTML5SHIV; ?>/html5shiv.js"></script>
+	<script src="system/modules/bootstrapper/assets/vendor/respond/dest/respond.min.js"></script>
+	<![endif]-->
 	<?php $this->endblock(); ?>
 
 </head>

@@ -29,9 +29,11 @@ $GLOBALS['TL_USER_CSS']['chosen-bootstrap']     = 'system/modules/bootstrapper/a
 $GLOBALS['TL_USER_CSS']['datetimepicker']       = 'system/modules/bootstrapper/assets/vendor/datetimepicker/jquery.datetimepicker.css|screen|static|2.3.4';
 $GLOBALS['TL_USER_CSS']['elastislide']          = 'system/modules/bootstrapper/assets/vendor/elastislide-responsive-carousel/css/elastislide.css|screen|static|1.1.0';
 $GLOBALS['TL_USER_CSS']['bootstrap-slider']     = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/less/bootstrap-slider.less|screen|static|3.0.0';
-$GLOBALS['TL_USER_CSS']['select2']              = '/system/modules/bootstrapper/assets/vendor/select2/select2.css|screen|static|3.5.1';
+$GLOBALS['TL_USER_CSS']['select2']              = 'system/modules/bootstrapper/assets/vendor/select2/select2.css|screen|static|3.5.1';
+$GLOBALS['TL_USER_CSS']['animate']              = 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static';
+$GLOBALS['TL_USER_CSS']['alertify']             = 'system/modules/bootstrapper/assets/vendor/alertify/build/css/alertify.min.css|screen|static';
+$GLOBALS['TL_USER_CSS']['alertify-bootstrap']   = 'system/modules/bootstrapper/assets/vendor/alertify/build/css/themes/bootstrap.min.css|screen|static';
 
-//$GLOBALS['TL_USER_CSS']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/css/bootstrap-touch-carousel.css';
 /**
  * JS
  */
@@ -65,6 +67,8 @@ if (TL_MODE == 'FE') {
 	$GLOBALS['TL_JAVASCRIPT']['select2.de'] = 'system/modules/bootstrapper/assets/vendor/select2/select2_locale_de.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['jquery.actual'] = 'system/modules/bootstrapper/assets/vendor/jquery.actual/jquery.actual.js|static';
+
+	$GLOBALS['TL_JAVASCRIPT']['alertify'] = 'system/modules/bootstrapper/assets/vendor/alertify/build/alertify.min.js|static';
 
 	// needs to be after vendor libs
 	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.js|static';
