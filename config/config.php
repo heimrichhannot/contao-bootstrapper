@@ -70,8 +70,6 @@ if (TL_MODE == 'FE') {
 
 	$GLOBALS['TL_JAVASCRIPT']['alertify'] = 'system/modules/bootstrapper/assets/vendor/alertify/build/alertify.min.js|static';
 
-	$GLOBALS['TL_JAVASCRIPT']['respond'] = 'system/modules/bootstrapper/assets/vendor/respond/dest/respond.min.js|static';
-
 	// needs to be after vendor libs
 	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.js|static';
 }
