@@ -4,7 +4,7 @@ namespace HeimrichHannot;
 
 class Bootstrapper extends \Controller
 {
-	protected static $arrSkipTypes = array('hidden', 'fieldset', 'explanation');
+	protected static $arrSkipTypes = array('hidden', 'fieldset', 'explanation', 'subEventList');
 
 	public static function generateForm(\Widget $objWidget, $hideLabel=false)
 	{

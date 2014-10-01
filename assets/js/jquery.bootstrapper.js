@@ -24,7 +24,7 @@
 			this.initJQueryValidation();
 			this.initAjaxForms();
 			this.initScrollClass();
-			this.initSelect2();
+			//this.initSelect2();
             this.megaMenuEqualHeight();
         },
         megaMenuEqualHeight : function(){
