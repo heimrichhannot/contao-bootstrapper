@@ -213,7 +213,7 @@
         onCloseModal: function () {
 			if ($('body.ie9, body.ie8, body.ie7, body.ie6').length > 0)
 				return;
-			
+
             $('.modal').on('hide.bs.modal', function (e) {
 
                 var $this = $(this),
