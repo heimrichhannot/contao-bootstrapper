@@ -30,6 +30,8 @@ $GLOBALS['TL_USER_CSS']['datetimepicker']       = 'system/modules/bootstrapper/a
 $GLOBALS['TL_USER_CSS']['elastislide']          = 'system/modules/bootstrapper/assets/vendor/elastislide-responsive-carousel/css/elastislide.css|screen|static|1.1.0';
 $GLOBALS['TL_USER_CSS']['bootstrap-slider']     = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/less/bootstrap-slider.less|screen|static|3.0.0';
 $GLOBALS['TL_USER_CSS']['select2']              = 'system/modules/bootstrapper/assets/vendor/select2/select2.css|screen|static|3.5.1';
+$GLOBALS['TL_USER_CSS']['selectize.js']           = 'system/modules/bootstrapper/assets/vendor/selectize.js/dist/less/selectize.less|screen|static|0.11.2';
+$GLOBALS['TL_USER_CSS']['selectize.js-bootstrap'] = 'system/modules/bootstrapper/assets/vendor/selectize.js/dist/less/selectize.bootstrap3.less|screen|static|0.11.2';
 $GLOBALS['TL_USER_CSS']['animate']              = 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static';
 
 /**
@@ -63,6 +65,8 @@ if (TL_MODE == 'FE') {
 
 	$GLOBALS['TL_JAVASCRIPT']['select2']    = 'system/modules/bootstrapper/assets/vendor/select2/select2.js|static';
 	$GLOBALS['TL_JAVASCRIPT']['select2.de'] = 'system/modules/bootstrapper/assets/vendor/select2/select2_locale_de.js|static';
+
+	$GLOBALS['TL_JAVASCRIPT']['selectize.js'] = 'system/modules/bootstrapper/assets/vendor/selectize.js/dist/js/standalone/selectize.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['jquery.actual'] = 'system/modules/bootstrapper/assets/vendor/jquery.actual/jquery.actual.js|static';
 
