@@ -59,8 +59,8 @@ if (TL_MODE == 'FE') {
 
 	$GLOBALS['TL_JAVASCRIPT']['bootstrap-slider'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/js/bootstrap-slider.js|static';
 
-	$GLOBALS['TL_JAVASCRIPT']['select2']    = 'system/modules/bootstrapper/assets/vendor/select2/select2.js|static';
-	$GLOBALS['TL_JAVASCRIPT']['select2.de'] = 'system/modules/bootstrapper/assets/vendor/select2/select2_locale_de.js|static';
+//	$GLOBALS['TL_JAVASCRIPT']['select2']    = 'system/modules/bootstrapper/assets/vendor/select2/select2.js|static';
+//	$GLOBALS['TL_JAVASCRIPT']['select2.de'] = 'system/modules/bootstrapper/assets/vendor/select2/select2_locale_de.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['selectize.js'] = 'system/modules/bootstrapper/assets/vendor/selectize.js/dist/js/standalone/selectize.js|static';
 
