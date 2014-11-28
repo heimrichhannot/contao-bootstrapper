@@ -18,6 +18,8 @@ class ModuleAjaxSubscribe extends \ModuleSubscribe
 	 */
 	protected function addRecipient()
 	{
+		if(!\Environment::get('isAjaxRequest')) return parent::addRecipient();
+
 		$arrChannels = \Input::post('channels');
 
 		if (!is_array($arrChannels))
