@@ -9,6 +9,7 @@ $GLOBALS['TL_FFL']['submit'] = '\HeimrichHannot\FormButtonSubmit';
  * Front end modules
  */
 $GLOBALS['FE_MOD']['news']['newsreader'] = '\HeimrichHannot\ModuleNewsReader';
+$GLOBALS['FE_MOD']['newsletter']['subscribe'] = 'HeimrichHannot\AjaxContent\ModuleAjaxSubscribe';
 
 /**
  * HOOKS

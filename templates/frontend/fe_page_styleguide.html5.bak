@@ -193,6 +193,6 @@ function showMarkup($type) {
     <script src="system/modules/bootstrapper/assets/vendor/bs3styleguide/js/scrollspy.js"></script>
     <script src="system/modules/bootstrapper/assets/vendor/bs3styleguide/js/dropdown.js"></script>
     <script src="system/modules/bootstrapper/assets/vendor/bs3styleguide/js/sg-plugins.js"></script>
-    <script src="system/modules/bootstrapper/assets/vendor/bs3styleguide/js/sg-scripts.js"></script>
+    <script src="system/modules/bootstrapper/assets/vendor/bs3styleguide/js/sg-jquery.kraftwerk.js"></script>
 </body>
 </html>

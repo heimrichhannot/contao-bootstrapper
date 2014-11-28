@@ -131,10 +131,12 @@
 						data: $formData,
 						method: $(this).attr('method'),
 						success: function(data) {
-							var $newContent = $($.parseHTML(data)).closest($form.data('replace'));
 
-							if ($newContent.length > 0) {
-								$($form.data('replace')).html($newContent);
+                            data = '<div>' + data + '</div>';
+                            data = $(data).find($form.data('replace'));
+
+							if (data.length > 0) {
+								$($form.data('replace')).html(data);
 							}
 						}
 					}
