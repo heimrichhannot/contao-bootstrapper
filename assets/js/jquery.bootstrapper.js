@@ -345,7 +345,16 @@
             });
         },
         addChosenSupport: function () {
-            $('select.tl_chosen').chosen({width: '100%'}); // 100% = responsive support
+			$('.tl_chosen').chosen({
+				search_contains: true,
+				no_results_text: 'Keine Ergebnisse für',
+				placeholder_text_multiple: ' ',
+				placeholder_text_single: ' ',
+				width: '100%'
+			}).change(function(event, selectedValue) {
+				// workaround for updating list values (https://github.com/harvesthq/chosen/issues/1504)
+				$(this).trigger('chosen:updated');
+			});
         },
 		initFastClick: function () {
 			FastClick.attach(document.body);
