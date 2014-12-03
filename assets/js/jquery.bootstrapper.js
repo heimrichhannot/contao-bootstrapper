@@ -235,8 +235,6 @@
         setUrlHistoryFromModalLink: function () {
             $('[data-toggle="modal"]').on('click', function (e) {
 
-                e.stopPropagation();
-
                 var $this = $(this);
 
                 $('.modal').data('history-back', window.location);
