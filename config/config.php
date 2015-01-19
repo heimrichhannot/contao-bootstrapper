@@ -4,6 +4,7 @@
  * Front end form fields
  */
 $GLOBALS['TL_FFL']['submit'] = '\HeimrichHannot\FormButtonSubmit';
+$GLOBALS['TL_FFL']['successGroup'] = '\HeimrichHannot\FormSuccessGroup';
 
 /**
  * Front end modules
@@ -16,6 +17,8 @@ $GLOBALS['FE_MOD']['newsletter']['subscribe'] = 'HeimrichHannot\AjaxContent\Modu
  */
 $GLOBALS['TL_HOOKS']['parseWidget'][]       = array('\HeimrichHannot\BootstrapperHooks', 'parseWidgetHook');
 $GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('HeimrichHannot\BootstrapperHooks', 'replaceInsertTagsHooks');
+$GLOBALS['TL_HOOKS']['processFormData'][] = array('HeimrichHannot\BootstrapperHooks', 'processFormDataHook');
+$GLOBALS['TL_HOOKS']['compileFormFields'][] = array('HeimrichHannot\BootstrapperHooks', 'compileFormFieldsHook');
 
 /**
  * CSS
