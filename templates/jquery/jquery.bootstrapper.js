@@ -2,29 +2,29 @@
 
     var Bootstrapper = {
         init: function () {
-			this.initFastClick();
-			this.toggleCollapseFromHash();
-			this.openModalFromHash();
-			this.initModalNavigation();
-			this.initModalRemoteUpdate();
-			this.initNavbar();
-			this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
+            this.initFastClick();
+            this.toggleCollapseFromHash();
+            this.openModalFromHash();
+            this.initModalNavigation();
+            this.initModalRemoteUpdate();
+            this.initNavbar();
+            this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
             this.supportNestedDropdowns();
-			this.addChosenSupport();
-			this.initDateTimePicker();
+            this.addChosenSupport();
+            this.initDateTimePicker();
 
-			this.initSlider();
-			// show news in modal window
+            this.initSlider();
+            // show news in modal window
             this.setUrlHistoryFromModalLink();
-			this.loadModalFromUrl();
-			this.onCloseModal();
-			this.initCarouselProgressBar();
-			this.initGalleryCarousel();
-			this.addPlaceholderTagSupport();
-			this.initJQueryValidation();
-			this.initAjaxForms();
-			this.initScrollClass();
-			//this.initSelect2();
+            this.loadModalFromUrl();
+            this.onCloseModal();
+            this.initCarouselProgressBar();
+            this.initGalleryCarousel();
+            this.addPlaceholderTagSupport();
+            this.initJQueryValidation();
+            this.initAjaxForms();
+            this.initScrollClass();
+            //this.initSelect2();
             this.megaMenuEqualHeight();
         },
         megaMenuEqualHeight : function(){
@@ -39,7 +39,7 @@
 
                 $this.find($this.data('equal-height')).each(function(){
                     var actualInnerHeight = $(this).actual('innerHeight');
-                        actualOuterHeight = $(this).actual('outerHeight', { includeMargin : true });
+                    actualOuterHeight = $(this).actual('outerHeight', { includeMargin : true });
 
                     if(actualOuterHeight > maxOuterHeight){
                         maxOuterHeight = actualOuterHeight;
@@ -149,16 +149,16 @@
                                 replace = $(data).find('#' + $form.attr('id'));
                                 if(replace.length < 1)
                                 {
-                                    $form.html(data); // module handles ajax request, replace inner html
+                                    $form.html(data); // module handle ajax request, replace inner html
                                 }else{
                                     $form.replaceWith(replace);
                                 }
                             }
-						}
-					}
-				);
-			});
-		},
+                        }
+                    }
+                );
+            });
+        },
         initGalleryCarousel: function () {
             $('.ce_gallery ul').each(function () {
                 var $this = $(this);
@@ -229,8 +229,8 @@
 
         },
         onCloseModal: function () {
-			if ($('body.ie9, body.ie8, body.ie7, body.ie6').length > 0)
-				return;
+            if ($('body.ie9, body.ie8, body.ie7, body.ie6').length > 0)
+                return;
 
             $('.modal').on('hide.bs.modal', function (e) {
 
@@ -293,9 +293,9 @@
                 });
             });
         },
-		initSlider: function() {
-			$('input.slider').slider();
-		},
+        initSlider: function() {
+            $('input.slider').slider();
+        },
         toggleCollapseFromHash: function () {
             var $toggle = $(location.hash + '.collapse');
 
@@ -359,20 +359,20 @@
             });
         },
         addChosenSupport: function () {
-			$('.tl_chosen').chosen({
-				search_contains: true,
-				no_results_text: 'Keine Ergebnisse für',
-				placeholder_text_multiple: ' ',
-				placeholder_text_single: ' ',
-				width: '100%'
-			}).change(function(event, selectedValue) {
-				// workaround for updating list values (https://github.com/harvesthq/chosen/issues/1504)
-				$(this).trigger('chosen:updated');
-			});
+            $('.tl_chosen').chosen({
+                search_contains: true,
+                no_results_text: 'Keine Ergebnisse für',
+                placeholder_text_multiple: ' ',
+                placeholder_text_single: ' ',
+                width: '100%'
+            }).change(function(event, selectedValue) {
+                // workaround for updating list values (https://github.com/harvesthq/chosen/issues/1504)
+                $(this).trigger('chosen:updated');
+            });
         },
-		initFastClick: function () {
-			FastClick.attach(document.body);
-		}
+        initFastClick: function () {
+            FastClick.attach(document.body);
+        }
     };
 
     $(document).ready(function () {
