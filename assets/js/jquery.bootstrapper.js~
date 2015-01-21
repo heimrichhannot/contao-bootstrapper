@@ -2,50 +2,50 @@
 
     var Bootstrapper = {
         init: function () {
-            this.initFastClick();
-            this.toggleCollapseFromHash();
-            this.openModalFromHash();
-            this.initModalNavigation();
-            this.initModalRemoteUpdate();
-            this.initNavbar();
-            this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
+			this.initFastClick();
+			this.toggleCollapseFromHash();
+			this.openModalFromHash();
+			this.initModalNavigation();
+			this.initModalRemoteUpdate();
+			this.initNavbar();
+			this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
             this.supportNestedDropdowns();
-            this.addChosenSupport();
-            this.initDateTimePicker();
+			this.addChosenSupport();
+			this.initDateTimePicker();
 
-            this.initSlider();
-            // show news in modal window
+			this.initSlider();
+			// show news in modal window
             this.setUrlHistoryFromModalLink();
-            this.loadModalFromUrl();
-            this.onCloseModal();
-            this.initCarouselProgressBar();
-            this.initGalleryCarousel();
-            this.addPlaceholderTagSupport();
-            this.initJQueryValidation();
-            this.initAjaxForms();
-            this.initScrollClass();
-            //this.initSelect2();
+			this.loadModalFromUrl();
+			this.onCloseModal();
+			this.initCarouselProgressBar();
+			this.initGalleryCarousel();
+			this.addPlaceholderTagSupport();
+			this.initJQueryValidation();
+			this.initAjaxForms();
+			this.initScrollClass();
+			//this.initSelect2();
             this.megaMenuEqualHeight();
         },
-        megaMenuEqualHeight: function () {
+        megaMenuEqualHeight : function(){
 
             // if level_3 submenu higher than level_2, we need to determine the max height of both and set it
             // otherwise, menu items will overlap the parent wrapper, because absolute positioned items wont inflate the parent wrapper
-            $('[data-equal-height="ul.nav"]').each(function () {
+            $('[data-equal-height="ul.nav"]').each(function(){
 
                 var $this = $(this),
                     maxInnerHeight = 0,
                     maxOuterHeight = 0;
 
-                $this.find($this.data('equal-height')).each(function () {
+                $this.find($this.data('equal-height')).each(function(){
                     var actualInnerHeight = $(this).actual('innerHeight');
-                    actualOuterHeight = $(this).actual('outerHeight', {includeMargin: true});
+                        actualOuterHeight = $(this).actual('outerHeight', { includeMargin : true });
 
-                    if (actualOuterHeight > maxOuterHeight) {
+                    if(actualOuterHeight > maxOuterHeight){
                         maxOuterHeight = actualOuterHeight;
                     }
 
-                    if (actualInnerHeight > maxInnerHeight) {
+                    if(actualInnerHeight > maxInnerHeight){
                         maxInnerHeight = actualInnerHeight;
                     }
                 });
@@ -54,7 +54,7 @@
                 $this.find('.submenu-wrapper').height(maxInnerHeight);
             });
         },
-        initSelect2: function () {
+        initSelect2 : function(){
             $('select').select2({
                 minimumResultsForSearch: 10
             });
@@ -113,42 +113,43 @@
                 });
             }
         },
-        initAjaxForms: function () {
-            $('body').on('submit', '.ajax-form', function (e) {
+		initAjaxForms: function() {
+			$('body').on('submit', '.ajax-form', function(e) {
 
-                var $form = $(this),
-                    $formData = $form.serializeArray();
+				var $form = $(this),
+					$formData = $form.serializeArray();
 
-                e.preventDefault();
+				e.preventDefault();
 
-                $formData.push({
-                    name: 'isAjax',
-                    value: '1'
-                });
+				$formData.push({
+					name: 'isAjax',
+					value: '1'
+				});
 
-                $.ajax(
-                    $form.attr('action'),
-                    {
-                        data: $formData,
-                        method: $(this).attr('method'),
-                        success: function (data) {
+				$.ajax(
+					$form.attr('action'),
+					{
+						data: $formData,
+						method: $(this).attr('method'),
+						success: function(data) {
 
                             var replace,
                                 data = '<div>' + data + '</div>';
 
-                            if ($form.data('replace')) {
+                            if($form.data('replace')){
                                 replace = $(data).find($form.data('replace'));
                                 if (replace !== undefined) {
                                     $($form.data('replace')).html(replace);
                                 }
 
-                            } else {
+                            }else{
 
                                 // html page returned
                                 replace = $(data).find('#' + $form.attr('id'));
-                                if (replace.length < 1) {
+                                if(replace.length < 1)
+                                {
                                     $form.html(data); // module handle ajax request, replace inner html
-                                } else {
+                                }else{
                                     $form.replaceWith(replace);
                                 }
                             }
@@ -227,8 +228,8 @@
 
         },
         onCloseModal: function () {
-            if ($('body.ie9, body.ie8, body.ie7, body.ie6').length > 0)
-                return;
+			if ($('body.ie9, body.ie8, body.ie7, body.ie6').length > 0)
+				return;
 
             $('.modal').on('hide.bs.modal', function (e) {
 
@@ -284,20 +285,16 @@
                 var $this = $(this),
                     $input = $this.find('input');
 
-                $input.datetimepicker($.extend({
-                    datepicker: false,
-                    step: $input.data('steps'),
-                    format: $input.data('format')
-                }, defaults));
+                $input.datetimepicker($.extend({datepicker: false, step: $input.data('steps'), format: $input.data('format')}, defaults));
 
-                $this.find('.input-group-addon').click(function () {
+                $this.find('.input-group-addon').click(function(){
                     $input.datetimepicker('show');
                 });
             });
         },
-        initSlider: function () {
-            $('input.slider').slider();
-        },
+		initSlider: function() {
+			$('input.slider').slider();
+		},
         toggleCollapseFromHash: function () {
             var $toggle = $(location.hash + '.collapse');
 
@@ -361,20 +358,20 @@
             });
         },
         addChosenSupport: function () {
-            $('.tl_chosen').chosen({
-                search_contains: true,
-                no_results_text: 'Keine Ergebnisse für',
-                placeholder_text_multiple: ' ',
-                placeholder_text_single: ' ',
-                width: '100%'
-            }).change(function (event, selectedValue) {
-                // workaround for updating list values (https://github.com/harvesthq/chosen/issues/1504)
-                $(this).trigger('chosen:updated');
-            });
+			$('.tl_chosen').chosen({
+				search_contains: true,
+				no_results_text: 'Keine Ergebnisse für',
+				placeholder_text_multiple: ' ',
+				placeholder_text_single: ' ',
+				width: '100%'
+			}).change(function(event, selectedValue) {
+				// workaround for updating list values (https://github.com/harvesthq/chosen/issues/1504)
+				$(this).trigger('chosen:updated');
+			});
         },
-        initFastClick: function () {
-            FastClick.attach(document.body);
-        }
+		initFastClick: function () {
+			FastClick.attach(document.body);
+		}
     };
 
     $(document).ready(function () {
@@ -385,4 +382,3 @@
     });
 
 })(jQuery);
-
