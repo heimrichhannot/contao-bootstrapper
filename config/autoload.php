@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2014 Leo Feyer
+ * Copyright (c) 2005-2015 Leo Feyer
  *
  * @package Bootstrapper
  * @link    https://contao.org
@@ -26,6 +26,7 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Forms
+	'HeimrichHannot\FormSuccessGroup'                => 'system/modules/bootstrapper/forms/FormSuccessGroup.php',
 	'HeimrichHannot\FormButtonSubmit'                => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
 
 	// Modules
@@ -43,6 +44,7 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
+	'form_successgroup'         => 'system/modules/bootstrapper/templates/forms',
 	'nav_navbar'                => 'system/modules/bootstrapper/templates/navigation',
 	'nav_list_unstyles'         => 'system/modules/bootstrapper/templates/navigation',
 	'nav_navbar_collapse'       => 'system/modules/bootstrapper/templates/navigation',
@@ -64,3 +66,4 @@ TemplateLoader::addFiles(array
 	'bootstrapper_form'         => 'system/modules/bootstrapper/templates/widgets',
 	'block_button'              => 'system/modules/bootstrapper/templates/block',
 ));
+
