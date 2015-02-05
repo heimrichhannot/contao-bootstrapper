@@ -31,35 +31,35 @@
 			</div>
 	<?php else: ?>
 		<?php if($this->field->datepicker || $this->field->rgxp == 'date'): ?>
-			<?php $this->field->addAttribute('data-format', $GLOBALS['TL_CONFIG']['dateFormat']); ?>
+			<?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat'])); ?>
 			<div class="input-group datepicker">
 		<?php endif; ?>
-		
+
 		<?php if($this->field->timepicker || $this->field->rgxp == 'time'): ?>
-			<?php $this->field->addAttribute('data-format', $GLOBALS['TL_CONFIG']['timeFormat']); ?>
-			<?php if($this->field->minuteSteps):?>
-				<?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
-			<?php endif;?>
+		<?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat'])); ?>
+		<?php if($this->field->minuteSteps):?>
+			<?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
+		<?php endif;?>
 			<div class="input-group timepicker">
 		<?php endif; ?>
-		
+
 		<?php if($this->field->type == 'password'): // confirmation?>
 			<div class="input-group password">
 				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
 		<?php endif; ?>
-		
+
 		<?php echo $this->field->generate(); ?>
-		
+
 		<?php if($this->field->type == 'password'): // confirmation?>
 			</div>
 		<?php endif; ?>
-		
-		
+
+
 		<?php if($this->field->timepicker || $this->field->rgxp == 'time'): ?>
 			<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
 			</div>
 		<?php endif; ?>
-		
+
 		<?php if($this->field->datepicker || $this->field->rgxp == 'date'): ?>
 			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 			</div>

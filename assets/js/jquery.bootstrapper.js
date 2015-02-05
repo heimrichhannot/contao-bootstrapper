@@ -263,36 +263,24 @@
         },
         initDateTimePicker: function () {
             var defaults = {
-                lang: $('html').attr('lang'),
-                startDate: new Date(),
+                locale: $('html').attr('lang'),
                 icons: {
-                    time: 'fa fa-clock-o',
+                    time: 'fa fa-time',
                     date: 'fa fa-calendar',
                     up: 'fa fa-chevron-up',
-                    down: 'fa fa-chevron-down'
+                    down: 'fa fa-chevron-down',
+                    previous: 'fa fa-chevron-left',
+                    next: 'fa fa-chevron-right',
+                    today: 'fa fa-screenshot',
+                    clear: 'fa fa-trash'
                 }
             };
 
-            $('.datepicker').each(function (k, item) {
+            $('.datepicker, .timepicker').each(function (k, item) {
                 var $this = $(this),
                     $input = $this.find('input');
 
-                $this.datetimepicker($.extend({timepicker: false, format: $input.data('format')}, defaults));
-            });
-
-            $('.timepicker').each(function (k, item) {
-                var $this = $(this),
-                    $input = $this.find('input');
-
-                $input.datetimepicker($.extend({
-                    datepicker: false,
-                    step: $input.data('steps'),
-                    format: $input.data('format')
-                }, defaults));
-
-                $this.find('.input-group-addon').click(function () {
-                    $input.datetimepicker('show');
-                });
+                $this.datetimepicker($.extend({format: $input.data('format')}, defaults));
             });
         },
         initSlider: function () {

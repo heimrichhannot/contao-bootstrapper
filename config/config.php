@@ -30,7 +30,7 @@ $GLOBALS['TL_USER_CSS']['maps-bootstrap']       = 'system/modules/bootstrapper/a
 $GLOBALS['TL_USER_CSS']['carousel-bootstrap']   = 'system/modules/bootstrapper/assets/css/carousel.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['colorbox-bootstrap']   = 'system/modules/bootstrapper/assets/css/colorbox.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['chosen-bootstrap']     = 'system/modules/bootstrapper/assets/vendor/bootstrap-chosen/bootstrap-chosen.less|screen|static|3.1.1';
-$GLOBALS['TL_USER_CSS']['datetimepicker']       = 'system/modules/bootstrapper/assets/vendor/datetimepicker/jquery.datetimepicker.css|screen|static|2.3.4';
+$GLOBALS['TL_USER_CSS']['datetimepicker']       = 'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.css|screen|static|4.0.0';
 $GLOBALS['TL_USER_CSS']['bootstrap-slider']     = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/less/bootstrap-slider.less|screen|static|3.0.0';
 $GLOBALS['TL_USER_CSS']['select2']              = 'system/modules/bootstrapper/assets/vendor/select2/select2.css|screen|static|3.5.1';
 $GLOBALS['TL_USER_CSS']['selectize.js']           = 'system/modules/bootstrapper/assets/vendor/selectize.js/dist/less/selectize.less|screen|static|0.11.2';
@@ -47,7 +47,7 @@ if (TL_MODE == 'FE') {
 
 	// bootstrap-datetimepicker
 	$GLOBALS['TL_JAVASCRIPT']['moment']         = 'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales.min.js|static';
-	$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] = 'system/modules/bootstrapper/assets/vendor/datetimepicker/jquery.datetimepicker.js|static';
+	$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker.min.js|static';
 	//$GLOBALS['TL_JAVASCRIPT']['eonasdan-bootstrap-datetimepicker-de']	= 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.de.js';
 
 	// bootstrap gallery gesture/touch support
