@@ -278,9 +278,16 @@
 
             $('.datepicker, .timepicker').each(function (k, item) {
                 var $this = $(this),
-                    $input = $this.find('input');
+                    $input = $this.find('input'),
+                    $linked = $($input.data('linked'));
 
                 $this.datetimepicker($.extend({format: $input.data('format')}, defaults));
+
+                if($linked.length > 0){
+                    $this.on("dp.change",function (e) {
+                        $linked.parent('.datepicker').data("DateTimePicker").minDate(e.date);
+                    });
+                }
             });
         },
         initSlider: function () {
