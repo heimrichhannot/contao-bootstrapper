@@ -233,7 +233,7 @@
                 var $this = $(this);
 
                 // back
-                if($this.data('history-back')){
+                if ($this.data('history-back')) {
                     window.history.go(-1);
                 }
             });
@@ -275,29 +275,32 @@
                 $this.datetimepicker($.extend({format: $input.data('format')}, defaults));
 
                 // is end -> link to start
-                if($linkedStart.length > 0){
+                if ($linkedStart.length > 0) {
                     // set default min date
-                    if(moment($linkedStart.val(), $input.data('format')).isValid()){
+                    if (moment($linkedStart.val(), $input.data('format')).isValid()) {
                         $this.data("DateTimePicker").minDate(moment($linkedStart.val(), $input.data('format')));
                     }
 
                     // on change - update start
-                    $this.on("dp.change",function (e) {
-                        $linkedStart.closest('.datepicker').data("DateTimePicker").maxDate(e.date);
+                    $this.on("dp.change", function (e) {
+                        if (moment(e.date).isValid()) {
+                            $linkedStart.closest('.datepicker').data("DateTimePicker").maxDate(e.date);
+                        }
                     });
                 }
 
                 // is start -> linked to end
-                if($linkedEnd.length > 0){
+                if ($linkedEnd.length > 0) {
 
-                    if(moment($linkedEnd.val(), $input.data('format')).isValid())
-                    {
+                    if (moment($linkedEnd.val(), $input.data('format')).isValid()) {
                         $this.data("DateTimePicker").maxDate(moment($linkedEnd.val(), $input.data('format')));
                     }
 
                     // on change - update end
-                    $this.on("dp.change",function (e) {
-                        $linkedEnd.closest('.datepicker').data("DateTimePicker").minDate(e.date);
+                    $this.on("dp.change", function (e) {
+                        if (moment(e.date).isValid()) {
+                            $linkedEnd.closest('.datepicker').data("DateTimePicker").minDate(e.date);
+                        }
                     });
                 }
             });
