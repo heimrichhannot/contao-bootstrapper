@@ -277,7 +277,9 @@
                 // is end -> link to start
                 if($linkedStart.length > 0){
                     // set default min date
-                    $this.data("DateTimePicker").minDate(moment($linkedStart.val(), $input.data('format')));
+                    if(moment($linkedStart.val(), $input.data('format')).isValid()){
+                        $this.data("DateTimePicker").minDate(moment($linkedStart.val(), $input.data('format')));
+                    }
 
                     // on change - update start
                     $this.on("dp.change",function (e) {
@@ -288,7 +290,10 @@
                 // is start -> linked to end
                 if($linkedEnd.length > 0){
 
-                    $this.data("DateTimePicker").maxDate(moment($linkedEnd.val(), $input.data('format')));
+                    if(moment($linkedEnd.val(), $input.data('format')).isValid())
+                    {
+                        $this.data("DateTimePicker").maxDate(moment($linkedEnd.val(), $input.data('format')));
+                    }
 
                     // on change - update end
                     $this.on("dp.change",function (e) {
