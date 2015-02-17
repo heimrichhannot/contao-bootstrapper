@@ -6,7 +6,7 @@
             this.toggleCollapseFromHash();
             this.openModalFromHash();
             this.initModalNavigation();
-            this.initModalRemoteUpdate();
+            //this.initModalRemoteUpdate();
             this.initNavbar();
             this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
             this.supportNestedDropdowns();
@@ -15,9 +15,9 @@
 
             this.initSlider();
             // show news in modal window
-            this.setUrlHistoryFromModalLink();
+            //this.setUrlHistoryFromModalLink();
             this.loadModalFromUrl();
-            this.onCloseModal();
+            //this.onCloseModal();
             this.initCarouselProgressBar();
             this.initGalleryCarousel();
             this.addPlaceholderTagSupport();
@@ -227,35 +227,25 @@
 
         },
         onCloseModal: function () {
-            if ($('body.ie9, body.ie8, body.ie7, body.ie6').length > 0)
-                return;
-
+            // move backward in history so url will be replaced with back link
             $('.modal').on('hide.bs.modal', function (e) {
 
-                var $this = $(this),
-                    $news = $this.find('.layout_full'),
-                    pageAlias = $('body').data('page-alias') == 'startseite' ? '' : $('body').data('page-alias'),
-                    modalHistoryDelete = $this.data('history-delete'),
-                    newsHistoryDelete = $news.data('history-delete'),
-                    newsHistoryBase = $news.data('history-base'),
-                    newHistory = location.href.replace('/' + (newsHistoryDelete ? newsHistoryDelete : modalHistoryDelete), '');
+                var $this = $(this);
 
-                newHistory = pageAlias != newsHistoryBase ? newHistory.replace(newsHistoryBase, pageAlias) : newHistory;
-
-                // reset history
-                history.pushState(null, null, newHistory);
+                // back
+                if($this.data('history-back')){
+                    window.history.go(-1);
+                }
             });
         },
         setUrlHistoryFromModalLink: function () {
             $('[data-toggle="modal"]').on('click', function (e) {
 
-                var $this = $(this);
+                var $this = $(this),
+                    $target = $($(this).data('target'));
 
-                $('.modal').data('history-back', window.location);
-
+                $target.data('history-back', window.location);
                 history.pushState(null, null, $this.attr('href'));
-
-
             });
         },
         loadModalFromUrl: function () {
@@ -279,13 +269,30 @@
             $('.datepicker, .timepicker').each(function (k, item) {
                 var $this = $(this),
                     $input = $this.find('input'),
-                    $linked = $($input.data('linked'));
+                    $linkedStart = $($input.data('linked-start')),
+                    $linkedEnd = $($input.data('linked-end'));
 
                 $this.datetimepicker($.extend({format: $input.data('format')}, defaults));
 
-                if($linked.length > 0){
+                // is end -> link to start
+                if($linkedStart.length > 0){
+                    // set default min date
+                    $this.data("DateTimePicker").minDate(moment($linkedStart.val(), $input.data('format')));
+
+                    // on change - update start
                     $this.on("dp.change",function (e) {
-                        $linked.parent('.datepicker').data("DateTimePicker").minDate(e.date);
+                        $linkedStart.closest('.datepicker').data("DateTimePicker").maxDate(e.date);
+                    });
+                }
+
+                // is start -> linked to end
+                if($linkedEnd.length > 0){
+
+                    $this.data("DateTimePicker").maxDate(moment($linkedEnd.val(), $input.data('format')));
+
+                    // on change - update end
+                    $this.on("dp.change",function (e) {
+                        $linkedEnd.closest('.datepicker').data("DateTimePicker").minDate(e.date);
                     });
                 }
             });

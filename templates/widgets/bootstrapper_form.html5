@@ -32,8 +32,11 @@
 	<?php else: ?>
 		<?php if($this->field->datepicker || $this->field->rgxp == 'date'): ?>
 			<?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat'])); ?>
-			<?php if($this->field->linked): ?>
-				<?php $this->field->addAttribute('data-linked', $this->field->linked); ?>
+			<?php if($this->field->linkedStart): ?>
+				<?php $this->field->addAttribute('data-linked-start', $this->field->linkedStart); ?>
+			<?php endif; ?>
+			<?php if($this->field->linkedEnd): ?>
+				<?php $this->field->addAttribute('data-linked-end', $this->field->linkedEnd); ?>
 			<?php endif; ?>
 			<div class="input-group datepicker">
 		<?php endif; ?>
