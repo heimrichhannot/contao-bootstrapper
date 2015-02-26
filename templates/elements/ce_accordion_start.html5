@@ -2,7 +2,7 @@
 global $objPage;
 global $accordionIterator;
 $accordionIterator++;
-$this->accordionID = standardize(strtolower($objPage->title) . $accordionIterator);
+$this->accordionID = standardize($this->cssID ? (str_replace(array('id=', '"', ' '), '', $this->cssID)) : (strtolower($objPage->title) . $accordionIterator));
 $this->open = $accordionIterator == 1;
 
 if($this->ptable == 'tl_article')
