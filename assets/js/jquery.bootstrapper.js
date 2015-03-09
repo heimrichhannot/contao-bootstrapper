@@ -26,6 +26,7 @@
             this.initScrollClass();
             //this.initSelect2();
             this.megaMenuEqualHeight();
+            this.setHashFromCollapse();
         },
         megaMenuEqualHeight: function () {
 
@@ -308,13 +309,23 @@
         initSlider: function () {
             $('input.slider').slider();
         },
+        setHashFromCollapse : function(){
+            $('.collapse').on('show.bs.collapse', function (e) {
+                history.pushState(null, null, location.href.replace(location.hash, '') + '#' + this.id);
+            })
+        },
         toggleCollapseFromHash: function () {
-            var $toggle = $(location.hash + '.collapse');
+            var $toggle = $(location.hash + '.collapse'),
+                $link = $("[href=" + location.hash + "]");
 
             if (!location.hash || $toggle.length < 1) return false;
 
+            var $parent = $($link.data('parent'));
+
             // close all open panels
-            $toggle.closest('.panel-group').find('.collapse').removeClass('in');
+            if($parent.length > 0){
+                $($link.data('parent')).find('.collapse').removeClass('in');
+            }
 
             // toggle anchor panel id
             $toggle.addClass('in');
