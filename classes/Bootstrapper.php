@@ -17,10 +17,9 @@ class Bootstrapper extends \Controller
 // 		$dc = $GLOBALS['TL_DCA']['tl_calendar_events'];
 // 		// add alias as hidden field, for trigger the save callback (generateAlias)
 // 		$dc['fields']['alias']['inputType'] = 'hidden';
-		
-		
+
 		$objT->field = $objWidget;
-		$objT->hideLabel = $hideLabel;
+		$objT->hideLabel = $hideLabel || $objWidget->hideLabel;
 		
 		return $objT->parse();
 	}
