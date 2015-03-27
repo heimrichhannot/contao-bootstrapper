@@ -306,10 +306,15 @@
             })
         },
         toggleCollapseFromHash: function () {
-            var $toggle = $(location.hash + '.collapse'),
-                $link = $("[href=" + location.hash + "]");
 
-            if (!location.hash || $toggle.length < 1) return false;
+            var hash = location.hash.replace(/#/g, "").replace(/is/g, "or"); // remove if more than # sign
+
+            if (!hash) return false;
+
+            var $toggle = $('#' + hash + '.collapse'),
+                $link = $("[href=#" + hash + "]");
+
+            if($toggle.length < 1) return false;
 
             var $parent = $($link.data('parent'));
 
@@ -322,9 +327,13 @@
             $toggle.addClass('in');
         },
         openModalFromHash: function () {
-            var $toggle = $(location.hash);
+            var hash = location.hash.replace(/#/g, "").replace(/is/g, "or"); // remove if more than # sign
 
-            if (!location.hash || $toggle.length < 1 || !$toggle.hasClass('modal')) return false;
+            if (!hash) return false;
+
+            var $toggle = $('#' + hash);
+
+            if($toggle.length < 1 || !$toggle.hasClass('modal')) return false;
 
             $toggle.modal('show');
         },
