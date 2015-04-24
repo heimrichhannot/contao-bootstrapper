@@ -38,6 +38,12 @@
 			<?php if($this->field->linkedEnd): ?>
 				<?php $this->field->addAttribute('data-linked-end', $this->field->linkedEnd); ?>
 			<?php endif; ?>
+			<?php if($this->field->minDate): ?>
+				<?php $this->field->addAttribute('data-minDate', $this->field->minDate); ?>
+			<?php endif; ?>
+			<?php if($this->field->maxDate): ?>
+				<?php $this->field->addAttribute('data-maxDate', $this->field->maxDate); ?>
+			<?php endif; ?>
 			<div class="input-group datepicker">
 		<?php endif; ?>
 
@@ -46,12 +52,22 @@
 		<?php if($this->field->minuteSteps):?>
 			<?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
 		<?php endif;?>
+		<?php if($this->field->minDate): ?>
+			<?php $this->field->addAttribute('data-minDate', $this->field->minDate); ?>
+		<?php endif; ?>
+		<?php if($this->field->maxDate): ?>
+			<?php $this->field->addAttribute('data-maxDate', $this->field->maxDate); ?>
+		<?php endif; ?>
 			<div class="input-group timepicker">
 		<?php endif; ?>
 
 		<?php if($this->field->type == 'password'): // confirmation?>
 			<div class="input-group password">
 				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+		<?php endif; ?>
+
+		<?php if($this->field->type == 'select' && $this->field->multiple): ?>
+			<?php $this->field->addAttribute('title', $this->field->label); ?>
 		<?php endif; ?>
 
 		<?php echo $this->field->generate(); ?>

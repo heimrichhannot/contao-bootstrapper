@@ -261,10 +261,22 @@
             $('.datepicker, .timepicker').each(function (k, item) {
                 var $this = $(this),
                     $input = $this.find('input'),
+                    minDate = $input.data('mindate'),
+                    maxDate = $input.data('maxdate'),
                     $linkedStart = $($input.data('linked-start')),
                     $linkedEnd = $($input.data('linked-end'));
 
                 $this.datetimepicker($.extend({format: $input.data('format')}, defaults));
+
+                // set min date
+                if (moment(minDate, $input.data('format')).isValid()) {
+                    $this.data("DateTimePicker").minDate(moment(minDate, $input.data('format')));
+                }
+
+                // set max date
+                if (moment(maxDate, $input.data('format')).isValid()) {
+                    $this.data("DateTimePicker").maxDate(moment(maxDate, $input.data('format')));
+                }
 
                 // is end -> link to start
                 if ($linkedStart.length > 0) {
