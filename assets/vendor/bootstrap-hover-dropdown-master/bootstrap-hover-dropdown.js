@@ -190,13 +190,15 @@
 })(jQuery, this);
 
 // MooTools
-window.addEvent('domready',function() {
+if(window.MooTools){
+    window.addEvent('domready',function() {
 
-    Element.prototype.hide = function() {
-        if($(this).getAttribute('data-hover') == 'dropdown'){
-            return this;
-        }
+        Element.prototype.hide = function() {
+            if($(this).getAttribute('data-hover') == 'dropdown'){
+                return this;
+            }
 
-        this.setStyle('display', 'none');
-    };
-});
+            this.setStyle('display', 'none');
+        };
+    });
+}
