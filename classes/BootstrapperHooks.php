@@ -111,7 +111,7 @@ class BootstrapperHooks extends \Controller
 
 		if($objForm->isAjaxForm && !is_null($strReturn))
 		{
-			$strReturn .= '<input type="hidden" name="FORM_SUBMIT" value="' . $formId . '">"';
+			$strReturn .= '<input type="hidden" name="FORM_SUBMIT" value="' . $formId . '">';
 			$strReturn .= '<input type="hidden" name="REQUEST_TOKEN" value="' . \RequestToken::get() . '">';
 			die($strReturn);
 		}
