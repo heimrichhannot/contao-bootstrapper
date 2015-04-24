@@ -150,7 +150,7 @@
         });
     };
 
-    $(document).ready(function () {
+    jQuery(document).ready(function () {
 
         // touch support -> click
         if (Modernizr.touch) {
@@ -188,3 +188,15 @@
         $('[data-hover="dropdown"]').dropdownHover();
     });
 })(jQuery, this);
+
+// MooTools
+window.addEvent('domready',function() {
+
+    Element.prototype.hide = function() {
+        if($(this).getAttribute('data-hover') == 'dropdown'){
+            return this;
+        }
+
+        this.setStyle('display', 'none');
+    };
+});
