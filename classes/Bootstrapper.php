@@ -18,6 +18,9 @@ class Bootstrapper extends \Controller
 // 		// add alias as hidden field, for trigger the save callback (generateAlias)
 // 		$dc['fields']['alias']['inputType'] = 'hidden';
 
+		// parse and generate methods append [] for multiple element widgets
+		$objWidget->name = str_replace('[]', '', $objWidget->name);
+		
 		$objT->field = $objWidget;
 		$objT->hideLabel = $hideLabel || $objWidget->hideLabel;
 		

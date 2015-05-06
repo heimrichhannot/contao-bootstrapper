@@ -263,6 +263,7 @@
                     $input = $this.find('input'),
                     minDate = $input.data('mindate'),
                     maxDate = $input.data('maxdate'),
+                    linkedUnlock = $input.data('linked-unlock') == true,
                     $linkedStart = $($input.data('linked-start')),
                     $linkedEnd = $($input.data('linked-end'));
 
@@ -288,7 +289,17 @@
                     // on change - update start
                     $this.on("dp.change", function (e) {
                         if (moment(e.date).isValid()) {
-                            $linkedStart.closest('.datepicker').data("DateTimePicker").maxDate(e.date);
+
+                            // intelligent adjustment of start
+                            if(linkedUnlock){
+                                // set start to same date as end, if end is before start
+                                if(e.date.isBefore($linkedStart.closest('.datepicker').data("DateTimePicker").date())) {
+                                    $linkedStart.closest('.datepicker').data("DateTimePicker").date(e.date);
+                                }
+                                // set max date
+                            } else{
+                                $linkedStart.closest('.datepicker').data("DateTimePicker").maxDate(e.date);
+                            }
                         }
                     });
                 }
@@ -303,7 +314,17 @@
                     // on change - update end
                     $this.on("dp.change", function (e) {
                         if (moment(e.date).isValid()) {
-                            $linkedEnd.closest('.datepicker').data("DateTimePicker").minDate(e.date);
+
+                            // intelligent adjustment of end
+                            if(linkedUnlock){
+                                // set end to same date as start, if start is after end
+                                if(e.date.isAfter($linkedEnd.closest('.datepicker').data("DateTimePicker").date())) {
+                                    $linkedEnd.closest('.datepicker').data("DateTimePicker").date(e.date);
+                                }
+                            // set min date
+                            } else{
+                                $linkedEnd.closest('.datepicker').data("DateTimePicker").minDate(e.date);
+                            }
                         }
                     });
                 }
