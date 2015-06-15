@@ -26,7 +26,13 @@
 			//this.initSelect2();
 			this.megaMenuEqualHeight();
 			this.setHashFromCollapse();
+
+            // ajax complete
+            $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
 		},
+        ajaxComplete : function() {
+            this.initDateTimePicker();
+        },
 		megaMenuEqualHeight: function () {
 
             // if level_3 submenu higher than level_2, we need to determine the max height of both and set it
@@ -148,10 +154,22 @@
 								replace = $(data).find('#' + $form.attr('id'));
 								if (replace.length < 1) {
 									$form.html(data); // module handle ajax request, replace inner html
+                                    replace = data;
 								} else {
 									$form.replaceWith(replace);
 								}
 							}
+
+                            // sroll to first alert message or first error field
+                            var alert = replace.find('.alert:first, .error:first');
+
+                            if(alert.length > 0){
+                                var alertOffset = alert.offset();
+
+                                $('html,body').animate({
+                                    scrollTop: parseInt(alertOffset.top) - 70 + 'px'
+                                }, 500);
+                            }
 						}
 					}
 				);
