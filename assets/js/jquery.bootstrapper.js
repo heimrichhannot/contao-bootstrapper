@@ -17,7 +17,7 @@
 			// show news in modal window
 			//this.setUrlHistoryFromModalLink();
 			this.loadModalFromUrl();
-			//this.onCloseModal();
+			this.onCloseModal();
 			this.initCarouselProgressBar();
 			this.addPlaceholderTagSupport();
 			this.initJQueryValidation();
@@ -237,15 +237,17 @@
 
         },
         onCloseModal: function () {
-            // move backward in history so url will be replaced with back link
             $('.modal').on('hide.bs.modal', function (e) {
 
                 var $this = $(this);
 
-                // back
-                if ($this.data('history-back')) {
-                    window.history.go(-1);
-                }
+                // stop embedded videos like youtube
+                $this.find('iframe').each(function(){
+                    var $this = $(this);
+
+                    // reset the src will stop the video
+                    $this.attr('src', $this.attr('src').replace('autoplay=1', 'autoplay=0'));
+                });
             });
         },
         setUrlHistoryFromModalLink: function () {
