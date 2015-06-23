@@ -248,6 +248,11 @@
                     // reset the src will stop the video
                     $this.attr('src', $this.attr('src').replace('autoplay=1', 'autoplay=0'));
                 });
+
+                // stop embedded audio/video
+                $this.find('audio, video').each(function(){
+                   this.pause();
+                });
             });
         },
         setUrlHistoryFromModalLink: function () {
