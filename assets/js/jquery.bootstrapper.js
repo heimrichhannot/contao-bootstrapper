@@ -10,7 +10,7 @@
             this.initNavbar();
             this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
             this.supportNestedDropdowns();
-            this.addChosenSupport();
+            //this.addChosenSupport();
             this.initDateTimePicker();
 
 			this.initSlider();
