@@ -365,7 +365,7 @@
         },
         toggleCollapseFromHash: function () {
 
-            var hash = location.hash.replace(/#/g, "").replace(/is/g, "or"); // remove if more than # sign
+            var hash = location.hash.replace(/#/g, ""); // remove if more than # sign
 
             if (!hash) return false;
 
