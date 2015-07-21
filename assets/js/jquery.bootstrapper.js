@@ -27,6 +27,8 @@
 			this.megaMenuEqualHeight();
 			this.setHashFromCollapse();
 
+            this.followAnchor();
+
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
 		},
@@ -363,13 +365,23 @@
                 history.pushState(null, null, location.href.replace(location.hash, '') + '#' + this.id);
             })
         },
+        followAnchor : function(){
+
+            $('a[href*=#]:not([data-toggle])').on('click', function () {
+                var hash = $(this).attr('href');
+                hash = hash.slice(hash.indexOf('#') + 1);
+                $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+                window.location.hash = '#' + hash;
+                return false;
+            });
+        },
         toggleCollapseFromHash: function () {
 
             var hash = location.hash.replace(/#/g, ""); // remove if more than # sign
 
             if (!hash) return false;
 
-            var $toggle = $('#' + hash + '.collapse')
+            var $toggle = $('#' + hash + '.collapse'),
                 $link = $("[href='#" + hash + "']");
 
             if($toggle.length < 1) return false;
@@ -383,6 +395,9 @@
 
             // toggle anchor panel id
             $toggle.addClass('in');
+
+            // scroll to panel
+            $('html,body').animate({scrollTop:$toggle.offset().top}, 500);
         },
         openModalFromHash: function () {
             var hash = location.hash.replace(/#/g, "").replace(/is/g, "or"); // remove if more than # sign
