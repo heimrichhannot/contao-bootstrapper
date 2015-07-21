@@ -13,29 +13,29 @@
             //this.addChosenSupport();
             this.initDateTimePicker();
 
-			this.initSlider();
-			// show news in modal window
-			//this.setUrlHistoryFromModalLink();
-			this.loadModalFromUrl();
-			this.onCloseModal();
-			this.initCarouselProgressBar();
-			this.addPlaceholderTagSupport();
-			this.initJQueryValidation();
-			this.initAjaxForms();
-			this.initScrollClass();
-			//this.initSelect2();
-			this.megaMenuEqualHeight();
-			this.setHashFromCollapse();
+            this.initSlider();
+            // show news in modal window
+            //this.setUrlHistoryFromModalLink();
+            this.loadModalFromUrl();
+            this.onCloseModal();
+            this.initCarouselProgressBar();
+            this.addPlaceholderTagSupport();
+            this.initJQueryValidation();
+            this.initAjaxForms();
+            this.initScrollClass();
+            //this.initSelect2();
+            this.megaMenuEqualHeight();
+            this.setHashFromCollapse();
 
             this.followAnchor();
 
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
-		},
+        },
         ajaxComplete : function() {
             this.initDateTimePicker();
         },
-		megaMenuEqualHeight: function () {
+        megaMenuEqualHeight: function () {
 
             // if level_3 submenu higher than level_2, we need to determine the max height of both and set it
             // otherwise, menu items will overlap the parent wrapper, because absolute positioned items wont inflate the parent wrapper
@@ -152,15 +152,15 @@
 
                             } else {
 
-								// html page returned
-								replace = $(data).find('#' + $form.attr('id'));
-								if (replace.length < 1) {
-									$form.html(data); // module handle ajax request, replace inner html
+                                // html page returned
+                                replace = $(data).find('#' + $form.attr('id'));
+                                if (replace.length < 1) {
+                                    $form.html(data); // module handle ajax request, replace inner html
                                     replace = data;
-								} else {
-									$form.replaceWith(replace);
-								}
-							}
+                                } else {
+                                    $form.replaceWith(replace);
+                                }
+                            }
 
                             // sroll to first alert message or first error field
                             var alert = replace.find('.alert:first, .error:first');
@@ -172,12 +172,12 @@
                                     scrollTop: parseInt(alertOffset.top) - 70 + 'px'
                                 }, 500);
                             }
-						}
-					}
-				);
-			});
-		},
-		initCarouselProgressBar: function () {
+                        }
+                    }
+                );
+            });
+        },
+        initCarouselProgressBar: function () {
 
             var percent = 0,
                 bar = $('.carousel-progress .progress-bar'),
@@ -253,7 +253,7 @@
 
                 // stop embedded audio/video
                 $this.find('audio, video').each(function(){
-                   this.pause();
+                    this.pause();
                 });
             });
         },
@@ -348,7 +348,7 @@
                                 if(e.date.isAfter($linkedEnd.closest('.datepicker').data("DateTimePicker").date())) {
                                     $linkedEnd.closest('.datepicker').data("DateTimePicker").date(e.date);
                                 }
-                            // set min date
+                                // set min date
                             } else{
                                 $linkedEnd.closest('.datepicker').data("DateTimePicker").minDate(e.date);
                             }
@@ -368,10 +368,15 @@
         followAnchor : function(){
 
             $('a[href*=#]:not([data-toggle])').on('click', function () {
-                var hash = $(this).attr('href');
-                hash = hash.slice(hash.indexOf('#') + 1);
-                $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
-                window.location.hash = '#' + hash;
+                var hash = $(this).attr('href').replace(/#/g, "");
+
+                var $anchor = $('#' + hash);
+
+                if($anchor.length > 0){
+                    $('html,body').animate({scrollTop:$anchor.offset().top}, 500);
+                    window.location.hash = '#' + hash;
+                }
+
                 return false;
             });
         },
@@ -451,25 +456,25 @@
                         window.location = this.href;
                     }
 
-				}
-			});
-		},
-		addChosenSupport: function () {
-			$('select.tl_chosen').chosen({
-				search_contains: true,
-				no_results_text: 'Keine Ergebnisse für',
-				placeholder_text_multiple: ' ',
-				placeholder_text_single: ' ',
-				width: '100%'
-			}).change(function (event, selectedValue) {
-				// workaround for updating list values (https://github.com/harvesthq/chosen/issues/1504)
-				$(this).trigger('chosen:updated');
-			});
-		},
-		initFastClick: function () {
-			FastClick.attach(document.body);
-		}
-	};
+                }
+            });
+        },
+        addChosenSupport: function () {
+            $('select.tl_chosen').chosen({
+                search_contains: true,
+                no_results_text: 'Keine Ergebnisse für',
+                placeholder_text_multiple: ' ',
+                placeholder_text_single: ' ',
+                width: '100%'
+            }).change(function (event, selectedValue) {
+                // workaround for updating list values (https://github.com/harvesthq/chosen/issues/1504)
+                $(this).trigger('chosen:updated');
+            });
+        },
+        initFastClick: function () {
+            FastClick.attach(document.body);
+        }
+    };
 
     $(document).ready(function () {
         // determine if bootstrap 3 is loaded
@@ -479,4 +484,3 @@
     });
 
 })(jQuery);
-
