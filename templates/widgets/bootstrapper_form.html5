@@ -20,13 +20,13 @@
 		<?php $this->field->addAttribute('data-placeholder', $this->field->placeHolder ? $this->field->placeHolder: $this->field->blankOptionLabel)?>
 	<?php endif;?>
 	<?php if($this->field->type == 'captcha'): ?>
-			<div class="form-horizontal clearfix row">
+			<div class="form-horizontal clearfix">
 				<?php $strField = $this->field->generate(); ?>
-				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 <?php echo $this->field->class ? str_replace('form-control', '', $this->field->class) : '';?>">
+				<div class="<?php echo $this->field->class ? str_replace('form-control', '', $this->field->class) : '';?>">
 					<?php echo $strField; ?>
 				</div>
 				<?php $strQuestion = $this->field->generateQuestion(); ?>
-				<?php $strQuestion = str_replace($this->field->class, 'control-label col-xs-12 col-sm-12 col-md-4 col-lg-4', $strQuestion); ?>
+				<?php $strQuestion = str_replace($this->field->class, 'control-label', $strQuestion); ?>
 				<?php echo $strQuestion; ?>
 			</div>
 	<?php else: ?>
