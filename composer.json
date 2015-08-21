@@ -19,7 +19,7 @@
     "require": {
         "contao/core": ">=3.2,<4-dev",
         "contao-legacy/countryselect": ">=1.2.0,<2-dev",
-        "heimrichhannot/contao-extassets": ">=1.0.0,<1.1-dev",
+        "heimrichhannot/contao-extassets": ">=1.0.0,<2.x-dev",
         "contao-community-alliance/composer-installer": "*"
     },
     "autoload": {
