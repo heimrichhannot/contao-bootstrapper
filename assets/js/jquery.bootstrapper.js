@@ -5,6 +5,7 @@
             this.initFastClick();
             this.toggleCollapseFromHash();
             this.openModalFromHash();
+            this.toggleTabFromHash();
             this.initModalNavigation();
             //this.initModalRemoteUpdate();
             this.initNavbar();
@@ -415,6 +416,27 @@
 
             $toggle.modal('show');
         },
+        toggleTabFromHash: function () {
+            var hash = location.hash.replace(/#/g, ""); // remove if more than # sign
+
+            if (!hash) return false;
+
+            var $pane = $('#' + hash),
+                $link = $("[href='#" + hash + "']");
+
+            var $links = $link.closest('.tabcontrol_tabs'),
+                $panes = $pane.closest('.tabcontrol_panes');
+
+            // close all open panels
+            if($links.length > 0 && $panes.length > 0){
+                $links.find('a').parent().removeClass('active');
+                $panes.find('.tab-pane').removeClass('in').removeClass('active');
+
+                // toggle anchor panel id
+                $pane.addClass('active').addClass('in');
+                $link.parent().addClass('active');
+            }
+        },
         initModalNavigation: function () {
             $('.modal').on('click', '.modal-next', function (e) {
                 e.preventDefault();
@@ -484,3 +506,4 @@
     });
 
 })(jQuery);
+
