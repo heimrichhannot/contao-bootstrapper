@@ -187,6 +187,8 @@
                 delay = 200,
                 step = Math.floor(delay * 100 / parseInt(crsl.data('interval')));
 
+            if (crsl.length <= 0) return;
+            
             function progressBarCarousel() {
                 if (percent > 0) {
                     bar.removeClass('carousel-transition');
@@ -269,7 +271,8 @@
             });
         },
         loadModalFromUrl: function () {
-            $('.modal.in').modal('show');
+            if ($('.modal.in').length > 0)
+                $('.modal.in').modal('show');
         },
         initDateTimePicker: function () {
             var defaults = {
@@ -499,10 +502,7 @@
     };
 
     $(document).ready(function () {
-        // determine if bootstrap 3 is loaded
-        if ((typeof $().emulateTransitionEnd == 'function')) {
-            Bootstrapper.init();
-        }
+        Bootstrapper.init();
     });
 
 })(jQuery);
