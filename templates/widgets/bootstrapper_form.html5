@@ -106,12 +106,12 @@
 	<div class="form-group <?php echo $this->field->id; ?>-confirm<?php echo $this->field->hasErrors() ? ' has-error': ''; ?><?php echo $this->field->groupClass ? ' ' .  $this->field->groupClass : '';?>">
 		<?php $this->field->addAttribute('placeholder', $GLOBALS['TL_LANG']['MSC']['confirmation']); ?>
 		<?php if(!$this->hideLabel): ?>
-			<?php echo $this->field->generateConfirmationLabel();	?>
+			<?php if (method_exists($this->field, 'generateConfirmationLabel')) echo $this->field->generateConfirmationLabel();	?>
 			<?php $this->field->addAttributes(array('class' => '')); ?>
 		<?php endif; ?>
 		<div class="input-group password">
 			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-		<?php echo $this->field->generateConfirmation(); ?>
+		<?php if (method_exists($this->field, 'generateConfirmation')) echo $this->field->generateConfirmation(); ?>
 		</div>
 	</div>
 <?php endif; ?>
