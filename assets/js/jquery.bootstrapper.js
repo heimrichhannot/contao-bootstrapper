@@ -5,6 +5,7 @@
             this.initFastClick();
             this.toggleCollapseFromHash();
             this.openModalFromHash();
+            this.toggleTabFromHash();
             this.initModalNavigation();
             //this.initModalRemoteUpdate();
             this.initNavbar();
@@ -28,12 +29,21 @@
             this.setHashFromCollapse();
 
             this.followAnchor();
+            this.initFileUpload();
 
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
         ajaxComplete : function() {
             this.initDateTimePicker();
+        },
+        initFileUpload : function(){
+            // clear fileinput always (as long as value is provided by server)
+            $('.fileinput [data-dismiss]').on('click', function(){
+                var $fileInput = $(this).parent('.fileinput');
+                $fileInput.fileinput('clear');
+                $fileInput.find('input[type=file]').attr('value', '');
+            });
         },
         megaMenuEqualHeight: function () {
 
@@ -186,6 +196,8 @@
                 delay = 200,
                 step = Math.floor(delay * 100 / parseInt(crsl.data('interval')));
 
+            if (crsl.length <= 0) return;
+            
             function progressBarCarousel() {
                 if (percent > 0) {
                     bar.removeClass('carousel-transition');
@@ -268,7 +280,8 @@
             });
         },
         loadModalFromUrl: function () {
-            $('.modal.in').modal('show');
+            if ($('.modal.in').length > 0)
+                $('.modal.in').modal('show');
         },
         initDateTimePicker: function () {
             var defaults = {
@@ -415,6 +428,27 @@
 
             $toggle.modal('show');
         },
+        toggleTabFromHash: function () {
+            var hash = location.hash.replace(/#/g, ""); // remove if more than # sign
+
+            if (!hash) return false;
+
+            var $pane = $('#' + hash),
+                $link = $("[href='#" + hash + "']");
+
+            var $links = $link.closest('.tabcontrol_tabs'),
+                $panes = $pane.closest('.tabcontrol_panes');
+
+            // close all open panels
+            if($links.length > 0 && $panes.length > 0){
+                $links.find('a').parent().removeClass('active');
+                $panes.find('.tab-pane').removeClass('in').removeClass('active');
+
+                // toggle anchor panel id
+                $pane.addClass('active').addClass('in');
+                $link.parent().addClass('active');
+            }
+        },
         initModalNavigation: function () {
             $('.modal').on('click', '.modal-next', function (e) {
                 e.preventDefault();
@@ -477,10 +511,8 @@
     };
 
     $(document).ready(function () {
-        // determine if bootstrap 3 is loaded
-        if ((typeof $().emulateTransitionEnd == 'function')) {
-            Bootstrapper.init();
-        }
+        Bootstrapper.init();
     });
 
 })(jQuery);
+

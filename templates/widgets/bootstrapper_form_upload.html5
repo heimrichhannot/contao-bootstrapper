@@ -1,0 +1,11 @@
+<div class="<?= $this->groupClass; ?> fileinput-container">
+	<div class="fileinput input-group <?= $this->fileClass; ?>" data-provides="fileinput"<?= $this->attributes; ?>>
+		<div class="form-control" data-trigger="fileinput"><i class="fileinput-exists <?= $this->fileClass; ?>"></i>
+		<span class="fileinput-filename"><?= $this->filename; ?></span></div>
+		<span class="input-group-addon btn btn-file"><span class="fileinput-new"><?= $this->field->label; ?></span>
+		<span class="fileinput-exists"><?= $this->changeFile; ?></span>
+		<input type="file" name="<?= $this->field->name; ?>" value="<?= $this->value; ?>"></span>
+		<a href="#" class="input-group-addon btn btn-file fileinput-exists" data-dismiss="fileinput"><?= $this->removeFile; ?></a>
+	</div>
+	<?php echo $this->help; ?>
+</div>

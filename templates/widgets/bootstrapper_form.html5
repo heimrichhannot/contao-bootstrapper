@@ -20,13 +20,13 @@
 		<?php $this->field->addAttribute('data-placeholder', $this->field->placeHolder ? $this->field->placeHolder: $this->field->blankOptionLabel)?>
 	<?php endif;?>
 	<?php if($this->field->type == 'captcha'): ?>
-			<div class="form-horizontal clearfix row">
+			<div class="form-horizontal clearfix">
 				<?php $strField = $this->field->generate(); ?>
-				<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 <?php echo $this->field->class ? str_replace('form-control', '', $this->field->class) : '';?>">
+				<div class="<?php echo $this->field->class ? str_replace('form-control', '', $this->field->class) : '';?>">
 					<?php echo $strField; ?>
 				</div>
 				<?php $strQuestion = $this->field->generateQuestion(); ?>
-				<?php $strQuestion = str_replace($this->field->class, 'control-label col-xs-12 col-sm-12 col-md-4 col-lg-4', $strQuestion); ?>
+				<?php $strQuestion = str_replace($this->field->class, 'control-label', $strQuestion); ?>
 				<?php echo $strQuestion; ?>
 			</div>
 	<?php else: ?>
@@ -106,12 +106,12 @@
 	<div class="form-group <?php echo $this->field->id; ?>-confirm<?php echo $this->field->hasErrors() ? ' has-error': ''; ?><?php echo $this->field->groupClass ? ' ' .  $this->field->groupClass : '';?>">
 		<?php $this->field->addAttribute('placeholder', $GLOBALS['TL_LANG']['MSC']['confirmation']); ?>
 		<?php if(!$this->hideLabel): ?>
-			<?php echo $this->field->generateConfirmationLabel();	?>
+			<?php if (method_exists($this->field, 'generateConfirmationLabel')) echo $this->field->generateConfirmationLabel();	?>
 			<?php $this->field->addAttributes(array('class' => '')); ?>
 		<?php endif; ?>
 		<div class="input-group password">
 			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-		<?php echo $this->field->generateConfirmation(); ?>
+		<?php if (method_exists($this->field, 'generateConfirmation')) echo $this->field->generateConfirmation(); ?>
 		</div>
 	</div>
 <?php endif; ?>

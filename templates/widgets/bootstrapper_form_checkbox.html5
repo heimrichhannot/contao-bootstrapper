@@ -1,0 +1,9 @@
+<div class="<?= $this->groupClass; ?>">
+	<div class="checkbox <?= $this->class; ?>">
+		<input type="hidden" name="<?= $this->field->name; ?>" value=""<?= $this->tagEnding; ?>
+		<?php echo $this->options; ?>
+		<?php ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
+		<?php ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+		<?php echo $this->help; ?>
+	</div>
+</div>

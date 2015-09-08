@@ -2,29 +2,41 @@
 
 namespace HeimrichHannot;
 
+use HeimrichHannot\Bootstrapper\BootstrapperFormField;
+
 class Bootstrapper extends \Controller
 {
-	protected static $arrSkipTypes = array('hidden', 'fieldset', 'explanation', 'subEventList', 'successGroup', 'formcolstart', 'formcolpart', 'formcolend');
+	protected static $arrSkipTypes = array('hidden', 'fieldset', 'explanation', 'subEventList', 'successGroup', 'formcolstart', 'formcolpart', 'formcolend', 'multiColumnWizard', 'form_multiColumnWizard');
 
 	public static function generateForm(\Widget $objWidget, $hideLabel=false)
 	{
-		if(in_array($objWidget->type, static::$arrSkipTypes)) return $objWidget->generate();
+		if(in_array($objWidget->type, static::$arrSkipTypes))
+		{
+			return $objWidget->generate();
+		}
 
-		$strTemplate = 'bootstrapper_form';
+		$strClass = $GLOBALS['TL_FFL_BOOTSTRAPPER']['legacy'];
 
-		$objT = new \FrontendTemplate($strTemplate);
-		// check if field is part of a sub palette
-// 		$dc = $GLOBALS['TL_DCA']['tl_calendar_events'];
-// 		// add alias as hidden field, for trigger the save callback (generateAlias)
-// 		$dc['fields']['alias']['inputType'] = 'hidden';
+		if(isset($GLOBALS['TL_FFL_BOOTSTRAPPER'][$objWidget->type]))
+		{
+			$strClass = $GLOBALS['TL_FFL_BOOTSTRAPPER'][$objWidget->type];
+		}
 
-		// parse and generate methods append [] for multiple element widgets
-		$objWidget->name = str_replace('[]', '', $objWidget->name);
-		
-		$objT->field = $objWidget;
-		$objT->hideLabel = $hideLabel || $objWidget->hideLabel;
-		
-		return $objT->parse();
+		if(!class_exists($strClass))
+		{
+			return $objWidget->generate();
+		}
+
+		$objField = new $strClass($objWidget);
+
+		if(!$objField instanceof BootstrapperFormField)
+		{
+			return $objWidget->generate();
+		}
+
+		$objField->hideLabel = $hideLabel;
+
+		return $objField->generate();
 	}
 
 	public static function formatPhpDateToJsDate($php_format) {
