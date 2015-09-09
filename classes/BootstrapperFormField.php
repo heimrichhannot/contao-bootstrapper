@@ -14,6 +14,14 @@ namespace HeimrichHannot\Bootstrapper;
 define('BOOTSTRAPPER_FORM_GROUP_CLASS', 'form-group');
 define('BOOTSTRAPPER_ERROR_CLASS', 'has-error');
 
+define('BOOTSTRAPPER_OPTION_HIDELABEL', 'hideLabel');
+define('BOOTSTRAPPER_OPTION_CHANGEFILE', 'changeFile');
+define('BOOTSTRAPPER_OPTION_REMOVEFILE', 'removeFile');
+define('BOOTSTRAPPER_OPTION_FILEICONCLASS', 'fileIconClass');
+define('BOOTSTRAPPER_OPTION_SINGLESELECT', 'singleSelect');
+define('BOOTSTRAPPER_OPTION_SHOWDESCRIPTION', 'showDescription');
+define('BOOTSTRAPPER_OPTION_INLINE', 'inline');
+
 abstract class BootstrapperFormField extends \Widget
 {
 
@@ -150,10 +158,41 @@ abstract class BootstrapperFormField extends \Widget
 	 *
 	 * @return string
 	 */
-	public function getAttribute($strKey, $varDefault = '')
+	public function getSetting($strKey)
 	{
-		if (isset($this->objWidget->{$strKey})) {
+		if (isset($this->objWidget->{$strKey}))
+		{
 			return $this->objWidget->{$strKey};
+		}
+
+		return $this->getDefaultSetting($strKey);
+	}
+
+
+	protected function getDefaultSetting($strKey)
+	{
+		switch ($strKey)
+		{
+			// true
+			case BOOTSTRAPPER_OPTION_INLINE:
+				$varDefault = true;
+				break;
+			// false
+			case BOOTSTRAPPER_OPTION_HIDELABEL:
+			case BOOTSTRAPPER_OPTION_SINGLESELECT:
+			case BOOTSTRAPPER_OPTION_SHOWDESCRIPTION:
+				$varDefault = false;
+				break;
+			case BOOTSTRAPPER_OPTION_CHANGEFILE:
+				$varDefault = $GLOBALS['TL_LANG']['bootstrapper'][BOOTSTRAPPER_OPTION_CHANGEFILE];
+				break;
+			case BOOTSTRAPPER_OPTION_REMOVEFILE:
+				$varDefault = $GLOBALS['TL_LANG']['bootstrapper'][BOOTSTRAPPER_OPTION_REMOVEFILE];
+				break;
+
+			case BOOTSTRAPPER_OPTION_FILEICONCLASS:
+				$varDefault = 'fa fa-file';
+				break;
 		}
 
 		return $varDefault;
@@ -173,7 +212,7 @@ abstract class BootstrapperFormField extends \Widget
 		{
 			$strText = $this->objWidget->getErrorsAsString();
 		}
-		else if($this->getAttribute('showDescription', false))
+		else if($this->getSetting(BOOTSTRAPPER_OPTION_SHOWDESCRIPTION))
 		{
 			$strText = $this->objWidget->description;
 		}

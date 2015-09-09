@@ -23,4 +23,4 @@ removeFile | string | Remove | upload | Label that will be displayed to remove f
 fileIconClass | string | fa fa-file | upload | Icon css class that will be shown before the uploaded file name.
 singleSelect | boolean | false | checkbox | Make a checkbox behave like radio buttons, with the option to disable a selection again. 
 showDescription | boolean | false | all | Show the description label below the input as help-block (text replaced with error message in case).
-inline | boolean | false | checkbox, radio | Show checkbox and radio inputs inline.
+inline | boolean | true | checkbox, radio | Show checkbox and radio inputs inline.

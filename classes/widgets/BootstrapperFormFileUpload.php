@@ -19,15 +19,13 @@ class BootstrapperFormFileUpload extends BootstrapperFormField
 {
 	protected $strTemplate = 'bootstrapper_form_upload';
 
-	protected $fileIconClass = 'fa fa-file';
-
 	protected $uploaded = false;
 
 	protected function compile()
 	{
-		$this->Template->changeFile    = $this->getAttribute('changeFile', $GLOBALS['TL_LANG']['bootstrapper']['changeFile']);
-		$this->Template->removeFile    = $this->getAttribute('removeFile', $GLOBALS['TL_LANG']['bootstrapper']['removeFile']);
-		$this->Template->fileIconClass = $this->getAttribute('fileIconClass', $this->fileIconClass);
+		$this->Template->changeFile    = $this->getSetting(BOOTSTRAPPER_OPTION_CHANGEFILE);
+		$this->Template->removeFile    = $this->getSetting(BOOTSTRAPPER_OPTION_REMOVEFILE);
+		$this->Template->fileIconClass = $this->getSetting(BOOTSTRAPPER_OPTION_FILEICONCLASS);
 
 		// if upload succeeded a valid uuid must exist in activeRecord
 		$this->uploaded = \Validator::isUuid($this->objWidget->activeRecord->{$this->objWidget->name});

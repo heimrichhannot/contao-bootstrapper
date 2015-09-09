@@ -1,5 +1,8 @@
 <div class="<?= $this->groupClass; ?>">
-	<div class="checkbox <?= $this->class; ?>">
+	<?php if($this->showGroupLabel): ?>
+		<label id="lbl_<?= $this->groupID; ?>" for="<?= $this->groupID; ?>" class="control-label"><?= $this->groupLabel; ?></label>
+	<?php endif; ?>
+	<div id="<?= $this->groupID; ?>" class="checkbox <?= $this->class; ?>">
 		<input type="hidden" name="<?= $this->field->name; ?>" value=""<?= $this->tagEnding; ?>
 		<?php echo $this->options; ?>
 		<?php ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
