@@ -48,7 +48,6 @@ $GLOBALS['TL_USER_CSS']['pagination-bootstrap'] = 'system/modules/bootstrapper/a
 $GLOBALS['TL_USER_CSS']['maps-bootstrap']       = 'system/modules/bootstrapper/assets/css/maps.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['carousel-bootstrap']   = 'system/modules/bootstrapper/assets/css/carousel.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['colorbox-bootstrap']   = 'system/modules/bootstrapper/assets/css/colorbox.less|screen|static|3.1.1';
-//$GLOBALS['TL_USER_CSS']['chosen-bootstrap']     = 'system/modules/bootstrapper/assets/vendor/bootstrap-chosen/bootstrap-chosen.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['datetimepicker']         =
 	'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.css|screen|static|4.0.0';
 $GLOBALS['TL_USER_CSS']['bootstrap-slider']       =
@@ -67,17 +66,12 @@ if (TL_MODE == 'FE') {
 
 	$GLOBALS['TL_JAVASCRIPT']['fastclick'] = '/system/modules/bootstrapper/assets/vendor/fastclick-1.0.3/lib/fastclick' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
-	//$GLOBALS['TL_JAVASCRIPT']['chosen'] = 'system/modules/bootstrapper/assets/vendor/chosen/chosen.jquery.js|static';
-
 	// bootstrap-datetimepicker
 	$GLOBALS['TL_JAVASCRIPT']['moment']         = 'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 	$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] =
 		'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
-	//$GLOBALS['TL_JAVASCRIPT']['eonasdan-bootstrap-datetimepicker-de']	= 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.de.js';
 
 	// bootstrap gallery gesture/touch support
-	//$GLOBALS['TL_JAVASCRIPT']['bootstrap-touch-carousel']							= 'system/modules/bootstrapper/assets/vendor/bootstrap-touch-carousel/dist/js/bootstrap-touch-carousel.js';
-
 	$GLOBALS['TL_JAVASCRIPT']['jquery-validation']        = 'system/modules/bootstrapper/assets/vendor/validation/jquery.validate.min.js|static';
 	$GLOBALS['TL_JAVASCRIPT']['jquery-validation-locale'] = 'system/modules/bootstrapper/assets/vendor/validation/methods_de.min.js|static';
 	$GLOBALS['TL_JAVASCRIPT']['jquery-validation-locale'] = 'system/modules/bootstrapper/assets/vendor/validation/messages_de.min.js|static';
@@ -88,9 +82,6 @@ if (TL_MODE == 'FE') {
 		'system/modules/bootstrapper/assets/vendor/bootstrap-hover-dropdown-master/bootstrap-hover-dropdown' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['bootstrap-slider'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/dist/bootstrap-slider.min.js|static';
-
-//	$GLOBALS['TL_JAVASCRIPT']['select2']    = 'system/modules/bootstrapper/assets/vendor/select2/select2.js|static';
-//	$GLOBALS['TL_JAVASCRIPT']['select2.de'] = 'system/modules/bootstrapper/assets/vendor/select2/select2_locale_de.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['selectize.js'] = 'system/modules/bootstrapper/assets/vendor/selectize.js/dist/js/standalone/selectize' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
