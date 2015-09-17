@@ -10,6 +10,7 @@ $GLOBALS['TL_FFL_BOOTSTRAPPER'] = array
 	'checkbox' => 'HeimrichHannot\Bootstrapper\BootstrapperFormCheckBox',
 	'radio'    => 'HeimrichHannot\Bootstrapper\BootstrapperFormRadio',
 	'upload'   => 'HeimrichHannot\Bootstrapper\BootstrapperFormFileUpload',
+	'textarea' => 'HeimrichHannot\Bootstrapper\BootstrapperFormTextArea',
 );
 
 /**

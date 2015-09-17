@@ -42,6 +42,7 @@ ClassLoader::addClasses(array
 	'HeimrichHannot\Bootstrapper\BootstrapperFormFileUpload' => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormFileUpload.php',
 	'HeimrichHannot\Bootstrapper\BootstrapperFormLegacy'     => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormLegacy.php',
 	'HeimrichHannot\Bootstrapper\BootstrapperFormCheckBox'   => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormCheckBox.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormTextArea'   => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormTextArea.php',
 ));
 
 
@@ -74,6 +75,7 @@ TemplateLoader::addFiles(array
 	'ce_accordion_stop'          => 'system/modules/bootstrapper/templates/elements',
 	'styleguide_bs3'             => 'system/modules/bootstrapper/templates/styleguides',
 	'bootstrapper_form_upload'   => 'system/modules/bootstrapper/templates/widgets',
+	'bootstrapper_form_textarea' => 'system/modules/bootstrapper/templates/widgets',
 	'bootstrapper_form_checkbox' => 'system/modules/bootstrapper/templates/widgets',
 	'bootstrapper_form'          => 'system/modules/bootstrapper/templates/widgets',
 	'bootstrapper_form_radio'    => 'system/modules/bootstrapper/templates/widgets',

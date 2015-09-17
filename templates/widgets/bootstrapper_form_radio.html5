@@ -5,8 +5,8 @@
 	<div id="<?= $this->groupID; ?>" class="radio <?= $this->class; ?>">
 		<input type="hidden" name="<?= $this->field->name; ?>" value=""<?= $this->tagEnding; ?>
 		<?php echo $this->options; ?>
-		<?php ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
-		<?php ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
-		<?php echo $this->help; ?>
+		<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
+		<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+		<?= $this->help; ?>
 	</div>
 </div>

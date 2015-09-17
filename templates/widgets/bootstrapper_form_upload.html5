@@ -7,5 +7,5 @@
 		<input type="file" name="<?= $this->field->name; ?>" value="<?= $this->value; ?>"></span>
 		<a href="#" class="input-group-addon btn btn-file fileinput-exists" data-dismiss="fileinput"><?= $this->removeFile; ?></a>
 	</div>
-	<?php echo $this->help; ?>
+	<?= $this->help; ?>
 </div>

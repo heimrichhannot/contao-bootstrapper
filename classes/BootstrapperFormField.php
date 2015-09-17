@@ -21,6 +21,8 @@ define('BOOTSTRAPPER_OPTION_FILEICONCLASS', 'fileIconClass');
 define('BOOTSTRAPPER_OPTION_SINGLESELECT', 'singleSelect');
 define('BOOTSTRAPPER_OPTION_SHOWDESCRIPTION', 'showDescription');
 define('BOOTSTRAPPER_OPTION_INLINE', 'inline');
+define('BOOTSTRAPPER_OPTION_TOOLBAR', 'toolbar');
+define('BOOTSTRAPPER_OPTION_CONTENTCSS', 'content_css');
 
 abstract class BootstrapperFormField extends \Widget
 {
@@ -105,6 +107,7 @@ abstract class BootstrapperFormField extends \Widget
 
 		$this->Template->class       = $this->getCssClasses();
 		$this->Template->groupClass =  $this->getGroupCssClasses();
+		$this->Template->attributes  = $this->objWidget->getAttributes();
 
 		return $this->Template->parse();
 	}
@@ -193,6 +196,12 @@ abstract class BootstrapperFormField extends \Widget
 			case BOOTSTRAPPER_OPTION_FILEICONCLASS:
 				$varDefault = 'fa fa-file';
 				break;
+			case BOOTSTRAPPER_OPTION_TOOLBAR:
+				$varDefault = 'undo redo | bold italic | bullist numlist outdent indent | link unlink';
+			break;
+			case BOOTSTRAPPER_OPTION_CONTENTCSS:
+				$varDefault = TL_PATH . '/system/themes/tinymce.css,' . TL_PATH . '/' . Config::get('uploadPath') . '/tinymce.css';
+			break;
 		}
 
 		return $varDefault;

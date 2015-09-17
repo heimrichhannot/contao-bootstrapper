@@ -24,3 +24,5 @@ fileIconClass | string | fa fa-file | upload | Icon css class that will be shown
 singleSelect | boolean | false | checkbox | Make a checkbox behave like radio buttons, with the option to disable a selection again. 
 showDescription | boolean | false | all | Show the description label below the input as help-block (text replaced with error message in case).
 inline | boolean | true | checkbox, radio | Show checkbox and radio inputs inline.
+toolbar | string | 'undo redo | bold italic | bullist numlist outdent indent | link unlink' | textarea | Add a custom tinyMCE toolbar.
+content_css | string | false | textarea | Add a valid location to an css file, that should be loaded as tinyMCE content.css.
