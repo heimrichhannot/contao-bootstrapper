@@ -53,11 +53,6 @@ $GLOBALS['TL_USER_CSS']['datetimepicker']         =
 	'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.css|screen|static|4.0.0';
 $GLOBALS['TL_USER_CSS']['bootstrap-slider']       =
 	'system/modules/bootstrapper/assets/vendor/bootstrap-slider/less/bootstrap-slider.less|screen|static|3.0.0';
-$GLOBALS['TL_USER_CSS']['select2']                = 'system/modules/bootstrapper/assets/vendor/select2/select2.css|screen|static|3.5.1';
-$GLOBALS['TL_USER_CSS']['selectize.js']           =
-	'system/modules/bootstrapper/assets/vendor/selectize.js/dist/less/selectize.less|screen|static|0.11.2';
-$GLOBALS['TL_USER_CSS']['selectize.js-bootstrap'] =
-	'system/modules/bootstrapper/assets/vendor/selectize.js/dist/less/selectize.bootstrap3.less|screen|static|0.11.2';
 $GLOBALS['TL_USER_CSS']['animate']                = 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static';
 /**
  * JS
@@ -83,8 +78,6 @@ if (TL_MODE == 'FE') {
 		'system/modules/bootstrapper/assets/vendor/bootstrap-hover-dropdown-master/bootstrap-hover-dropdown' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['bootstrap-slider'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/dist/bootstrap-slider.min.js|static';
-
-	$GLOBALS['TL_JAVASCRIPT']['selectize.js'] = 'system/modules/bootstrapper/assets/vendor/selectize.js/dist/js/standalone/selectize' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['jquery.actual'] = 'system/modules/bootstrapper/assets/vendor/jquery.actual/jquery.actual' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 

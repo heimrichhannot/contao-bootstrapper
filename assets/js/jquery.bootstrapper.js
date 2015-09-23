@@ -11,7 +11,6 @@
             this.initNavbar();
             this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
             this.supportNestedDropdowns();
-            //this.addChosenSupport();
             this.initDateTimePicker();
 
             this.initSlider();
@@ -24,7 +23,6 @@
             this.initJQueryValidation();
             this.initAjaxForms();
             this.initScrollClass();
-            //this.initSelect2();
             this.megaMenuEqualHeight();
             this.setHashFromCollapse();
 
@@ -70,11 +68,6 @@
 
                 $this.height(maxOuterHeight);
                 $this.find('.submenu-wrapper').height(maxInnerHeight);
-            });
-        },
-        initSelect2: function () {
-            $('select').select2({
-                minimumResultsForSearch: 10
             });
         },
         supportNestedDropdowns: function () {
@@ -493,18 +486,7 @@
                 }
             });
         },
-        addChosenSupport: function () {
-            $('select.tl_chosen').chosen({
-                search_contains: true,
-                no_results_text: 'Keine Ergebnisse für',
-                placeholder_text_multiple: ' ',
-                placeholder_text_single: ' ',
-                width: '100%'
-            }).change(function (event, selectedValue) {
-                // workaround for updating list values (https://github.com/harvesthq/chosen/issues/1504)
-                $(this).trigger('chosen:updated');
-            });
-        },
+
         initFastClick: function () {
             FastClick.attach(document.body);
         }
@@ -515,4 +497,3 @@
     });
 
 })(jQuery);
-
