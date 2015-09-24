@@ -15,6 +15,7 @@ define('BOOTSTRAPPER_FORM_GROUP_CLASS', 'form-group');
 define('BOOTSTRAPPER_ERROR_CLASS', 'has-error');
 
 define('BOOTSTRAPPER_OPTION_HIDELABEL', 'hideLabel');
+define('BOOTSTRAPPER_OPTION_SHOWGROUPLABEL', 'content_css');
 define('BOOTSTRAPPER_OPTION_CHANGEFILE', 'changeFile');
 define('BOOTSTRAPPER_OPTION_REMOVEFILE', 'removeFile');
 define('BOOTSTRAPPER_OPTION_FILEICONCLASS', 'fileIconClass');
@@ -184,6 +185,7 @@ abstract class BootstrapperFormField extends \Widget
 			case BOOTSTRAPPER_OPTION_HIDELABEL:
 			case BOOTSTRAPPER_OPTION_SINGLESELECT:
 			case BOOTSTRAPPER_OPTION_SHOWDESCRIPTION:
+			case BOOTSTRAPPER_OPTION_SHOWGROUPLABEL:
 				$varDefault = false;
 				break;
 			case BOOTSTRAPPER_OPTION_CHANGEFILE:
@@ -198,10 +200,10 @@ abstract class BootstrapperFormField extends \Widget
 				break;
 			case BOOTSTRAPPER_OPTION_TOOLBAR:
 				$varDefault = 'undo redo | bold italic | bullist numlist outdent indent | link unlink';
-			break;
+				break;
 			case BOOTSTRAPPER_OPTION_CONTENTCSS:
 				$varDefault = TL_PATH . '/system/themes/tinymce.css,' . TL_PATH . '/' . Config::get('uploadPath') . '/tinymce.css';
-			break;
+				break;
 		}
 
 		return $varDefault;
