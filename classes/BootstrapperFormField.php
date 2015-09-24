@@ -15,7 +15,7 @@ define('BOOTSTRAPPER_FORM_GROUP_CLASS', 'form-group');
 define('BOOTSTRAPPER_ERROR_CLASS', 'has-error');
 
 define('BOOTSTRAPPER_OPTION_HIDELABEL', 'hideLabel');
-define('BOOTSTRAPPER_OPTION_SHOWGROUPLABEL', 'content_css');
+define('BOOTSTRAPPER_OPTION_SHOWGROUPLABEL', 'showGroupLabel');
 define('BOOTSTRAPPER_OPTION_CHANGEFILE', 'changeFile');
 define('BOOTSTRAPPER_OPTION_REMOVEFILE', 'removeFile');
 define('BOOTSTRAPPER_OPTION_FILEICONCLASS', 'fileIconClass');
