@@ -39,7 +39,8 @@ $GLOBALS['TL_LANG']['tl_content']['tabTitles']		= array('Tab titles','Please spe
 $GLOBALS['TL_LANG']['tl_content']['tabType']		= array('Operation mode','Please select the operation mode of the TabControl element.');
 $GLOBALS['TL_LANG']['tl_content']['tab_remember'][0] = 'Remember active tab';
 $GLOBALS['TL_LANG']['tl_content']['tab_remember'][1] = 'Active tab is stored as a cookie.';
-
+$GLOBALS['TL_LANG']['tl_content']['background'][0] = 'Display as background-image.';
+$GLOBALS['TL_LANG']['tl_content']['background'][1] = 'Embed the selected image as background-image.';
 /**
  * Legends
  */

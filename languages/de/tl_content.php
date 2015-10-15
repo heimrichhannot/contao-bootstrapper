@@ -52,6 +52,8 @@ $GLOBALS['TL_LANG']['tl_content']['tab_tabs_cookies_value'] = 'Cookie-Wert';
 $GLOBALS['TL_LANG']['tl_content']['tab_tabs_default'] = 'Standard';
 $GLOBALS['TL_LANG']['tl_content']['tab_remember'][0] = 'Aktives Tab merken';
 $GLOBALS['TL_LANG']['tl_content']['tab_remember'][1] = 'Das aktive Tab wird als Cookie gespeichert.';
+$GLOBALS['TL_LANG']['tl_content']['background'][0] = 'Als Hintergrundbild einbinden.';
+$GLOBALS['TL_LANG']['tl_content']['background'][1] = 'Das ausgewählte Bild wird als Hintergrund im Template eingebunden.';
 
 
 /**

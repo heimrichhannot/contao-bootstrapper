@@ -155,8 +155,7 @@ class BootstrapperHooks extends \Controller
 		return $arrReturn;
 	}
 
-
-	public function replaceInsertTagsHooks($strTag)
+	public function replaceInsertTagsHooks($strTag, $blnCache, $strCache, $flags, $tags, $arrCache, $index, $count)
 	{
 		$params = preg_split('/::/', $strTag);
 
@@ -217,6 +216,18 @@ class BootstrapperHooks extends \Controller
 				}
 
 				return $text;
+			}
+
+			if(strpos($params[0], 'btn-dropdown') === 0)
+			{
+				$objTag = new \HeimrichHannot\Bootstrapper\BootstrapperButtonDropdown($strTag, $params);
+				return $objTag->generate();
+			}
+
+			if(strpos($params[0], 'btn') === 0)
+			{
+				$objTag = new \HeimrichHannot\Bootstrapper\BootstrapperButton($strTag, $params);
+				return $objTag->generate();
 			}
 		}
 

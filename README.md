@@ -27,3 +27,10 @@ showDescription | boolean | false | all | Show the description label below the i
 inline | boolean | true | checkbox, radio | Show checkbox and radio inputs inline.
 toolbar | string | undo redo &#124; bold italic &#124; bullist numlist outdent indent &#124; link unlink | textarea | Add a custom tinyMCE toolbar.
 content_css | string | false | textarea | Add a valid location to an css file, that should be loaded as tinyMCE content.css.
+
+## Bootstrapper inserttags
+
+Tag | Arguments | Example
+------ | ---- | ------- 
+btn | Buttton Class :: Button text | {{btn::btn-primary visible-ios::download now}}
+btn-dropdown | Button Class :: Button Text :: n Links separated by :: | {{btn-dropdown::btn-primary::download now::App Store::Google play}} 
