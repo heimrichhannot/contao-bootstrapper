@@ -375,16 +375,21 @@
 
             $('a[href*=#]:not([data-toggle])').on('click', function () {
                 var hash = $(this).attr('href').replace(/#/g, "");
+                scrollToHash(hash);
+            });
+
+            function scrollToHash(hash){
+
+                if(hash == '') return true;
 
                 var $anchor = $('#' + hash);
 
                 if($anchor.length > 0){
                     $('html,body').animate({scrollTop:$anchor.offset().top}, 500);
                     window.location.hash = '#' + hash;
+                    return false;
                 }
-
-                return false;
-            });
+            }
         },
         toggleCollapseFromHash: function () {
 
