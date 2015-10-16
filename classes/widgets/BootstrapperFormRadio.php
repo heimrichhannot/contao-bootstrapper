@@ -15,4 +15,5 @@ namespace HeimrichHannot\Bootstrapper;
 class BootstrapperFormRadio extends BootstrapperFormCheckBox
 {
 	protected $strTemplate = 'bootstrapper_form_radio';
+	protected $blnCanBeMultiple = false;
 }

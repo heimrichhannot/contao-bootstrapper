@@ -15,6 +15,7 @@ namespace HeimrichHannot\Bootstrapper;
 class BootstrapperFormCheckBox extends BootstrapperFormField
 {
 	protected $strTemplate = 'bootstrapper_form_checkbox';
+	protected $blnCanBeMultiple = true;
 
 	protected function compile()
 	{
@@ -52,7 +53,7 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 			(
 				'label'      => $objLabel,
 				'type'       => $this->objWidget->type,
-				'name'       => $this->objWidget->name . ((count($this->objWidget->options) > 1) ? '[]' : ''),
+				'name'       => $this->objWidget->name . ((count($this->objWidget->options) > 1 && $this->blnCanBeMultiple) ? '[]' : ''),
 				'id'         => 'opt_' . $this->objWidget->id . '_' . $i,
 				'class'      => $this->objWidget->type,
 				'value'      => $arrOption['value'],
