@@ -117,13 +117,17 @@
             }
         },
         initJQueryValidation: function () {
-            if ($('form.jquery-validation').length > 0) {
-                $('form.jquery-validation').validate({
-                    errorClass: 'error',
-                    focusInvalid: false
-                });
-            }
-        },
+			var $forms = $('form.jquery-validation');
+
+			if ($forms.length > 0) {
+				$forms.each(function () {
+					$(this).validate({
+						errorClass: 'error',
+						focusInvalid: false
+					});
+				});
+			}
+		},
         initAjaxForms: function () {
             $('body').on('submit', '.ajax-form', function (e) {
 
