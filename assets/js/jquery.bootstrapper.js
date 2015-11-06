@@ -123,7 +123,13 @@
 				$forms.each(function () {
 					$(this).validate({
 						errorClass: 'error',
-						focusInvalid: false
+						focusInvalid: false,
+						errorPlacement: function(error, element) {
+							if (element.attr('type') == 'radio' || element.attr('type') == 'checkbox')
+								error.appendTo(element.closest('fieldset'));
+							else
+								error.insertAfter(element);
+						}
 					});
 				});
 			}
