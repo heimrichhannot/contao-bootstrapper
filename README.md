@@ -38,3 +38,4 @@ btn-dropdown | Button Class :: Button Text :: n Links separated by :: | {{btn-dr
 ## Form templates
 
 - Naming convention for custom form field templates is defined as: ```bootstrapper_form_[name of your form field].html5```
+- textarea, checkbox, radio and upload are defined as ```bootstrapper_form_[type]_[name of your form field].html5``` e.g. "bootstrapper_form_upload_myfiles.html"
