@@ -28,12 +28,18 @@
 
             this.followAnchor();
             this.initFileUpload();
+            this.slideUpCollapse();
 
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
         ajaxComplete : function() {
             this.initDateTimePicker();
+        },
+        slideUpCollapse : function(){
+            $('.collapse.slideup').on('show.bs.collapse', function () {
+                $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+            });
         },
         initFileUpload : function(){
             // clear fileinput always (as long as value is provided by server)
@@ -378,8 +384,16 @@
         },
         setHashFromCollapse : function(){
             $('.collapse').on('show.bs.collapse', function (e) {
-                history.pushState(null, null, location.href.replace(location.hash, '') + '#' + this.id);
-            })
+                if(this.id){
+                    history.pushState({}, document.title, location.href.replace(/#/g, "") + '#' + this.id);
+                }
+            });
+
+            $('.collapse').on('hide.bs.collapse', function (e) {
+                if(this.id) {
+                    history.replaceState({}, document.title, "/");
+                }
+            });
         },
         followAnchor : function(){
 
