@@ -41,6 +41,12 @@ class BootstrapperHooks extends \Controller
 				if($objFields->successType == 'successStop')
 				{
 					$start = false;
+
+					// hideFormOnSuccess: do not render other fields than successStart, fields inside and successStop
+					if($objForm->hideFormOnSuccess) break;
+					{
+						break;
+					}
 				}
 			}
 		}
