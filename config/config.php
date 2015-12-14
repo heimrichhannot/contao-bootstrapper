@@ -57,9 +57,8 @@ $GLOBALS['TL_USER_CSS']['animate']                = 'system/modules/bootstrapper
 /**
  * JS
  */
-if (TL_MODE == 'FE') {
-
-
+if (TL_MODE == 'FE')
+{
 	$GLOBALS['TL_JAVASCRIPT']['fastclick'] = '/system/modules/bootstrapper/assets/vendor/fastclick-1.0.3/lib/fastclick' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
 	// bootstrap-datetimepicker
