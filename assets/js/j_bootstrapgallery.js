@@ -35,7 +35,13 @@
             var target = event.target || event.srcElement,
                 link = target.src ? target.parentNode : target,
                 options = {index: link, event: event},
-                links = $('[data-gallery=' + $(this).data('gallery') + ']');
+                gallery = $('[data-gallery=' + $(this).data('gallery') + ']'),
+                links = [this];
+
+            if(gallery.length > 0){
+                links = gallery;
+            }
+
             blueimp.Gallery(links, options);
             return false;
         });

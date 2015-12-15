@@ -66,6 +66,7 @@ abstract class BootstrapperFormField extends \Widget
 
 	/**
 	 * The dca config of the field
+	 *
 	 * @var array
 	 */
 	protected $arrDca = array();
@@ -77,7 +78,7 @@ abstract class BootstrapperFormField extends \Widget
 		$objWidget->name = str_replace('[]', '', $objWidget->name);
 		
 		$this->objWidget = $objWidget;
-		$this->arrDca = $GLOBALS['TL_DCA'][$objWidget->strTable]['fields'][$objWidget->strField];
+		$this->arrDca    = $GLOBALS['TL_DCA'][$objWidget->strTable]['fields'][$objWidget->strField];
 		
 		// use custom field template, named by type and widget name
 		try {
@@ -100,15 +101,16 @@ abstract class BootstrapperFormField extends \Widget
 		$this->Template->attributes  = $this->objWidget->getAttributes();
 		$this->Template->tagEnding   = $this->strTagEnding;
 		$this->Template->hideLabel   = $this->hideLabel || $this->objWidget->hideLabel;
-		$this->Template->help       =  $this->parseHelp();
+		$this->Template->help        = $this->parseHelp();
 		$this->setCssClasses();
 		$this->setGroupCssClasses();
 
 		$this->compile();
 
-		$this->Template->class       = $this->getCssClasses();
-		$this->Template->groupClass =  $this->getGroupCssClasses();
-		$this->Template->attributes  = $this->objWidget->getAttributes();
+		$this->Template->class      = $this->getCssClasses();
+		$this->Template->groupClass = $this->getGroupCssClasses();
+		$this->Template->attributes = $this->objWidget->getAttributes();
+		$this->Template->placeholder = $this->parsePlaceholder();
 
 		return $this->Template->parse();
 	}
@@ -164,8 +166,7 @@ abstract class BootstrapperFormField extends \Widget
 	 */
 	public function getSetting($strKey)
 	{
-		if (isset($this->objWidget->{$strKey}))
-		{
+		if (isset($this->objWidget->{$strKey})) {
 			return $this->objWidget->{$strKey};
 		}
 
@@ -175,8 +176,7 @@ abstract class BootstrapperFormField extends \Widget
 
 	protected function getDefaultSetting($strKey)
 	{
-		switch ($strKey)
-		{
+		switch ($strKey) {
 			// true
 			case BOOTSTRAPPER_OPTION_INLINE:
 				$varDefault = true;
@@ -216,19 +216,25 @@ abstract class BootstrapperFormField extends \Widget
 	 */
 	public function parseHelp()
 	{
-		$strText = '';
+		$strText       = '';
 		$arrCssClasses = array('help-block');
 
-		if($this->objWidget->hasErrors())
-		{
+		if ($this->objWidget->hasErrors()) {
 			$strText = $this->objWidget->getErrorsAsString();
-		}
-		else if($this->getSetting(BOOTSTRAPPER_OPTION_SHOWDESCRIPTION))
-		{
-			$strText = $this->objWidget->description;
+		} else {
+			if ($this->getSetting(BOOTSTRAPPER_OPTION_SHOWDESCRIPTION)) {
+				$strText = $this->objWidget->description;
+			}
 		}
 
 		return strlen($strText) > 0 ? sprintf('<span class="%s">%s</span>', implode(' ', $arrCssClasses), $strText) : '';
+	}
+
+	public function parsePlaceholder()
+	{
+		if(($strPlaceHolder = $this->getSetting('placeholder')) === null) return '';
+		
+		return ' placeholder="' . $strPlaceHolder . '"';
 	}
 
 	/**
@@ -248,14 +254,18 @@ abstract class BootstrapperFormField extends \Widget
 	public function addCssClass($strClass)
 	{
 		// check first char is not a number
-		if(strlen($strClass) == 0 ||  preg_match('#^\d#', $strClass)) return false;
+		if (strlen($strClass) == 0 || preg_match('#^\d#', $strClass)) {
+			return false;
+		}
 
 		$this->arrCssClasses[] = $strClass;
 	}
 
 	public function getCssClasses()
 	{
-		if(!is_array($this->arrCssClasses)) return '';
+		if (!is_array($this->arrCssClasses)) {
+			return '';
+		}
 
 		return implode(' ', $this->arrCssClasses);
 	}
@@ -279,14 +289,18 @@ abstract class BootstrapperFormField extends \Widget
 	public function addGroupCssClass($strClass)
 	{
 		// check first char is not a number
-		if(strlen($strClass) == 0 ||  preg_match('#^\d#', $strClass)) return false;
+		if (strlen($strClass) == 0 || preg_match('#^\d#', $strClass)) {
+			return false;
+		}
 
 		$this->arrGroupCssClasses[] = $strClass;
 	}
 
 	public function getGroupCssClasses()
 	{
-		if(!is_array($this->arrGroupCssClasses)) return '';
+		if (!is_array($this->arrGroupCssClasses)) {
+			return '';
+		}
 
 		return implode(' ', $this->arrGroupCssClasses);
 	}
