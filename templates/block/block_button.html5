@@ -1,5 +1,5 @@
 
-<?php $strClass = trim(preg_replace(array('/(btn)(\s?)|[-?][a-zA-Z]*(\s?)/'), array(), $this->class)); ?>
+<?php $strClass = trim(preg_replace(array('/(btn+)([-][a-zA-Z]*)?/'), array(), $this->class)); ?>
 
 <div class="<?php echo $strClass; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
 
@@ -11,3 +11,4 @@
   <?php $this->endblock(); ?>
 
 </div>
+
