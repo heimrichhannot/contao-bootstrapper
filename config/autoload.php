@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2015 Leo Feyer
+ * Copyright (c) 2005-2016 Leo Feyer
  *
  * @license LGPL-3.0+
  */
@@ -43,6 +43,7 @@ ClassLoader::addClasses(array
 	'HeimrichHannot\Bootstrapper'                            => 'system/modules/bootstrapper/classes/Bootstrapper.php',
 	'HeimrichHannot\Bootstrapper\BootstrapperFormRadio'      => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormRadio.php',
 	'HeimrichHannot\Bootstrapper\BootstrapperFormFileUpload' => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormFileUpload.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormSubmit'     => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormSubmit.php',
 	'HeimrichHannot\Bootstrapper\BootstrapperFormLegacy'     => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormLegacy.php',
 	'HeimrichHannot\Bootstrapper\BootstrapperFormCheckBox'   => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormCheckBox.php',
 	'HeimrichHannot\Bootstrapper\BootstrapperFormPassword'   => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormPassword.php',
@@ -88,5 +89,6 @@ TemplateLoader::addFiles(array
 	'bootstrapper_form'                 => 'system/modules/bootstrapper/templates/widgets',
 	'bootstrapper_form_radio'           => 'system/modules/bootstrapper/templates/widgets',
 	'bootstrapper_form_radio_option'    => 'system/modules/bootstrapper/templates/widgets',
+	'bootstrapper_form_submit'          => 'system/modules/bootstrapper/templates/widgets',
 	'block_button'                      => 'system/modules/bootstrapper/templates/block',
 ));

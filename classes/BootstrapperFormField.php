@@ -246,6 +246,14 @@ abstract class BootstrapperFormField extends \Widget
 	{
 		$this->arrCssClasses = array($this->objWidget->id);
 
+		$arrClasses = trimsplit(' ',$this->getSetting('class'));
+
+		if(is_array($arrClasses) && !empty($arrClasses))
+		{
+			$this->arrCssClasses = array_merge($this->arrCssClasses, $arrClasses);
+		}
+
+
 		if ($this->objWidget->hasErrors()) {
 			$this->arrCssClasses[] = BOOTSTRAPPER_ERROR_CLASS;
 		}
@@ -267,7 +275,7 @@ abstract class BootstrapperFormField extends \Widget
 			return '';
 		}
 
-		return implode(' ', $this->arrCssClasses);
+		return trim(implode(' ', array_unique($this->arrCssClasses)));
 	}
 
 	/**
@@ -302,7 +310,7 @@ abstract class BootstrapperFormField extends \Widget
 			return '';
 		}
 
-		return implode(' ', $this->arrGroupCssClasses);
+		return trim(implode(' ', array_unique($this->arrGroupCssClasses)));
 	}
 
 	abstract protected function compile();

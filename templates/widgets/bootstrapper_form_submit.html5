@@ -1,0 +1,3 @@
+<div class="<?= $this->groupClass; ?>">
+	<button type="submit" class="<?= $this->class; ?>"><?= $this->label; ?><?= $label; ?></button>
+</div>
