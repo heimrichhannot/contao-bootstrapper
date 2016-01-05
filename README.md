@@ -27,6 +27,7 @@ showDescription | boolean | false | all | Show the description label below the i
 inline | boolean | true | checkbox, radio | Show checkbox and radio inputs inline.
 toolbar | string | undo redo &#124; bold italic &#124; bullist numlist outdent indent &#124; link unlink | textarea | Add a custom tinyMCE toolbar.
 content_css | string | false | textarea | Add a valid location to an css file, that should be loaded as tinyMCE content.css.
+disableOptGroups | array | array() | select | Enter the name of the optgroups that should be disabled.
 
 ## Bootstrapper inserttags
 

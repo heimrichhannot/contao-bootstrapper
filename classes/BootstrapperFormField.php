@@ -24,6 +24,7 @@ define('BOOTSTRAPPER_OPTION_SHOWDESCRIPTION', 'showDescription');
 define('BOOTSTRAPPER_OPTION_INLINE', 'inline');
 define('BOOTSTRAPPER_OPTION_TOOLBAR', 'toolbar');
 define('BOOTSTRAPPER_OPTION_CONTENTCSS', 'content_css');
+define('BOOTSTRAPPER_OPTION_DISABLEOPTGROUPS', 'disableOptGroups');
 
 abstract class BootstrapperFormField extends \Widget
 {
@@ -71,6 +72,14 @@ abstract class BootstrapperFormField extends \Widget
 	 */
 	protected $arrDca = array();
 
+	/**
+	 * Has current page in xhtml type.
+	 *
+	 * @var bool
+	 */
+
+	protected $blnIsXhtml = false;
+
 
 	public function __construct(\Widget $objWidget)
 	{
@@ -79,7 +88,11 @@ abstract class BootstrapperFormField extends \Widget
 		
 		$this->objWidget = $objWidget;
 		$this->arrDca    = $GLOBALS['TL_DCA'][$objWidget->strTable]['fields'][$objWidget->strField];
-		
+
+		global $objPage;
+
+		$this->blnIsXhtml = ($objPage->outputFormat == 'xhtml');
+
 		// use custom field template, named by type and widget name
 		try {
 			$strCustomTemplate = $this->strTemplate . '_' . $objWidget->name;
@@ -157,6 +170,29 @@ abstract class BootstrapperFormField extends \Widget
 	}
 
 	/**
+	 * Return html attribute in correct syntax, considering doc type
+	 *
+	 * @param string $strKey
+	 * @param        $varValue
+	 *
+	 * @return string
+	 */
+	protected function getHtmlAttribute($strKey, $varValue='')
+	{
+		if ($strKey == 'disabled' || $strKey == 'readonly' || $strKey == 'required' || $strKey == 'autofocus' || $strKey == 'multiple')
+		{
+			$varValue = $strKey;
+			return $this->blnIsXhtml ? ' ' . $strKey . '="' . $varValue . '"' : ' ' . $strKey;
+		}
+		else
+		{
+			return ' ' . $strKey . '="' . $varValue . '"';
+		}
+
+		return '';
+	}
+
+	/**
 	 * Return the attribute from DCA or the default value if not set
 	 *
 	 * @param        $strKey
@@ -203,6 +239,9 @@ abstract class BootstrapperFormField extends \Widget
 				break;
 			case BOOTSTRAPPER_OPTION_CONTENTCSS:
 				$varDefault = TL_PATH . '/system/themes/tinymce.css,' . TL_PATH . '/' . Config::get('uploadPath') . '/tinymce.css';
+				break;
+			case BOOTSTRAPPER_OPTION_DISABLEOPTGROUPS:
+				$varDefault = array();
 				break;
 		}
 

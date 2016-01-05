@@ -1,0 +1,12 @@
+<div class="<?= $this->groupClass; ?>">
+	<?php if(!$this->hideLabel): ?>
+		<label id="lbl_<?= $this->field->id; ?>" for="ctrl_<?= $this->field->id; ?>" class="control-label"><?= $this->field->label; ?>
+			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
+			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+		</label>
+	<?php endif; ?>
+	<select name="<?= $this->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control <?= $this->class; ?>"<?= $this->attributes; ?>>
+		<?php echo $this->options; ?>
+	</select>
+	<?= $this->help; ?>
+</div>
