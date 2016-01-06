@@ -1,1 +1,1 @@
-<option value="<?= $this->value; ?>"<?= $this->selected; ?>><?= $this->label->value; ?></option>
+<option value="<?= $this->value; ?>"<?= $this->selected; ?><?= $this->attributes; ?>><?= $this->label->value; ?></option>

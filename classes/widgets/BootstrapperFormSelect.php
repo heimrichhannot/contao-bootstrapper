@@ -94,11 +94,34 @@ class BootstrapperFormSelect extends BootstrapperFormField
 			'class'      => $this->objWidget->type,
 			'value'      => $arrOption['value'],
 			'selected'   => $this->objWidget->isSelected($arrOption), // select menu
-			'attributes' => $this->objWidget->getAttributes(),
 			'tagEnding'  => $this->strTagEnding,
+			'attributes' => array(),
 		);
 
+		// Trigger option_callback
+		if (is_array($this->arrDca['option_callback']))
+		{
+			foreach ($this->arrDca['option_callback'] as $callback)
+			{
+				if (is_array($callback))
+				{
+					$this->import($callback[0]);
+					$arrData = $this->{$callback[0]}->{$callback[1]}($strKey, $arrData);
+				}
+				elseif (is_callable($callback))
+				{
+					$arrData = $callback($strKey, $arrData);
+				}
+			}
+		}
+
 		$objOptionTemplate->setData($arrData);
+
+
+		if(is_array($arrData['attributes']))
+		{
+			$objOptionTemplate->attributes = $this->getHtmlAttributes($arrData['attributes']);
+		}
 
 		return $objOptionTemplate->parse();
 	}

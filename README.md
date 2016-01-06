@@ -29,6 +29,12 @@ toolbar | string | undo redo &#124; bold italic &#124; bullist numlist outdent i
 content_css | string | false | textarea | Add a valid location to an css file, that should be loaded as tinyMCE content.css.
 disableOptGroups | array | array() | select | Enter the name of the optgroups that should be disabled.
 
+## Bootstrapper form field callbacks
+
+Option | Type | Default | InputTypes | Description
+------ | ---- | ------- | ----------- | -----------
+option_callback | array of valid callbacks | array() | select/checkbox/radio | A callback to modify the data of an single option.
+
 ## Bootstrapper inserttags
 
 Tag | Arguments | Example

@@ -85,7 +85,7 @@ abstract class BootstrapperFormField extends \Widget
 	{
 		// parse and generate methods append [] for multiple element widgets
 		$objWidget->name = str_replace('[]', '', $objWidget->name);
-		
+
 		$this->objWidget = $objWidget;
 		$this->arrDca    = $GLOBALS['TL_DCA'][$objWidget->strTable]['fields'][$objWidget->strField];
 
@@ -170,6 +170,26 @@ abstract class BootstrapperFormField extends \Widget
 	}
 
 	/**
+	 * Return html attributes in correct syntax, considering doc type
+	 *
+	 * @param string $strKey
+	 * @param        $varValue
+	 *
+	 * @return string
+	 */
+	protected function getHtmlAttributes(array $arrAttributes = array())
+	{
+		$arrOptions = array();
+
+		foreach($arrAttributes as $strKey => $varValue)
+		{
+			$arrOptions[] = $this->getHtmlAttribute($strKey, $varValue);
+		}
+
+		return implode(' ', $arrOptions);
+	}
+
+	/**
 	 * Return html attribute in correct syntax, considering doc type
 	 *
 	 * @param string $strKey
@@ -177,7 +197,7 @@ abstract class BootstrapperFormField extends \Widget
 	 *
 	 * @return string
 	 */
-	protected function getHtmlAttribute($strKey, $varValue='')
+	protected function getHtmlAttribute($strKey, $varValue)
 	{
 		if ($strKey == 'disabled' || $strKey == 'readonly' || $strKey == 'required' || $strKey == 'autofocus' || $strKey == 'multiple')
 		{
