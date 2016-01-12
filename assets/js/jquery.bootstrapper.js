@@ -453,10 +453,12 @@
             // close all open panels
             if($parent.length > 0){
                 $($link.data('parent')).find('.collapse').removeClass('in');
+                $($link.data('parent')).find('[data-toggle=collapse]').addClass('collapsed');
             }
 
             // toggle anchor panel id
             $toggle.addClass('in');
+            $link.removeClass('collapsed');
 
             // scroll to panel
             $('html,body').animate({scrollTop:$toggle.offset().top}, 500);
