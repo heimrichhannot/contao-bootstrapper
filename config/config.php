@@ -11,6 +11,7 @@ $GLOBALS['TL_FFL_BOOTSTRAPPER'] = array
 	'radio'    => 'HeimrichHannot\Bootstrapper\BootstrapperFormRadio',
 	'select'   => 'HeimrichHannot\Bootstrapper\BootstrapperFormSelect',
 	'upload'   => 'HeimrichHannot\Bootstrapper\BootstrapperFormFileUpload',
+	'text' => 'HeimrichHannot\Bootstrapper\BootstrapperFormTextField',
 	'textarea' => 'HeimrichHannot\Bootstrapper\BootstrapperFormTextArea',
 	'password' => 'HeimrichHannot\Bootstrapper\BootstrapperFormPassword',
 	'submit'   => 'HeimrichHannot\Bootstrapper\BootstrapperFormSubmit',

@@ -24,7 +24,7 @@ class BootstrapperFormSubmit extends BootstrapperFormField
 		if(!in_array('btn', $this->arrCssClasses))
 		{
 			$this->arrCssClasses[] = 'btn';
-			$this->arrCssClasses[] = 'btn-default';
+			$this->arrCssClasses[] = 'btn-primary';
 		}
 	}
 }

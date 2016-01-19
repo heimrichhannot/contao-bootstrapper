@@ -1,8 +1,9 @@
 <div class="<?= $this->groupClass; ?>">
 	<?php if($this->tinyMCE): ?>
-		<script>window.tinymce || document.write('<script src="<?= TL_ASSETS_URL; ?>assets/tinymce4/tinymce.gzip.js">\x3C/script>')</script>
+		<script>window.tinymce || document.write('<script src="<?php echo TL_ASSETS_URL; ?>assets/tinymce4/tinymce.min.js">\x3C/script>')</script>
 		<script>
-			window.tinymce && tinymce.init({
+			tinymce.remove();
+			tinymce.init({
 				skin: "contao",
 				theme : 'modern',
 				selector: "#ctrl_<?= $this->field->id; ?>",

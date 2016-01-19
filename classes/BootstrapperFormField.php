@@ -258,7 +258,7 @@ abstract class BootstrapperFormField extends \Widget
 				$varDefault = 'undo redo | bold italic | bullist numlist outdent indent | link unlink';
 				break;
 			case BOOTSTRAPPER_OPTION_CONTENTCSS:
-				$varDefault = TL_PATH . '/system/themes/tinymce.css,' . TL_PATH . '/' . Config::get('uploadPath') . '/tinymce.css';
+				$varDefault = TL_PATH . '/system/themes/tinymce.css,' . TL_PATH . '/' . \Config::get('uploadPath') . '/tinymce.css';
 				break;
 			case BOOTSTRAPPER_OPTION_DISABLEOPTGROUPS:
 				$varDefault = array();
@@ -345,6 +345,12 @@ abstract class BootstrapperFormField extends \Widget
 	public function setGroupCssClasses()
 	{
 		$this->arrGroupCssClasses = array($this->objWidget->id);
+
+		if ($this->objWidget->strName)
+			$this->arrGroupCssClasses[] = $this->objWidget->strName;
+
+		if ($this->objWidget->groupClass)
+			$this->arrGroupCssClasses[] = $this->objWidget->groupClass;
 
 		if ($this->objWidget->hasErrors()) {
 			$this->arrGroupCssClasses[] = BOOTSTRAPPER_ERROR_CLASS;
