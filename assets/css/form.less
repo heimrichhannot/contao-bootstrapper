@@ -68,3 +68,17 @@ p.error {
 	border-radius: @alert-border-radius;
 	.alert-variant(@alert-danger-bg; @alert-danger-border; @alert-danger-text);
 }
+
+form.jquery-validation {
+	input[type="text"],
+	input[type="number"],
+	input[type="tel"],
+	input[type="email"],
+	textarea,
+	select {
+		&.error {
+			background-color: @errorBackground !important;
+			clear: left;
+		}
+	}
+}

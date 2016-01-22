@@ -25,6 +25,13 @@ define('BOOTSTRAPPER_OPTION_INLINE', 'inline');
 define('BOOTSTRAPPER_OPTION_TOOLBAR', 'toolbar');
 define('BOOTSTRAPPER_OPTION_CONTENTCSS', 'content_css');
 define('BOOTSTRAPPER_OPTION_DISABLEOPTGROUPS', 'disableOptGroups');
+define('BOOTSTRAPPER_OPTION_LINKED_START', 'linkedStart');
+define('BOOTSTRAPPER_OPTION_LINKED_END', 'linkedEnd');
+define('BOOTSTRAPPER_OPTION_LINKED_UNLOCK', 'linkedUnlock');
+define('BOOTSTRAPPER_OPTION_LINKED_LOCK', 'linkedLock');
+define('BOOTSTRAPPER_OPTION_MIN_DATE', 'minDate');
+define('BOOTSTRAPPER_OPTION_MAX_DATE', 'maxDate');
+define('BOOTSTRAPPER_OPTION_MINUTE_STEPS', 'minuteSteps');
 
 abstract class BootstrapperFormField extends \Widget
 {
@@ -222,7 +229,7 @@ abstract class BootstrapperFormField extends \Widget
 	 */
 	public function getSetting($strKey)
 	{
-		if (isset($this->objWidget->{$strKey})) {
+		if ($this->objWidget->{$strKey}) {
 			return $this->objWidget->{$strKey};
 		}
 

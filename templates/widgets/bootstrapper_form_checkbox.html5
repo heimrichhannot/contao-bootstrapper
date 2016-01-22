@@ -9,8 +9,8 @@
 		<input type="hidden" name="<?= $this->field->name; ?>" value=""<?= $this->tagEnding; ?>
 		<?= $this->options; ?>
 		<?php if(!$this->showGroupLabel): ?>
-		<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
-		<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
+			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
 		<?php endif; ?>
 	</div>
 	<?= $this->help; ?>

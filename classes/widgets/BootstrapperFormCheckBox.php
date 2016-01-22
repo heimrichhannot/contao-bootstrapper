@@ -22,7 +22,7 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 		$strOptions = '';
 
 		$arrOptions        = $this->objWidget->options;
-		$blnShowGroupLabel = true;
+		$blnShowGroupLabel = $this->arrDca;
 
 		if ($this->arrDca !== null && !isset($this->arrDca['options']) && !isset($this->arrDca['options_callback'])	&& !isset($this->arrDca['foreignKey'])) {
 			// do not use description for single checkboxes in frontend

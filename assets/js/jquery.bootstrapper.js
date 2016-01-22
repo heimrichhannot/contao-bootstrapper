@@ -126,15 +126,32 @@
 			var $forms = $('form.jquery-validation');
 
 			if ($forms.length > 0) {
+				$.validator.addMethod
+				(
+					'checkbox', function (value, element) {
+						var blnChecked = false,
+							$group = $(element).closest('.form-group');
+
+						if ($group.find('.control-label:first .mandatory').length > 0) {
+							$group.find('input[type=checkbox]').each(function () {
+								if (this.checked) {
+									blnChecked = true;
+									return false;
+								}
+							});
+							return blnChecked;
+						}
+						return true;
+					},
+					jQuery.validator.format('Dieses Feld ist ein Pflichtfeld.')
+				);
+
 				$forms.each(function () {
 					$(this).validate({
 						errorClass: 'error',
 						focusInvalid: false,
 						errorPlacement: function(error, element) {
-							if (element.attr('type') == 'radio' || element.attr('type') == 'checkbox')
-								error.appendTo(element.closest('.form-group'));
-							else
-								error.insertAfter(element);
+                            error.appendTo(element.closest('.form-group'));
 						}
 					});
 				});
