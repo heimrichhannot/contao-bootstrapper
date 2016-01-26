@@ -223,7 +223,7 @@
                 step = Math.floor(delay * 100 / parseInt(crsl.data('interval')));
 
             if (crsl.length <= 0) return;
-            
+
             function progressBarCarousel() {
                 if (percent > 0) {
                     bar.removeClass('carousel-transition');
@@ -438,21 +438,25 @@
         followAnchor : function(){
 
             $('a[href*=#]:not([data-toggle])').on('click', function () {
-                var hash = $(this).attr('href').replace(/#/g, "");
-                scrollToHash(hash);
+                var parser = document.createElement('a');
+                parser.href = $(this).attr('href');
+
+                return scrollToHash(parser.hash);
             });
 
             function scrollToHash(hash){
 
                 if(hash == '') return true;
 
-                var $anchor = $('#' + hash);
+                var $anchor = $(hash);
 
                 if($anchor.length > 0){
                     $('html,body').animate({scrollTop:$anchor.offset().top}, 500);
-                    window.location.hash = '#' + hash;
+                    window.location.hash = hash;
                     return false;
                 }
+
+                return true;
             }
         },
         toggleCollapseFromHash: function () {
