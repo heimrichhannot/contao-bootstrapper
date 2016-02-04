@@ -1,0 +1,14 @@
+
+<?php $strClass = trim(preg_replace(array('/(btn+)([-][a-zA-Z]*)?/'), array(), $this->class)); ?>
+
+<div class="<?php echo $strClass; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+
+  <?php if ($this->headline): ?>
+    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+  <?php endif; ?>
+
+  <?php $this->block('content'); ?>
+  <?php $this->endblock(); ?>
+
+</div>
+

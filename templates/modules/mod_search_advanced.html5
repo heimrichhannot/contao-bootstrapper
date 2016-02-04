@@ -1,0 +1,26 @@
+
+<form<?php if ($this->action): ?> action="<?php echo $this->action; ?>"<?php endif; ?> method="get">
+	<div class="formbody">
+		<?php if ($this->id): ?>
+			<input type="hidden" name="id" value="<?php echo $this->id; ?>">
+		<?php endif; ?>
+		
+		<div class="form-group">
+			<label for="ctrl_keywords_<?php echo $this->uniqueId; ?>" class="invisible"><?php echo $this->keywordLabel; ?></label>
+			<input type="search" name="keywords" id="ctrl_keywords_<?php echo $this->uniqueId; ?>" class="text form-control" value="<?php echo $this->keyword; ?>" placeholder="<?php echo $this->keywordLabel; ?>">
+		</div>
+		<div class="form-group">
+			<button type="submit" id="ctrl_submit_<?php echo $this->uniqueId; ?>" class="submit btn btn-primary"><?php echo $this->search; ?></button>
+			<div class="pull-right">
+				<label class="radio-inline" for="matchAll_<?php echo $this->uniqueId; ?>">
+					<input type="radio" name="query_type" id="matchAll_<?php echo $this->uniqueId; ?>" value="and"<?php if ($this->queryType == 'and'): ?> checked="checked"<?php endif; ?>>
+					<?php echo $this->matchAll; ?>
+				</label>
+				<label class="radio-inline" for="matchAny_<?php echo $this->uniqueId; ?>">
+					<input type="radio" name="query_type" id="matchAny_<?php echo $this->uniqueId; ?>" value="or"<?php if ($this->queryType == 'or'): ?> checked="checked"<?php endif; ?>>
+					<?php echo $this->matchAny; ?>
+				</label>
+			</div>
+		</div>
+	</div>
+</form>

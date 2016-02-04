@@ -1,0 +1,117 @@
+<div class="form-group <?php echo $this->field->id; ?><?php echo $this->field->hasErrors() ? ' has-error': ''; ?><?php echo $this->field->groupClass ? ' ' .  $this->field->groupClass : '';?>">
+	<?php if(!$this->hideLabel): ?>
+		<?php $this->field->addAttributes(array('class' => 'control-label')); ?>
+		<?php echo $this->field->generateLabel();	?>
+		<?php $this->field->addAttributes(array('class' => '')); ?>
+	<?php endif; ?>
+	<?php if(!in_array($this->field->type, array('submit'))): ?>
+		<?php $this->field->addAttributes(array('class' => 'form-control')); ?>
+	<?php endif; ?>
+	<?php if($this->field->rte): ?>
+		<?php $this->field->addAttributes(array('class' => $this->field->rte)); ?>
+	<?php endif; ?>
+	<?php if($this->field->submitOnChange): ?>
+		<?php $this->field->addAttributes(array('class' => 'submitOnChange')); ?>
+	<?php endif; ?>
+	<?php if($this->field->subpalette): ?>
+		<?php $this->field->addAttributes(array('class' => 'subpalette_' . $this->field->subpalette)); ?>
+	<?php endif; ?>
+	<?php if($this->field->chosen && ($this->field->blankOptionLabel || $this->field->placeHolder)): ?>
+		<?php $this->field->addAttribute('data-placeholder', $this->field->placeHolder ? $this->field->placeHolder: $this->field->blankOptionLabel)?>
+	<?php endif;?>
+	<?php if($this->field->type == 'captcha'): ?>
+			<div class="clearfix">
+				<?php $strField = $this->field->generate(); ?>
+				<div class="<?php echo $this->field->class ? str_replace('form-control', '', $this->field->class) : '';?>">
+					<?php echo $strField; ?>
+				</div>
+				<?php $strQuestion = $this->field->generateQuestion(); ?>
+				<?php $strQuestion = str_replace($this->field->class, 'control-label', $strQuestion); ?>
+				<?php echo $strQuestion; ?>
+			</div>
+	<?php else: ?>
+		<?php if($this->field->datepicker || $this->field->rgxp == 'date'): ?>
+			<?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat'])); ?>
+			<?php if($this->field->linkedStart): ?>
+				<?php if($this->field->linkedUnlock): ?>
+					<?php $this->field->addAttribute('data-linked-unlock', $this->field->linkedLock); ?>
+				<?php endif; ?>
+				<?php $this->field->addAttribute('data-linked-start', $this->field->linkedStart); ?>
+				<?php $this->field->addAttribute('data-toggle', 'tooltip'); ?>
+				<?php $this->field->addAttribute('data-title', $this->field->label); ?>
+			<?php endif; ?>
+			<?php if($this->field->linkedEnd): ?>
+				<?php if($this->field->linkedUnlock): ?>
+					<?php $this->field->addAttribute('data-linked-unlock', $this->field->linkedLock); ?>
+				<?php endif; ?>
+				<?php $this->field->addAttribute('data-linked-end', $this->field->linkedEnd); ?>
+				<?php $this->field->addAttribute('data-toggle', 'tooltip'); ?>
+				<?php $this->field->addAttribute('data-title', $this->field->label); ?>
+			<?php endif; ?>
+			<?php if($this->field->minDate): ?>
+				<?php $this->field->addAttribute('data-minDate', $this->field->minDate); ?>
+			<?php endif; ?>
+			<?php if($this->field->maxDate): ?>
+				<?php $this->field->addAttribute('data-maxDate', $this->field->maxDate); ?>
+			<?php endif; ?>
+			<div class="input-group datepicker">
+		<?php endif; ?>
+
+		<?php if($this->field->timepicker || $this->field->rgxp == 'time'): ?>
+		<?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat'])); ?>
+		<?php if($this->field->minuteSteps):?>
+			<?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
+		<?php endif;?>
+		<?php if($this->field->minDate): ?>
+			<?php $this->field->addAttribute('data-minDate', $this->field->minDate); ?>
+		<?php endif; ?>
+		<?php if($this->field->maxDate): ?>
+			<?php $this->field->addAttribute('data-maxDate', $this->field->maxDate); ?>
+		<?php endif; ?>
+			<div class="input-group timepicker">
+		<?php endif; ?>
+
+		<?php if($this->field->type == 'password'): // confirmation?>
+			<div class="input-group password">
+				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+		<?php endif; ?>
+
+		<?php if($this->field->type == 'select' && $this->field->multiple): ?>
+			<?php $this->field->addAttribute('title', $this->field->label); ?>
+		<?php endif; ?>
+
+		<?php echo $this->field->generate(); ?>
+
+		<?php if($this->field->type == 'password'): // confirmation?>
+			</div>
+		<?php endif; ?>
+
+
+		<?php if($this->field->timepicker || $this->field->rgxp == 'time'): ?>
+			<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+			</div>
+		<?php endif; ?>
+
+		<?php if($this->field->datepicker || $this->field->rgxp == 'date'): ?>
+			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+			</div>
+		<?php endif; ?>
+	<?php endif; ?>
+	<?php if($this->field->hasErrors()): ?>
+		<span class="help-block error" data-original-title="<?php echo str_replace('"', '',$this->field->getErrorAsString()); ?>"><?php echo $this->field->getErrorAsString(); ?></span>
+	<?php endif; ?>
+</div>
+
+<?php if($this->field->type == 'password'): // confirmation?>
+	<div class="form-group <?php echo $this->field->id; ?>-confirm<?php echo $this->field->hasErrors() ? ' has-error': ''; ?><?php echo $this->field->groupClass ? ' ' .  $this->field->groupClass : '';?>">
+		<?php $this->field->addAttribute('placeholder', $GLOBALS['TL_LANG']['MSC']['confirmation']); ?>
+		<?php if(!$this->hideLabel): ?>
+			<?php if (method_exists($this->field, 'generateConfirmationLabel')) echo $this->field->generateConfirmationLabel();	?>
+			<?php $this->field->addAttributes(array('class' => '')); ?>
+		<?php endif; ?>
+		<div class="input-group password">
+			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+		<?php if (method_exists($this->field, 'generateConfirmation')) echo $this->field->generateConfirmation(); ?>
+		</div>
+	</div>
+<?php endif; ?>

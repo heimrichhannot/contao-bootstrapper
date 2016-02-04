@@ -1,0 +1,35 @@
+{
+    "name": "heimrichhannot/contao-bootstrapper",
+    "description":"Adjusts contao elements & markups, to take advantage of twitter bootstrap.",
+    "keywords":["contao", "bootstrap", "twitter"],
+    "type": "contao-module",
+    "homepage":"https://github.com/heimrichhannot/contao-bootstrapper",
+    "license":"LGPL-3.0+",
+    "authors":[
+        {
+            "name":"Heimrich & Hannot",
+            "email":"digitales@heimrich-hannot.de",
+            "homepage":"http://www.heimrich-hannot.de",
+            "role":"Developer"
+        }
+    ],
+    "support":{
+        "issues":"https://github.com/heimrichhannot/contao-bootstrapper/issues"
+    },
+    "require": {
+        "contao/core": ">=3.2,<4-dev",
+        "contao-legacy/countryselect": ">=1.2.0,<2-dev",
+        "heimrichhannot/contao-extassets": ">=1.0.0,<2.x-dev",
+        "contao-community-alliance/composer-installer": "*"
+    },
+    "autoload": {
+        "classmap": [""]
+    },
+    "extra": {
+        "contao": {
+            "sources": {
+                "": "system/modules/bootstrapper"
+            }
+        }
+    }
+}

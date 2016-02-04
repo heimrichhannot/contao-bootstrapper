@@ -1,0 +1,30 @@
+<div class="<?= $this->groupClass; ?>">
+	<?php if(!$this->hideLabel): ?>
+		<label id="lbl_<?= $this->field->id; ?>" for="ctrl_<?= $this->field->id; ?>" class="control-label"><?= $this->field->label; ?>
+			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
+			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+		</label>
+	<?php endif; ?>
+
+	<?php if ($this->datepicker): ?>
+		<div class="input-group datepicker">
+	<?php endif; ?>
+
+	<?php if ($this->timepicker): ?>
+		<div class="input-group timepicker">
+	<?php endif; ?>
+
+	<input type="text" name="<?= $this->field->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control <?= $this->class; ?>" value="<?= $this->field->value; ?>"<?= $this->attributes; ?><?= $this->placeholder; ?>>
+
+	<?php if ($this->timepicker): ?>
+			<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+		</div>
+	<?php endif; ?>
+
+	<?php if($this->datepicker): ?>
+			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+		</div>
+	<?php endif; ?>
+
+	<?= $this->help; ?>
+</div>
