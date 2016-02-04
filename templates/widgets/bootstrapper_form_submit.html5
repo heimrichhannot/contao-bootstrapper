@@ -1,3 +1,0 @@
-<div class="<?= $this->groupClass; ?>">
-	<button type="submit" class="<?= $this->class; ?>"><span class="before"></span><span><?= $this->label; ?></span><span class="after"></span></button>
-</div>

@@ -1,1 +1,0 @@
-<option value="<?= $this->value; ?>"<?= $this->selected; ?><?= $this->attributes; ?>><?= $this->label->value; ?></option>
