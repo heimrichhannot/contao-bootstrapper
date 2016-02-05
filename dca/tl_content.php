@@ -16,6 +16,7 @@ $arrDca['palettes']['tabcontrol_end']  =
 
 
 $arrDca['subpalettes']['addImage'] = str_replace('floating', 'floating,background', $arrDca['subpalettes']['addImage']);
+$arrDca['palettes']['image'] = str_replace('caption', 'caption,background', $arrDca['palettes']['image']);
 
 // Fields
 $arrDca['fields']['tabType'] = array
