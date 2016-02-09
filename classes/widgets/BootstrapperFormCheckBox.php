@@ -22,7 +22,7 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 		$strOptions = '';
 
 		$arrOptions        = $this->objWidget->options;
-		$blnShowGroupLabel = $this->arrDca;
+		$blnShowGroupLabel = true;
 
 		if ($this->arrDca !== null && !isset($this->arrDca['options']) && !isset($this->arrDca['options_callback'])	&& !isset($this->arrDca['foreignKey'])) {
 			// do not use description for single checkboxes in frontend
@@ -46,12 +46,10 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 
 		$this->Template->options = $strOptions;
 		$this->Template->groupID = sprintf("%s_%s", $this->objWidget->type, $this->objWidget->id);
+		$this->Template->groupLabel     = $this->objWidget->label;
 
 		if (!$this->getSetting(BOOTSTRAPPER_OPTION_HIDELABEL) && $blnShowGroupLabel || $this->getSetting(BOOTSTRAPPER_OPTION_SHOWGROUPLABEL)) {
 			$this->Template->showGroupLabel = true;
-			$this->Template->groupLabel     = $this->objWidget->label;
-			
-
 		}
 
 		if ($this->getSetting(BOOTSTRAPPER_OPTION_SINGLESELECT)) {
