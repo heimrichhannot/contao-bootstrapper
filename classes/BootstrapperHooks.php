@@ -119,7 +119,7 @@ class BootstrapperHooks extends \Controller
 		{
 			$strReturn .= '<input type="hidden" name="FORM_SUBMIT" value="' . $formId . '">';
 			$strReturn .= '<input type="hidden" name="REQUEST_TOKEN" value="' . \RequestToken::get() . '">';
-			die($strReturn);
+			die(\Controller::replaceInsertTags($strReturn));
 		}
 	}
 
