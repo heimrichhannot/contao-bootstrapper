@@ -3,6 +3,9 @@
 		<?php $this->field->addAttributes(array('class' => 'control-label')); ?>
 		<?php echo $this->field->generateLabel();	?>
 		<?php $this->field->addAttributes(array('class' => '')); ?>
+		<?php if ($this->field->explanation): ?>
+			<small class="explanation"><?= $this->field->explanation ?></small>
+		<?php endif; ?>
 	<?php endif; ?>
 	<?php if(!in_array($this->field->type, array('submit'))): ?>
 		<?php $this->field->addAttributes(array('class' => 'form-control')); ?>

@@ -16,6 +16,7 @@ define('BOOTSTRAPPER_ERROR_CLASS', 'has-error');
 
 define('BOOTSTRAPPER_OPTION_HIDELABEL', 'hideLabel');
 define('BOOTSTRAPPER_OPTION_SHOWGROUPLABEL', 'showGroupLabel');
+define('BOOTSTRAPPER_OPTION_EXPLANATION', 'explanation');
 define('BOOTSTRAPPER_OPTION_CHANGEFILE', 'changeFile');
 define('BOOTSTRAPPER_OPTION_REMOVEFILE', 'removeFile');
 define('BOOTSTRAPPER_OPTION_FILEICONCLASS', 'fileIconClass');
@@ -121,6 +122,7 @@ abstract class BootstrapperFormField extends \Widget
 		$this->Template->attributes  = $this->objWidget->getAttributes();
 		$this->Template->tagEnding   = $this->strTagEnding;
 		$this->Template->hideLabel   = $this->hideLabel || $this->objWidget->hideLabel;
+		$this->Template->explanation   = $this->explanation;
 		$this->Template->help        = $this->parseHelp();
 		$this->setCssClasses();
 		$this->setGroupCssClasses();
@@ -269,6 +271,9 @@ abstract class BootstrapperFormField extends \Widget
 				break;
 			case BOOTSTRAPPER_OPTION_DISABLEOPTGROUPS:
 				$varDefault = array();
+				break;
+			case BOOTSTRAPPER_OPTION_EXPLANATION:
+				$varDefault = null;
 				break;
 		}
 

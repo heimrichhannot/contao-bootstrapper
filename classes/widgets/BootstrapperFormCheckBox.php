@@ -47,6 +47,7 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 		$this->Template->options = $strOptions;
 		$this->Template->groupID = sprintf("%s_%s", $this->objWidget->type, $this->objWidget->id);
 		$this->Template->groupLabel     = $this->objWidget->label;
+		$this->Template->explanation     = $this->objWidget->explanation;
 
 		if (!$this->getSetting(BOOTSTRAPPER_OPTION_HIDELABEL) && $blnShowGroupLabel || $this->getSetting(BOOTSTRAPPER_OPTION_SHOWGROUPLABEL)) {
 			$this->Template->showGroupLabel = true;

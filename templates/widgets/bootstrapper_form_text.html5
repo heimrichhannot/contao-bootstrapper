@@ -4,6 +4,9 @@
 			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
 			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
 		</label>
+		<?php if ($this->field->explanation): ?>
+			<small class="explanation"><?= $this->field->explanation ?></small>
+		<?php endif; ?>
 	<?php endif; ?>
 
 	<?php if ($this->datepicker): ?>
