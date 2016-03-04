@@ -15,7 +15,7 @@
 
             this.initSlider();
             // show news in modal window
-            //this.setUrlHistoryFromModalLink();
+            this.setUrlHistoryFromModalLink();
             this.loadModalFromUrl();
             this.onCloseModal();
             this.initCarouselProgressBar();
@@ -276,6 +276,23 @@
 
 
         },
+        setUrlHistoryFromModalLink: function () {
+            $('[data-toggle="modal"]').each(function() {
+                var $this = $(this);
+
+                $this.data('href', $this.attr('href'));
+                $this.attr('href', '#');
+
+                $this.on('click', function (e) {
+                    e.preventDefault();
+
+                    var $target = $($(this).data('target'));
+
+                    $target.data('history-base', window.location.href);
+                    history.pushState(null, null, $this.data('href'));
+                });
+            });
+        },
         onCloseModal: function () {
             $('.modal').on('hide.bs.modal', function (e) {
 
@@ -293,16 +310,16 @@
                 $this.find('audio, video').each(function(){
                     this.pause();
                 });
-            });
-        },
-        setUrlHistoryFromModalLink: function () {
-            $('[data-toggle="modal"]').on('click', function (e) {
 
-                var $this = $(this),
-                    $target = $($(this).data('target'));
-
-                $target.data('history-back', window.location);
-                history.pushState(null, null, $this.attr('href'));
+                // set url to history-base-filtered if set (modal content replaced via ajax)
+                if($this.data('history-base-filtered'))
+                {
+                    history.pushState(null, null, $this.data('history-base-filtered'));
+                }
+                // redirect to base url (modal window opened via direct event url)
+                else{
+                    history.pushState(null, null, $this.data('history-base'));
+                }
             });
         },
         loadModalFromUrl: function () {
