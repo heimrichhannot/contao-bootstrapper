@@ -15,7 +15,7 @@
 
             this.initSlider();
             // show news in modal window
-            this.setUrlHistoryFromModalLink();
+            this.initModal();
             this.loadModalFromUrl();
             this.onCloseModal();
             this.initCarouselProgressBar();
@@ -276,19 +276,22 @@
 
 
         },
-        setUrlHistoryFromModalLink: function () {
-            $('[data-toggle="modal"]').each(function() {
-                var $this = $(this);
+        initModal: function() {
+            $('body').on('click', '[data-toggle="modal"]', function (e) {
+                e.preventDefault();
+                var $this = $(this),
+                    $modal = $($this.data('target')),
+                    $replace = $modal.find('.modal-dialog');
 
                 $this.data('href', $this.attr('href'));
                 $this.attr('href', '#');
 
-                $this.on('click', function (e) {
-                    e.preventDefault();
+                // change history base
+                if (!$modal.hasClass('in')) {
+                    $modal.data('history-base-filtered', window.location);
+                }
 
-                    var $target = $($(this).data('target'));
-
-                    $target.data('history-base', window.location.href);
+                $replace.load($this.data('href'), function (responseText, textStatus, jqXHR) {
                     history.pushState(null, null, $this.data('href'));
                 });
             });
