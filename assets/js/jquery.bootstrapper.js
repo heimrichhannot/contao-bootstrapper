@@ -288,7 +288,7 @@
 
                 // change history base
                 if (!$modal.hasClass('in')) {
-                    $modal.data('history-base-filtered', window.location);
+                    $modal.data('history-base-filtered', window.location.href);
                 }
 
                 $replace.load($this.data('href'), function (responseText, textStatus, jqXHR) {
