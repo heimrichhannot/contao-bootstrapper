@@ -277,14 +277,18 @@
 
         },
         initModal: function() {
+            $('[data-toggle="modal"]').each(function() {
+                var $this = $(this);
+
+                $this.data('href', $this.attr('href'));
+                $this.attr('href', '#');
+            });
+
             $('body').on('click', '[data-toggle="modal"]', function (e) {
                 e.preventDefault();
                 var $this = $(this),
                     $modal = $($this.data('target')),
                     $replace = $modal.find('.modal-dialog');
-
-                $this.data('href', $this.attr('href'));
-                $this.attr('href', '#');
 
                 // change history base
                 if (!$modal.hasClass('in')) {
