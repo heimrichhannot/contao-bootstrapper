@@ -278,10 +278,16 @@
         },
         initModal: function() {
             $('[data-toggle="modal"]').each(function() {
-                var $this = $(this);
+                var $this = $(this),
+                    $modal = $($this.data('target'));
 
                 $this.data('href', $this.attr('href'));
                 $this.attr('href', '#');
+
+                // change history base
+                if (!$modal.hasClass('in')) {
+                    $modal.data('history-base-filtered', window.location.href);
+                }
             });
 
             $('body').on('click', '[data-toggle="modal"]', function (e) {
@@ -289,11 +295,6 @@
                 var $this = $(this),
                     $modal = $($this.data('target')),
                     $replace = $modal.find('.modal-dialog');
-
-                // change history base
-                if (!$modal.hasClass('in')) {
-                    $modal.data('history-base-filtered', window.location.href);
-                }
 
                 $replace.load($this.data('href'), function (responseText, textStatus, jqXHR) {
                     history.pushState(null, null, $this.data('href'));
