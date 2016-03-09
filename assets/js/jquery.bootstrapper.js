@@ -15,9 +15,9 @@
 
             this.initSlider();
             // show news in modal window
-            //this.initModal();
-            //this.loadModalFromUrl();
-            //this.onCloseModal();
+            //this.setUrlHistoryFromModalLink();
+            this.loadModalFromUrl();
+            this.onCloseModal();
             this.initCarouselProgressBar();
             this.addPlaceholderTagSupport();
             this.initJQueryValidation();
@@ -126,32 +126,15 @@
 			var $forms = $('form.jquery-validation');
 
 			if ($forms.length > 0) {
-				$.validator.addMethod
-				(
-					'checkbox', function (value, element) {
-						var blnChecked = false,
-							$group = $(element).closest('.form-group');
-
-						if ($group.find('.control-label:first .mandatory').length > 0) {
-							$group.find('input[type=checkbox]').each(function () {
-								if (this.checked) {
-									blnChecked = true;
-									return false;
-								}
-							});
-							return blnChecked;
-						}
-						return true;
-					},
-					jQuery.validator.format('Dieses Feld ist ein Pflichtfeld.')
-				);
-
 				$forms.each(function () {
 					$(this).validate({
 						errorClass: 'error',
 						focusInvalid: false,
 						errorPlacement: function(error, element) {
-                            error.appendTo(element.closest('.form-group'));
+							if (element.attr('type') == 'radio' || element.attr('type') == 'checkbox')
+								error.appendTo(element.closest('fieldset'));
+							else
+								error.insertAfter(element);
 						}
 					});
 				});
@@ -192,7 +175,7 @@
                                 replace = $(data).find('#' + $form.attr('id'));
                                 if (replace.length < 1) {
                                     $form.html(data); // module handle ajax request, replace inner html
-                                    replace = $form;
+                                    replace = data;
                                 } else {
                                     $form.replaceWith(replace);
                                 }
@@ -223,7 +206,7 @@
                 step = Math.floor(delay * 100 / parseInt(crsl.data('interval')));
 
             if (crsl.length <= 0) return;
-
+            
             function progressBarCarousel() {
                 if (percent > 0) {
                     bar.removeClass('carousel-transition');
@@ -276,31 +259,6 @@
 
 
         },
-        initModal: function() {
-            $('[data-toggle="modal"]').each(function() {
-                var $this = $(this),
-                    $modal = $($this.data('target'));
-
-                $this.data('href', $this.attr('href'));
-                $this.attr('href', '#');
-
-                // change history base
-                if (!$modal.hasClass('in')) {
-                    $modal.data('history-base-filtered', window.location.href);
-                }
-            });
-
-            $('body').on('click', '[data-toggle="modal"]', function (e) {
-                e.preventDefault();
-                var $this = $(this),
-                    $modal = $($this.data('target')),
-                    $replace = $modal.find('.modal-dialog');
-
-                $replace.load($this.data('href'), function (responseText, textStatus, jqXHR) {
-                    history.pushState(null, null, $this.data('href'));
-                });
-            });
-        },
         onCloseModal: function () {
             $('.modal').on('hide.bs.modal', function (e) {
 
@@ -318,16 +276,16 @@
                 $this.find('audio, video').each(function(){
                     this.pause();
                 });
+            });
+        },
+        setUrlHistoryFromModalLink: function () {
+            $('[data-toggle="modal"]').on('click', function (e) {
 
-                // set url to history-base-filtered if set (modal content replaced via ajax)
-                if($this.data('history-base-filtered'))
-                {
-                    history.pushState(null, null, $this.data('history-base-filtered'));
-                }
-                // redirect to base url (modal window opened via direct event url)
-                else{
-                    history.pushState(null, null, $this.data('history-base'));
-                }
+                var $this = $(this),
+                    $target = $($(this).data('target'));
+
+                $target.data('history-back', window.location);
+                history.pushState(null, null, $this.attr('href'));
             });
         },
         loadModalFromUrl: function () {
@@ -424,67 +382,41 @@
         initSlider: function () {
             $('input.slider').slider();
         },
-        setHashFromCollapse : function()
-		{
-			var $collapse = $('.collapse');
-			var openHash = '';
+        setHashFromCollapse : function(){
+            $('.collapse').on('show.bs.collapse', function (e) {
+                if(this.id){
+                    history.pushState({}, document.title, location.href.replace(/#/g, "") + '#' + this.id);
+                }
+            });
 
-			$collapse.on('show.bs.collapse', function ()
-			{
-				if(this.id)
-				{
-					history.pushState(null, null, location.href.replace(location.hash, '') + '#' + this.id);
-					openHash = this.id;
-					var $childs = $( $(this).prev('.toggler').find('[data-toggle=collapse]').data('parent') ).find('.panel-collapse');
-					$childs.each(function()
-					{
-						if (this.id != openHash)
-						{
-							$(this).collapse('hide');
-						}
-					})
-				}
-			});
-			$collapse.on('hide.bs.collapse', function ()
-			{
-				if(this.id)
-				{
-					if (openHash == this.id)
-					{
-						history.replaceState({}, document.title, location.href.replace(location.hash, ''));
-					}
-					else
-					{
-						history.replaceState({}, document.title, location.href.replace(location.hash, '') + '#' + openHash);
-					}
-				}
-			});
+            $('.collapse').on('hide.bs.collapse', function (e) {
+                if(this.id) {
+                    history.replaceState({}, document.title, "/");
+                }
+            });
         },
         followAnchor : function(){
 
             $('a[href*=#]:not([data-toggle])').on('click', function () {
-                var parser = document.createElement('a');
-                parser.href = $(this).attr('href');
-
-                return scrollToHash(parser.hash);
+                var hash = $(this).attr('href').replace(/#/g, "");
+                scrollToHash(hash);
             });
 
             function scrollToHash(hash){
 
                 if(hash == '') return true;
 
-                var $anchor = $(hash);
+                var $anchor = $('#' + hash);
 
                 if($anchor.length > 0){
                     $('html,body').animate({scrollTop:$anchor.offset().top}, 500);
-                    window.location.hash = hash;
+                    window.location.hash = '#' + hash;
                     return false;
                 }
-
-                return true;
             }
         },
         toggleCollapseFromHash: function () {
+
             var hash = location.hash.replace(/#/g, ""); // remove if more than # sign
 
             if (!hash) return false;
@@ -499,12 +431,10 @@
             // close all open panels
             if($parent.length > 0){
                 $($link.data('parent')).find('.collapse').removeClass('in');
-                $($link.data('parent')).find('[data-toggle=collapse]').addClass('collapsed');
             }
 
             // toggle anchor panel id
             $toggle.addClass('in');
-            $link.removeClass('collapsed');
 
             // scroll to panel
             $('html,body').animate({scrollTop:$toggle.offset().top}, 500);
