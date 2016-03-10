@@ -4,6 +4,8 @@ Contao external CSS & JS assets groups with bootstrap and font-awesome support.
 
 ## Features
 
+- Adds the bootstrap-slider as inputType to the FE
+
 ### Form/EFG
 
 - Supports Ajax Form Handling. Support Messages can be easily configured inside the form, within a custom group like fieldsets.
@@ -11,13 +13,14 @@ Contao external CSS & JS assets groups with bootstrap and font-awesome support.
 ### Module
 
 #### ModuleNewsReader 
-- Dispay news details as contao of bootstrap modal window, if selected news_full_modal.html5 template
+- Display news details as contao of bootstrap modal window, if selected news_full_modal.html5 template
 
 ## Bootstrapper form field eval extension
  
 Option | Type | Default | InputTypes | Description
 ------ | ---- | ------- | ----------- | -----------
 hideLabel | boolean | false | all | Hide label for this input
+explanation | string | null | all | Adds an explanation to the input
 showGroupLabel | boolean | false | checkbox/radio | 
 changeFile | string | Change | upload | Label that will be displayed when a file has been selected.
 removeFile | string | Remove | upload | Label that will be displayed to remove file when a file has been selected.
@@ -27,6 +30,34 @@ showDescription | boolean | false | all | Show the description label below the i
 inline | boolean | true | checkbox, radio | Show checkbox and radio inputs inline.
 toolbar | string | undo redo &#124; bold italic &#124; bullist numlist outdent indent &#124; link unlink | textarea | Add a custom tinyMCE toolbar.
 content_css | string | false | textarea | Add a valid location to an css file, that should be loaded as tinyMCE content.css.
+disableOptGroups | array | array() | select | Enter the name of the optgroups that should be disabled.
+linkedStart | string | | text | The selector of the start date/time input field linking to the end date/time input field (e.g. #ctrl_startDate).
+linkedEnd | string | | text | The selector of the end date/time input field linking to the start date/time input field (e.g. #ctrl_endDate).
+linkedUnlock | boolean | text | ???
+linkedLock | boolean | text | ???
+minDate | string | text | A formatted date/time constraining the date/time picker to a certain minimum date/time.
+maxDate | string | text | A formatted date/time constraining the date/time picker to a certain maximum date/time.
+minuteSteps | integer | text | The number of seconds in a minute
+slider | array | | slider | Contains information for the bootstrap input slider
+
+###### Bootstrapper input slider eval extension
+ 
+Option | Type | Default | Description
+------ | ---- | ------- | -----------
+value | integer | 5 | initial value
+min | integer | 0 | minimum possible value
+max | integer | 10 | maximum possible value
+step | integer | 1 | increment step
+value_callback | array('Class', 'function') | | callback function to set value
+min_callback | array('Class', 'function') | | callback function to set min
+max_callback | array('Class', 'function') | | macallback function to set max
+step_callback | array('Class', 'function') | | callback function to set step
+
+## Bootstrapper form field callbacks
+
+Option | Type | Default | InputTypes | Description
+------ | ---- | ------- | ----------- | -----------
+option_callback | array of valid callbacks | array() | select/checkbox/radio | A callback to modify the data of an single option.
 
 ## Bootstrapper inserttags
 

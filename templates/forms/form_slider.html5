@@ -1,0 +1,11 @@
+<input type="text"
+		name="<?= $this->strName; ?>"
+		id="ctrl_<?= $this->strId; ?>"
+		class="form-control slider<?= ' ' . $this->strId; ?>"
+		value="<?= $this->slider['value'] ?>"
+		data-slider-id="<?= $this->slider['id'] ?>"
+		data-slider-min="<?= $this->slider['min'] ?>"
+		data-slider-max="<?= $this->slider['max'] ?>"
+		data-slider-step="<?= $this->slider['step'] ?>"
+		data-slider-value="<?= $this->slider['value'] ?>"
+	>

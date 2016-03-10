@@ -43,7 +43,7 @@ class BootstrapperHooks extends \Controller
 					$start = false;
 
 					// hideFormOnSuccess: do not render other fields than successStart, fields inside and successStop
-					if($objForm->hideFormOnSuccess) break;
+					if($objForm->hideFormOnSuccess)
 					{
 						break;
 					}
@@ -119,7 +119,7 @@ class BootstrapperHooks extends \Controller
 		{
 			$strReturn .= '<input type="hidden" name="FORM_SUBMIT" value="' . $formId . '">';
 			$strReturn .= '<input type="hidden" name="REQUEST_TOKEN" value="' . \RequestToken::get() . '">';
-			die($strReturn);
+			die(\Controller::replaceInsertTags($strReturn));
 		}
 	}
 

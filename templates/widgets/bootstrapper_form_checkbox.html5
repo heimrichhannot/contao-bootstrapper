@@ -1,12 +1,20 @@
 <div class="<?= $this->groupClass; ?>">
-	<?php if(!$this->hideLabel): ?>
-		<label id="lbl_<?= $this->groupID; ?>" for="<?= $this->groupID; ?>" class="control-label"><?= $this->groupLabel; ?></label>
+	<?php if($this->showGroupLabel): ?>
+		<label id="lbl_<?= $this->groupID; ?>" for="<?= $this->groupID; ?>" class="control-label"><?= $this->groupLabel; ?>
+			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
+			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+		</label>
+		<?php if ($this->field->explanation): ?>
+			<small class="explanation"><?= $this->field->explanation ?></small>
+		<?php endif; ?>
 	<?php endif; ?>
-	<div id="<?= $this->groupID; ?>" class="checkbox <?= $this->class; ?>">
+	<div id="<?= $this->groupID; ?>" class="checkbox-group <?= $this->class; ?>">
 		<input type="hidden" name="<?= $this->field->name; ?>" value=""<?= $this->tagEnding; ?>
 		<?= $this->options; ?>
-		<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
-		<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
-		<?= $this->help; ?>
+		<?php if(!$this->showGroupLabel): ?>
+			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
+			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+		<?php endif; ?>
 	</div>
+	<?= $this->help; ?>
 </div>
