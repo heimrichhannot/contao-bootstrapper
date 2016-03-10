@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2016 Leo Feyer
+ * Copyright (c) 2005-2015 Leo Feyer
  *
  * @license LGPL-3.0+
  */
@@ -29,8 +29,8 @@ ClassLoader::addClasses(array
 	'HeimrichHannot\FormButtonSubmit'                        => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
 
 	// Modules
-	'HeimrichHannot\ModuleNewsReader'                        => 'system/modules/bootstrapper/modules/news/ModuleNewsReader.php',
 	'HeimrichHannot\AjaxContent\ModuleAjaxSubscribe'         => 'system/modules/bootstrapper/modules/newsletter/ModuleAjaxSubscribe.php',
+	'HeimrichHannot\ModuleNewsReader'                        => 'system/modules/bootstrapper/modules/news/ModuleNewsReader.php',
 
 	// Elements
 	'Contao\ContentTabControl'                               => 'system/modules/bootstrapper/elements/ContentTabControl.php',
