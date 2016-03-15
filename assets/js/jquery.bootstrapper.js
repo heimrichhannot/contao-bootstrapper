@@ -194,7 +194,7 @@
                                 replace = $(data).find('#' + $form.attr('id'));
                                 if (replace.length < 1) {
                                     $form.html(data); // module handle ajax request, replace inner html
-                                    replace = data;
+                                    replace = $form;
                                 } else {
                                     $form.replaceWith(replace);
                                 }
