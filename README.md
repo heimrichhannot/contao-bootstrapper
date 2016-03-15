@@ -65,3 +65,7 @@ Tag | Arguments | Example
 ------ | ---- | ------- 
 btn | Buttton Class :: Button text | {{btn::btn-primary visible-ios::download now}}
 btn-dropdown | Button Class :: Button Text :: n Links separated by :: | {{btn-dropdown::btn-primary::download now::App Store::Google play}} 
+
+## Form templates		
+		
+- Naming convention for custom form field templates is defined as: ```bootstrapper_form_[type]_[name of your form field].html5``` e.g. "bootstrapper_form_upload_myfiles.html"
