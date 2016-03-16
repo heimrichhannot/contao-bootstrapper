@@ -15,9 +15,9 @@
 
             this.initSlider();
             // show news in modal window
-            //this.initModal();
-            //this.loadModalFromUrl();
-            //this.onCloseModal();
+            //this.initModal(); // not ready yet, news_plus and calendar_plus does this currently by their own
+            this.loadModalFromUrl();
+            this.onCloseModal();
             this.initCarouselProgressBar();
             this.addPlaceholderTagSupport();
             this.initJQueryValidation();
