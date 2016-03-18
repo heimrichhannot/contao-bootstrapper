@@ -22,6 +22,13 @@ class FormSlider extends \Widget
 	protected $strTemplate = 'form_slider';
 
 	/**
+	 * Slider configuration
+	 *
+	 * @var array
+	 */
+	protected $arrSliderConfig = array();
+
+	/**
 	 * Generate the widget and return it as string
 	 *
 	 * @return string The widget markup
@@ -30,12 +37,12 @@ class FormSlider extends \Widget
 	{
 		$arrAttributes = array();
 		$arrConfig = $this->arrConfiguration;
-		$arrSliderConfig = $arrConfig['slider'];
+		$this->arrSliderConfig = $arrConfig['slider'];
 
 		$arrAttributes['strId'] = $this->strId;
 		$arrAttributes['strName'] = $this->strName;
 
-		foreach ($arrSliderConfig as $key => $varConfig)
+		foreach ($this->arrSliderConfig as $key => $varConfig)
 		{
 			if ($varConfig != null && $varConfig != '')
 			{
@@ -54,6 +61,7 @@ class FormSlider extends \Widget
 						$arrSliderConfig['step'] = $this->getConfigValue($varConfig);
 						break;
 					default :
+						$arrSliderConfig[$key] = $varConfig;
 						break;
 				}
 			}
@@ -77,7 +85,7 @@ class FormSlider extends \Widget
 		if (is_array($varValue))
 		{
 			$this->import($varValue[0]);
-			return $this->$varValue[0]->$varValue[1]($this->objDca);
+			return $this->$varValue[0]->$varValue[1]($this->objDca, $this->arrSliderConfig);
 		}
 		elseif (is_callable($varValue))
 		{
