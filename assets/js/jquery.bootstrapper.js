@@ -424,7 +424,28 @@
             });
         },
         initSlider: function () {
-            $('input.slider').slider();
+            $('input.slider:not([data-slider-type=ticks],[data-slider-type=range])').slider();
+			$('input.slider[data-slider-type=range]').slider().on('slideStop', function(e)
+			{
+				var labels = $(this).parent().siblings('.slider-labels');
+
+				if ($(this).data('slider-ticks-labels') != '')
+				{
+					var arrTickLabels = $(this).data('slider-ticks-labels');
+					labels.find('.slider-label-from').html(arrTickLabels[e.value[0]]);
+					labels.find('.slider-label-to').html(arrTickLabels[e.value[1]]);
+				}
+				else
+				{
+					labels.find('.slider-label-from').html(e.value[0]);
+					labels.find('.slider-label-to').html(e.value[1]);
+				}
+			});
+			$('input.slider[data-slider-type=ticks]').slider().on('slideStop', function(e)
+			{
+				var strValue = $(this).data('slider-ticks-labels')[e.value];
+				$(this).parent().siblings('.slider-labels').find('.slider-label-tick').html(strValue);
+			});
         },
         setHashFromCollapse : function(){
             $('.collapse').on('show.bs.collapse', function (e) {
