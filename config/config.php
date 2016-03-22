@@ -4,6 +4,30 @@
  * Bootstrap Form Fields
  */
 
+define('BOOTSTRAPPER_JS_COMPONENT_DIR', 'system/modules/bootstrapper/assets/js/components');
+
+/**
+ * Asset Components
+ */
+$GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
+(
+	'bs.datetimepicker' =>  array
+	(
+		'js' => array
+		(
+			'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') .  '.js|static',
+			BOOTSTRAPPER_JS_COMPONENT_DIR . '/datetimepicker/bs.datetimepicker' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+		),
+		'css' => array
+		(
+			'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.css|screen|static|4.0.0'
+		),
+	),
+);
+
+/**
+ * Boostrapper Widgets
+ */
 $GLOBALS['TL_FFL_BOOTSTRAPPER'] = array
 (
 	'legacy'   => 'HeimrichHannot\Bootstrapper\BootstrapperFormLegacy',
@@ -38,10 +62,19 @@ $GLOBALS['TL_CTE']['texts']['tabcontrol'] = 'ContentTabControl';
 /**
  * HOOKS
  */
-$GLOBALS['TL_HOOKS']['parseWidget'][]       = array('HeimrichHannot\BootstrapperHooks', 'parseWidgetHook');
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('HeimrichHannot\BootstrapperHooks', 'replaceInsertTagsHooks');
-$GLOBALS['TL_HOOKS']['processFormData'][]   = array('HeimrichHannot\BootstrapperHooks', 'processFormDataHook');
-$GLOBALS['TL_HOOKS']['compileFormFields'][] = array('HeimrichHannot\BootstrapperHooks', 'compileFormFieldsHook');
+$GLOBALS['TL_HOOKS']['parseWidget'][]              = array('HeimrichHannot\BootstrapperHooks', 'parseWidgetHook');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][]        = array('HeimrichHannot\BootstrapperHooks', 'replaceInsertTagsHooks');
+$GLOBALS['TL_HOOKS']['processFormData'][]          = array('HeimrichHannot\BootstrapperHooks', 'processFormDataHook');
+$GLOBALS['TL_HOOKS']['compileFormFields'][]        = array('HeimrichHannot\BootstrapperHooks', 'compileFormFieldsHook');
+
+if(is_array($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags']))
+{
+	array_insert($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'], 0, array(array('HeimrichHannot\BootstrapperHooks', 'hookReplaceDynamicScriptTagsHook')));
+}
+else
+{
+	$GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'][] = array('HeimrichHannot\BootstrapperHooks', 'hookReplaceDynamicScriptTagsHook');
+}
 
 /**
  * CSS
@@ -54,8 +87,6 @@ $GLOBALS['TL_USER_CSS']['pagination-bootstrap'] = 'system/modules/bootstrapper/a
 $GLOBALS['TL_USER_CSS']['maps-bootstrap']       = 'system/modules/bootstrapper/assets/css/maps.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['carousel-bootstrap']   = 'system/modules/bootstrapper/assets/css/carousel.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['colorbox-bootstrap']   = 'system/modules/bootstrapper/assets/css/colorbox.less|screen|static|3.1.1';
-$GLOBALS['TL_USER_CSS']['datetimepicker']       =
-	'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.css|screen|static|4.0.0';
 $GLOBALS['TL_USER_CSS']['bootstrap-slider']     =
 	'system/modules/bootstrapper/assets/vendor/bootstrap-slider/less/bootstrap-slider.less|screen|static|3.0.0';
 $GLOBALS['TL_USER_CSS']['animate']              = 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static';
@@ -63,6 +94,7 @@ $GLOBALS['TL_USER_CSS']['animate']              = 'system/modules/bootstrapper/a
  * JS
  */
 if (TL_MODE == 'FE') {
+
 	$GLOBALS['TL_JAVASCRIPT']['fastclick'] =
 		'/system/modules/bootstrapper/assets/vendor/fastclick-1.0.3/lib/fastclick' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
 		. '.js|static';
@@ -71,9 +103,6 @@ if (TL_MODE == 'FE') {
 	$GLOBALS['TL_JAVASCRIPT']['moment']         =
 		'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
 		. '.js|static';
-	$GLOBALS['TL_JAVASCRIPT']['datetimepicker'] =
-		'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker'
-		. (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
 	// bootstrap gallery gesture/touch support
 	$GLOBALS['TL_JAVASCRIPT']['jquery-validation']        = 'system/modules/bootstrapper/assets/vendor/validation/jquery.validate.min.js|static';
@@ -95,7 +124,8 @@ if (TL_MODE == 'FE') {
 	// needs to be after vendor libs
 	$GLOBALS['TL_JAVASCRIPT']['bootstrapper-widgets'] =
 		'system/modules/bootstrapper/assets/js/jquery.bootstrapper-widgets' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
-	$GLOBALS['TL_JAVASCRIPT']['bootstrapper']         =
+
+	$GLOBALS['TL_JAVASCRIPT']['bootstrapper'] =
 		'system/modules/bootstrapper/assets/js/jquery.bootstrapper' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
 	// load jasny last, otherwise modal for example will not open

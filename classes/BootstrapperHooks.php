@@ -4,6 +4,20 @@ namespace HeimrichHannot;
 
 class BootstrapperHooks extends \Controller
 {
+	public function hookReplaceDynamicScriptTagsHook($strBuffer)
+	{
+		global $objPage;
+
+		if(!$objPage) return $strBuffer;
+
+		$objLayout = \LayoutModel::findByPk($objPage->layout);
+
+		if(!$objLayout) return $strBuffer;
+
+		\HeimrichHannot\Bootstrapper\BootstrapperAssets::registerComponents($objLayout);
+
+		return $strBuffer;
+	}
 
 	public function parseWidgetHook($strBuffer, $objWidget)
 	{

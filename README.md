@@ -15,6 +15,28 @@ Contao external CSS & JS assets groups with bootstrap and font-awesome support.
 #### ModuleNewsReader 
 - Display news details as contao of bootstrap modal window, if selected news_full_modal.html5 template
 
+## Bootstrapper asset components
+
+To register custom js/css components, register them within '$GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS']'.
+
+```
+$GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
+(
+	'bs.myplugin' =>  array
+	(
+		'js' => array
+		(
+			'system/modules/bootstrapper/assets/vendor/my-plugin-library//js/my-plugin-library' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') .  '.js|static',
+			BOOTSTRAPPER_JS_COMPONENT_DIR . '/myplugin/bs.myplugin' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+		),
+		'css' => array
+		(
+			'system/modules/bootstrapper/assets/vendor/my-plugin-library/my-plugin-library/css/my-plugin-library.css|screen|static|1.0.0'
+		),
+	),
+);
+```
+
 ## Bootstrapper form field eval extension
  
 Option | Type | Default | InputTypes | Description
