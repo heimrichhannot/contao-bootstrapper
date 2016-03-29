@@ -12,8 +12,7 @@
             this.supportNestedDropdowns();
 
             this.initSlider();
-            // show news in modal window
-            //this.initModal(); // not ready yet, news_plus and calendar_plus does this currently by their own
+            this.initModal();
             this.loadModalFromUrl();
             this.onCloseModal();
             this.initCarouselProgressBar();
@@ -28,7 +27,7 @@
             this.initFileUpload();
             this.slideUpCollapse();
 
-			this.initIosLabelBugFix();
+            this.initIosLabelBugFix();
 
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
@@ -123,40 +122,40 @@
             }
         },
         initJQueryValidation: function () {
-			var $forms = $('form.jquery-validation');
+            var $forms = $('form.jquery-validation');
 
-			if ($forms.length > 0) {
-				$.validator.addMethod
-				(
-					'checkbox', function (value, element) {
-						var blnChecked = false,
-							$group = $(element).closest('.form-group');
+            if ($forms.length > 0) {
+                $.validator.addMethod
+                (
+                    'checkbox', function (value, element) {
+                        var blnChecked = false,
+                            $group = $(element).closest('.form-group');
 
-						if ($group.find('.control-label:first .mandatory').length > 0) {
-							$group.find('input[type=checkbox]').each(function () {
-								if (this.checked) {
-									blnChecked = true;
-									return false;
-								}
-							});
-							return blnChecked;
-						}
-						return true;
-					},
-					jQuery.validator.format('Dieses Feld ist ein Pflichtfeld.')
-				);
+                        if ($group.find('.control-label:first .mandatory').length > 0) {
+                            $group.find('input[type=checkbox]').each(function () {
+                                if (this.checked) {
+                                    blnChecked = true;
+                                    return false;
+                                }
+                            });
+                            return blnChecked;
+                        }
+                        return true;
+                    },
+                    jQuery.validator.format('Dieses Feld ist ein Pflichtfeld.')
+                );
 
-				$forms.each(function () {
-					$(this).validate({
-						errorClass: 'error',
-						focusInvalid: false,
-						errorPlacement: function(error, element) {
+                $forms.each(function () {
+                    $(this).validate({
+                        errorClass: 'error',
+                        focusInvalid: false,
+                        errorPlacement: function(error, element) {
                             error.appendTo(element.closest('.form-group'));
-						}
-					});
-				});
-			}
-		},
+                        }
+                    });
+                });
+            }
+        },
         initAjaxForms: function () {
             $('body').on('submit', '.ajax-form', function (e) {
 
@@ -247,9 +246,9 @@
 
             // disable default interval
             crsl.carousel({
-                interval: false,
-                pause: false
-            })
+                    interval: false,
+                    pause: false
+                })
                 .on('slide.bs.carousel', function () {
                     clearInterval(barInterval);
                 })
@@ -277,33 +276,24 @@
 
         },
         initModal: function() {
-            $('[data-toggle="modal"]').each(function() {
-                var $this = $(this),
-                    $modal = $($this.data('target'));
-
-                $this.data('href', $this.attr('href'));
-                $this.attr('href', '#');
-
-                // change history base
-                if (!$modal.hasClass('in')) {
-                    $modal.data('history-base-filtered', window.location.href);
-                }
-            });
-
             $('body').on('click', '[data-toggle="modal"]', function (e) {
                 e.preventDefault();
+
                 var $this = $(this),
                     $modal = $($this.data('target')),
                     $replace = $modal.find('.modal-dialog');
 
-                $replace.load($this.data('href'), function (responseText, textStatus, jqXHR) {
-                    history.pushState(null, null, $this.data('href'));
+                $replace.load(HASTE_PLUS.addParameterToUri($this.attr('href'), 'isAjax', '1'), function (responseText, textStatus, jqXHR) {
+                    history.pushState(null, null, $this.attr('href'));
+
+                    $modal.modal('show');
                 });
+
+                return false;
             });
         },
         onCloseModal: function () {
             $('.modal').on('hide.bs.modal', function (e) {
-
                 var $this = $(this);
 
                 // stop embedded videos like youtube
@@ -325,7 +315,8 @@
                     history.pushState(null, null, $this.data('history-base-filtered'));
                 }
                 // redirect to base url (modal window opened via direct event url)
-                else{
+                else
+                {
                     history.pushState(null, null, $this.data('history-base'));
                 }
             });
@@ -336,27 +327,27 @@
         },
         initSlider: function () {
             $('input.slider:not([data-slider-type=ticks],[data-slider-type=range])').slider();
-			$('input.slider[data-slider-type=range]').slider().on('slideStop', function(e)
-			{
-				var labels = $(this).parent().siblings('.slider-labels');
+            $('input.slider[data-slider-type=range]').slider().on('slideStop', function(e)
+            {
+                var labels = $(this).parent().siblings('.slider-labels');
 
-				if ($(this).data('slider-ticks-labels') != '')
-				{
-					var arrTickLabels = $(this).data('slider-ticks-labels');
-					labels.find('.slider-label-from').html(arrTickLabels[e.value[0]]);
-					labels.find('.slider-label-to').html(arrTickLabels[e.value[1]]);
-				}
-				else
-				{
-					labels.find('.slider-label-from').html(e.value[0]);
-					labels.find('.slider-label-to').html(e.value[1]);
-				}
-			});
-			$('input.slider[data-slider-type=ticks]').slider().on('slideStop', function(e)
-			{
-				var strValue = $(this).data('slider-ticks-labels')[e.value];
-				$(this).parent().siblings('.slider-labels').find('.slider-label-tick').html(strValue);
-			});
+                if ($(this).data('slider-ticks-labels') != '')
+                {
+                    var arrTickLabels = $(this).data('slider-ticks-labels');
+                    labels.find('.slider-label-from').html(arrTickLabels[e.value[0]]);
+                    labels.find('.slider-label-to').html(arrTickLabels[e.value[1]]);
+                }
+                else
+                {
+                    labels.find('.slider-label-from').html(e.value[0]);
+                    labels.find('.slider-label-to').html(e.value[1]);
+                }
+            });
+            $('input.slider[data-slider-type=ticks]').slider().on('slideStop', function(e)
+            {
+                var strValue = $(this).data('slider-ticks-labels')[e.value];
+                $(this).parent().siblings('.slider-labels').find('.slider-label-tick').html(strValue);
+            });
         },
         setHashFromCollapse : function(){
             $('.collapse').on('show.bs.collapse', function (e) {
@@ -500,13 +491,13 @@
         initFastClick: function () {
             FastClick.attach(document.body);
         },
-		initIosLabelBugFix: function() {
-			$('.ios .checkbox-label, .ios .radio-label').each(function() {
-				$(this).on('click', function() {
-					$(this).siblings('input').trigger('click');
-				})
-			});
-		},
+        initIosLabelBugFix: function() {
+            $('.ios .checkbox-label, .ios .radio-label').each(function() {
+                $(this).on('click', function() {
+                    $(this).siblings('input').trigger('click');
+                })
+            });
+        },
     };
 
     $(document).ready(function () {
