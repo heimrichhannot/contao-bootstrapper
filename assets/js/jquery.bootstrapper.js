@@ -325,6 +325,24 @@
             if ($('.modal.in').length > 0)
                 $('.modal.in').modal('show');
         },
+        formatSliderLabel : function(value){
+
+            if(isNaN(parseFloat(value)))
+            {
+                return value;
+            }
+
+            // do only format floats
+            if(Number(value) === value && value % 1 !== 0)
+            {
+                var $strFormat = '0.0';
+                numeral.language($('html').attr('lang'));
+
+                value = numeral(value).format($strFormat);
+            }
+
+            return value;
+        },
         initSlider: function () {
             $('input.slider:not([data-slider-type=ticks],[data-slider-type=range])').slider();
             $('input.slider[data-slider-type=range]').slider().on('slideStop', function(e)
@@ -339,8 +357,8 @@
                 }
                 else
                 {
-                    labels.find('.slider-label-from').html(e.value[0]);
-                    labels.find('.slider-label-to').html(e.value[1]);
+                    labels.find('.slider-label-from').html(Bootstrapper.formatSliderLabel(e.value[0]));
+                    labels.find('.slider-label-to').html(Bootstrapper.formatSliderLabel(e.value[1]));
                 }
             });
             $('input.slider[data-slider-type=ticks]').slider().on('slideStop', function(e)

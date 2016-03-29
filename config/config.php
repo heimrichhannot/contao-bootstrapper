@@ -104,6 +104,14 @@ if (TL_MODE == 'FE') {
 		'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
 		. '.js|static';
 
+	$GLOBALS['TL_JAVASCRIPT']['numeral']         =
+		'system/modules/bootstrapper/assets/vendor/numeral/min/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
+		. '.js|static';
+
+	$GLOBALS['TL_JAVASCRIPT']['numeral-languages']         =
+		'system/modules/bootstrapper/assets/vendor/numeral/min/languages' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
+		. '.js|static';
+
 	// bootstrap gallery gesture/touch support
 	$GLOBALS['TL_JAVASCRIPT']['jquery-validation']        = 'system/modules/bootstrapper/assets/vendor/validation/jquery.validate.min.js|static';
 	$GLOBALS['TL_JAVASCRIPT']['jquery-validation-locale'] = 'system/modules/bootstrapper/assets/vendor/validation/methods_de.min.js|static';
