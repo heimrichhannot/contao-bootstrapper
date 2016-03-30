@@ -386,6 +386,12 @@
                 var parser = document.createElement('a');
                 parser.href = $(this).attr('href');
 
+                // if link url is different to current, first load the page
+                if(parser.href.split('#')[0] != window.location.href.split('#')[0])
+                {
+                    return true;
+                }
+
                 return scrollToHash(parser.hash);
             });
 
