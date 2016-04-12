@@ -6,7 +6,7 @@
 <head>
 	<?php $this->block('head'); ?>
 	<meta charset="<?php echo $this->charset; ?>">
-	<title><?php echo $this->title; ?></title>
+	<title><?php echo $this->pageTitle == 'Startseite' ? $this->mainTitle : $this->title; ?></title>
 	<base href="<?php echo $this->base; ?>">
 
 	<?php $this->block('meta'); ?>
