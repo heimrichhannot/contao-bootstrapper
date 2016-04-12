@@ -277,11 +277,14 @@
         },
         initModal: function() {
             $('body').on('click', '[data-toggle="modal"]', function (e) {
-                e.preventDefault();
-
                 var $this = $(this),
                     $modal = $($this.data('target')),
                     $replace = $modal.find('.modal-dialog');
+
+                if ($this.attr('href').charAt(0) == '#')
+                    return true;
+
+                e.preventDefault();
 
                 $replace.load(HASTE_PLUS.addParameterToUri($this.attr('href'), 'isAjax', '1'), function (responseText, textStatus, jqXHR) {
                     history.pushState(null, null, $this.attr('href'));
@@ -368,41 +371,21 @@
             });
         },
         setHashFromCollapse : function()
-	{
-		var $collapse = $('.collapse');
-		var openHash = '';
+	    {
+            var $collapse = $('.collapse');
 
-		$collapse.on('show.bs.collapse', function ()
-		{
-			if(this.id)
-			{
-				history.pushState(null, null, location.href.replace(location.hash, '') + '#' + this.id);
-				openHash = this.id;
-				var $childs = $( $(this).prev('.toggler').find('[data-toggle=collapse]').data('parent') ).find('.panel-collapse');
-				$childs.each(function()
-				{
-					if (this.id != openHash)
-					{
-						$(this).collapse('hide');
-					}
-				})
-			}
-		});
-		$collapse.on('hide.bs.collapse', function ()
-		{
-			if(this.id)
-			{
-				if (openHash == this.id)
-				{
-					history.replaceState({}, document.title, location.href.replace(location.hash, ''));
-				}
-				else
-				{
-					history.replaceState({}, document.title, location.href.replace(location.hash, '') + '#' + openHash);
-				}
-			}
-		});
-	},
+            $collapse.on('show.bs.collapse', function (e) {
+                if(this.id){
+                    history.pushState({}, document.title, location.href.replace(/#/g, "") + '#' + this.id);
+                }
+            });
+
+            $collapse.on('hide.bs.collapse', function (e) {
+                if(this.id) {
+                    history.replaceState({}, document.title, "/");
+                }
+            });
+        },
         followAnchor : function(){
 
             $('a[href*=#]:not([data-toggle])').on('click', function () {
