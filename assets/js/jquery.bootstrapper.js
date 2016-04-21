@@ -382,7 +382,7 @@
 
             $collapse.on('hide.bs.collapse', function (e) {
                 if(this.id) {
-                    history.replaceState({}, document.title, "/");
+                    history.replaceState({}, document.title, location.pathname);
                 }
             });
         },
