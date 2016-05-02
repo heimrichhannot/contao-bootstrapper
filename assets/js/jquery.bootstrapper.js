@@ -281,8 +281,8 @@
                     $modal = $($this.data('target')),
                     $replace = $modal.find('.modal-dialog');
 
-                if ($this.attr('href').charAt(0) == '#')
-                    return true;
+                if (typeof $this.attr('href') === 'undefined' || $this.attr('href').charAt(0) == '#')
+                  return true;
 
                 e.preventDefault();
 
