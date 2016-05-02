@@ -43,7 +43,8 @@ Option | Type | Default | InputTypes | Description
 ------ | ---- | ------- | ----------- | -----------
 hideLabel | boolean | false | all | Hide label for this input
 explanation | string | null | all | Adds an explanation to the input
-showGroupLabel | boolean | false | checkbox/radio | 
+showGroupLabel | boolean | false | checkbox/radio |
+groupLabel | string | null | checkbox/radio |
 changeFile | string | Change | upload | Label that will be displayed when a file has been selected.
 removeFile | string | Remove | upload | Label that will be displayed to remove file when a file has been selected.
 fileIconClass | string | fa fa-file | upload | Icon css class that will be shown before the uploaded file name.
