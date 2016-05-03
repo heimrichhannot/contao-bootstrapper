@@ -33,7 +33,7 @@
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
         ajaxComplete : function() {
-
+			this.initJQueryValidation();
         },
         slideUpCollapse : function(){
             $('.collapse.slideup').on('show.bs.collapse', function () {
@@ -142,7 +142,7 @@
                         }
                         return true;
                     },
-                    jQuery.validator.format('Dieses Feld ist ein Pflichtfeld.')
+                    $.validator.format('Dieses Feld ist ein Pflichtfeld.')
                 );
 
                 $forms.each(function () {
@@ -150,7 +150,16 @@
                         errorClass: 'error',
                         focusInvalid: false,
                         errorPlacement: function(error, element) {
-                            error.appendTo(element.closest('.form-group'));
+							var $inputGroup = element.closest('.input-group');
+
+							if ($inputGroup.length > 0)
+							{
+								error.insertAfter($inputGroup);
+							}
+							else
+							{
+								error.appendTo(element.closest('.form-group'));
+							}
                         }
                     });
                 });
