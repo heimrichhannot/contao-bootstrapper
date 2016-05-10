@@ -1,5 +1,5 @@
 (function ($) {
-    var Bootstrapper = {
+    Bootstrapper = {
         init: function () {
             this.initFastClick();
             this.toggleCollapseFromHash();
@@ -537,6 +537,23 @@
                 })
             });
         },
+		confirm: function(message, success, error) {
+			bootbox.dialog({
+				message: message,
+				buttons: {
+					error: {
+						label: 'Nein',
+						className: 'btn-default',
+						callback: error
+					},
+					success: {
+						label: 'Ja',
+						className: 'btn-primary',
+						callback: success
+					}
+				}
+			});
+		}
     };
 
     $(document).ready(function () {

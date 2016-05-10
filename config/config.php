@@ -140,4 +140,6 @@ if (TL_MODE == 'FE') {
 	$GLOBALS['TL_JAVASCRIPT']['jasny-bootstrap'] =
 		'system/modules/bootstrapper/assets/vendor/jasny-bootstrap/dist/js/jasny-bootstrap' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
 		. '.js|static';
+
+	$GLOBALS['TL_JAVASCRIPT']['bootbox'] = 'system/modules/bootstrapper/assets/vendor/bootbox-4.4.0/bootbox.min.js|static';
 }
