@@ -83,7 +83,16 @@
 			<?php $this->field->addAttribute('title', $this->field->label); ?>
 		<?php endif; ?>
 
+		<?php if ($this->field->type == 'email'): ?>
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-at"></i></span>
+		<?php endif; ?>
+
 		<?php echo $this->field->generate(); ?>
+
+		<?php if ($this->field->type == 'email'): ?>
+			</div>
+		<?php endif; ?>
 
 		<?php if($this->field->type == 'password'): // confirmation?>
 			</div>
