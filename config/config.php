@@ -30,16 +30,16 @@ $GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
  */
 $GLOBALS['TL_FFL_BOOTSTRAPPER'] = array
 (
-	'legacy'       => 'HeimrichHannot\Bootstrapper\BootstrapperFormLegacy',
-	'checkbox'     => 'HeimrichHannot\Bootstrapper\BootstrapperFormCheckBox',
-	'radio'        => 'HeimrichHannot\Bootstrapper\BootstrapperFormRadio',
-	'select'       => 'HeimrichHannot\Bootstrapper\BootstrapperFormSelect',
-	'upload'       => 'HeimrichHannot\Bootstrapper\BootstrapperFormFileUpload',
-	'text'         => 'HeimrichHannot\Bootstrapper\BootstrapperFormTextField',
-	'textarea'     => 'HeimrichHannot\Bootstrapper\BootstrapperFormTextArea',
-	'password'     => 'HeimrichHannot\Bootstrapper\BootstrapperFormPassword',
-	'submit'       => 'HeimrichHannot\Bootstrapper\BootstrapperFormSubmit',
-	'checkedEmail' => 'HeimrichHannot\Bootstrapper\BootstrapperFormCheckedEmail'
+	'legacy'          => 'HeimrichHannot\Bootstrapper\BootstrapperFormLegacy',
+	'checkbox'        => 'HeimrichHannot\Bootstrapper\BootstrapperFormCheckBox',
+	'radio'           => 'HeimrichHannot\Bootstrapper\BootstrapperFormRadio',
+	'select'          => 'HeimrichHannot\Bootstrapper\BootstrapperFormSelect',
+	'upload'          => 'HeimrichHannot\Bootstrapper\BootstrapperFormFileUpload',
+	'text'            => 'HeimrichHannot\Bootstrapper\BootstrapperFormTextField',
+	'textarea'        => 'HeimrichHannot\Bootstrapper\BootstrapperFormTextArea',
+	'password'        => 'HeimrichHannot\Bootstrapper\BootstrapperFormPassword',
+	'submit'          => 'HeimrichHannot\Bootstrapper\BootstrapperFormSubmit',
+	'confirmed_email' => 'HeimrichHannot\Bootstrapper\BootstrapperFormConfirmedEmail'
 );
 
 /**

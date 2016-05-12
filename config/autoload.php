@@ -24,36 +24,36 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Forms
-	'HeimrichHannot\Bootstrapper\FormSlider'                   => 'system/modules/bootstrapper/forms/FormSlider.php',
-	'HeimrichHannot\FormButtonSubmit'                          => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
-	'HeimrichHannot\FormSuccessGroup'                          => 'system/modules/bootstrapper/forms/FormSuccessGroup.php',
+	'HeimrichHannot\Bootstrapper\FormSlider'                     => 'system/modules/bootstrapper/forms/FormSlider.php',
+	'HeimrichHannot\FormButtonSubmit'                            => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
+	'HeimrichHannot\FormSuccessGroup'                            => 'system/modules/bootstrapper/forms/FormSuccessGroup.php',
 
 	// Modules
-	'HeimrichHannot\AjaxContent\ModuleAjaxSubscribe'           => 'system/modules/bootstrapper/modules/newsletter/ModuleAjaxSubscribe.php',
-	'HeimrichHannot\ModuleNewsReader'                          => 'system/modules/bootstrapper/modules/news/ModuleNewsReader.php',
+	'HeimrichHannot\AjaxContent\ModuleAjaxSubscribe'             => 'system/modules/bootstrapper/modules/newsletter/ModuleAjaxSubscribe.php',
+	'HeimrichHannot\ModuleNewsReader'                            => 'system/modules/bootstrapper/modules/news/ModuleNewsReader.php',
 
 	// Classes
-	'HeimrichHannot\Bootstrapper\BootstrapperAssets'           => 'system/modules/bootstrapper/classes/BootstrapperAssets.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormField'        => 'system/modules/bootstrapper/classes/BootstrapperFormField.php',
-	'HeimrichHannot\Bootstrapper\Backend\Layout'               => 'system/modules/bootstrapper/classes/Backend/Layout.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperButtonDropdown'   => 'system/modules/bootstrapper/classes/components/BootstrapperButtonDropdown.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperButton'           => 'system/modules/bootstrapper/classes/components/BootstrapperButton.php',
-	'HeimrichHannot\BootstrapperHooks'                         => 'system/modules/bootstrapper/classes/BootstrapperHooks.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormLegacy'       => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormLegacy.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormSubmit'       => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormSubmit.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormCheckBox'     => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormCheckBox.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormTextArea'     => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormTextArea.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormCheckedEmail' => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormCheckedEmail.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormFileUpload'   => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormFileUpload.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormTextField'    => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormTextField.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormPassword'     => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormPassword.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormSelect'       => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormSelect.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperFormRadio'        => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormRadio.php',
-	'HeimrichHannot\Bootstrapper'                              => 'system/modules/bootstrapper/classes/Bootstrapper.php',
-	'HeimrichHannot\Bootstrapper\BootstrapperComponent'        => 'system/modules/bootstrapper/classes/BootstrapperComponent.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperAssets'             => 'system/modules/bootstrapper/classes/BootstrapperAssets.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormField'          => 'system/modules/bootstrapper/classes/BootstrapperFormField.php',
+	'HeimrichHannot\Bootstrapper\Backend\Layout'                 => 'system/modules/bootstrapper/classes/Backend/Layout.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperButtonDropdown'     => 'system/modules/bootstrapper/classes/components/BootstrapperButtonDropdown.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperButton'             => 'system/modules/bootstrapper/classes/components/BootstrapperButton.php',
+	'HeimrichHannot\BootstrapperHooks'                           => 'system/modules/bootstrapper/classes/BootstrapperHooks.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormConfirmedEmail' => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormConfirmedEmail.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormLegacy'         => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormLegacy.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormSubmit'         => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormSubmit.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormCheckBox'       => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormCheckBox.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormTextArea'       => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormTextArea.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormFileUpload'     => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormFileUpload.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormTextField'      => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormTextField.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormPassword'       => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormPassword.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormSelect'         => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormSelect.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperFormRadio'          => 'system/modules/bootstrapper/classes/widgets/BootstrapperFormRadio.php',
+	'HeimrichHannot\Bootstrapper'                                => 'system/modules/bootstrapper/classes/Bootstrapper.php',
+	'HeimrichHannot\Bootstrapper\BootstrapperComponent'          => 'system/modules/bootstrapper/classes/BootstrapperComponent.php',
 
 	// Elements
-	'Contao\ContentTabControl'                                 => 'system/modules/bootstrapper/elements/ContentTabControl.php',
+	'Contao\ContentTabControl'                                   => 'system/modules/bootstrapper/elements/ContentTabControl.php',
 ));
 
 
@@ -83,7 +83,7 @@ TemplateLoader::addFiles(array
 	'bootstrapper_form'                 => 'system/modules/bootstrapper/templates/widgets',
 	'bootstrapper_form_select'          => 'system/modules/bootstrapper/templates/widgets',
 	'bootstrapper_form_radio_option'    => 'system/modules/bootstrapper/templates/widgets',
-	'bootstrapper_form_checkedEmail'    => 'system/modules/bootstrapper/templates/widgets',
+	'bootstrapper_form_confirmed_email' => 'system/modules/bootstrapper/templates/widgets',
 	'bootstrapper_form_text'            => 'system/modules/bootstrapper/templates/widgets',
 	'bootstrapper_form_textarea'        => 'system/modules/bootstrapper/templates/widgets',
 	'bootstrapper_form_password'        => 'system/modules/bootstrapper/templates/widgets',

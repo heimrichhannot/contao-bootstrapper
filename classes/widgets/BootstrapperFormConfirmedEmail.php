@@ -13,9 +13,9 @@ namespace HeimrichHannot\Bootstrapper;
 
 use HeimrichHannot\Bootstrapper;
 
-class BootstrapperFormCheckedEmail extends BootstrapperFormField
+class BootstrapperFormConfirmedEmail extends BootstrapperFormField
 {
-	protected $strTemplate = 'bootstrapper_form_checkedEmail';
+	protected $strTemplate = 'bootstrapper_form_confirmed_email';
 
 	protected function compile()
 	{
@@ -23,7 +23,7 @@ class BootstrapperFormCheckedEmail extends BootstrapperFormField
 
 		if($this->Template->addConfirmation)
 		{
-			$this->Template->confirmationLabel = sprintf($GLOBALS['TL_LANG']['MSC']['CheckedEmailConfirmation'], $this->objWidget->label);
+			$this->Template->confirmationLabel = sprintf($GLOBALS['TL_LANG']['MSC']['confirmedEmailConfirmation'], $this->objWidget->label);
 
 			$this->Template->confirmationGroupClass = str_replace($this->objWidget->id, $this->objWidget->id . '-confirm', $this->getGroupCssClasses());
 		}
