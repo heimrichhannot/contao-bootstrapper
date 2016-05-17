@@ -15,7 +15,7 @@ $GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
 	(
 		'js' => array
 		(
-			'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/js/bootstrap-datetimepicker' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') .  '.js|static',
+			'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master' . ($GLOBALS['TL_CONFIG']['debugMode'] ? '/src' : '/build') .  '/js/bootstrap-datetimepicker' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') .  '.js|static',
 			BOOTSTRAPPER_JS_COMPONENT_DIR . '/datetimepicker/bs.datetimepicker' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
 		),
 		'css' => array
@@ -106,11 +106,11 @@ if (TL_MODE == 'FE') {
 		. '.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['numeral']         =
-		'system/modules/bootstrapper/assets/vendor/numeral/min/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
+		'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : ''). '/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
 		. '.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['numeral-languages']         =
-		'system/modules/bootstrapper/assets/vendor/numeral/min/languages' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
+		'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : ''). '/languages' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
 		. '.js|static';
 
 	// bootstrap gallery gesture/touch support
