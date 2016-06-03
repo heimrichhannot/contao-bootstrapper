@@ -83,7 +83,12 @@ else
 $GLOBALS['TL_USER_CSS']['jasny-bootstrap']      =
 	'system/modules/bootstrapper/assets/vendor/jasny-bootstrap/less/jasny-bootstrap.less|screen|static|3.1.3';
 $GLOBALS['TL_USER_CSS']['contao-bootstrap']     = 'system/modules/bootstrapper/assets/css/contao.less|screen|static|3.1.1';
-$GLOBALS['TL_USER_CSS']['form-bootstrap']       = 'system/modules/bootstrapper/assets/css/form.less|screen|static|3.1.1';
+
+if (!\Config::get('useAwesomeInputs'))
+{
+	$GLOBALS['TL_USER_CSS']['form-bootstrap']       = 'system/modules/bootstrapper/assets/css/form.less|screen|static|3.1.1';
+}
+
 $GLOBALS['TL_USER_CSS']['pagination-bootstrap'] = 'system/modules/bootstrapper/assets/css/pagination.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['maps-bootstrap']       = 'system/modules/bootstrapper/assets/css/maps.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['carousel-bootstrap']   = 'system/modules/bootstrapper/assets/css/carousel.less|screen|static|3.1.1';
@@ -91,6 +96,13 @@ $GLOBALS['TL_USER_CSS']['colorbox-bootstrap']   = 'system/modules/bootstrapper/a
 $GLOBALS['TL_USER_CSS']['bootstrap-slider']     =
 	'system/modules/bootstrapper/assets/vendor/bootstrap-slider/less/bootstrap-slider.less|screen|static|3.0.0';
 $GLOBALS['TL_USER_CSS']['animate']              = 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static';
+
+if (\Config::get('useAwesomeInputs'))
+{
+	$GLOBALS['TL_USER_CSS']['awesome-bootstrap-checkbox']   = 'system/modules/bootstrapper/assets/vendor/awesome-bootstrap-checkbox-0.3.7/awesome-bootstrap-checkbox.less|screen|static|0.3.7';
+}
+
+
 /**
  * JS
  */

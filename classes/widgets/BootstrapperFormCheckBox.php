@@ -30,6 +30,9 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 			$blnShowGroupLabel      = false;
 		}
 
+		if ($this->blnUseAwesomeInputs)
+			$this->strTemplate .= '_awesome';
+		
 		$strOptionTemplate = $this->strTemplate . '_option';
 
 		try {
@@ -65,7 +68,12 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 		$objLabel        = new \stdClass();
 		$objLabel->id    = 'lbl_' . $this->objWidget->id . '_' . $strKey;
 		$objLabel->for   = 'opt_' . $this->objWidget->id . '_' . $strKey;
-		$objLabel->class = $this->getSetting(BOOTSTRAPPER_OPTION_INLINE) ? ' class="' . $this->objWidget->type . '-inline"' : '';
+
+		if ($this->blnUseAwesomeInputs)
+			$objLabel->class = $this->getSetting(BOOTSTRAPPER_OPTION_INLINE) ? $this->objWidget->type . '-inline' : '';
+		else
+			$objLabel->class = $this->getSetting(BOOTSTRAPPER_OPTION_INLINE) ? ' class="' . $this->objWidget->type . '-inline"' : '';
+
 		$objLabel->value = $arrOption['label'];
 
 		$arrStrAttributes = trimsplit(' ', $this->objWidget->getAttributes());
