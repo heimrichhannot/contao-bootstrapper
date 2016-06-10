@@ -67,6 +67,11 @@ class BootstrapperFormSelect extends BootstrapperFormField
 			$this->objWidget->addAttribute('title', $strLabel);
 		}
 
+		if ($this->arrDca['eval']['size'])
+		{
+			$this->objWidget->addAttribute('size', $this->arrDca['eval']['size']);
+		}
+
 		$this->Template->options = implode('', $arrCustomOptions);
 		$this->Template->groupID = sprintf("%s_%s", $this->objWidget->type, $this->objWidget->id);
 		$this->Template->name = $this->objWidget->name;
