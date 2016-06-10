@@ -54,12 +54,13 @@ inline | boolean | true | checkbox, radio | Show checkbox and radio inputs inlin
 toolbar | string | undo redo &#124; bold italic &#124; bullist numlist outdent indent &#124; link unlink | textarea | Add a custom tinyMCE toolbar.
 content_css | string | false | textarea | Add a valid location to an css file, that should be loaded as tinyMCE content.css.
 disableOptGroups | array | array() | select | Enter the name of the optgroups that should be disabled.
+size | integer | | select | The value of the size attribute
 linkedStart | string | | text | The selector of the start date/time input field linking to the end date/time input field (e.g. #ctrl_startDate).
 linkedEnd | string | | text | The selector of the end date/time input field linking to the start date/time input field (e.g. #ctrl_endDate).
-linkedUnlock | boolean | text | ???
-linkedLock | boolean | text | ???
-minDate | string | text | A formatted date/time constraining the date/time picker to a certain minimum date/time.
-maxDate | string | text | A formatted date/time constraining the date/time picker to a certain maximum date/time.
+linkedUnlock | boolean | | text |
+linkedLock | boolean | | text |
+minDate | string | | text | A formatted date/time constraining the date/time picker to a certain minimum date/time.
+maxDate | string | | text | A formatted date/time constraining the date/time picker to a certain maximum date/time.
 minuteSteps | integer | text | The number of seconds in a minute
 slider | array | | slider | Contains information for the bootstrap input slider
 
