@@ -23,6 +23,19 @@ $GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
 			'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.css|screen|static|4.0.0'
 		),
 	),
+	'bs.select' => array
+	(
+		'js' => array
+		(
+			'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/js/bootstrap-select' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') .  '.js|static',
+			BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.i18n' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+			BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+		),
+		'css' => array
+		(
+			'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/css/bootstrap-select.css|screen|static|1.10.0'
+		),
+	)
 );
 
 /**
