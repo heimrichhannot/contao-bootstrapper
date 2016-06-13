@@ -17,6 +17,12 @@ Contao external CSS & JS assets groups with bootstrap and font-awesome support.
 
 ## Bootstrapper asset components
 
+### Default assets components
+Disable in Page-layout, if you dont want to use these components.
+
+- bootstrap-select (styled select input with live-search, groups and mobile support)
+- datetimepicker (styled datepicker with time and datepicker) 
+
 To register custom js/css components, register them within '$GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS']'.
 
 ```
