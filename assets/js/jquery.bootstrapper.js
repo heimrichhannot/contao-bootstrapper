@@ -295,7 +295,7 @@
 
                 e.preventDefault();
 
-                $replace.load(HASTE_PLUS.addParameterToUri($this.attr('href'), 'isAjax', '1'), function (responseText, textStatus, jqXHR) {
+                $replace.load(HASTE_PLUS.addParameterToUri($this.attr('href'), 'scope', $this.data('scope')), function (responseText, textStatus, jqXHR) {
                     history.pushState(null, null, $this.attr('href'));
 
                     $modal.modal('show');
