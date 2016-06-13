@@ -296,8 +296,23 @@
                 e.preventDefault();
 
                 $replace.load(HASTE_PLUS.addParameterToUri($this.attr('href'), 'scope', $this.data('scope')), function (responseText, textStatus, jqXHR) {
-                    history.pushState(null, null, $this.attr('href'));
+					try {
+						dataJson = $.parseJSON(responseText);
 
+						if (dataJson.type == 'redirect')
+						{
+							$replace.load(HASTE_PLUS.addParameterToUri(dataJson.url, 'scope', $this.data('scope')), function (responseText, textStatus, jqXHR) {
+								history.pushState(null, null, dataJson.url);
+								$modal.modal('show');
+							});
+
+							return false;
+						}
+					} catch(e) {
+						// fail silently
+					}
+
+                    history.pushState(null, null, $this.attr('href'));
                     $modal.modal('show');
                 });
 
