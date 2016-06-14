@@ -18,10 +18,18 @@
                     style: 'btn-select',
                     size: 12,
                     liveSearch: $options.length >= 10,
-                    mobile: (typeof Modernizr == 'object' && Modernizr.touch) ? true : false
+                    mobile: (typeof Modernizr == 'object' && Modernizr.touch) ? true : false,
+                    xsBreakpoint: 767
                 };
 
-                $select.selectpicker($.extend({}, defaults, data));
+                var config = $.extend({}, defaults, data);
+
+                // mobile support
+                if(config.mobile && screen.width <= config.xsBreakpoint){
+                    config.selectedTextFormat = 'count > 2'// display max of 2 options in button, than show count
+                }
+
+                $select.selectpicker(config);
 
                 if (data.buttonHideTitle) {
                     BsSelect.hideButtonTitle($select);
