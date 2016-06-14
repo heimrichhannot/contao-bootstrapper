@@ -295,14 +295,15 @@
 
                 e.preventDefault();
 
+				history.pushState({url: $this.attr('href')}, null, $this.attr('href'));
                 $replace.load(HASTE_PLUS.addParameterToUri($this.attr('href'), 'scope', $this.data('scope')), function (responseText, textStatus, jqXHR) {
 					try {
 						dataJson = $.parseJSON(responseText);
 
 						if (dataJson.type == 'redirect')
 						{
+							history.replaceState({url: dataJson.url}, null, dataJson.url);
 							$replace.load(HASTE_PLUS.addParameterToUri(dataJson.url, 'scope', $this.data('scope')), function (responseText, textStatus, jqXHR) {
-								history.pushState(null, null, dataJson.url);
 								$modal.modal('show');
 							});
 
@@ -312,7 +313,6 @@
 						// fail silently
 					}
 
-                    history.pushState(null, null, $this.attr('href'));
                     $modal.modal('show');
                 });
 
@@ -339,12 +339,12 @@
                 // set url to history-base-filtered if set (modal content replaced via ajax)
                 if($this.data('history-base-filtered'))
                 {
-                    history.pushState(null, null, $this.data('history-base-filtered'));
+                    history.pushState({url: $this.data('history-base-filtered')}, null, $this.data('history-base-filtered'));
                 }
                 // redirect to base url (modal window opened via direct event url)
                 else
                 {
-                    history.pushState(null, null, $this.data('history-base'));
+                    history.pushState({url: $this.data('history-base')}, null, $this.data('history-base'));
                 }
             });
         },
