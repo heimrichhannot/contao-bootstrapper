@@ -29,6 +29,8 @@
 
             this.initIosLabelBugFix();
 
+			this.initTinyMceModalBugFix();
+
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
@@ -552,6 +554,13 @@
                 })
             });
         },
+		initTinyMceModalBugFix: function() {
+			$(document).on('focusin', function(e) {
+				if ($(e.target).closest('.mce-window').length) {
+					e.stopImmediatePropagation();
+				}
+			});
+		},
 		confirm: function(message, success, error) {
 			bootbox.dialog({
 				message: message,
