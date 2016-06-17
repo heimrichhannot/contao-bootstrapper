@@ -29,13 +29,13 @@
 
             this.initIosLabelBugFix();
 
-			this.initTinyMceModalBugFix();
+            this.initTinyMceModalBugFix();
 
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
         ajaxComplete : function() {
-			this.initJQueryValidation();
+            this.initJQueryValidation();
         },
         slideUpCollapse : function(){
             $('.collapse.slideup').on('show.bs.collapse', function () {
@@ -152,16 +152,16 @@
                         errorClass: 'error',
                         focusInvalid: false,
                         errorPlacement: function(error, element) {
-							var $inputGroup = element.closest('.input-group');
+                            var $inputGroup = element.closest('.input-group');
 
-							if ($inputGroup.length > 0)
-							{
-								error.insertAfter($inputGroup);
-							}
-							else
-							{
-								error.appendTo(element.closest('.form-group'));
-							}
+                            if ($inputGroup.length > 0)
+                            {
+                                error.insertAfter($inputGroup);
+                            }
+                            else
+                            {
+                                error.appendTo(element.closest('.form-group'));
+                            }
                         }
                     });
                 });
@@ -257,9 +257,9 @@
 
             // disable default interval
             crsl.carousel({
-                    interval: false,
-                    pause: false
-                })
+                interval: false,
+                pause: false
+            })
                 .on('slide.bs.carousel', function () {
                     clearInterval(barInterval);
                 })
@@ -293,27 +293,27 @@
                     $replace = $modal.find('.modal-dialog');
 
                 if (typeof $this.attr('href') === 'undefined' || $this.attr('href').charAt(0) == '#')
-                  return true;
+                    return true;
 
                 e.preventDefault();
 
-				history.pushState({url: $this.attr('href')}, null, $this.attr('href'));
-                $replace.load(HASTE_PLUS.addParameterToUri($this.attr('href'), 'scope', $this.data('scope')), function (responseText, textStatus, jqXHR) {
-					try {
-						dataJson = $.parseJSON(responseText);
+                history.pushState({url: $this.attr('href')}, null, $this.attr('href'));
+                $replace.load($this.attr('href'), function (responseText, textStatus, jqXHR) {
+                    try {
+                        dataJson = $.parseJSON(responseText);
 
-						if (dataJson.type == 'redirect')
-						{
-							history.replaceState({url: dataJson.url}, null, dataJson.url);
-							$replace.load(HASTE_PLUS.addParameterToUri(dataJson.url, 'scope', $this.data('scope')), function (responseText, textStatus, jqXHR) {
-								$modal.modal('show');
-							});
+                        if (dataJson.type == 'redirect')
+                        {
+                            history.replaceState({url: dataJson.url}, null, dataJson.url);
+                            $replace.load(dataJson.url, function (responseText, textStatus, jqXHR) {
+                                $modal.modal('show');
+                            });
 
-							return false;
-						}
-					} catch(e) {
-						// fail silently
-					}
+                            return false;
+                        }
+                    } catch(e) {
+                        // fail silently
+                    }
 
                     $modal.modal('show');
                 });
@@ -397,7 +397,7 @@
             });
         },
         setHashFromCollapse : function()
-	    {
+        {
             var $collapse = $('.collapse');
 
             $collapse.on('show.bs.collapse', function (e) {
@@ -554,30 +554,30 @@
                 })
             });
         },
-		initTinyMceModalBugFix: function() {
-			$(document).on('focusin', function(e) {
-				if ($(e.target).closest('.mce-window').length) {
-					e.stopImmediatePropagation();
-				}
-			});
-		},
-		confirm: function(message, success, error) {
-			bootbox.dialog({
-				message: message,
-				buttons: {
-					error: {
-						label: 'Nein',
-						className: 'btn-default',
-						callback: error
-					},
-					success: {
-						label: 'Ja',
-						className: 'btn-primary',
-						callback: success
-					}
-				}
-			});
-		}
+        initTinyMceModalBugFix: function() {
+            $(document).on('focusin', function(e) {
+                if ($(e.target).closest('.mce-window').length) {
+                    e.stopImmediatePropagation();
+                }
+            });
+        },
+        confirm: function(message, success, error) {
+            bootbox.dialog({
+                message: message,
+                buttons: {
+                    error: {
+                        label: 'Nein',
+                        className: 'btn-default',
+                        callback: error
+                    },
+                    success: {
+                        label: 'Ja',
+                        className: 'btn-primary',
+                        callback: success
+                    }
+                }
+            });
+        }
     };
 
     $(document).ready(function () {
