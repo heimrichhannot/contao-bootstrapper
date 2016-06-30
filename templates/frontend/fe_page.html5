@@ -1,52 +1,47 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="<?php echo $this->language; ?>"><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="<?php echo $this->language; ?>"><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" lang="<?php echo $this->language; ?>"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="<?php echo $this->language; ?>"><!--<![endif]-->
+<html lang="<?= $this->language ?>"<?php if ($this->isRTL): ?> dir="rtl"<?php endif; ?>>
 <head>
 	<?php $this->block('head'); ?>
-	<meta charset="<?php echo $this->charset; ?>">
-	<title><?php echo $this->pageTitle == 'Startseite' ? $this->mainTitle : $this->title; ?></title>
-	<base href="<?php echo $this->base; ?>">
+		<meta charset="<?= $this->charset; ?>">
+		<title><?= $this->pageTitle == 'Startseite' ? $this->mainTitle : $this->title; ?></title>
+		<base href="<?= $this->base; ?>">
 
-	<?php $this->block('meta'); ?>
-	<meta name="robots" content="<?php echo $this->robots; ?>">
-	<meta name="description" content="<?php echo $this->description; ?>">
-	<meta name="keywords" content="<?php echo $this->keywords; ?>">
-	<meta name="generator" content="Contao Open Source CMS">
-	<meta name="apple-mobile-web-app-capable" content="yes">
+		<?php $this->block('meta'); ?>
+			<meta name="robots" content="<?= $this->robots; ?>">
+			<meta name="description" content="<?= $this->description; ?>">
+			<meta name="keywords" content="<?= $this->keywords; ?>">
+			<meta name="generator" content="Contao Open Source CMS">
+			<meta name="apple-mobile-web-app-capable" content="yes">
 
-	<meta property="og:title" content="<?php echo $this->pageTitle; ?>">
-	<meta property="og:url" content="<?php echo $this->Environment->url . '/' . $this->Environment->request; ?>">
-	<meta property="og:site_name" content="<?php echo $this->mainTitle; ?>" />
-	<meta property="og:description" content="<?php echo $this->description; ?>" />
+			<meta property="og:title" content="<?= $this->pageTitle; ?>">
+			<meta property="og:url" content="<?= $this->Environment->url . '/' . $this->Environment->request; ?>">
+			<meta property="og:site_name" content="<?= $this->mainTitle; ?>" />
+			<meta property="og:description" content="<?= $this->description; ?>" />
+		<?php $this->endblock(); ?>
 
+		<link rel="shortcut icon" href="/files/{CHANGE_THIS}/theme/img/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" href="/files/{CHANGE_THIS}/theme/img/apple-touch-icon-precomposed.png">
+
+		<script src="/system/modules/bootstrapper/assets/vendor/modernizr-2.6.2.min.js"></script>
+		<?= $this->viewport; ?>
+		<?= $this->framework; ?>
+		<?= $this->stylesheets; ?>
+		<?= $this->mooScripts; ?>
+		<?= $this->head; ?>
+
+		<?php $this->block('html5shiv'); ?>
+			<!--[if lt IE 9]><script src="<?= TL_ASSETS_URL ?>assets/html5shiv/<?= $GLOBALS['TL_ASSETS']['HTML5SHIV'] ?>/html5shiv-printshiv.min.js"></script><![endif]-->
+			<!--[if lt IE 9]><script src="system/modules/bootstrapper/assets/vendor/respond/dest/respond.min.js"></script><![endif]-->
+		<?php $this->endblock(); ?>
 	<?php $this->endblock(); ?>
-
-	<link rel="shortcut icon" href="/files/{CHANGE_THIS}/theme/img/favicon.ico" type="image/x-icon">
-	<link rel="apple-touch-icon" href="/files/{CHANGE_THIS}/theme/img/apple-touch-icon-precomposed.png">
-
-	<script src="/system/modules/bootstrapper/assets/vendor/modernizr-2.6.2.min.js"></script>
-	<?php echo $this->viewport; ?>
-	<?php echo $this->framework; ?>
-	<?php echo $this->stylesheets; ?>
-	<?php echo $this->mooScripts; ?>
-	<?php echo $this->head; ?>
-
-	<!--[if lt IE 9]>
-	<script src="<?php echo TL_ASSETS_URL; ?>assets/html5shiv/<?php echo HTML5SHIV; ?>/html5shiv.js"></script>
-	<script src="system/modules/bootstrapper/assets/vendor/respond/dest/respond.min.js"></script>
-	<![endif]-->
-	<?php $this->endblock(); ?>
-
 </head>
-<body id="top" class="{{page::alias}} {{ua::class}}<?php if ($this->class) echo ' ' . $this->class; ?>"<?php if ($this->onload): ?> onload="<?php echo $this->onload; ?>"<?php endif; ?>>
+<body id="top" class="{{page::alias}} {{ua::class}}<?php if ($this->class) echo ' ' . $this->class; ?>"<?php if ($this->onload): ?> onload="<?= $this->onload; ?>"<?php endif; ?>>
 
 <?php $this->block('body'); ?>
 
 <?php $this->block('fixed'); ?>
 <?php if ($this->sections['Fixed']): ?>
-	<?php echo $this->sections['Fixed']; ?>
+	<?= $this->sections['Fixed']; ?>
 <?php endif; ?>
 <?php $this->endblock(); ?>
 
@@ -54,7 +49,7 @@
 <?php if ($this->header): ?>
 	<header id="header" data-spy="scroll" data-scrollClass="shrink" data-offset="150">
 		<div class="inside">
-			<?php echo $this->header; ?>
+			<?= $this->header; ?>
 		</div>
 	</header>
 <?php endif; ?>
@@ -65,7 +60,7 @@
 		<div id="stage">
 			<div>
 				<div class="inside">
-					<?php echo $this->sections['Stage']; ?>
+					<?= $this->sections['Stage']; ?>
 				</div>
 			</div>
 		</div>
@@ -81,9 +76,9 @@
 			<div id="main"
 				 class="col-xs-12 <?php if ($this->right): ?>col-sm-12 col-md-8 col-lg-8<?php else: ?>col-sm-12 col-md-12 col-lg-12<?php endif; ?>">
 				<div class="inside">
-					<?php echo $this->main; ?>
+					<?= $this->main; ?>
 				</div>
-				<?php echo $this->sections('main'); ?>
+				<?= $this->sections('main'); ?>
 			</div>
 			<?php $this->endblock(); ?>
 
@@ -91,7 +86,7 @@
 			<?php if ($this->left): ?>
 				<aside id="left">
 					<div class="inside">
-						<?php echo $this->left; ?>
+						<?= $this->left; ?>
 					</div>
 				</aside>
 			<?php endif; ?>
@@ -101,7 +96,7 @@
 			<?php if ($this->right): ?>
 				<aside id="right" class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 					<div class="inside">
-						<?php echo $this->right; ?>
+						<?= $this->right; ?>
 					</div>
 				</aside>
 			<?php endif; ?>
@@ -109,7 +104,7 @@
 
 			<?php if ($this->sections['Main-Footer']): ?>
 				<div id="main-footer" class="col-sm-12 col-md-12 col-lg-12">
-					<?php echo $this->sections['Main-Footer']; ?>
+					<?= $this->sections['Main-Footer']; ?>
 				</div>
 			<?php endif; ?>
 
@@ -122,7 +117,7 @@
 <?php if ($this->footer): ?>
 	<footer id="footer" class="hidden-print">
 		<div class="inside container">
-			<?php echo $this->footer; ?>
+			<?= $this->footer; ?>
 		</div>
 	</footer>
 <?php endif; ?>
@@ -131,7 +126,7 @@
 
 <?php $this->endblock(); ?>
 
-<?php echo $this->mootools; ?>
+<?= $this->mootools; ?>
 
 </body>
 </html>
