@@ -1,6 +1,6 @@
 <?php if($this->level == 'level_1'): ?>
 <div class="row">
-	<div class="visible-xs col-xs-4">{{insert_module::55}}</div>
+	<div class="visible-xs col-xs-4"></div>
 	<div class="visible-xs hidden-print col-xs-8">
 		<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
 			<span class="navbar-toggle-inner">
@@ -64,7 +64,6 @@
 			<?php endif; ?>
 		</ul>
 		<?php if($this->level == 'level_1'): ?>
-		{{insert_module::5}}
 	</div>
 </div>
 <?php endif; ?>
