@@ -234,7 +234,7 @@ abstract class BootstrapperFormField extends \Widget
 	 */
 	public function getSetting($strKey)
 	{
-		if ($this->objWidget->{$strKey}) {
+		if ($this->objWidget->{$strKey} !== null) {
 			return $this->objWidget->{$strKey};
 		}
 
