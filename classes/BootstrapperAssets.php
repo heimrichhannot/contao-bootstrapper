@@ -14,6 +14,42 @@ namespace HeimrichHannot\Bootstrapper;
 class BootstrapperAssets extends \Frontend
 {
 
+	public static function addComponents($strGroup, $arrNew = array(), $arrCurrent = array())
+	{
+		if(!isset($arrNew['files']))
+		{
+			return $arrCurrent;
+		}
+
+		$arrFiles = $arrNew['files'];
+		$intIndex = $arrNew['sort'];
+
+		if(!is_array($arrFiles))
+		{
+			$arrFiles = array($arrFiles);
+		}
+
+		if(!is_array($arrCurrent))
+		{
+			$arrCurrent = array($arrCurrent);
+		}
+
+		$arrReplace = array();
+
+		foreach ($arrFiles as $key => $strFile)
+		{
+			$arrReplace[$strGroup. '.' . $key] = $strFile;
+		}
+
+		if($intIndex !== null)
+		{
+			array_insert($arrCurrent, $intIndex, $arrReplace);
+			return $arrCurrent;
+		}
+
+		return $arrCurrent + $arrReplace;
+	}
+
 	public static function registerComponents(\LayoutModel $objLayout)
 	{
 		$arrComponents = static::getActiveComponents($objLayout);
@@ -23,34 +59,17 @@ class BootstrapperAssets extends \Frontend
 			return false;
 		}
 
-		$arrJs = array();
-		$arrCss = array();
+		$arrJs = is_array($GLOBALS['TL_JAVASCRIPT']) ? $GLOBALS['TL_JAVASCRIPT'] : array();
+		$arrCss = is_array($GLOBALS['TL_USER_CSS']) ? $GLOBALS['TL_USER_CSS'] : array();
 
 		foreach($arrComponents as $group => $arrComponent)
 		{
-			if(isset($arrComponent['js']) )
-			{
-				if(!is_array($arrComponent['js']))
-				{
-					$arrComponent['js'] = array($arrComponent);
-				}
-
-				$arrJs = array_merge($arrJs, $arrComponent['js']);
-			}
-
-			if(isset($arrComponent['css']))
-			{
-				if(!is_array($arrComponent['css']))
-				{
-					$arrComponent['css'] = array($arrComponent);
-				}
-
-				$arrCss = array_merge($arrCss, $arrComponent['css']);
-			}
+			$arrJs = static::addComponents($group, $arrComponent['js'], $arrJs);
+			$arrCss = static::addComponents($group, $arrComponent['css'], $arrCss);
 		}
-
-		$GLOBALS['TL_JAVASCRIPT'] = is_array($GLOBALS['TL_JAVASCRIPT']) ? array_merge($GLOBALS['TL_JAVASCRIPT'], $arrJs) : $arrJs;
-		$GLOBALS['TL_USER_CSS'] = is_array($GLOBALS['TL_USER_CSS']) ? array_merge($GLOBALS['TL_USER_CSS'], $arrCss) : $arrCss;
+		
+		$GLOBALS['TL_JAVASCRIPT'] = $arrJs;
+		$GLOBALS['TL_USER_CSS'] = $arrCss;
 	}
 
 	public static function getActiveComponents(\LayoutModel $objLayout)

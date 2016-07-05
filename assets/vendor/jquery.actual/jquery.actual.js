@@ -1,11 +1,19 @@
 /*! Copyright 2012, Ben Lin (http://dreamerslab.com/)
  * Licensed under the MIT License (LICENSE.txt).
  *
- * Version: 1.0.16
+ * Version: 1.0.18
  *
  * Requires: jQuery >= 1.2.3
  */
-;( function ( $ ){
+;( function ( factory ) {
+if ( typeof define === 'function' && define.amd ) {
+    // AMD. Register module depending on jQuery using requirejs define.
+    define( ['jquery'], factory );
+} else {
+    // No AMD.
+    factory( jQuery );
+}
+}( function ( $ ){
   $.fn.addBack = $.fn.addBack || $.fn.andSelf;
 
   $.fn.extend({
@@ -19,7 +27,8 @@
       var defaults = {
         absolute      : false,
         clone         : false,
-        includeMargin : false
+        includeMargin : false,
+        display       : 'block'
       };
 
       var configs = $.extend( defaults, options );
@@ -50,7 +59,7 @@
         fix = function (){
           // get all hidden parents
           $hidden = $target.parents().addBack().filter( ':hidden' );
-          style   += 'visibility: hidden !important; display: block !important; ';
+          style   += 'visibility: hidden !important; display: ' + configs.display + ' !important; ';
 
           if( configs.absolute === true ) style += 'position: absolute !important; ';
 
@@ -95,4 +104,4 @@
       return actual;
     }
   });
-})( jQuery );
+}));

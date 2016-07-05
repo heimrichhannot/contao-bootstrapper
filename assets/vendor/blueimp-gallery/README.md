@@ -231,6 +231,8 @@ var options = {
     titleProperty: 'title',
     // The list object property (or data attribute) with the object URL:
     urlProperty: 'href',
+    // The list object property (or data attribute) with the object srcset URL(s):
+    srcsetProperty: 'urlset',
     // The gallery listens for transitionend events before triggering the
     // opened and closed events, unless the following option is set to false:
     displayTransition: true,
@@ -245,6 +247,8 @@ var options = {
     stretchImages: false,
     // Toggle the controls on pressing the Return key:
     toggleControlsOnReturn: true,
+    // Toggle the controls on slide click:
+    toggleControlsOnSlideClick: true,
     // Toggle the automatic slideshow interval on pressing the Space key:
     toggleSlideshowOnSpace: true,
     // Navigate the gallery by pressing left and right on the keyboard:

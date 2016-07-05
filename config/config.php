@@ -11,31 +11,55 @@ define('BOOTSTRAPPER_JS_COMPONENT_DIR', 'system/modules/bootstrapper/assets/js/c
  */
 $GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
 (
-	'bs.datetimepicker' =>  array
+	'bs.datetimepicker' => array
 	(
-		'js' => array
+		'js'  => array
 		(
-			'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master' . ($GLOBALS['TL_CONFIG']['debugMode'] ? '/src' : '/build') .  '/js/bootstrap-datetimepicker' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') .  '.js|static',
-			BOOTSTRAPPER_JS_COMPONENT_DIR . '/datetimepicker/bs.datetimepicker' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+			'files' => array
+			(
+				'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker' . ($GLOBALS['TL_CONFIG']['debugMode'] ? '/src' : '/build') . '/js/bootstrap-datetimepicker'
+				. (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+				BOOTSTRAPPER_JS_COMPONENT_DIR . '/datetimepicker/bs.datetimepicker' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+			)
 		),
 		'css' => array
 		(
-			'system/modules/bootstrapper/assets/vendor/bootstrap-datetimepicker-master/build/css/bootstrap-datetimepicker.css|screen|static|4.0.0'
+			'files' => array
+			(
+				'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css|screen|static',
+			)
 		),
 	),
-	'bs.select' => array
+	'bs.select'         => array
 	(
-		'js' => array
+		'js'  => array
 		(
-			'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/js/bootstrap-select' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') .  '.js|static',
-			BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.i18n' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
-			BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+			'files' => array
+			(
+				'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/js/bootstrap-select' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+				BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.i18n' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+				BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+			),
 		),
 		'css' => array
 		(
-			'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/css/bootstrap-select.css|screen|static|1.10.0'
+			'files' => array
+			(
+				'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/css/bootstrap-select.css|screen|static|1.10.0',
+			)
 		),
-	)
+	),
+	'modernizr'         => array
+	(
+		'js' => array
+		(
+			'files' => array
+			(
+				'system/modules/bootstrapper/assets/vendor/modernizr.min.js|static',
+			),
+			'sort'  => 0,
+		),
+	),
 );
 
 /**
@@ -52,7 +76,7 @@ $GLOBALS['TL_FFL_BOOTSTRAPPER'] = array
 	'textarea'        => 'HeimrichHannot\Bootstrapper\BootstrapperFormTextArea',
 	'password'        => 'HeimrichHannot\Bootstrapper\BootstrapperFormPassword',
 	'submit'          => 'HeimrichHannot\Bootstrapper\BootstrapperFormSubmit',
-	'confirmed_email' => 'HeimrichHannot\Bootstrapper\BootstrapperFormConfirmedEmail'
+	'confirmed_email' => 'HeimrichHannot\Bootstrapper\BootstrapperFormConfirmedEmail',
 );
 
 /**
@@ -76,30 +100,26 @@ $GLOBALS['TL_CTE']['texts']['tabcontrol'] = 'ContentTabControl';
 /**
  * HOOKS
  */
-$GLOBALS['TL_HOOKS']['parseWidget'][]              = array('HeimrichHannot\BootstrapperHooks', 'parseWidgetHook');
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][]        = array('HeimrichHannot\BootstrapperHooks', 'replaceInsertTagsHooks');
-$GLOBALS['TL_HOOKS']['processFormData'][]          = array('HeimrichHannot\BootstrapperHooks', 'processFormDataHook');
-$GLOBALS['TL_HOOKS']['compileFormFields'][]        = array('HeimrichHannot\BootstrapperHooks', 'compileFormFieldsHook');
+$GLOBALS['TL_HOOKS']['parseWidget'][]       = array('HeimrichHannot\BootstrapperHooks', 'parseWidgetHook');
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = array('HeimrichHannot\BootstrapperHooks', 'replaceInsertTagsHooks');
+$GLOBALS['TL_HOOKS']['processFormData'][]   = array('HeimrichHannot\BootstrapperHooks', 'processFormDataHook');
+$GLOBALS['TL_HOOKS']['compileFormFields'][] = array('HeimrichHannot\BootstrapperHooks', 'compileFormFieldsHook');
 
-if(is_array($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags']))
-{
+if (is_array($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'])) {
 	array_insert($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'], 0, array(array('HeimrichHannot\BootstrapperHooks', 'hookReplaceDynamicScriptTagsHook')));
-}
-else
-{
+} else {
 	$GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'][] = array('HeimrichHannot\BootstrapperHooks', 'hookReplaceDynamicScriptTagsHook');
 }
 
 /**
  * CSS
  */
-$GLOBALS['TL_USER_CSS']['jasny-bootstrap']      =
+$GLOBALS['TL_USER_CSS']['jasny-bootstrap']  =
 	'system/modules/bootstrapper/assets/vendor/jasny-bootstrap/less/jasny-bootstrap.less|screen|static|3.1.3';
-$GLOBALS['TL_USER_CSS']['contao-bootstrap']     = 'system/modules/bootstrapper/assets/css/contao.less|screen|static|3.1.1';
+$GLOBALS['TL_USER_CSS']['contao-bootstrap'] = 'system/modules/bootstrapper/assets/css/contao.less|screen|static|3.1.1';
 
-if (!\Config::get('useAwesomeInputs'))
-{
-	$GLOBALS['TL_USER_CSS']['form-bootstrap']       = 'system/modules/bootstrapper/assets/css/form.less|screen|static|3.1.1';
+if (!\Config::get('useAwesomeInputs')) {
+	$GLOBALS['TL_USER_CSS']['form-bootstrap'] = 'system/modules/bootstrapper/assets/css/form.less|screen|static|3.1.1';
 }
 
 $GLOBALS['TL_USER_CSS']['pagination-bootstrap'] = 'system/modules/bootstrapper/assets/css/pagination.less|screen|static|3.1.1';
@@ -110,9 +130,8 @@ $GLOBALS['TL_USER_CSS']['bootstrap-slider']     =
 	'system/modules/bootstrapper/assets/vendor/bootstrap-slider/less/bootstrap-slider.less|screen|static|3.0.0';
 $GLOBALS['TL_USER_CSS']['animate']              = 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static';
 
-if (\Config::get('useAwesomeInputs'))
-{
-	$GLOBALS['TL_USER_CSS']['awesome-bootstrap-checkbox']   = 'system/modules/bootstrapper/assets/vendor/awesome-bootstrap-checkbox-0.3.7/awesome-bootstrap-checkbox.less|screen|static|0.3.7';
+if (\Config::get('useAwesomeInputs')) {
+	$GLOBALS['TL_USER_CSS']['awesome-bootstrap-checkbox'] = 'system/modules/bootstrapper/assets/vendor/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.less|screen|static|0.3.7';
 }
 
 
@@ -122,20 +141,19 @@ if (\Config::get('useAwesomeInputs'))
 if (TL_MODE == 'FE') {
 
 	$GLOBALS['TL_JAVASCRIPT']['fastclick'] =
-		'/system/modules/bootstrapper/assets/vendor/fastclick-1.0.3/lib/fastclick' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
-		. '.js|static';
+		'/system/modules/bootstrapper/assets/vendor/fastclick/lib/fastclick.js|static';
 
 	// bootstrap-datetimepicker
-	$GLOBALS['TL_JAVASCRIPT']['moment']         =
+	$GLOBALS['TL_JAVASCRIPT']['moment'] =
 		'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
 		. '.js|static';
 
-	$GLOBALS['TL_JAVASCRIPT']['numeral']         =
-		'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : ''). '/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
+	$GLOBALS['TL_JAVASCRIPT']['numeral'] =
+		'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : '') . '/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
 		. '.js|static';
 
-	$GLOBALS['TL_JAVASCRIPT']['numeral-languages']         =
-		'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : ''). '/languages' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
+	$GLOBALS['TL_JAVASCRIPT']['numeral-languages'] =
+		'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : '') . '/languages' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
 		. '.js|static';
 
 	// bootstrap gallery gesture/touch support
@@ -167,5 +185,5 @@ if (TL_MODE == 'FE') {
 		'system/modules/bootstrapper/assets/vendor/jasny-bootstrap/dist/js/jasny-bootstrap' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
 		. '.js|static';
 
-	$GLOBALS['TL_JAVASCRIPT']['bootbox'] = 'system/modules/bootstrapper/assets/vendor/bootbox-4.4.0/bootbox.min.js|static';
+	$GLOBALS['TL_JAVASCRIPT']['bootbox'] = 'system/modules/bootstrapper/assets/vendor/bootbox.js/bootbox.js|static';
 }

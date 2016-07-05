@@ -32,12 +32,20 @@ $GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
 	(
 		'js' => array
 		(
-			'system/modules/bootstrapper/assets/vendor/my-plugin-library//js/my-plugin-library' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') .  '.js|static',
-			BOOTSTRAPPER_JS_COMPONENT_DIR . '/myplugin/bs.myplugin' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+		    'files' => array
+		    (
+			    'system/modules/bootstrapper/assets/vendor/my-plugin-library//js/my-plugin-library' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') .  '.js|static',
+			    BOOTSTRAPPER_JS_COMPONENT_DIR . '/myplugin/bs.myplugin' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+			),
+			'sort => 0 // this will add the js files before all other js files within TL_JAVASCRIPT
 		),
 		'css' => array
 		(
-			'system/modules/bootstrapper/assets/vendor/my-plugin-library/my-plugin-library/css/my-plugin-library.css|screen|static|1.0.0'
+		    'files' => array
+            (
+               'system/modules/bootstrapper/assets/vendor/my-plugin-library/my-plugin-library/css/my-plugin-library.css|screen|static|1.0.0'
+            ),
+			'sort => 0 // this will add the css files before all other css files within TL_USER_CSS
 		),
 	),
 );
