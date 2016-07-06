@@ -4,9 +4,6 @@
 			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
 			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
 		</label>
-		<?php if ($this->field->explanation): ?>
-			<small class="explanation"><?= $this->field->explanation ?></small>
-		<?php endif; ?>
 	<?php endif; ?>
 
 	<div class="input-group">
@@ -30,4 +27,8 @@
 			<input type="email" name="<?= $this->field->name; ?>_confirm" value="<?= $this->field->value; ?>" id="ctrl_<?= $this->field->id; ?>_confirm" class="form-control <?= $this->class; ?>"<?= $this->attributes; ?><?= $this->placeholder; ?>>
 		</div>
 	</div>
+<?php endif; ?>
+
+<?php if ($this->field->explanation): ?>
+	<p class="explanation"><?= $this->field->explanation ?></p>
 <?php endif; ?>

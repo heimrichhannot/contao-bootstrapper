@@ -3,9 +3,6 @@
 		<?php $this->field->addAttributes(array('class' => 'control-label')); ?>
 		<?php echo $this->field->generateLabel();	?>
 		<?php $this->field->addAttributes(array('class' => '')); ?>
-		<?php if ($this->field->explanation): ?>
-			<small class="explanation"><?= $this->field->explanation ?></small>
-		<?php endif; ?>
 	<?php endif; ?>
 	<?php if(!in_array($this->field->type, array('submit'))): ?>
 		<?php $this->field->addAttributes(array('class' => 'form-control')); ?>
@@ -109,6 +106,11 @@
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>
+
+	<?php if ($this->field->explanation): ?>
+		<p class="explanation"><?= $this->field->explanation ?></p>
+	<?php endif; ?>
+
 	<?php if($this->field->hasErrors()): ?>
 		<span class="help-block error" data-original-title="<?php echo str_replace('"', '',$this->field->getErrorAsString()); ?>"><?php echo $this->field->getErrorAsString(); ?></span>
 	<?php endif; ?>

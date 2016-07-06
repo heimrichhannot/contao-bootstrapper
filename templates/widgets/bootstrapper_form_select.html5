@@ -4,12 +4,12 @@
 			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
 			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
 		</label>
-		<?php if ($this->field->explanation): ?>
-			<small class="explanation"><?= $this->field->explanation ?></small>
-		<?php endif; ?>
 	<?php endif; ?>
 	<select name="<?= $this->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control <?= $this->class; ?>"<?= $this->attributes; ?>>
 		<?php echo $this->options; ?>
 	</select>
+	<?php if ($this->field->explanation): ?>
+		<p class="explanation"><?= $this->field->explanation ?></p>
+	<?php endif; ?>
 	<?= $this->help; ?>
 </div>

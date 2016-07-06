@@ -29,10 +29,10 @@
 			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
 			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
 		</label>
-		<?php if ($this->field->explanation): ?>
-			<small class="explanation"><?= $this->field->explanation ?></small>
-		<?php endif; ?>
 	<?php endif; ?>
 	<textarea name="<?= $this->field->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control textarea <?= $this->class; ?>" rows="<?= $this->field->rows; ?>" cols="<?= $this->field->cols; ?>"<?= $this->attributes; ?>><?= $this->field->value; ?></textarea>
+	<?php if ($this->field->explanation): ?>
+		<p class="explanation"><?= $this->field->explanation ?></p>
+	<?php endif; ?>
 	<?= $this->help; ?>
 </div>

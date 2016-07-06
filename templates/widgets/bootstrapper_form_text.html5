@@ -4,9 +4,6 @@
 			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
 			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
 		</label>
-		<?php if ($this->field->explanation): ?>
-			<small class="explanation"><?= $this->field->explanation ?></small>
-		<?php endif; ?>
 	<?php endif; ?>
 
 	<?php if ($this->datepicker): ?>
@@ -27,6 +24,10 @@
 	<?php if($this->datepicker): ?>
 			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 		</div>
+	<?php endif; ?>
+
+	<?php if ($this->field->explanation): ?>
+		<p class="explanation"><?= $this->field->explanation ?></p>
 	<?php endif; ?>
 
 	<?= $this->help; ?>

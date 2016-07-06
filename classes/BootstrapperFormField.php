@@ -125,7 +125,7 @@ abstract class BootstrapperFormField extends \Widget
 		$this->Template->attributes  = $this->objWidget->getAttributes();
 		$this->Template->tagEnding   = $this->strTagEnding;
 		$this->Template->hideLabel   = $this->hideLabel || $this->objWidget->hideLabel;
-		$this->Template->explanation   = $this->explanation;
+		$this->Template->explanation   = $this->explanation || $this->objWidget->explanation;
 		$this->Template->help        = $this->parseHelp();
 		$this->setCssClasses();
 		$this->setGroupCssClasses();
