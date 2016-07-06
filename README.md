@@ -77,6 +77,7 @@ minDate | string | | text | A formatted date/time constraining the date/time pic
 maxDate | string | | text | A formatted date/time constraining the date/time picker to a certain maximum date/time.
 minuteSteps | integer | text | The number of seconds in a minute
 slider | array | | slider | Contains information for the bootstrap input slider
+invisible | boolean | false | all | Determines whether a field should be invisible (css display: none); the field still is in the markup!
 
 ###### Bootstrapper input slider eval extension
  

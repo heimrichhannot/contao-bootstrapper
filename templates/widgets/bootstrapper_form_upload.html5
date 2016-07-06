@@ -1,4 +1,4 @@
-<div class="<?= $this->groupClass; ?> fileinput-container">
+<div class="<?= $this->groupClass; ?> fileinput-container<?php if ($this->invisible): ?> invisible<?php endif; ?>">
 	<div class="fileinput input-group <?= $this->fileClass; ?>" data-provides="fileinput"<?= $this->attributes; ?>>
 		<div class="form-control" data-trigger="fileinput"><i class="fileinput-exists <?= $this->fileClass; ?>"></i>
 		<span class="fileinput-filename"><?= $this->filename; ?></span></div>

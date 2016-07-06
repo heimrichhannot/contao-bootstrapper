@@ -1,4 +1,4 @@
-<div class="<?= $this->groupClass; ?>">
+<div class="<?= $this->groupClass; ?><?php if ($this->invisible): ?> invisible<?php endif; ?>">
 	<?php if($this->showGroupLabel): ?>
 		<label id="lbl_<?= $this->groupID; ?>" for="<?= $this->groupID; ?>" class="control-label"><?= $this->groupLabel; ?>
 			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
