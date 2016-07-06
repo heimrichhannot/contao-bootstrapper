@@ -32,7 +32,7 @@
 	<?php endif; ?>
 	<textarea name="<?= $this->field->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control textarea <?= $this->class; ?>" rows="<?= $this->field->rows; ?>" cols="<?= $this->field->cols; ?>"<?= $this->attributes; ?>><?= $this->field->value; ?></textarea>
 	<?php if ($this->field->explanation): ?>
-		<p class="explanation"><?= $this->field->explanation ?></p>
+		<div class="explanation"><?= $this->field->explanation ?></div>
 	<?php endif; ?>
 	<?= $this->help; ?>
 </div>
