@@ -18,6 +18,8 @@ if($this->ptable == 'tl_article' || $this->ptable == 'tl_block_module')
 
 ?>
 
+<div class="panel-group" id="<?php echo $this->parentID; ?>" role="tablist" aria-multiselectable="false">
+
 <section class="panel panel-default <?php echo $this->class; ?> ce_accordion block"<?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
 	<div class="panel-heading <?php echo $this->toggler; ?>"<?php if ($this->headlineStyle): ?> style="<?php echo $this->headlineStyle; ?>"<?php endif; ?>>
 		<h4 class="panel-title">
