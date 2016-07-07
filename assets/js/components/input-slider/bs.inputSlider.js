@@ -18,12 +18,12 @@
 
                 slider.slider().on('slide', function(e){
 
-                    if($rangeLabelFrom.length && $rangeLabelFrom.data('sync')){
+                    if($rangeLabelFrom.length && $rangeLabelFrom.data('sync') && $.isArray(e.value)){
                         $rangeLabelFrom.find('.value').text(BsInputSlider.formatValue(e.value[0]));
                     }
 
                     if($rangeLabelTo.length && $rangeLabelTo.data('sync')){
-                        $rangeLabelTo.find('.value').text(BsInputSlider.formatValue(e.value[1]));
+                        $rangeLabelTo.find('.value').text(BsInputSlider.formatValue($.isArray(e.value) ? e.value[1] : e.value));
                     }
                 });
 

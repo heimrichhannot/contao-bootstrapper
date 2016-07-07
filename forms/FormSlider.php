@@ -167,6 +167,7 @@ class FormSlider extends \Widget
 		if($this->varValue)
 		{
 			$arrConfig['value'] = $this->varValue;
+			$max = $this->varValue;
 
 			if($arrConfig['range'] == true)
 			{
@@ -191,7 +192,7 @@ class FormSlider extends \Widget
 					$arrConfig['step'] = $this->getConfigValue($varValue);
 					break;
 				case 'rangeLabels':
-					if ($arrConfig['range'] === false || !is_array($arrConfig['rangeLabels'])) {
+					if (!is_array($arrConfig['rangeLabels'])) {
 						unset($arrConfig['rangeLabels']);
 						break;
 					}
