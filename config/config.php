@@ -49,6 +49,24 @@ $GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
 			)
 		),
 	),
+	'bs.inputSlider' => array
+	(
+		'js'  => array
+		(
+			'files' => array
+			(
+				'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+				BOOTSTRAPPER_JS_COMPONENT_DIR . '/input-slider/bs.inputSlider' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+			),
+		),
+		'css' => array
+		(
+			'files' => array
+			(
+				'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css|screen|static',
+			)
+		),
+	),
 	'modernizr'         => array
 	(
 		'js' => array
@@ -126,8 +144,7 @@ $GLOBALS['TL_USER_CSS']['pagination-bootstrap'] = 'system/modules/bootstrapper/a
 $GLOBALS['TL_USER_CSS']['maps-bootstrap']       = 'system/modules/bootstrapper/assets/css/maps.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['carousel-bootstrap']   = 'system/modules/bootstrapper/assets/css/carousel.less|screen|static|3.1.1';
 $GLOBALS['TL_USER_CSS']['colorbox-bootstrap']   = 'system/modules/bootstrapper/assets/css/colorbox.less|screen|static|3.1.1';
-$GLOBALS['TL_USER_CSS']['bootstrap-slider']     =
-	'system/modules/bootstrapper/assets/vendor/bootstrap-slider/less/bootstrap-slider.less|screen|static|3.0.0';
+
 $GLOBALS['TL_USER_CSS']['animate']              = 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static';
 
 if (\Config::get('useAwesomeInputs')) {
@@ -168,7 +185,6 @@ if (TL_MODE == 'FE') {
 		'system/modules/bootstrapper/assets/vendor/bootstrap-hover-dropdown-master/bootstrap-hover-dropdown'
 		. (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
-	$GLOBALS['TL_JAVASCRIPT']['bootstrap-slider'] = 'system/modules/bootstrapper/assets/vendor/bootstrap-slider/dist/bootstrap-slider.min.js|static';
 
 	$GLOBALS['TL_JAVASCRIPT']['jquery.actual'] =
 		'system/modules/bootstrapper/assets/vendor/jquery.actual/jquery.actual' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';

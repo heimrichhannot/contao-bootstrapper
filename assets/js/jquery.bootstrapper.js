@@ -11,7 +11,6 @@
             this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
             this.supportNestedDropdowns();
 
-            this.initSlider();
             this.initModal();
             this.loadModalFromUrl();
             this.onCloseModal();
@@ -353,48 +352,6 @@
         loadModalFromUrl: function () {
             if ($('.modal.in').length > 0)
                 $('.modal.in').modal('show');
-        },
-        formatSliderLabel : function(value){
-
-            if(isNaN(parseFloat(value)))
-            {
-                return value;
-            }
-
-            // do only format floats
-            if(Number(value) === value && value % 1 !== 0)
-            {
-                var $strFormat = '0.0';
-                numeral.language($('html').attr('lang'));
-
-                value = numeral(value).format($strFormat);
-            }
-
-            return value;
-        },
-        initSlider: function () {
-            $('input.slider:not([data-slider-type=ticks],[data-slider-type=range])').slider();
-            $('input.slider[data-slider-type=range]').slider().on('slideStop', function(e)
-            {
-                var labels = $(this).parent().siblings('.slider-labels');
-
-                if ($(this).data('slider-ticks-labels') != '')
-                {
-                    var arrTickLabels = $(this).data('slider-ticks-labels');
-                    labels.find('.slider-label-from').html(arrTickLabels[e.value[0]]);
-                    labels.find('.slider-label-to').html(arrTickLabels[e.value[1]]);
-                }
-                else
-                {
-                    labels.find('.slider-label-from').html(Bootstrapper.formatSliderLabel(e.value[0]));
-                    labels.find('.slider-label-to').html(Bootstrapper.formatSliderLabel(e.value[1]));
-                }
-            });
-            $('input.slider[data-slider-type=ticks]').slider().on('slideStop', function(e)
-            {
-                var strValue = $(this).data('slider-ticks-labels')[e.value];
-                $(this).parent().siblings('.slider-labels').find('.slider-label-tick').html(strValue);
-            });
         },
         setHashFromCollapse : function()
         {
