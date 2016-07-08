@@ -357,15 +357,17 @@
         {
             var $collapse = $('.collapse');
 
+            console.log(location);
+
             $collapse.on('show.bs.collapse', function (e) {
                 if(this.id){
-                    history.pushState({}, document.title, location.pathname + '#' + this.id);
+                    history.pushState({}, document.title, location.pathname + location.search +  '#' + this.id);
                 }
             });
 
             $collapse.on('hide.bs.collapse', function (e) {
                 if(this.id) {
-                    history.replaceState({}, document.title, location.pathname);
+                    history.replaceState({}, document.title, location.pathname + location.search);
                 }
             });
         },
