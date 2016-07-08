@@ -160,9 +160,10 @@ class FormSlider extends \Widget
 			),
 		);
 
+		$arrConfig = array_merge($arrDefaults, $arrConfig);
+
 		$min = $arrConfig['min'];
 		$max = $arrConfig['max'];
-		$arrConfig = array_merge($arrDefaults, $arrConfig);
 
 		if($this->varValue)
 		{
