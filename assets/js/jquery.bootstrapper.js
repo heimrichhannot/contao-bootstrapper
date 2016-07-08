@@ -359,7 +359,7 @@
 
             $collapse.on('show.bs.collapse', function (e) {
                 if(this.id){
-                    history.pushState({}, document.title, location.href.replace(/#/g, "") + '#' + this.id);
+                    history.pushState({}, document.title, location.pathname + '#' + this.id);
                 }
             });
 
