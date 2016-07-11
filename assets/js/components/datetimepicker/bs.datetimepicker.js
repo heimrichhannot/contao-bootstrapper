@@ -1,13 +1,13 @@
 (function ($) {
     var BsDatetimePicker = {
-        init : function(){
+        init: function () {
 
             this.initDateTimePicker();
 
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
-        initDateTimePicker : function(){
+        initDateTimePicker: function () {
             var defaults = {
                 locale: $('html').attr('lang'),
                 icons: {
@@ -25,29 +25,35 @@
             $('.datepicker, .timepicker').each(function (k, item) {
                 var $this = $(this),
                     $input = $this.find('input'),
-                    minDate = $input.data('mindate'),
-                    maxDate = $input.data('maxdate'),
-                    linkedUnlock = $input.data('linked-unlock') == true,
-                    $linkedStart = $($input.data('linked-start')),
-                    $linkedEnd = $($input.data('linked-end'));
+                    data = $input.data(),
+                    $linkedStart = $(data.linkedStart),
+                    $linkedEnd = $(data.linkedEnd);
 
-                $this.datetimepicker($.extend({format: $input.data('format')}, defaults));
+                var options = $.fn.datetimepicker.defaults;
+
+                for (var k in data) {
+                    if (options[k] != undefined) {
+                        options[k] = data[k];
+                    }
+                }
+
+                $this.datetimepicker($.extend(options, defaults));
 
                 // set min date
-                if (moment(minDate, $input.data('format')).isValid()) {
-                    $this.data("DateTimePicker").minDate(moment(minDate, $input.data('format')));
+                if (moment(data.minDate, data.format).isValid()) {
+                    $this.data("DateTimePicker").minDate(moment(data.minDate, data.format));
                 }
 
                 // set max date
-                if (moment(maxDate, $input.data('format')).isValid()) {
-                    $this.data("DateTimePicker").maxDate(moment(maxDate, $input.data('format')));
+                if (moment(data.maxDate, data.format).isValid()) {
+                    $this.data("DateTimePicker").maxDate(moment(data.maxDate, data.format));
                 }
 
                 // is end -> link to start
                 if ($linkedStart.length > 0) {
                     // set default min date
-                    if (moment($linkedStart.val(), $input.data('format')).isValid()) {
-                        $this.data("DateTimePicker").minDate(moment($linkedStart.val(), $input.data('format')));
+                    if (moment($linkedStart.val(), data.format).isValid()) {
+                        $this.data("DateTimePicker").minDate(moment($linkedStart.val(), data.format));
                     }
 
                     // on change - update start
@@ -55,13 +61,13 @@
                         if (moment(e.date).isValid()) {
 
                             // intelligent adjustment of start
-                            if(linkedUnlock){
+                            if (data.linkedUnlock) {
                                 // set start to same date as end, if end is before start
-                                if(e.date.isBefore($linkedStart.closest('.datepicker').data("DateTimePicker").date())) {
+                                if (e.date.isBefore($linkedStart.closest('.datepicker').data("DateTimePicker").date())) {
                                     $linkedStart.closest('.datepicker').data("DateTimePicker").date(e.date);
                                 }
                                 // set max date
-                            } else{
+                            } else {
                                 $linkedStart.closest('.datepicker').data("DateTimePicker").maxDate(e.date);
                             }
                         }
@@ -71,8 +77,8 @@
                 // is start -> linked to end
                 if ($linkedEnd.length > 0) {
 
-                    if (moment($linkedEnd.val(), $input.data('format')).isValid()) {
-                        $this.data("DateTimePicker").maxDate(moment($linkedEnd.val(), $input.data('format')));
+                    if (moment($linkedEnd.val(), data.format).isValid()) {
+                        $this.data("DateTimePicker").maxDate(moment($linkedEnd.val(), data.format));
                     }
 
                     // on change - update end
@@ -80,13 +86,13 @@
                         if (moment(e.date).isValid()) {
 
                             // intelligent adjustment of end
-                            if(linkedUnlock){
+                            if (data.linkedUnlock) {
                                 // set end to same date as start, if start is after end
-                                if(e.date.isAfter($linkedEnd.closest('.datepicker').data("DateTimePicker").date())) {
+                                if (e.date.isAfter($linkedEnd.closest('.datepicker').data("DateTimePicker").date())) {
                                     $linkedEnd.closest('.datepicker').data("DateTimePicker").date(e.date);
                                 }
                                 // set min date
-                            } else{
+                            } else {
                                 $linkedEnd.closest('.datepicker').data("DateTimePicker").minDate(e.date);
                             }
                         }
@@ -94,7 +100,7 @@
                 }
             });
         },
-        ajaxComplete : function(){
+        ajaxComplete: function () {
             this.initDateTimePicker();
         }
     }
