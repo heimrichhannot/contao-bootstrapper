@@ -1,4 +1,4 @@
-<label id="<?= $this->label->id; ?>" for="<?= $this->label->for; ?>"<?= $this->label->class; ?>>
+<label id="<?= $this->label->id; ?>" for="<?= $this->label->for; ?>"<?= $this->label->class; ?><?= $this->labelAttributes; ?>>
 	<input type="<?= $this->type; ?>" name="<?= $this->name; ?>" id="<?= $this->id; ?>" class="<?= $this->class; ?>"
 		   value="<?= $this->value; ?>"<?= $this->checked; ?><?= $this->attributes; ?><?= $this->tagEnding; ?>
 	<span class="<?= $this->type; ?>-icon"></span>

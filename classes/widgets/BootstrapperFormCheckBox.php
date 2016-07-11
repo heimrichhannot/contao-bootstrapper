@@ -76,6 +76,7 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 			$objLabel->class = $this->getSetting(BOOTSTRAPPER_OPTION_INLINE) ? ' class="' . $this->objWidget->type . '-inline"' : '';
 
 		$objLabel->value = $arrOption['label'];
+		$objLabel->attributes = array();
 
 		$arrStrAttributes = trimsplit(' ', $this->objWidget->getAttributes());
 
@@ -84,6 +85,7 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 			'label'      => $objLabel,
 			'type'       => $this->objWidget->type,
 			'name'       => $this->objWidget->name . ((count($this->objWidget->options) > 1 && $this->blnCanBeMultiple) ? '[]' : ''),
+			'field'		 => $this->objWidget->name,
 			'id'         => 'opt_' . $this->objWidget->id . '_' . $strKey,
 			'class'      => $this->objWidget->type,
 			'value'      => $arrOption['value'],
@@ -117,6 +119,11 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 		if(is_array($arrData['attributes']))
 		{
 			$objOptionTemplate->attributes .= ' ' . $this->getHtmlAttributes($arrData['attributes']);
+		}
+
+		if(is_array($arrData['label']->attributes))
+		{
+			$objOptionTemplate->labelAttributes = ' ' . $this->getHtmlAttributes($arrData['label']->attributes);
 		}
 
 		return $objOptionTemplate->parse();

@@ -1,7 +1,7 @@
 <div class="checkbox <?= $this->label->class; ?>">
 	<input type="<?= $this->type; ?>" name="<?= $this->name; ?>" id="<?= $this->id; ?>" class="<?= $this->class; ?>"
 		   value="<?= $this->value; ?>"<?= $this->checked; ?><?= $this->attributes; ?><?= $this->tagEnding; ?>
-	<label id="<?= $this->label->id; ?>" for="<?= $this->label->for; ?>"<?php if ($this->label->class): ?> class="<?= $this->label->class; ?>"<?php endif; ?>>
+	<label id="<?= $this->label->id; ?>" for="<?= $this->label->for; ?>"<?php if ($this->label->class): ?> class="<?= $this->label->class; ?>"<?php endif; ?><?= $this->labelAttributes; ?>>
 		<span class="<?= $this->type; ?>-icon"></span>
 		<span class="<?= $this->type; ?>-label"><?= $this->label->value; ?></span>
 	</label>

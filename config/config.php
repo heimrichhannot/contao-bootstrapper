@@ -67,6 +67,16 @@ $GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
 			)
 		),
 	),
+	'bs.tooltip' => array
+	(
+		'js'  => array
+		(
+			'files' => array
+			(
+				BOOTSTRAPPER_JS_COMPONENT_DIR . '/tooltip/bs.tooltip' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+			),
+		)
+	),
 	'modernizr'         => array
 	(
 		'js' => array
