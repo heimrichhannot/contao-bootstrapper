@@ -232,7 +232,7 @@ class BootstrapperHooks extends \Controller
 				// trim length
 				if(is_numeric($params[1]))
 				{
-					$text = \String::substr($text, $params[1]);
+					$text = \StringUtil::substr($text, $params[1]);
 				}
 
 				return $text;
