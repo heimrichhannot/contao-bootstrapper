@@ -16,14 +16,14 @@
                     $rangeLabelFrom = $(data.sliderRangeLabelFrom),
                     $rangeLabelTo = $(data.sliderRangeLabelTo);
 
-                slider.slider().on('slide', function(e){
+                slider.slider().on('change', function(e){
 
-                    if($rangeLabelFrom.length && $rangeLabelFrom.data('sync') && $.isArray(e.value)){
-                        $rangeLabelFrom.find('.value').text(BsInputSlider.formatValue(e.value[0]));
+                    if($rangeLabelFrom.length && $rangeLabelFrom.data('sync') && $.isArray(e.value['newValue'])){
+                        $rangeLabelFrom.find('.value').text(BsInputSlider.formatValue(e.value['newValue'][0]));
                     }
 
                     if($rangeLabelTo.length && $rangeLabelTo.data('sync')){
-                        $rangeLabelTo.find('.value').text(BsInputSlider.formatValue($.isArray(e.value) ? e.value[1] : e.value));
+                        $rangeLabelTo.find('.value').text(BsInputSlider.formatValue($.isArray(e.value['newValue']) ? e.value['newValue'][1] : e.value['newValue']));
                     }
                 });
 
