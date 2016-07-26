@@ -33,17 +33,17 @@
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
-        ajaxComplete : function() {
+        ajaxComplete: function () {
             this.initJQueryValidation();
         },
-        slideUpCollapse : function(){
+        slideUpCollapse: function () {
             $('.collapse.slideup').on('show.bs.collapse', function () {
-                $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+                $("html, body").animate({scrollTop: $(document).height()}, "slow");
             });
         },
-        initFileUpload : function(){
+        initFileUpload: function () {
             // clear fileinput always (as long as value is provided by server)
-            $('.fileinput [data-dismiss]').on('click', function(){
+            $('.fileinput [data-dismiss]').on('click', function () {
                 var $fileInput = $(this).parent('.fileinput');
                 $fileInput.fileinput('clear');
                 $fileInput.find('input[type=file]').attr('value', '');
@@ -150,15 +150,13 @@
                     $(this).validate({
                         errorClass: 'error',
                         focusInvalid: false,
-                        errorPlacement: function(error, element) {
+                        errorPlacement: function (error, element) {
                             var $inputGroup = element.closest('.input-group');
 
-                            if ($inputGroup.length > 0)
-                            {
+                            if ($inputGroup.length > 0) {
                                 error.insertAfter($inputGroup);
                             }
-                            else
-                            {
+                            else {
                                 error.appendTo(element.closest('.form-group'));
                             }
                         }
@@ -210,7 +208,7 @@
                             // sroll to first alert message or first error field
                             var alert = replace.find('.alert:first, .error:first');
 
-                            if(alert.length > 0){
+                            if (alert.length > 0) {
                                 var alertOffset = alert.offset();
 
                                 $('html,body').animate({
@@ -285,7 +283,7 @@
 
 
         },
-        initModal: function() {
+        initModal: function () {
             $('body').on('click', '[data-toggle="modal"]', function (e) {
                 var $this = $(this),
                     $modal = $($this.data('target')),
@@ -297,12 +295,18 @@
                 e.preventDefault();
 
                 history.pushState({url: $this.attr('href')}, null, $this.attr('href'));
-                $replace.load($this.attr('href'), function (responseText, textStatus, jqXHR) {
+
+                $.ajax({
+                    'url': $this.attr('href'),
+                    'data' : {
+                        'scope' : 'modal',
+                        'target': $modal.attr('id')
+                    }
+                }).done(function(responseText, textStatus, jqXHR){
                     try {
                         dataJson = $.parseJSON(responseText);
 
-                        if (dataJson.type == 'redirect')
-                        {
+                        if (dataJson.type == 'redirect') {
                             history.replaceState({url: dataJson.url}, null, dataJson.url);
                             $replace.load(dataJson.url, function (responseText, textStatus, jqXHR) {
                                 $modal.modal('show');
@@ -310,10 +314,11 @@
 
                             return false;
                         }
-                    } catch(e) {
+                    } catch (e) {
                         // fail silently
                     }
 
+                    $replace.html(responseText);
                     $modal.modal('show');
                 });
 
@@ -325,7 +330,7 @@
                 var $this = $(this);
 
                 // stop embedded videos like youtube
-                $this.find('iframe').each(function(){
+                $this.find('iframe').each(function () {
                     var $this = $(this);
 
                     // reset the src will stop the video
@@ -333,18 +338,16 @@
                 });
 
                 // stop embedded audio/video
-                $this.find('audio, video').each(function(){
+                $this.find('audio, video').each(function () {
                     this.pause();
                 });
 
                 // set url to history-base-filtered if set (modal content replaced via ajax)
-                if($this.data('history-base-filtered'))
-                {
+                if ($this.data('history-base-filtered')) {
                     history.pushState({url: $this.data('history-base-filtered')}, null, $this.data('history-base-filtered'));
                 }
                 // redirect to base url (modal window opened via direct event url)
-                else
-                {
+                else {
                     history.pushState({url: $this.data('history-base')}, null, $this.data('history-base'));
                 }
             });
@@ -353,45 +356,43 @@
             if ($('.modal.in').length > 0)
                 $('.modal.in').modal('show');
         },
-        setHashFromCollapse : function()
-        {
+        setHashFromCollapse: function () {
             var $collapse = $('.collapse');
 
             $collapse.on('show.bs.collapse', function (e) {
-                if(this.id){
-                    history.pushState({}, document.title, location.pathname + location.search +  '#' + this.id);
+                if (this.id) {
+                    history.pushState({}, document.title, location.pathname + location.search + '#' + this.id);
                 }
             });
 
             $collapse.on('hide.bs.collapse', function (e) {
-                if(this.id) {
+                if (this.id) {
                     history.replaceState({}, document.title, location.pathname + location.search);
                 }
             });
         },
-        followAnchor : function(){
+        followAnchor: function () {
 
             $('a[href*=#]:not([data-toggle])').on('click', function () {
                 var parser = document.createElement('a');
                 parser.href = $(this).attr('href');
 
                 // if link url is different to current, first load the page
-                if(parser.href.split('#')[0] != window.location.href.split('#')[0])
-                {
+                if (parser.href.split('#')[0] != window.location.href.split('#')[0]) {
                     return true;
                 }
 
                 return scrollToHash(parser.hash);
             });
 
-            function scrollToHash(hash){
+            function scrollToHash(hash) {
 
-                if(hash == '') return true;
+                if (hash == '') return true;
 
                 var $anchor = $(hash);
 
-                if($anchor.length > 0){
-                    $('html,body').animate({scrollTop:$anchor.offset().top}, 500);
+                if ($anchor.length > 0) {
+                    $('html,body').animate({scrollTop: $anchor.offset().top}, 500);
                     window.location.hash = hash;
                     return false;
                 }
@@ -408,12 +409,12 @@
             var $toggle = $('#' + hash + '.collapse'),
                 $link = $("[href='#" + hash + "']");
 
-            if($toggle.length < 1) return false;
+            if ($toggle.length < 1) return false;
 
             var $parent = $($link.data('parent'));
 
             // close all open panels
-            if($parent.length > 0){
+            if ($parent.length > 0) {
                 $($link.data('parent')).find('.collapse').removeClass('in');
                 $($link.data('parent')).find('[data-toggle=collapse]').addClass('collapsed');
             }
@@ -423,7 +424,7 @@
             $link.removeClass('collapsed');
 
             // scroll to panel
-            $('html,body').animate({scrollTop:$toggle.offset().top}, 500);
+            $('html,body').animate({scrollTop: $toggle.offset().top}, 500);
         },
         openModalFromHash: function () {
             var hash = location.hash.replace(/#/g, "").replace(/is/g, "or"); // remove if more than # sign
@@ -432,7 +433,7 @@
 
             var $toggle = $('#' + hash);
 
-            if($toggle.length < 1 || !$toggle.hasClass('modal')) return false;
+            if ($toggle.length < 1 || !$toggle.hasClass('modal')) return false;
 
             $toggle.modal('show');
         },
@@ -448,7 +449,7 @@
                 $panes = $pane.closest('.tabcontrol_panes');
 
             // close all open panels
-            if($links.length > 0 && $panes.length > 0){
+            if ($links.length > 0 && $panes.length > 0) {
                 $links.find('a').parent().removeClass('active');
                 $panes.find('.tab-pane').removeClass('in').removeClass('active');
 
@@ -504,21 +505,21 @@
         initFastClick: function () {
             FastClick.attach(document.body);
         },
-        initIosLabelBugFix: function() {
-            $('.ios .checkbox-label, .ios .radio-label').each(function() {
-                $(this).on('click', function() {
+        initIosLabelBugFix: function () {
+            $('.ios .checkbox-label, .ios .radio-label').each(function () {
+                $(this).on('click', function () {
                     $(this).siblings('input').trigger('click');
                 })
             });
         },
-        initTinyMceModalBugFix: function() {
-            $(document).on('focusin', function(e) {
+        initTinyMceModalBugFix: function () {
+            $(document).on('focusin', function (e) {
                 if ($(e.target).closest('.mce-window').length) {
                     e.stopImmediatePropagation();
                 }
             });
         },
-        confirm: function(message, success, error) {
+        confirm: function (message, success, error) {
             bootbox.dialog({
                 message: message,
                 buttons: {
