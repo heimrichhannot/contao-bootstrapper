@@ -307,7 +307,10 @@
                         dataJson = $.parseJSON(responseText);
 
                         if (dataJson.type == 'redirect') {
-                            history.replaceState({url: dataJson.url}, null, dataJson.url);
+                            if (typeof history.replaceState !== 'undefined')
+                            {
+                                history.replaceState({url: dataJson.url}, null, dataJson.url);
+                            }
                             $replace.load(dataJson.url, function (responseText, textStatus, jqXHR) {
                                 $modal.modal('show');
                             });
@@ -366,7 +369,7 @@
             });
 
             $collapse.on('hide.bs.collapse', function (e) {
-                if (this.id) {
+                if(this.id && typeof history.replaceState !== 'undefined') {
                     history.replaceState({}, document.title, location.pathname + location.search);
                 }
             });
@@ -508,7 +511,14 @@
         initIosLabelBugFix: function () {
             $('.ios .checkbox-label, .ios .radio-label').each(function () {
                 $(this).on('click', function () {
-                    $(this).siblings('input').trigger('click');
+                	var $input = $(this).siblings('input'),
+						$inputAwesome = $(this).closest('.checkbox.checkbox-inline');
+
+					if ($input.length > 0)
+						$input.trigger('click');
+
+					if ($inputAwesome.length > 0)
+						$inputAwesome.find('input').trigger('click');
                 })
             });
         },
