@@ -10,13 +10,13 @@
 		<div class="input-group datepicker">
 	<?php endif; ?>
 
-	<?php if ($this->timepicker): ?>
+	<?php if ($this->timepicker && !$this->datepicker): ?>
 		<div class="input-group timepicker">
 	<?php endif; ?>
 
 	<input type="text" name="<?= $this->field->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control <?= $this->class; ?>" value="<?= $this->field->value; ?>"<?= $this->attributes; ?><?= $this->placeholder; ?>>
 
-	<?php if ($this->timepicker): ?>
+	<?php if ($this->timepicker && !$this->datepicker): ?>
 			<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
 		</div>
 	<?php endif; ?>

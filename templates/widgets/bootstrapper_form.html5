@@ -30,7 +30,35 @@
 				<?php echo $strQuestion; ?>
 			</div>
 	<?php else: ?>
-		<?php if($this->field->datepicker || $this->field->rgxp == 'date'): ?>
+		<?php if($this->field->rgxp == 'datim'): ?>
+			<?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateTimeFormat'])); ?>
+			<?php if($this->field->linkedStart): ?>
+				<?php if($this->field->linkedUnlock): ?>
+					<?php $this->field->addAttribute('data-linked-unlock', $this->field->linkedLock); ?>
+				<?php endif; ?>
+				<?php $this->field->addAttribute('data-linked-start', $this->field->linkedStart); ?>
+				<?php $this->field->addAttribute('data-toggle', 'tooltip'); ?>
+				<?php $this->field->addAttribute('data-title', $this->field->label); ?>
+			<?php endif; ?>
+			<?php if($this->field->linkedEnd): ?>
+				<?php if($this->field->linkedUnlock): ?>
+					<?php $this->field->addAttribute('data-linked-unlock', $this->field->linkedLock); ?>
+				<?php endif; ?>
+				<?php $this->field->addAttribute('data-linked-end', $this->field->linkedEnd); ?>
+				<?php $this->field->addAttribute('data-toggle', 'tooltip'); ?>
+				<?php $this->field->addAttribute('data-title', $this->field->label); ?>
+			<?php endif; ?>
+			<?php if($this->field->minDate): ?>
+				<?php $this->field->addAttribute('data-minDate', $this->field->minDate); ?>
+			<?php endif; ?>
+			<?php if($this->field->maxDate): ?>
+				<?php $this->field->addAttribute('data-maxDate', $this->field->maxDate); ?>
+			<?php endif; ?>
+			<?php if($this->field->minuteSteps):?>
+				<?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
+			<?php endif;?>
+			<div class="input-group datepicker">
+		<?php elseif($this->field->datepicker || $this->field->rgxp == 'date'): ?>
 			<?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat'])); ?>
 			<?php if($this->field->linkedStart): ?>
 				<?php if($this->field->linkedUnlock): ?>
@@ -55,19 +83,17 @@
 				<?php $this->field->addAttribute('data-maxDate', $this->field->maxDate); ?>
 			<?php endif; ?>
 			<div class="input-group datepicker">
-		<?php endif; ?>
-
-		<?php if($this->field->timepicker || $this->field->rgxp == 'time'): ?>
-		<?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat'])); ?>
-		<?php if($this->field->minuteSteps):?>
-			<?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
-		<?php endif;?>
-		<?php if($this->field->minDate): ?>
-			<?php $this->field->addAttribute('data-minDate', $this->field->minDate); ?>
-		<?php endif; ?>
-		<?php if($this->field->maxDate): ?>
-			<?php $this->field->addAttribute('data-maxDate', $this->field->maxDate); ?>
-		<?php endif; ?>
+		<?php elseif($this->field->timepicker || $this->field->rgxp == 'time'): ?>
+			<?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat'])); ?>
+			<?php if($this->field->minuteSteps):?>
+				<?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
+			<?php endif;?>
+			<?php if($this->field->minDate): ?>
+				<?php $this->field->addAttribute('data-minDate', $this->field->minDate); ?>
+			<?php endif; ?>
+			<?php if($this->field->maxDate): ?>
+				<?php $this->field->addAttribute('data-maxDate', $this->field->maxDate); ?>
+			<?php endif; ?>
 			<div class="input-group timepicker">
 		<?php endif; ?>
 
@@ -101,8 +127,8 @@
 			</div>
 		<?php endif; ?>
 
-		<?php if($this->field->datepicker || $this->field->rgxp == 'date'): ?>
-			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+		<?php if($this->field->datepicker || $this->field->rgxp == 'date' || $this->field->rgxp == 'datim'): ?>
+				<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>
