@@ -20,8 +20,10 @@ Contao external CSS & JS assets groups with bootstrap and font-awesome support.
 ### Default assets components
 Disable in Page-layout, if you dont want to use these components.
 
-- bootstrap-select (styled select input with live-search, groups and mobile support)
-- datetimepicker (styled datepicker with time and datepicker) 
+- [bootstrap-select] (https://github.com/silviomoreto/bootstrap-select) : styled select input with live-search, groups and mobile support - *boostrap.js is required, Extassets\ExtJs group with added bootstrapper.js should be added to tl_layout*
+- [bootstrap-datetimepicker] (https://github.com/Eonasdan/bootstrap-datetimepicker) : styled datepicker with time and datepicker
+- [bootstrap-slider] (https://github.com/seiyria/bootstrap-slider) : input slider with ranged slider support
+- [bootstrap-tooltips] (http://getbootstrap.com/javascript/#tooltips) : auto-initialize default bootstrap tooltips `[data-toggle="tooltip"]` - *boostrap.js is required, Extassets\ExtJs group with added bootstrapper.js should be added to tl_layout*
 
 To register custom js/css components, register them within '$GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS']'.
 

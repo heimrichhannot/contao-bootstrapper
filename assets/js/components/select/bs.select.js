@@ -83,8 +83,10 @@
         }
     }
 
-    $(document).ready(function () {
-        BsSelect.init();
+    $(function () {
+        if(typeof($.fn.dropdown) != 'undefined'){
+            BsSelect.init();
+        };
     });
 
 })(jQuery);
