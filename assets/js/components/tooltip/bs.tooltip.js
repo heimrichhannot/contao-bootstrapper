@@ -15,7 +15,9 @@
     };
 
     $(function () {
-        BsTooltips.init();
+        if(typeof($.fn.tooltip) != 'undefined'){
+            BsTooltips.init();
+        };
     })
 
 })(jQuery);
