@@ -33,6 +33,7 @@
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
+		locale: 'de',
         ajaxComplete: function () {
             this.initJQueryValidation();
         },
@@ -529,17 +530,20 @@
                 }
             });
         },
+		setLocale: function(locale) {
+        	this.locale = locale;
+		},
         confirm: function (message, success, error) {
             bootbox.dialog({
                 message: message,
                 buttons: {
                     error: {
-                        label: 'Nein',
+                        label: this.locale == 'en' ? 'No' : 'Nein',
                         className: 'btn-default',
                         callback: error
                     },
                     success: {
-                        label: 'Ja',
+                        label: this.locale == 'en' ? 'Yes' : 'Ja',
                         className: 'btn-primary',
                         callback: success
                     }
