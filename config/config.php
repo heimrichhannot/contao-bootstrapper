@@ -117,7 +117,6 @@ $GLOBALS['TL_FFL']['successGroup'] = 'HeimrichHannot\FormSuccessGroup';
 /**
  * Front end modules
  */
-$GLOBALS['FE_MOD']['news']['newsreader']      = 'HeimrichHannot\ModuleNewsReader';
 $GLOBALS['FE_MOD']['newsletter']['subscribe'] = 'HeimrichHannot\AjaxContent\ModuleAjaxSubscribe';
 
 /**
