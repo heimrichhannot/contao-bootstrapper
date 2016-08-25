@@ -295,7 +295,10 @@
 
                 e.preventDefault();
 
-                history.pushState({url: $this.attr('href')}, null, $this.attr('href'));
+                if (window.history && window.history.pushState){
+                    history.pushState({url: $this.attr('href')}, null, $this.attr('href'));
+                }
+
 
                 $.ajax({
                     'url': $this.attr('href'),
@@ -346,13 +349,15 @@
                     this.pause();
                 });
 
-                // set url to history-base-filtered if set (modal content replaced via ajax)
-                if ($this.data('history-base-filtered')) {
-                    history.pushState({url: $this.data('history-base-filtered')}, null, $this.data('history-base-filtered'));
-                }
-                // redirect to base url (modal window opened via direct event url)
-                else {
-                    history.pushState({url: $this.data('history-base')}, null, $this.data('history-base'));
+                if (window.history && window.history.pushState){
+                    // set url to history-base-filtered if set (modal content replaced via ajax)
+                    if ($this.data('history-base-filtered')) {
+                        history.pushState({url: $this.data('history-base-filtered')}, null, $this.data('history-base-filtered'));
+                    }
+                    // redirect to base url (modal window opened via direct event url)
+                    else {
+                        history.pushState({url: $this.data('history-base')}, null, $this.data('history-base'));
+                    }
                 }
             });
         },
@@ -364,7 +369,7 @@
             var $collapse = $('.collapse');
 
             $collapse.on('show.bs.collapse', function (e) {
-                if (this.id) {
+                if (this.id && window.history && window.history.pushState) {
                     history.pushState({}, document.title, location.pathname + location.search + '#' + this.id);
                 }
             });
