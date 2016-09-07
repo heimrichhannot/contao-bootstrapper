@@ -168,13 +168,21 @@ class FormSlider extends \Widget
 		if($this->varValue)
 		{
 			$arrConfig['value'] = $this->varValue;
+			$arrRange = trimsplit(',', $this->varValue);
 			$max = $this->varValue;
 
-			if($arrConfig['range'] == true)
+			if(is_array($arrRange) && count($arrRange) > 1)
 			{
-				$arrConfig['value'] = trimsplit(',', $this->varValue);
-				$min = $arrConfig['value'][0];
-				$max = $arrConfig['value'][1];
+				if($arrConfig['range'] == true)
+				{
+					$arrConfig['value'] = $arrRange;
+					$min = $arrRange[0];
+					$max = $arrRange[1];
+				}
+				else {
+					$max = $arrRange[1];
+					$arrConfig['value'] = $arrRange[1];
+				}
 			}
 		}
 
