@@ -34,7 +34,7 @@
 		<?php $this->endblock(); ?>
 	<?php $this->endblock(); ?>
 </head>
-<body id="top" class="{{page::alias}} {{ua::class}}<?php if ($this->class) echo ' ' . $this->class; ?>"<?php if ($this->onload): ?> onload="<?= $this->onload; ?>"<?php endif; ?>>
+<body id="top" class="<?= str_replace('/', '_', \Controller::replaceInsertTags('{{page::alias}}')) ?> {{ua::class}}<?php if ($this->class) echo ' ' . $this->class; ?>"<?php if ($this->onload): ?> onload="<?= $this->onload; ?>"<?php endif; ?>>
 
 <?php $this->block('body'); ?>
 
