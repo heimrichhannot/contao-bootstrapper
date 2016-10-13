@@ -117,6 +117,11 @@
             $('.navbar-collapse').on('hide.bs.collapse', function () {
                 $('body').removeClass('navbar-xs-open');
             });
+
+            // initial set
+            if($('.navbar-collapse').hasClass('in')){
+                $('body').addClass('navbar-xs-open');
+            }
         },
         addPlaceholderTagSupport: function () {
             if (!Modernizr.input.placeholder) {
