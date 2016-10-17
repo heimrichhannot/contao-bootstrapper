@@ -12,7 +12,7 @@ if($this->ptable == 'tl_article' || $this->ptable == 'tl_block_module')
 	if($objArticle !== null)
 	{
 		$arrCss = deserialize($objArticle->cssID, true);
-		$this->parentID = $arrCss[0] ? $arrCss[0] : standardize($objArticle->alias);
+		$this->parentID = $arrCss[0] ? $arrCss[0] : standardize($objArticle->alias) . '_collapse';
 	}
 }
 
