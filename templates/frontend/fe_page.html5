@@ -22,7 +22,7 @@
 		<link rel="shortcut icon" href="/files/{CHANGE_THIS}/theme/img/favicon.ico" type="image/x-icon">
 		<link rel="apple-touch-icon" href="/files/{CHANGE_THIS}/theme/img/apple-touch-icon-precomposed.png">
 
-		<script src="/system/modules/bootstrapper/assets/vendor/modernizr-2.6.2.min.js"></script>
+		<script src="/system/modules/bootstrapper/assets/vendor/modernizr.min.js"></script>
 		<?= $this->viewport; ?>
 		<?= $this->framework; ?>
 		<?= $this->stylesheets; ?>
