@@ -38,6 +38,9 @@ class BootstrapperAssets extends \Frontend
 
 		foreach ($arrFiles as $key => $strFile)
 		{
+		    // do not add the same file multiple times
+		    if(in_array($strFile, $arrCurrent)) continue;
+
 			$arrReplace[$strGroup. '.' . $key] = $strFile;
 		}
 
