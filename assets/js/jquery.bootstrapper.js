@@ -373,15 +373,26 @@
         setHashFromCollapse: function () {
             var $collapse = $('.collapse');
 
-            $collapse.on('show.bs.collapse', function (e) {
-                if (this.id && window.history && window.history.pushState) {
-                    history.pushState({}, document.title, location.pathname + location.search + '#' + this.id);
-                }
-            });
+            $collapse.each(function() {
+                var $this = $(this);
 
-            $collapse.on('hide.bs.collapse', function (e) {
-                if(this.id && typeof history.replaceState !== 'undefined') {
-                    history.replaceState({}, document.title, location.pathname + location.search);
+                $this.on('shown.bs.collapse', function (e) {
+                    if (this.id && window.history && window.history.pushState) {
+                        history.pushState({}, document.title, location.pathname + location.search + '#' + this.id);
+                    }
+                });
+
+                $this.on('hidden.bs.collapse', function (e) {
+                    if(this.id && typeof history.replaceState !== 'undefined') {
+                        history.replaceState({}, document.title, location.pathname + location.search);
+                    }
+                });
+
+                if ($this.hasClass('in'))
+                {
+                    if ($this.attr('id') && window.history && window.history.pushState) {
+                        history.pushState({}, document.title, location.pathname + location.search + '#' + $this.attr('id'));
+                    }
                 }
             });
         },
@@ -406,7 +417,8 @@
                 var $anchor = $(hash);
 
                 if ($anchor.length > 0) {
-                    $('html,body').animate({scrollTop: $anchor.offset().top}, 500);
+                    Bootstrapper.scrollTo($anchor, 100, 500);
+
                     window.location.hash = hash;
                     return false;
                 }
@@ -438,7 +450,35 @@
             $link.removeClass('collapsed');
 
             // scroll to panel
-            $('html,body').animate({scrollTop: $toggle.offset().top}, 500);
+            Bootstrapper.scrollTo($toggle, 100, 500);
+        },
+        scrollTo: function($anchor, offsetSize, delay, force) {
+            setTimeout(function () {
+                if (!Bootstrapper.elementInViewport($anchor) || typeof force !== 'undefined')
+                {
+                    $('html, body').animate({scrollTop: ($anchor.offset().top - offsetSize)}, 'slow');
+                }
+            }, delay);
+        },
+        elementInViewport: function(el) {
+            el = el.get(0);
+            var top = el.offsetTop;
+            var left = el.offsetLeft;
+            var width = el.offsetWidth;
+            var height = el.offsetHeight;
+
+            while(el.offsetParent) {
+                el = el.offsetParent;
+                top += el.offsetTop;
+                left += el.offsetLeft;
+            }
+
+            return (
+                top < (window.pageYOffset + window.innerHeight) &&
+                left < (window.pageXOffset + window.innerWidth) &&
+                (top + height) > window.pageYOffset &&
+                (left + width) > window.pageXOffset
+            );
         },
         openModalFromHash: function () {
             var hash = location.hash.replace(/#/g, "").replace(/is/g, "or"); // remove if more than # sign
