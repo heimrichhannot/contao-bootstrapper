@@ -340,7 +340,7 @@
         },
         initCollapse: function() {
             $('[data-toggle="collapse"]').on('click', function() {
-                Bootstrapper.scrollTo($(this), 100, 500);
+                HASTE_PLUS.scrollTo($(this), 100, 500);
             });
         },
         onCloseModal: function () {
@@ -423,7 +423,7 @@
                 var $anchor = $(hash);
 
                 if ($anchor.length > 0) {
-                    Bootstrapper.scrollTo($anchor, 100, 500);
+                    HASTE_PLUS.scrollTo($anchor, 100, 500);
 
                     window.location.hash = hash;
                     return false;
@@ -433,7 +433,6 @@
             }
         },
         toggleCollapseFromHash: function () {
-
             var hash = location.hash.replace(/#/g, ""); // remove if more than # sign
 
             if (!hash) return false;
@@ -456,35 +455,7 @@
             $link.removeClass('collapsed');
 
             // scroll to panel
-            Bootstrapper.scrollTo($toggle, 100, 500);
-        },
-        scrollTo: function($anchor, offsetSize, delay, force) {
-            setTimeout(function () {
-                if (!Bootstrapper.elementInViewport($anchor) || typeof force !== 'undefined')
-                {
-                    $('html, body').animate({scrollTop: ($anchor.offset().top - offsetSize)}, 'slow');
-                }
-            }, delay);
-        },
-        elementInViewport: function(el) {
-            el = el.get(0);
-            var top = el.offsetTop;
-            var left = el.offsetLeft;
-            var width = el.offsetWidth;
-            var height = el.offsetHeight;
-
-            while(el.offsetParent) {
-                el = el.offsetParent;
-                top += el.offsetTop;
-                left += el.offsetLeft;
-            }
-
-            return (
-                top < (window.pageYOffset + window.innerHeight) &&
-                left < (window.pageXOffset + window.innerWidth) &&
-                (top + height) > window.pageYOffset &&
-                (left + width) > window.pageXOffset
-            );
+            HASTE_PLUS.scrollTo($toggle, 100, 500);
         },
         openModalFromHash: function () {
             var hash = location.hash.replace(/#/g, "").replace(/is/g, "or"); // remove if more than # sign
