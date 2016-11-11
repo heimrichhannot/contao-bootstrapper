@@ -52,6 +52,8 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 		$this->Template->groupLabel     = $this->objWidget->groupLabel ?: $this->objWidget->label;
 		$this->Template->explanation     = $this->objWidget->explanation;
 		$this->Template->invisible     = $this->objWidget->invisible;
+		$this->Template->multiple     = $this->objWidget->multiple;
+
 
 		if (!$this->getSetting(BOOTSTRAPPER_OPTION_HIDELABEL) && $blnShowGroupLabel || $this->getSetting(BOOTSTRAPPER_OPTION_SHOWGROUPLABEL)) {
 			$this->Template->showGroupLabel = true;
@@ -125,6 +127,9 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
 		{
 			$objOptionTemplate->labelAttributes = ' ' . $this->getHtmlAttributes($arrData['label']->attributes);
 		}
+
+		$objOptionTemplate->multiple = $this->objWidget->multiple;
+		$objOptionTemplate->mandatory = $this->objWidget->mandatory;
 
 		return $objOptionTemplate->parse();
 	}

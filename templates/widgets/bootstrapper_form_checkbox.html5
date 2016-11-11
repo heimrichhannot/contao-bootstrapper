@@ -8,7 +8,7 @@
 	<div id="<?= $this->groupID; ?>" class="checkbox-group <?= $this->class; ?>">
 		<input type="hidden" name="<?= $this->field->name; ?>" value=""<?= $this->tagEnding; ?>
 		<?= $this->options; ?>
-		<?php if(!$this->showGroupLabel): ?>
+		<?php if(!$this->showGroupLabel && $this->multiple): ?>
 			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
 			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
 		<?php endif; ?>
