@@ -537,7 +537,7 @@
             FastClick.attach(document.body);
         },
         initIosLabelBugFix: function () {
-            $('.ios .checkbox-label, .ios .radio-label').each(function () {
+            $('.ios .checkbox-label').each(function () {
                 $(this).on('click', function () {
                 	var $input = $(this).siblings('input'),
 						$inputAwesome = $(this).closest('.checkbox.checkbox-inline');
@@ -547,6 +547,19 @@
 
 					if ($inputAwesome.length > 0)
 						$inputAwesome.find('input').trigger('click');
+                })
+            });
+
+            $('.ios .radio-label').each(function () {
+                $(this).on('click', function () {
+                    var $input = $(this).siblings('input'),
+                        $inputAwesome = $(this).closest('.radio.radio-inline');
+
+                    if ($input.length > 0)
+                        $input.trigger('click');
+
+                    if ($inputAwesome.length > 0)
+                        $inputAwesome.find('input').trigger('click');
                 })
             });
         },
