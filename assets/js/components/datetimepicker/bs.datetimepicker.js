@@ -33,6 +33,14 @@
 
                 for (var k in data) {
                     if (options[k] != undefined) {
+                        switch (k)
+                        {
+                            case 'minDate':
+                            case 'maxDate':
+                                continue;
+                            break;
+                        }
+
                         options[k] = data[k];
                     }
                 }

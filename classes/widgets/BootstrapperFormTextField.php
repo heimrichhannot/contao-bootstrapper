@@ -49,10 +49,10 @@ class BootstrapperFormTextField extends BootstrapperFormField
 			}
 
 			if ($this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE))
-				$this->objWidget->addAttribute('data-minDate', $this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE));
+				$this->objWidget->addAttribute('data-min-date', $this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE));
 
 			if ($this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE))
-				$this->objWidget->addAttribute('data-maxDate', $this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE));
+				$this->objWidget->addAttribute('data-max-date', $this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE));
 
 			if ($this->getSetting(BOOTSTRAPPER_OPTION_MINUTE_STEPS))
 				$this->objWidget->addAttribute('data-steps', $this->getSetting(BOOTSTRAPPER_OPTION_MINUTE_STEPS));
@@ -85,10 +85,10 @@ class BootstrapperFormTextField extends BootstrapperFormField
 			}
 
 			if ($this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE))
-				$this->objWidget->addAttribute('data-minDate', $this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE));
+				$this->objWidget->addAttribute('data-min-date', $this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE));
 
 			if ($this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE))
-				$this->objWidget->addAttribute('data-maxDate', $this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE));
+				$this->objWidget->addAttribute('data-max-date', $this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE));
 		}
 		elseif ($arrEval['timepicker'] || $arrEval['rgxp'] == 'time')
 		{
