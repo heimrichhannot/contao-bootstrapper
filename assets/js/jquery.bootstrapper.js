@@ -34,7 +34,7 @@
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
-		locale: 'de',
+        locale: 'de',
         ajaxComplete: function () {
             this.initJQueryValidation();
         },
@@ -120,7 +120,7 @@
             });
 
             // initial set
-            if($('.navbar-collapse').hasClass('in')){
+            if ($('.navbar-collapse').hasClass('in')) {
                 $('body').addClass('navbar-xs-open');
             }
         },
@@ -301,24 +301,26 @@
 
                 e.preventDefault();
 
-                if (window.history && window.history.pushState){
+                if (window.history) {
                     history.pushState({url: $this.attr('href')}, null, $this.attr('href'));
+                    if ($this.data('title')) {
+                        document.title = $this.data('title');
+                    }
                 }
 
 
                 $.ajax({
                     'url': $this.attr('href'),
-                    'data' : {
-                        'scope' : 'modal',
+                    'data': {
+                        'scope': 'modal',
                         'target': $modal.attr('id')
                     }
-                }).done(function(responseText, textStatus, jqXHR){
+                }).done(function (responseText, textStatus, jqXHR) {
                     try {
                         dataJson = $.parseJSON(responseText);
 
                         if (dataJson.type == 'redirect') {
-                            if (typeof history.replaceState !== 'undefined')
-                            {
+                            if (typeof history.replaceState !== 'undefined') {
                                 history.replaceState({url: dataJson.url}, null, dataJson.url);
                             }
                             $replace.load(dataJson.url, function (responseText, textStatus, jqXHR) {
@@ -338,13 +340,13 @@
                 return false;
             });
         },
-        initCollapse: function() {
-            $('[data-toggle="collapse"]').on('click', function() {
+        initCollapse: function () {
+            $('[data-toggle="collapse"]').on('click', function () {
                 HASTE_PLUS.scrollTo($(this), 100, 500);
             });
         },
         onCloseModal: function () {
-            $('.modal').on('hide.bs.modal', function (e) {
+            $(document).on('hide.bs.modal', '.modal', function (e) {
                 var $this = $(this);
 
                 // stop embedded videos like youtube
@@ -360,14 +362,12 @@
                     this.pause();
                 });
 
-                if (window.history && window.history.pushState){
+                if (window.history) {
                     // set url to history-base-filtered if set (modal content replaced via ajax)
-                    if ($this.data('history-base-filtered')) {
-                        history.pushState({url: $this.data('history-base-filtered')}, null, $this.data('history-base-filtered'));
-                    }
-                    // redirect to base url (modal window opened via direct event url)
-                    else {
-                        history.pushState({url: $this.data('history-base')}, null, $this.data('history-base'));
+                    history.replaceState({url: $this.data('history-base')}, null, $this.data('history-base'));
+
+                    if($this.data('history-base-title')){
+                        document.title = $this.data('history-base-title');
                     }
                 }
             });
@@ -379,7 +379,7 @@
         setHashFromCollapse: function () {
             var $collapse = $('.collapse');
 
-            $collapse.each(function() {
+            $collapse.each(function () {
                 var $this = $(this);
 
                 $this.on('shown.bs.collapse', function (e) {
@@ -389,13 +389,12 @@
                 });
 
                 $this.on('hidden.bs.collapse', function (e) {
-                    if(this.id && typeof history.replaceState !== 'undefined') {
+                    if (this.id && typeof history.replaceState !== 'undefined') {
                         history.replaceState({}, document.title, location.pathname + location.search);
                     }
                 });
 
-                if ($this.hasClass('in'))
-                {
+                if ($this.hasClass('in')) {
                     if ($this.attr('id') && window.history && window.history.pushState) {
                         history.pushState({}, document.title, location.pathname + location.search + '#' + $this.attr('id'));
                     }
@@ -539,14 +538,14 @@
         initIosLabelBugFix: function () {
             $('.ios .checkbox-label').each(function () {
                 $(this).on('click', function () {
-                	var $input = $(this).siblings('input'),
-						$inputAwesome = $(this).closest('.checkbox.checkbox-inline');
+                    var $input = $(this).siblings('input'),
+                        $inputAwesome = $(this).closest('.checkbox.checkbox-inline');
 
-					if ($input.length > 0)
-						$input.trigger('click');
+                    if ($input.length > 0)
+                        $input.trigger('click');
 
-					if ($inputAwesome.length > 0)
-						$inputAwesome.find('input').trigger('click');
+                    if ($inputAwesome.length > 0)
+                        $inputAwesome.find('input').trigger('click');
                 })
             });
 
@@ -570,9 +569,9 @@
                 }
             });
         },
-		setLocale: function(locale) {
-        	this.locale = locale;
-		},
+        setLocale: function (locale) {
+            this.locale = locale;
+        },
         confirm: function (message, success, error) {
             bootbox.dialog({
                 message: message,
