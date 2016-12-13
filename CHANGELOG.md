@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.16] - 2016-12-13
+
+### Added
+- data-equal-height-breakpoint-min="768" added to "nav_navbar_collapse_hover.html5" to stop equal height behavior at 768px window width 
+
 ## [1.3.15] - 2016-12-05
 
 ### Changed

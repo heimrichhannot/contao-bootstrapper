@@ -17,7 +17,7 @@
 		<?php endif; ?>
 		<ul
 			class="<?php echo $this->level; ?> nav-collapse nav<?php if($this->level == 'level_1'): ?> pull-left navbar-nav<?php else: ?> dropdown-menu<?php endif; ?>"
-			role="menu" <?php if($this->level == 'level_2'): ?> data-equal-height="ul.nav"<?php endif; ?>>
+			role="menu" <?php if($this->level == 'level_2'): ?> data-equal-height="ul.nav" data-equal-height-breakpoint-min="768"<?php endif; ?>>
 			
 			<?php if($this->level != 'level_1'): ?>
 				<li class="submenu-wrapper">
