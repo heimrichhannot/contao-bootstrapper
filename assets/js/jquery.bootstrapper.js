@@ -409,12 +409,6 @@
                         history.replaceState({}, document.title, location.pathname + location.search);
                     }
                 });
-
-                if ($this.hasClass('in')) {
-                    if ($this.attr('id') && window.history && window.history.pushState) {
-                        history.pushState({}, document.title, location.pathname + location.search + '#' + $this.attr('id'));
-                    }
-                }
             });
         },
         followAnchor: function () {

@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.17] - 2016-12-22
+
+### Changed
+- setHashFromCollapse, do not set hash for collapse when '.in' css class is present, otherwise will jump on every page load to collapse with '.in' class set
+
 ## [1.3.16] - 2016-12-13
 
 ### Added
