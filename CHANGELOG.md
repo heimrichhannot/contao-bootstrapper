@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.18] - 2017-01-31
+
+### Added
+- added name and value attribute in button generation to enable export-button in frontend
+
 ## [1.3.17] - 2016-12-22
 
 ### Changed
