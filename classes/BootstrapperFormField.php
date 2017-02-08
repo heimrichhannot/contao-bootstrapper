@@ -98,7 +98,8 @@ abstract class BootstrapperFormField extends \Widget
 		$objWidget->name = str_replace('[]', '', $objWidget->name);
 
 		$this->objWidget = $objWidget;
-		$this->arrDca    = $GLOBALS['TL_DCA'][$objWidget->strTable]['fields'][$objWidget->strField];
+		// fields cann add the correct dca by themselves since sometimes there isn't enough context here
+		$this->arrDca    = $objWidget->arrDca ?: $GLOBALS['TL_DCA'][$objWidget->strTable]['fields'][$objWidget->strField];
 
 		global $objPage;
 

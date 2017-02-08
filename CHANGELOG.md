@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.3.19] - 2017-02-08
+
+### Changed
+- BootstrapperFormField: fields can add the correct dca by themselves
+
 ## [1.3.18] - 2017-01-31
 
 ### Added
