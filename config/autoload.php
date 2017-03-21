@@ -3,7 +3,7 @@
 /**
  * Contao Open Source CMS
  *
- * Copyright (c) 2005-2016 Leo Feyer
+ * Copyright (c) 2005-2017 Leo Feyer
  *
  * @license LGPL-3.0+
  */
@@ -36,6 +36,7 @@ ClassLoader::addClasses(array
 
 	// Classes
 	'HeimrichHannot\Bootstrapper\BootstrapperAssets'             => 'system/modules/bootstrapper/classes/BootstrapperAssets.php',
+	'HeimrichHannot\Bootstrapper\DatabaseUpdater'                => 'system/modules/bootstrapper/classes/DatabaseUpdater.php',
 	'HeimrichHannot\Bootstrapper\BootstrapperComponent'          => 'system/modules/bootstrapper/classes/BootstrapperComponent.php',
 	'HeimrichHannot\Bootstrapper\BootstrapperFormField'          => 'system/modules/bootstrapper/classes/BootstrapperFormField.php',
 	'HeimrichHannot\Bootstrapper\Backend\Layout'                 => 'system/modules/bootstrapper/classes/Backend/Layout.php',

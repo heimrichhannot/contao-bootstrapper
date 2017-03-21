@@ -1,21 +1,39 @@
 /*
-Error: File to import not found or unreadable: ../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables.
-        on line 1 of build.scss
+Error: Undefined variable: "$container-lg".
+        on line 11 of _variables.scss
+        from line 4 of jasny-bootstrap.scss
 
-1: @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
-2: @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
-3: 
-4: @import "../bower_components/Font-Awesome/scss/variables";
-5: 
-6: @import "../awesome-bootstrap-checkbox.scss";
+6: 
+7: // Core CSS
+8: @import "grid-container-smooth";
+9: @import "button-labels";
+10: 
+11: // Components
+12: @import "nav-tab-alignment";
+13: @import "navmenu";
+14: @import "alerts-fixed";
+15: 
+16: // Components w/ JavaScript
 
 Backtrace:
-build.scss:1
-/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/import_node.rb:67:in `rescue in import'
-/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/import_node.rb:45:in `import'
-/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/import_node.rb:28:in `imported_file'
-/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/import_node.rb:37:in `css_import?'
-/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:311:in `visit_import'
+_variables.scss:11
+jasny-bootstrap.scss:4
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/script/tree/variable.rb:49:in `_perform'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/script/tree/node.rb:50:in `perform'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:469:in `visit_variable'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/stack.rb:79:in `block in with_base'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/stack.rb:115:in `with_frame'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/stack.rb:79:in `with_base'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:326:in `block (2 levels) in visit_import'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:326:in `map'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/stack.rb:88:in `block in with_import'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/stack.rb:115:in `with_frame'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/stack.rb:88:in `with_import'
+/home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
 /home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/base.rb:36:in `visit'
 /home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
 /home/rico/.rvm/gems/ruby-2.2.1/gems/sass-3.4.18/lib/sass/stack.rb:79:in `block in with_base'
@@ -55,4 +73,4 @@ build.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables.\A         on line 1 of build.scss\A \A 1: @import \"../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables\";\A 2: @import \"../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins\";\A 3: \A 4: @import \"../bower_components/Font-Awesome/scss/variables\";\A 5: \A 6: @import \"../awesome-bootstrap-checkbox.scss\";"; }
+  content: "Error: Undefined variable: \"$container-lg\".\A         on line 11 of _variables.scss\A         from line 4 of jasny-bootstrap.scss\A \A 6: \A 7: // Core CSS\A 8: @import \"grid-container-smooth\";\A 9: @import \"button-labels\";\A 10: \A 11: // Components\A 12: @import \"nav-tab-alignment\";\A 13: @import \"navmenu\";\A 14: @import \"alerts-fixed\";\A 15: \A 16: // Components w/ JavaScript"; }

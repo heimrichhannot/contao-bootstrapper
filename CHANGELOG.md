@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2017-03-21
+
+### Changed
+- `$GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS']` are now handled within new module `heimrichhannot/contao-components`, database updater comes with release to copy values form old tl_layout fields to new fields 
+
 ## [1.3.19] - 2017-02-08
 
 ### Changed

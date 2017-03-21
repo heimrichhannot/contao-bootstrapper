@@ -15,43 +15,15 @@ Contao external CSS & JS assets groups with bootstrap and font-awesome support.
 #### ModuleNewsReader 
 - Display news details as contao of bootstrap modal window, if selected news_full_modal.html5 template
 
-## Bootstrapper asset components
+## Bootstrapper components
 
-### Default assets components
+### Default components
 Disable in Page-layout, if you dont want to use these components.
 
 - [bootstrap-select] (https://github.com/silviomoreto/bootstrap-select) : styled select input with live-search, groups and mobile support - *boostrap.js is required, Extassets\ExtJs group with added bootstrapper.js should be added to tl_layout*
 - [bootstrap-datetimepicker] (https://github.com/Eonasdan/bootstrap-datetimepicker) : styled datepicker with time and datepicker
 - [bootstrap-slider] (https://github.com/seiyria/bootstrap-slider) : input slider with ranged slider support
 - [bootstrap-tooltips] (http://getbootstrap.com/javascript/#tooltips) : auto-initialize default bootstrap tooltips `[data-toggle="tooltip"]` - *boostrap.js is required, Extassets\ExtJs group with added bootstrapper.js should be added to tl_layout*
-
-To register custom js/css components, register them within '$GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS']'.
-
-```
-$GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
-(
-	'bs.myplugin' =>  array
-	(
-		'js' => array
-		(
-		    'files' => array
-		    (
-			    'system/modules/bootstrapper/assets/vendor/my-plugin-library//js/my-plugin-library' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') .  '.js|static',
-			    BOOTSTRAPPER_JS_COMPONENT_DIR . '/myplugin/bs.myplugin' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
-			),
-			'sort => 0 // this will add the js files before all other js files within TL_JAVASCRIPT
-		),
-		'css' => array
-		(
-		    'files' => array
-            (
-               'system/modules/bootstrapper/assets/vendor/my-plugin-library/my-plugin-library/css/my-plugin-library.css|screen|static|1.0.0'
-            ),
-			'sort => 0 // this will add the css files before all other css files within TL_USER_CSS
-		),
-	),
-);
-```
 
 ## Bootstrapper form field eval extension
  

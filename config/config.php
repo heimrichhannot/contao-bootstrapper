@@ -9,7 +9,7 @@ define('BOOTSTRAPPER_JS_COMPONENT_DIR', 'system/modules/bootstrapper/assets/js/c
 /**
  * Asset Components
  */
-$GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'] = array
+$GLOBALS['TL_COMPONENTS'] = array
 (
 	'bs.datetimepicker' => array
 	(
