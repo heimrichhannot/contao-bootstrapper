@@ -24,6 +24,30 @@ Disable in Page-layout, if you dont want to use these components.
 - [bootstrap-datetimepicker] (https://github.com/Eonasdan/bootstrap-datetimepicker) : styled datepicker with time and datepicker
 - [bootstrap-slider] (https://github.com/seiyria/bootstrap-slider) : input slider with ranged slider support
 - [bootstrap-tooltips] (http://getbootstrap.com/javascript/#tooltips) : auto-initialize default bootstrap tooltips `[data-toggle="tooltip"]` - *boostrap.js is required, Extassets\ExtJs group with added bootstrapper.js should be added to tl_layout*
+- scroll-smooth : Scroll smooth to anchor targets 
+
+
+#### bootstrap-scroll-smooth
+If you want to set an offset, for example for a fixed header, you can provide `data-scroll-smooth-offset` at you body element within fe_page.html5
+You can provide both integers or multiple element selectors, do calculate the offset height, that should be subtracted from the target offset. 
+Selectors have the advantage, that in case you have a responsive website, the offset updates from its element height.
+You are able to set the animation duration by adding `data-scroll-smooth-duration` to the body element and `data-scroll-smooth-easing` for the easing function.
+
+Example - Integer:
+```
+<body data-scroll-smooth-offset="150" data-scroll-smooth-duration="slow" data-scroll-smooth-easing="swing" id="top">
+ <div id="header"></header>
+</body>
+```
+Example - Selectors:
+```
+<body data-scroll-smooth-offset="#header,#highlight" data-scroll-smooth-duration="slow" data-scroll-smooth-easing="swing" id="top">
+ <div id="header"></header>
+ <div id="highlight"></header>
+</body>
+```
+
+
 
 ## Bootstrapper form field eval extension
  

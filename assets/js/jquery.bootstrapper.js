@@ -22,8 +22,6 @@
             this.initScrollClass();
             this.megaMenuEqualHeight();
             this.setHashFromCollapse();
-
-            this.followAnchor();
             this.initFileUpload();
             this.slideUpCollapse();
 
@@ -410,36 +408,6 @@
                     }
                 });
             });
-        },
-        followAnchor: function () {
-
-            $('a[href*=#]:not([data-toggle])').on('click', function () {
-                var parser = document.createElement('a');
-                parser.href = $(this).attr('href');
-
-                // if link url is different to current, first load the page
-                if (parser.href.split('#')[0] != window.location.href.split('#')[0]) {
-                    return true;
-                }
-
-                return scrollToHash(parser.hash);
-            });
-
-            function scrollToHash(hash) {
-
-                if (hash == '') return true;
-
-                var $anchor = $(hash);
-
-                if ($anchor.length > 0) {
-                    HASTE_PLUS.scrollTo($anchor, 100, 500);
-
-                    window.location.hash = hash;
-                    return false;
-                }
-
-                return true;
-            }
         },
         toggleCollapseFromHash: function () {
             var hash = location.hash.replace(/#/g, ""); // remove if more than # sign

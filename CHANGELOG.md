@@ -1,11 +1,15 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [1.4.2] - 2017-03-22
+
+### Fixed
+- moved followAnchor from jquery.bootstrapper.js to component scrollSmooth and fixed behavior
+
 ## [1.4.1] - 2017-03-22
 
 ### Fixed
 - `$GLOBALS['TL_COMPONENTS']` was overwritten not extended by bootstrapper
-
 
 ## [1.4.0] - 2017-03-21
 

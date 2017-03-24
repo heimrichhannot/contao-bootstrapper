@@ -61,6 +61,13 @@ $GLOBALS['TL_COMPONENTS']['bs.tooltip'] = [
     ],
 ];
 
+$GLOBALS['TL_COMPONENTS']['bs.scrollSmooth'] = [
+    'js' => [
+        'files' => [
+            BOOTSTRAPPER_JS_COMPONENT_DIR . '/scroll-smooth/bs.scroll-smooth' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+        ],
+    ],
+];
 
 $GLOBALS['TL_COMPONENTS']['modernizr'] = [
     'js' => [
