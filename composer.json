@@ -26,7 +26,7 @@
     "contao-community-alliance/composer-plugin": "~2.4 || ~3.0",
     "contao-legacy/countryselect": ">=1.2.0,<2-dev",
     "heimrichhannot/contao-extassets": "~1.0",
-    "heimrichhannot/contao-components": "~1.0",
+    "heimrichhannot/contao-components": "~1.0"
   },
   "autoload": {
     "classmap": [
