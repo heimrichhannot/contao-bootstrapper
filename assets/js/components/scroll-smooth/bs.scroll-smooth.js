@@ -16,10 +16,11 @@
                 }
             },
             setOffset: function () {
-                var offset = $('body').data('scroll-smooth-offset');
+                var $body = $('body'),
+                    offset = $body.data('scroll-smooth-offset');
 
                 if (typeof offset !== 'undefined') {
-                    intOffset = isNaN(parseInt(offset)) ? 0 : parseInt(offset);
+                    intOffset = isNaN(parseFloat(offset)) ? 0 : parseFloat(offset);
 
                     if (intOffset == 0) {
                         var $offset = $(offset);
@@ -31,6 +32,9 @@
                         }
                     }
                 }
+
+                // add margin bottom from body
+                intOffset += parseFloat($body.css('marginBottom'));
             },
             scrollSmooth: function () {
                 var self = this;
@@ -57,7 +61,7 @@
                     var $anchor = $(hash);
 
                     if ($anchor.length > 0) {
-                        $('html, body').animate({scrollTop: ($anchor.offset().top - intOffset)}, intDuration, easing, function () {
+                        $('html, body').animate({scrollTop: ($anchor.offset().top - intOffset - marginBottom)}, intDuration, easing, function () {
                             if($(this).is('body')) return;
 
                             // set history for first element only

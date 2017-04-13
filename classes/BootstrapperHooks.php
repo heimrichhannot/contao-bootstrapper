@@ -119,7 +119,7 @@ class BootstrapperHooks extends \Controller
 					foreach ($GLOBALS['TL_HOOKS']['loadFormField'] as $callback)
 					{
 						$this->import($callback[0]);
-						$objWidget = $this->{$callback[0]}->{$callback[1]}($objWidget, $formId, $arrData, $objForm);
+						$objWidget = $this->$callback[0]->$callback[1]($objWidget, $formId, $arrData, $objForm);
 					}
 				}
 
