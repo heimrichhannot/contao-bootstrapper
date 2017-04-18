@@ -1,10 +1,20 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [1.4.3] - 2017-04-13
+## [1.4.4] - 2017-04-18
 
 ### Fixed
 - added marginBottom of body on smooth-scroll
+
+## [1.4.3] - 2017-04-11
+
+### Changed
+- added `multifileupload` to allowed field types for bootstrapper field replacement
+- added eval `labelAfterField`, to render label after field for legacy form fields currently only! `bootstrapper_form.html5`
+
+### Added
+- php7 support
+
 
 ## [1.4.2] - 2017-03-22
 
