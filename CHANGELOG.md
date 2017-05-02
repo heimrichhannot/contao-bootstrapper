@@ -1,5 +1,10 @@
-# Change Log
+# Changelog
 All notable changes to this project will be documented in this file.
+
+## [1.4.5] - 2017-05-02
+
+### Changed
+- readded `multifileupload` to allowed field types for bootstrapper field replacement
 
 ## [1.4.4] - 2017-04-18
 

@@ -1,7 +1,7 @@
 <div class="form-group <?php echo $this->field->id; ?><?php echo $this->field->hasErrors() ? ' has-error': ''; ?><?php echo $this->field->groupClass ? ' ' .  $this->field->groupClass : '';?><?php if ($this->invisible): ?> invisible<?php endif; ?>">
 	<?php if(!$this->hideLabel): ?>
 		<?php $this->field->addAttributes(array('class' => 'control-label')); ?>
-		<?php echo $this->field->generateLabel();	?>
+		<?php echo $this->field->generateLabel(); ?>
 		<?php $this->field->addAttributes(array('class' => '')); ?>
 	<?php endif; ?>
 	<?php if(!in_array($this->field->type, array('submit'))): ?>
