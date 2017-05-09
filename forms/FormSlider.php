@@ -247,7 +247,7 @@ class FormSlider extends \Widget
 		if (is_array($varValue)) {
 			$this->import($varValue[0]);
 
-			return $this->$varValue[0]->$varValue[1]($this->objDca, $this->arrSliderConfig);
+			return $this->{$varValue[0]}->{$varValue[1]}($this->objDca, $this->arrSliderConfig);
 		} elseif (is_callable($varValue)) {
 			return $varValue;
 		} else {
