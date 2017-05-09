@@ -311,7 +311,7 @@ class tl_content_tabcontrol extends Backend
 		if ($varValue == '') {
 			$autoAlias = true;
 			$varValue  = standardize(
-				String::restoreBasicEntities(
+				\StringUtil::restoreBasicEntities(
 					'tabControllCookie-' . $dc->activeRecord->id
 				)
 			);
