@@ -313,6 +313,11 @@
                 if (typeof $this.attr('href') === 'undefined' || $this.attr('href').charAt(0) == '#')
                     return true;
 
+                // heimrichhannot/contao-modal works within ajax scope
+                if (HASTE_PLUS.getParameterByName('ag', $this.attr('href')) == 'modal') {
+                    return true;
+                }
+
                 e.preventDefault();
 
                 if (window.history) {
@@ -380,7 +385,7 @@
                     // set url to history-base-filtered if set (modal content replaced via ajax)
                     history.replaceState({url: $this.data('history-base')}, null, $this.data('history-base'));
 
-                    if($this.data('history-base-title')){
+                    if ($this.data('history-base-title')) {
                         document.title = $this.data('history-base-title');
                     }
                 }

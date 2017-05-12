@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.4.9] - 2017-05-12
+
+### Fixed
+- bootstrapper modal interfere with `heimrichhannot/contao-modal` within ajax scope
+
 ## [1.4.8] - 2017-05-09
 
 ### Fixed
