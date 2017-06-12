@@ -89,9 +89,6 @@ abstract class BootstrapperFormField extends \Widget
 
 	protected $blnIsXhtml = false;
 
-	protected $blnUseAwesomeInputs = false;
-
-
 	public function __construct(\Widget $objWidget)
 	{
 		// parse and generate methods append [] for multiple element widgets
@@ -104,7 +101,6 @@ abstract class BootstrapperFormField extends \Widget
 		global $objPage;
 
 		$this->blnIsXhtml = ($objPage->outputFormat == 'xhtml');
-		$this->blnUseAwesomeInputs = \Config::get('useAwesomeInputs');
 
 		// use custom field template, named by type and widget name
 		try {
