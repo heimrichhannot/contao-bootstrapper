@@ -4,6 +4,8 @@
 
     <?php $this->block('head'); ?>
     <meta charset="<?= $this->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <title><?= $this->pageTitle == 'Startseite' ? $this->mainTitle : $this->title; ?></title>
     <base href="<?= $this->base ?>">
 
