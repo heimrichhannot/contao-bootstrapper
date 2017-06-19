@@ -35,7 +35,7 @@ $GLOBALS['TL_COMPONENTS']['bs.select'] = [
     ],
     'css' => [
         'files' => [
-            'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/css/bootstrap-select.css|screen|static|1.10.0',
+            'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css|screen|static',
         ],
     ],
 ];
