@@ -88,6 +88,21 @@ $GLOBALS['TL_COMPONENTS']['bs.awesomeInputs'] = [
     ],
 ];
 
+$GLOBALS['TL_COMPONENTS']['bs.switch'] = [
+    'js'  => [
+        'files' => [
+            'system/modules/bootstrapper/assets/vendor/bootstrap-switch/dist/js/bootstrap-switch'
+            . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+            BOOTSTRAPPER_JS_COMPONENT_DIR . '/switch/bs.switch' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+        ],
+    ],
+    'css' => [
+        'files' => [
+            'system/modules/bootstrapper/assets/vendor/bootstrap-switch/dist/css/bootstrap-switch.css|screen|static',
+        ],
+    ],
+];
+
 /**
  * Boostrapper Widgets
  */
