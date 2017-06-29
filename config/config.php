@@ -27,14 +27,14 @@ $GLOBALS['TL_COMPONENTS']['bs.datetimepicker'] = [
 $GLOBALS['TL_COMPONENTS']['bs.select'] = [
     'js'  => [
         'files' => [
-            TL_ASSETS_URL . 'assets/bootstrap-select/dist/js/bootstrap-select.min.js|static',
+            'assets/bootstrap-select/dist/js/bootstrap-select.min.js|static',
             BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.i18n' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
             BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
         ],
     ],
     'css' => [
         'files' => [
-            'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/css/bootstrap-select.min.css|screen|static',
+            'assets/bootstrap-select/dist/css/bootstrap-select.min.css|screen|static',
         ],
     ],
 ];
