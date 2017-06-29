@@ -25,8 +25,12 @@
                 var config = $.extend({}, defaults, data);
 
                 // mobile support
-                if(config.mobile && screen.width <= config.xsBreakpoint){
+                if (config.mobile && screen.width <= config.xsBreakpoint) {
                     config.selectedTextFormat = 'count > 2'// display max of 2 options in button, than show count
+                }
+
+                if ($select.prop('multiple')) {
+                    config.actionsBox = true;
                 }
 
                 $select.selectpicker(config);
@@ -56,7 +60,7 @@
 
                     var removeVal = val[index];
 
-                    val = jQuery.grep(val, function(value) {
+                    val = jQuery.grep(val, function (value) {
                         return value != removeVal;
                     });
 
@@ -84,9 +88,10 @@
     }
 
     $(function () {
-        if(typeof($.fn.dropdown) != 'undefined'){
+        if (typeof($.fn.dropdown) != 'undefined') {
             BsSelect.init();
-        };
+        }
+        ;
     });
 
 })(jQuery);

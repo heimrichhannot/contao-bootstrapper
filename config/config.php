@@ -27,8 +27,7 @@ $GLOBALS['TL_COMPONENTS']['bs.datetimepicker'] = [
 $GLOBALS['TL_COMPONENTS']['bs.select'] = [
     'js'  => [
         'files' => [
-            'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/js/bootstrap-select'
-            . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+            TL_ASSETS_URL . 'assets/bootstrap-select/dist/js/bootstrap-select.min.js|static',
             BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.i18n' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
             BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
         ],
@@ -43,8 +42,7 @@ $GLOBALS['TL_COMPONENTS']['bs.select'] = [
 $GLOBALS['TL_COMPONENTS']['bs.inputSlider'] = [
     'js'  => [
         'files' => [
-            'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider'
-            . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
+            'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
             BOOTSTRAPPER_JS_COMPONENT_DIR . '/input-slider/bs.inputSlider' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static',
         ],
     ],
@@ -83,7 +81,7 @@ $GLOBALS['TL_COMPONENTS']['modernizr'] = [
 $GLOBALS['TL_COMPONENTS']['bs.awesomeInputs'] = [
     'css' => [
         'files' => [
-            'system/modules/bootstrapper/assets/vendor/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css|screen|static'
+            'system/modules/bootstrapper/assets/vendor/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css|screen|static',
         ],
     ],
 ];
@@ -156,16 +154,14 @@ if (TL_MODE == 'FE')
 
     // bootstrap-datetimepicker
     $GLOBALS['TL_JAVASCRIPT']['moment'] =
-        'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
-        . '.js|static';
+        'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
     $GLOBALS['TL_JAVASCRIPT']['numeral'] =
-        'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : '') . '/numeral'
-        . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
+        'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : '') . '/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '')
+        . '.js|static';
 
-    $GLOBALS['TL_JAVASCRIPT']['numeral-languages'] =
-        'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : '') . '/languages'
-        . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
+    $GLOBALS['TL_JAVASCRIPT']['numeral-languages'] = 'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : '') . '/languages'
+                                                     . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
     // bootstrap gallery gesture/touch support
     $GLOBALS['TL_JAVASCRIPT']['jquery-validation']        = 'system/modules/bootstrapper/assets/vendor/validation/jquery.validate.min.js|static';
@@ -176,8 +172,7 @@ if (TL_MODE == 'FE')
         'system/modules/bootstrapper/assets/vendor/jquery.placeholder' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
     $GLOBALS['TL_JAVASCRIPT']['bootstrap-hover-dropdown'] =
-        'system/modules/bootstrapper/assets/vendor/bootstrap-hover-dropdown-master/bootstrap-hover-dropdown'
-        . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
+        'system/modules/bootstrapper/assets/vendor/bootstrap-hover-dropdown-master/bootstrap-hover-dropdown' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
 
     $GLOBALS['TL_JAVASCRIPT']['jquery.actual'] =
@@ -187,8 +182,7 @@ if (TL_MODE == 'FE')
     $GLOBALS['TL_JAVASCRIPT']['bootstrapper-widgets'] =
         'system/modules/bootstrapper/assets/js/jquery.bootstrapper-widgets' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
-    $GLOBALS['TL_JAVASCRIPT']['bootstrapper'] =
-        'system/modules/bootstrapper/assets/js/jquery.bootstrapper' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
+    $GLOBALS['TL_JAVASCRIPT']['bootstrapper'] = 'system/modules/bootstrapper/assets/js/jquery.bootstrapper' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
     // load jasny last, otherwise modal for example will not open
 //    $GLOBALS['TL_JAVASCRIPT']['jasny-bootstrap'] =
