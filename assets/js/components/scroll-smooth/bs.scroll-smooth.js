@@ -38,7 +38,7 @@
             },
             scrollSmooth: function () {
                 var self = this;
-                $(document).on('click', 'a[href*=#]:not([data-toggle])', function (e) {
+                $(document).on('click', 'a[href*="#"]:not([data-toggle])', function (e) {
                     var parser = document.createElement('a'),
                         href = $(this).attr('href');
 
@@ -55,13 +55,12 @@
                 });
 
                 function scrollToHash(event, hash, href) {
-
                     if (hash == '' || href == '') return true;
 
                     var $anchor = $(hash);
 
                     if ($anchor.length > 0) {
-                        $('html, body').animate({scrollTop: ($anchor.offset().top - intOffset - marginBottom)}, intDuration, easing, function () {
+                        $('html, body').animate({scrollTop: ($anchor.offset().top - intOffset)}, intDuration, easing, function () {
                             if($(this).is('body')) return;
 
                             // set history for first element only
