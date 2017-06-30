@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.4.10] - 2017-06-30
+
+### Changed
+- `multifileupload` fields are now styles by bootstrapper
+
 ## [1.4.9] - 2017-05-12
 
 ### Fixed
