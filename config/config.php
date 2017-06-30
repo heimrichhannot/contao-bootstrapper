@@ -6,6 +6,22 @@
 
 define('BOOTSTRAPPER_JS_COMPONENT_DIR', 'system/modules/bootstrapper/assets/js/components');
 
+$GLOBALS['TL_COMPONENTS']['bs.tether'] = [
+    'js'  => [
+        'files' => [
+            'assets/tether/dist/js/tether.min.js|static'
+        ],
+    ]
+];
+
+$GLOBALS['TL_COMPONENTS']['bs.core'] = [
+    'js'  => [
+        'files' => [
+            'assets/bootstrap/dist/js/bootstrap.min.js|static'
+        ],
+    ]
+];
+
 /**
  * Asset Components
  */
