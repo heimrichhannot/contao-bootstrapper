@@ -99,7 +99,7 @@
 
 		<?php if($this->field->type == 'password'): // confirmation?>
 			<div class="input-group password">
-				<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+				<span class="input-group-addon"><i class="ei ei-lock"></i></span>
 		<?php endif; ?>
 
 		<?php if($this->field->type == 'select' && $this->field->multiple): ?>
@@ -108,7 +108,7 @@
 
 		<?php if ($this->field->type == 'email'): ?>
 			<div class="input-group">
-				<span class="input-group-addon"><i class="fa fa-at"></i></span>
+				<span class="input-group-addon"><i class="ei ei-comment_alt"></i></span>
 		<?php endif; ?>
 
 		<?php echo $this->field->generate(); ?>
@@ -123,12 +123,12 @@
 
 
 		<?php if($this->field->timepicker || $this->field->rgxp == 'time'): ?>
-			<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+			<span class="input-group-addon"><i class="ei ei-clock-alt"></i></span>
 			</div>
 		<?php endif; ?>
 
 		<?php if($this->field->datepicker || $this->field->rgxp == 'date' || $this->field->rgxp == 'datim'): ?>
-				<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+				<span class="input-group-addon"><i class="ei ei-calendar"></i></span>
 			</div>
 		<?php endif; ?>
 	<?php endif; ?>
@@ -150,7 +150,7 @@
 			<?php $this->field->addAttributes(array('class' => '')); ?>
 		<?php endif; ?>
 		<div class="input-group password">
-			<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+			<span class="input-group-addon"><i class="ei ei-lock"></i></span>
 		<?php if (method_exists($this->field, 'generateConfirmation')) echo $this->field->generateConfirmation(); ?>
 		</div>
 	</div>
