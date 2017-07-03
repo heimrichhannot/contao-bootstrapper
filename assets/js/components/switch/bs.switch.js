@@ -10,7 +10,7 @@
             $('[data-switch="toggle"]').bootstrapSwitch();
         },
         ajaxComplete : function(){
-            this.initTooltip();
+            this.initSwitch();
         }
     };
 

@@ -17,12 +17,12 @@
 	<input type="text" name="<?= $this->field->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control <?= $this->class; ?>" value="<?= $this->field->value; ?>"<?= $this->attributes; ?><?= $this->placeholder; ?>>
 
 	<?php if ($this->timepicker && !$this->datepicker): ?>
-			<span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+			<span class="input-group-addon"><i class="ei ei-clock_alt"></i></span>
 		</div>
 	<?php endif; ?>
 
 	<?php if($this->datepicker): ?>
-			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+			<span class="input-group-addon"><i class="ei ei-calendar"></i></span>
 		</div>
 	<?php endif; ?>
 

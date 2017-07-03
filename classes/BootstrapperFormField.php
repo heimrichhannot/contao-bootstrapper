@@ -263,7 +263,7 @@ abstract class BootstrapperFormField extends \Widget
 				break;
 
 			case BOOTSTRAPPER_OPTION_FILEICONCLASS:
-				$varDefault = 'fa fa-file';
+				$varDefault = 'ei ei-document_alt';
 				break;
 			case BOOTSTRAPPER_OPTION_TOOLBAR:
 				$varDefault = 'undo redo | bold italic | bullist numlist outdent indent | link unlink';
