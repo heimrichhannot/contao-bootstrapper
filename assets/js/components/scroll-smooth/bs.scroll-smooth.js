@@ -34,11 +34,11 @@
                 }
 
                 // add margin bottom from body
-                intOffset += parseFloat($body.css('marginBottom'));
+                intOffset -= parseFloat($body.css('marginBottom'));
             },
             scrollSmooth: function () {
                 var self = this;
-                $(document).on('click', 'a[href*=#]:not([data-toggle])', function (e) {
+                $(document).on('click', 'a[href*="#"]:not([data-toggle])', function (e) {
                     var parser = document.createElement('a'),
                         href = $(this).attr('href');
 
@@ -61,7 +61,7 @@
                     var $anchor = $(hash);
 
                     if ($anchor.length > 0) {
-                        $('html, body').animate({scrollTop: ($anchor.offset().top - intOffset - marginBottom)}, intDuration, easing, function () {
+                        $('html, body').animate({scrollTop: ($anchor.offset().top - intOffset)}, intDuration, $.easing.hasOwnProperty(easing) ? easing : null, function () {
                             if($(this).is('body')) return;
 
                             // set history for first element only

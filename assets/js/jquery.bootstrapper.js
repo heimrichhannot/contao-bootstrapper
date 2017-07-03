@@ -12,7 +12,6 @@
             this.supportNestedDropdowns();
 
             this.initModal();
-            this.initCollapse();
             this.loadModalFromUrl();
             this.onCloseModal();
             this.initCarouselProgressBar();
@@ -357,11 +356,6 @@
                 });
 
                 return false;
-            });
-        },
-        initCollapse: function () {
-            $('[data-toggle="collapse"]').on('click', function () {
-                HASTE_PLUS.scrollTo($(this), 100, 500);
             });
         },
         onCloseModal: function () {
