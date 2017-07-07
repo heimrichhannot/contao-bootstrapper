@@ -6,7 +6,7 @@ use HeimrichHannot\Bootstrapper\BootstrapperFormField;
 
 class Bootstrapper extends \Controller
 {
-	protected static $arrSkipTypes = array('hidden', 'fieldset', 'subEventList', 'explanation', 'successGroup', 'formcolstart', 'formcolpart', 'formcolend', 'multiColumnWizard', 'form_multiColumnWizard');
+	protected static $arrSkipTypes = array('hidden', 'fieldset', 'subEventList', 'explanation', 'successGroup', 'formcolstart', 'formcolpart', 'formcolend', 'multiColumnWizard', 'form_multiColumnWizard', 'multifileupload');
 
 	public static function generateForm(\Widget $objWidget, $hideLabel=false)
 	{
