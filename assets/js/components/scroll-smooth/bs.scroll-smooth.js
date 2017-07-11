@@ -7,11 +7,11 @@
                 this.setOffset();
                 this.scrollSmooth();
 
-                if(intCustomDuration = $('body').data('scroll-smooth-duration')){
+                if (intCustomDuration = $('body').data('scroll-smooth-duration')) {
                     intDuration = intCustomDuration;
                 }
 
-                if(intCustomEasing = $('body').data('scroll-smooth-duration')){
+                if (intCustomEasing = $('body').data('scroll-smooth-duration')) {
                     easing = intCustomEasing;
                 }
             },
@@ -51,7 +51,7 @@
 
                     self.setOffset();
 
-                    scrollToHash(event, parser.hash, href);
+                    scrollToHash(e, parser.hash, href);
                 });
 
                 function scrollToHash(event, hash, href) {
@@ -61,14 +61,20 @@
                     var $anchor = $(hash);
 
                     if ($anchor.length > 0) {
-                        $('html, body').animate({scrollTop: ($anchor.offset().top - intOffset)}, intDuration, $.easing.hasOwnProperty(easing) ? easing : null, function () {
-                            if($(this).is('body')) return;
-
-                            // set history for first element only
-                            window.location.hash = hash;
-                        });
-
                         event.preventDefault();
+
+                        $('html, body').animate({scrollTop: ($anchor.offset().top - intOffset)}, intDuration, $.easing.hasOwnProperty(easing) ? easing : null, function () {
+                            if ($(this).is('body')) return;
+
+                            console.log(window.location.href + hash);
+                            
+                            if (history.pushState) {
+                                history.pushState(null, null, window.location.href.split('#')[0] + hash);
+                            }
+                            else {
+                                window.location.hash = hash;
+                            }
+                        });
                     }
 
                     return true;
