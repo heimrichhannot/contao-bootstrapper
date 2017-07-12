@@ -125,21 +125,22 @@
         },
         initNavbar: function () {
             $('.navbar-collapse').on('show.bs.collapse', function () {
-                $(this).addClass('open'); // immediately css transition support (non .collapsing transition)
+                $(this).addClass('open'); //  support (non .collapsing transition)
+                $('body').addClass('navbar-open'); // immediately css transition support (non .collapsing transition)
             });
 
             $('.navbar-collapse').on('shown.bs.collapse', function () {
-                $('body').addClass('navbar-open');
+                $('body').addClass('navbar-show');
             });
 
             $('.navbar-collapse').on('hide.bs.collapse', function () {
-                $('body').removeClass('navbar-open');
+                $('body').removeClass('navbar-show navbar-open');
                 $(this).removeClass('open'); // immediately css transition support (non .collapsing transition)
             });
 
             // initial set
             if ($('.navbar-collapse').hasClass('show')) {
-                $('body').addClass('navbar-open');
+                $('body').addClass('navbar-show navbar-open');
                 $(this).addClass('open'); // immediately css transition support (non .collapsing transition)
             }
         },
