@@ -125,16 +125,16 @@
         },
         initNavbar: function () {
             $('.navbar-collapse').on('shown.bs.collapse', function () {
-                $('body').addClass('navbar-xs-open');
+                $('body').addClass('navbar-open');
             });
 
             $('.navbar-collapse').on('hide.bs.collapse', function () {
-                $('body').removeClass('navbar-xs-open');
+                $('body').removeClass('navbar-open');
             });
 
             // initial set
-            if ($('.navbar-collapse').hasClass('in')) {
-                $('body').addClass('navbar-xs-open');
+            if ($('.navbar-collapse').hasClass('show')) {
+                $('body').addClass('navbar-open');
             }
         },
         addPlaceholderTagSupport: function () {
