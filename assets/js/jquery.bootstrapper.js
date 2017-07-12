@@ -124,17 +124,23 @@
             });
         },
         initNavbar: function () {
+            $('.navbar-collapse').on('show.bs.collapse', function () {
+                $(this).addClass('open'); // immediately css transition support (non .collapsing transition)
+            });
+
             $('.navbar-collapse').on('shown.bs.collapse', function () {
                 $('body').addClass('navbar-open');
             });
 
             $('.navbar-collapse').on('hide.bs.collapse', function () {
                 $('body').removeClass('navbar-open');
+                $(this).removeClass('open'); // immediately css transition support (non .collapsing transition)
             });
 
             // initial set
             if ($('.navbar-collapse').hasClass('show')) {
                 $('body').addClass('navbar-open');
+                $(this).addClass('open'); // immediately css transition support (non .collapsing transition)
             }
         },
         addPlaceholderTagSupport: function () {
