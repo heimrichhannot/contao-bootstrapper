@@ -55,14 +55,14 @@
 
                 // so a neighbor can't open the dropdown
                 // FIX: see https://github.com/CWSpear/bootstrap-hover-dropdown/issues/55
-                if ($parent.hasClass('open') && !$this.is(event.target)) {
+                if ($parent.hasClass('show') && !$this.is(event.target)) {
                     // stop this event, stop executing any code
                     // in this callback but continue to propagate
                     return true;
                 }
 
                 var isChildMenu = $parent.parents('.dropdown-menu').length,
-                    siblingIsOpen = $parent.siblings().hasClass('open');
+                    siblingIsOpen = $parent.siblings().hasClass('show');
 
                 window.clearTimeout(timeoutClose);
 
@@ -77,7 +77,7 @@
                 var isChildMenu = $parent.parents('.dropdown-menu').length;
 
                 timeoutClose = window.setTimeout(function () {
-                    $parent.removeClass('open');
+                    $parent.removeClass('show');
                     $this.trigger(hideEvent);
                 }, timeoutOpen && !isChildMenu ? settings.delayClose : settings.delaySwitch);
             });
@@ -94,7 +94,7 @@
                 }
 
                 timeoutClose = window.setTimeout(function () {
-                    $parent.removeClass('open');
+                    $parent.removeClass('show');
                     $this.trigger(hideEvent);
                 }, timeoutOpen > 0 ? settings.delayClose : 0);
             });
@@ -104,7 +104,7 @@
             $this.hover(function (event) {
                 // this helps prevent a double event from firing.
                 // see https://github.com/CWSpear/bootstrap-hover-dropdown/issues/55
-                if ($parent.hasClass('open') && !$parent.is(event.target)) {
+                if ($parent.hasClass('show') && !$parent.is(event.target)) {
                     // stop this event, stop executing any code
                     // in this callback but continue to propagate
                     return true;
@@ -135,16 +135,16 @@
                 if (settings.instantlyCloseOthers === true) {
 
                     // not the first level
-                    if ($this.parents('.dropdown-menu').length && $this.siblings().parent().hasClass('open')) {
-                        $this.siblings().parent().removeClass('open');
+                    if ($this.parents('.dropdown-menu').length && $this.siblings().parent().hasClass('show')) {
+                        $this.siblings().parent().removeClass('show');
                     } else {
-                        $this.parent('li').siblings().removeClass('open');
+                        $this.parent('li').siblings().removeClass('show');
                     }
                 }
 
 
                 window.clearTimeout(timeoutClose);
-                $parent.addClass('open');
+                $parent.addClass('show');
                 $this.trigger(showEvent);
             }
         });
@@ -163,7 +163,7 @@
 
             // mobile support
             if(isMobile){
-                $allActiveDropDowns.parent().addClass('open');
+                $allActiveDropDowns.parent().addClass('show');
             }
 
             // bootstraps clearMenus function closes all dropdowns per default, we need trail and active to stay open
@@ -178,7 +178,7 @@
             // hide sibling dropdowns only
             $allDropDowns.on('click', function (e) {
                 var $this = $(this);
-                $this.parent().siblings().removeClass('open');
+                $this.parent().siblings().removeClass('show');
             });
 
             return false;

@@ -25,7 +25,7 @@
 			<?php endif; ?>
 			
 			<?php foreach ($this->items as $item): ?>
-				<li <?php if ($item['class']): ?>class="<?php echo $item['class']; ?><?php if($this->level != 'level_1' && (strpos($item['class'], 'trail') !== false || (strpos($item['class'], 'active') !== false))): ?> open<?php endif; ?>" <?php endif; ?>>
+				<li <?php if ($item['class']): ?>class="<?php echo $item['class']; ?><?php if($this->level != 'level_1' && (strpos($item['class'], 'trail') !== false || (strpos($item['class'], 'active') !== false))): ?> show<?php endif; ?>" <?php endif; ?>>
 					<a href="<?php echo $item['href']; ?>"
 					<?php if ($item['class'] || $item['subpages'] > 0): ?>
 					class="<?php echo $item['class']; ?><?php if($item['subitems']):?> dropdown-toggle<?php endif; ?>"
