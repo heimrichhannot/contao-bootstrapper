@@ -15,7 +15,7 @@
                 var $slickSlide = $this.closest('.slick-slide');
 
                 // add unique slick slider class, otherwise gallery will show images from other sliders on the same page
-                galleryId += $.grep($slick.attr('class').split(' '), function(v, i){
+                galleryId += $.grep($slick.attr('class').split(' '), function (v, i) {
                     return v.indexOf('slick_uid_') === 0;
                 }).join().replace('slick_uid_', '-');
 
@@ -35,14 +35,15 @@
             var target = event.target || event.srcElement,
                 link = target.src ? target.parentNode : target,
                 options = {index: link, event: event},
-                gallery = $('[data-gallery=' + $(this).data('gallery') + ']'),
+                $gallery = $('[data-gallery=' + $(this).data('gallery') + ']'),
                 links = [this];
 
-            if (gallery.length > 0) {
-                links = gallery;
+            if ($gallery.length > 0) {
+                links = $gallery;
             }
 
-            blueimp.Gallery(links, options);
+            var gallery = blueimp.Gallery(links, options);
+            gallery.slide(links.index(this), 0); // slide to clicked image
             return false;
         });
     });

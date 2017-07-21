@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.4.12] - 2017-07-21
+
+### Fixed
+- location of blueimp gallery images
+- blueimp gallery -> jump to selected image 
+
 ## [1.4.11] - 2017-07-21
 
 ### Fixed
