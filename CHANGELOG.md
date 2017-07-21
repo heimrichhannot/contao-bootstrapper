@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 ## [1.4.11] - 2017-07-21
 
 ### Fixed
-- add unique data-gallery id for slick sliders within same page  
+- add unique data-gallery id for slick sliders within same page
 
 ## [1.4.10] - 2017-06-30
 
