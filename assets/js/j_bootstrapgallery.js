@@ -8,13 +8,19 @@
             var $this = $(this),
                 galleryId = $this.data('lightbox');
 
+            var $slick = $this.parents('.slick');
 
             // provide gallery functionality for slick slider
-            if ($this.parents('.slick').length > 0){
-                var $slick = $this.closest('.slick-slide');
+            if ($slick.length > 0) {
+                var $slickSlide = $this.closest('.slick-slide');
+
+                // add unique slick slider class, otherwise gallery will show images from other sliders on the same page
+                galleryId += $.grep($slick.attr('class').split(' '), function(v, i){
+                    return v.indexOf('slick_uid_') === 0;
+                }).join().replace('slick_uid_', '-');
 
                 // skip cloned slick items
-                if($slick.length > 0 && $slick.hasClass('slick-cloned')){
+                if ($slickSlide.length > 0 && $slickSlide.hasClass('slick-cloned')) {
                     return true;
                 }
             }
@@ -24,7 +30,7 @@
             }
         });
 
-        $('a[data-lightbox]').on('click', function(event){
+        $('a[data-lightbox]').on('click', function (event) {
             event = event || window.event;
             var target = event.target || event.srcElement,
                 link = target.src ? target.parentNode : target,
@@ -32,7 +38,7 @@
                 gallery = $('[data-gallery=' + $(this).data('gallery') + ']'),
                 links = [this];
 
-            if(gallery.length > 0){
+            if (gallery.length > 0) {
                 links = gallery;
             }
 
