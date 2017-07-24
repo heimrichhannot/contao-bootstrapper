@@ -402,6 +402,9 @@
             $collapse.each(function () {
                 var $this = $(this);
 
+                if ($this.hasClass('navbar-collapse'))
+                    return;
+
                 $this.on('shown.bs.collapse', function (e) {
                     if (this.id && window.history && window.history.pushState) {
                         history.pushState({}, document.title, location.pathname + location.search + '#' + this.id);
