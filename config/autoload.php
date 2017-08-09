@@ -27,6 +27,7 @@ ClassLoader::addClasses(array
 	'HeimrichHannot\FormSuccessGroup'                            => 'system/modules/bootstrapper/forms/FormSuccessGroup.php',
 	'HeimrichHannot\FormButtonSubmit'                            => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
 	'HeimrichHannot\Bootstrapper\FormSlider'                     => 'system/modules/bootstrapper/forms/FormSlider.php',
+	'HeimrichHannot\FormPasswordNoConfirm'                       => 'system/modules/bootstrapper/forms/FormPasswordNoConfirm.php',
 
 	// Modules
 	'HeimrichHannot\AjaxContent\ModuleAjaxSubscribe'             => 'system/modules/bootstrapper/modules/newsletter/ModuleAjaxSubscribe.php',
@@ -64,6 +65,7 @@ TemplateLoader::addFiles(array
 (
 	'form_slider'                               => 'system/modules/bootstrapper/templates/forms',
 	'form_successgroup'                         => 'system/modules/bootstrapper/templates/forms',
+	'form_password_noConfirm'                   => 'system/modules/bootstrapper/templates/forms',
 	'nav_navbar'                                => 'system/modules/bootstrapper/templates/navigation',
 	'nav_list_unstyles'                         => 'system/modules/bootstrapper/templates/navigation',
 	'nav_navbar_collapse'                       => 'system/modules/bootstrapper/templates/navigation',

@@ -97,9 +97,10 @@ $GLOBALS['TL_FFL_BOOTSTRAPPER'] = [
 /**
  * Front end form fields
  */
-$GLOBALS['TL_FFL']['slider']       = 'HeimrichHannot\Bootstrapper\FormSlider';
-$GLOBALS['TL_FFL']['submit']       = 'HeimrichHannot\FormButtonSubmit';
-$GLOBALS['TL_FFL']['successGroup'] = 'HeimrichHannot\FormSuccessGroup';
+$GLOBALS['TL_FFL']['slider']             = 'HeimrichHannot\Bootstrapper\FormSlider';
+$GLOBALS['TL_FFL']['submit']             = 'HeimrichHannot\FormButtonSubmit';
+$GLOBALS['TL_FFL']['successGroup']       = 'HeimrichHannot\FormSuccessGroup';
+$GLOBALS['TL_FFL']['password_noConfirm'] = 'HeimrichHannot\FormPasswordNoConfirm';
 
 /**
  * Front end modules

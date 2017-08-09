@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.4.13] - 2017-08-08
+
+### Added
+- inputType password_noConfirm -> bypass password confirmation in forms
+
 ## [1.4.12] - 2017-07-21
 
 ### Fixed
