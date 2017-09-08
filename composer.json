@@ -1,46 +1,46 @@
 {
-    "name": "heimrichhannot/contao-bootstrapper",
-    "description": "Adjusts contao elements & markups, to take advantage of twitter bootstrap.",
-    "keywords": [
-        "contao",
-        "bootstrap",
-        "twitter"
-    ],
-    "type": "contao-module",
-    "homepage": "https://github.com/heimrichhannot/contao-bootstrapper",
-    "license": "LGPL-3.0+",
-    "authors": [
-        {
-            "name": "Heimrich & Hannot",
-            "email": "digitales@heimrich-hannot.de",
-            "homepage": "http://www.heimrich-hannot.de",
-            "role": "Developer"
-        }
-    ],
-    "support": {
-        "issues": "https://github.com/heimrichhannot/contao-bootstrapper/issues"
-    },
-    "require": {
-        "php": "~5.4 || ~7.0",
-        "contao/core-bundle": "^3.5.1 || ~4.1",
-        "contao-community-alliance/composer-plugin": "~2.4 || ~3.0",
-        "heimrichhannot/bootstrap": "4.0.0-beta",
-        "heimrichhannot/elegant-icons": "^1.1",
-        "heimrichhannot/font-awesome": ">=4.4,<5-dev",
-        "heimrichhannot/contao-components": "~1.0",
-        "heimrichhannot/contao-haste_plus": ">=1.4.0",
-        "heimrichhannot/bootstrap-select": "^1.12.3"
-    },
-    "autoload": {
-        "classmap": [
-            ""
-        ]
-    },
-    "extra": {
-        "contao": {
-            "sources": {
-                "": "system/modules/bootstrapper"
-            }
-        }
+  "name": "heimrichhannot/contao-bootstrapper",
+  "description": "Adjusts contao elements & markups, to take advantage of twitter bootstrap.",
+  "keywords": [
+    "contao",
+    "bootstrap",
+    "twitter"
+  ],
+  "type": "contao-module",
+  "homepage": "https://github.com/heimrichhannot/contao-bootstrapper",
+  "license": "LGPL-3.0+",
+  "authors": [
+    {
+      "name": "Heimrich & Hannot",
+      "email": "digitales@heimrich-hannot.de",
+      "homepage": "http://www.heimrich-hannot.de",
+      "role": "Developer"
     }
+  ],
+  "support": {
+    "issues": "https://github.com/heimrichhannot/contao-bootstrapper/issues"
+  },
+  "require": {
+    "php": "~5.4 || ~7.0",
+    "contao/core-bundle": "^3.5.1 || ~4.1",
+    "contao-community-alliance/composer-plugin": "~2.4 || ~3.0",
+    "heimrichhannot/bootstrap": "4.0.0-beta",
+    "heimrichhannot/elegant-icons": "^1.1",
+    "heimrichhannot/font-awesome": ">=4.4,<5-dev",
+    "heimrichhannot/contao-components": "~1.0",
+    "heimrichhannot/contao-haste_plus": ">=1.4.0",
+    "heimrichhannot/bootstrap-select": "^1.12.3"
+  },
+  "autoload": {
+    "classmap": [
+      ""
+    ]
+  },
+  "extra": {
+    "contao": {
+      "sources": {
+        "": "system/modules/bootstrapper"
+      }
+    }
+  }
 }

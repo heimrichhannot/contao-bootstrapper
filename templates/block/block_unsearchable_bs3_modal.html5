@@ -1,18 +1,18 @@
 <!-- indexer::stop -->
 <div class="modal fade <?php echo $this->class; ?><?php echo $this->showModal ? ' in' : ''; ?>"<?php echo $this->cssID; ?> tabindex="-1" role="dialog" aria-hidden="false"<?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<?php if ($this->headline): ?>
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-					<<?= $this->hl ?> class="modal-title"><?= $this->headline ?></<?= $this->hl ?>>
-				</div>
-			<?php endif; ?>
-			<div class="modal-body">
-				<?php $this->block('content'); ?>
-				<?php $this->endblock(); ?>
-			</div>
-		</div>
-	</div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <?php if ($this->headline): ?>
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <<?= $this->hl ?> class="modal-title"><?= $this->headline ?></<?= $this->hl ?>>
+        </div>
+        <?php endif; ?>
+        <div class="modal-body">
+            <?php $this->block('content'); ?>
+            <?php $this->endblock(); ?>
+        </div>
+    </div>
+</div>
 </div>
 <!-- indexer::continue -->

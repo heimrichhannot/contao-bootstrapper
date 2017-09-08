@@ -1,22 +1,22 @@
 <div class="<?= $this->groupClass; ?><?php if ($this->invisible): ?> invisible<?php endif; ?>">
-	<?php if($this->showGroupLabel): ?>
-		<label id="lbl_<?= $this->groupID; ?>" for="<?= $this->groupID; ?>" class="control-label"><?= $this->groupLabel; ?>
-			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
-			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
-		</label>
-	<?php endif; ?>
-	<div id="<?= $this->groupID; ?>" class="checkbox-group <?= $this->class; ?>">
-		<input type="hidden" name="<?= $this->field->name; ?>" value=""<?= $this->tagEnding; ?>
-		<?= $this->options; ?>
-		<?php if(!$this->showGroupLabel && $this->multiple): ?>
-			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
-			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
-		<?php endif; ?>
-	</div>
-	
-	<?php if ($this->field->explanation): ?>
-		<div class="explanation"><?= $this->field->explanation ?></div>
-	<?php endif; ?>
+    <?php if ($this->showGroupLabel): ?>
+        <label id="lbl_<?= $this->groupID; ?>" for="<?= $this->groupID; ?>" class="control-label"><?= $this->groupLabel; ?>
+            <?= ($this->field->mandatory ? '<span class="invisible">' . $GLOBALS['TL_LANG']['MSC']['mandatory'] . '</span> ' : ''); ?>
+            <?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+        </label>
+    <?php endif; ?>
+    <div id="<?= $this->groupID; ?>" class="checkbox-group <?= $this->class; ?>">
+        <input type="hidden" name="<?= $this->field->name; ?>" value=""<?= $this->tagEnding; ?>
+        <?= $this->options; ?>
+        <?php if (!$this->showGroupLabel && $this->multiple): ?>
+            <?= ($this->field->mandatory ? '<span class="invisible">' . $GLOBALS['TL_LANG']['MSC']['mandatory'] . '</span> ' : ''); ?>
+            <?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+        <?php endif; ?>
+    </div>
 
-	<?= $this->help; ?>
+    <?php if ($this->field->explanation): ?>
+        <div class="explanation"><?= $this->field->explanation ?></div>
+    <?php endif; ?>
+
+    <?= $this->help; ?>
 </div>

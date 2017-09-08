@@ -1,12 +1,12 @@
 <label id="<?= $this->label->id; ?>" for="<?= $this->label->for; ?>"<?= $this->label->class; ?><?= $this->labelAttributes; ?>>
-	<input type="<?= $this->type; ?>" name="<?= $this->name; ?>" id="<?= $this->id; ?>" class="<?= $this->class; ?>"
-		   value="<?= $this->value; ?>"<?= $this->checked; ?><?= $this->attributes; ?><?= $this->tagEnding; ?>
-	<span class="<?= $this->type; ?>-icon"></span>
-	<span class="<?= $this->type; ?>-label">
+    <input type="<?= $this->type; ?>" name="<?= $this->name; ?>" id="<?= $this->id; ?>" class="<?= $this->class; ?>"
+           value="<?= $this->value; ?>"<?= $this->checked; ?><?= $this->attributes; ?><?= $this->tagEnding; ?>
+    <span class="<?= $this->type; ?>-icon"></span>
+    <span class="<?= $this->type; ?>-label">
 		<?= $this->label->value; ?>
-		<?php if (!$this->multiple): ?>
-			<?= ($this->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
-			<?= ($this->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
-		<?php endif; ?>
+        <?php if (!$this->multiple): ?>
+            <?= ($this->mandatory ? '<span class="invisible">' . $GLOBALS['TL_LANG']['MSC']['mandatory'] . '</span> ' : ''); ?>
+            <?= ($this->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+        <?php endif; ?>
 	</span>
 </label>

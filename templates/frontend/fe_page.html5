@@ -17,8 +17,8 @@
 
     <meta property="og:title" content="<?= $this->pageTitle; ?>">
     <meta property="og:url" content="<?= $this->Environment->url . '/' . $this->Environment->request; ?>">
-    <meta property="og:site_name" content="<?= $this->mainTitle; ?>" />
-    <meta property="og:description" content="<?= $this->description; ?>" />
+    <meta property="og:site_name" content="<?= $this->mainTitle; ?>"/>
+    <meta property="og:description" content="<?= $this->description; ?>"/>
     <?php $this->endblock(); ?>
 
     <link rel="shortcut icon" href="/files/{CHANGE_THIS}/theme/img/favicon.ico" type="image/x-icon">
@@ -34,19 +34,22 @@
     <?= $this->head ?>
 
     <?php $this->block('html5shiv'); ?>
-    <!--[if lt IE 9]><script src="<?= TL_ASSETS_URL ?>assets/html5shiv/js/html5shiv-printshiv.min.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="<?= TL_ASSETS_URL ?>assets/html5shiv/js/html5shiv-printshiv.min.js"></script><![endif]-->
     <?php $this->endblock(); ?>
     <?php $this->endblock(); ?>
 
 </head>
-<body id="top" class="<?= str_replace('/', '_', \Controller::replaceInsertTags('{{page::alias}}')) ?> {{ua::class}}<?php if ($this->class) echo ' ' . $this->class; ?>"<?php if ($this->onload): ?> onload="<?= $this->onload ?>"<?php endif; ?> itemscope itemtype="http://schema.org/WebPage">
+<body id="top" class="<?= str_replace('/', '_', \Controller::replaceInsertTags('{{page::alias}}')) ?> {{ua::class}}<?php if ($this->class) {
+    echo ' ' . $this->class;
+} ?>"<?php if ($this->onload): ?> onload="<?= $this->onload ?>"<?php endif; ?> itemscope itemtype="http://schema.org/WebPage">
 
 <?php $this->block('body'); ?>
 
 <?php $this->block('fixed'); ?>
-    <?php if ($this->sections['fixed']): ?>
-        <?= $this->sections['fixed']; ?>
-    <?php endif; ?>
+<?php if ($this->sections['fixed']): ?>
+    <?= $this->sections['fixed']; ?>
+<?php endif; ?>
 <?php $this->endblock(); ?>
 
 <div id="wrapper">

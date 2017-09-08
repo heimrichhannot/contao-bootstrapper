@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="<?php echo $this->language; ?>"><![endif]-->
-<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="<?php echo $this->language; ?>"><![endif]-->
-<!--[if IE 8]><html class="no-js lt-ie9" lang="<?php echo $this->language; ?>"><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="<?php echo $this->language; ?>"><!--<![endif]-->
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="<?php echo $this->language; ?>"><![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8" lang="<?php echo $this->language; ?>"><![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9" lang="<?php echo $this->language; ?>"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="<?php echo $this->language; ?>"><!--<![endif]-->
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="<?php echo $this->charset; ?>">
-    <title><?php echo $this->pageTitle; ?><?php if($this->pageTitle != $this->mainTitle): ?> - <?php echo $this->mainTitle; ?><?php endif;?></title>
+    <title><?php echo $this->pageTitle; ?><?php if ($this->pageTitle != $this->mainTitle): ?> - <?php echo $this->mainTitle; ?><?php endif; ?></title>
     <base href="<?php echo $this->base; ?>">
 
     <meta name="robots" content="<?php echo $this->robots; ?>">
@@ -85,9 +89,22 @@
 <?php if (!$this->disableCron): ?>
     <script>
         <?php if ($this->layout->addJQuery): ?>
-        setTimeout(function(){jQuery.ajax("system/cron/cron.txt",{complete:function(e){var t=e.responseText||0;parseInt(t)<Math.round(+(new Date)/1e3)-<?php echo $this->cronTimeout; ?>&&jQuery.ajax("system/cron/cron.php")}})},5e3)
+        setTimeout(function() {
+          jQuery.ajax('system/cron/cron.txt', {
+            complete: function(e) {
+              var t = e.responseText || 0;
+              parseInt(t) < Math.round(+(new Date) / 1e3) -<?php echo $this->cronTimeout; ?>&& jQuery.ajax('system/cron/cron.php');
+            },
+          });
+        }, 5e3);
         <?php else: ?>
-        setTimeout(function(){(new Request({url:"system/cron/cron.txt",onComplete:function(e){e||(e=0),parseInt(e)<Math.round(+(new Date)/1e3)-<?php echo $this->cronTimeout; ?>&&(new Request({url:"system/cron/cron.php"})).get()}})).get()},5e3)
+        setTimeout(function() {
+          (new Request({
+            url: 'system/cron/cron.txt', onComplete: function(e) {
+              e || (e = 0), parseInt(e) < Math.round(+(new Date) / 1e3) -<?php echo $this->cronTimeout; ?>&& (new Request({url: 'system/cron/cron.php'})).get();
+            },
+          })).get();
+        }, 5e3);
         <?php endif; ?>
     </script>
 <?php endif; ?>

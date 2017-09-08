@@ -1,69 +1,70 @@
-<?php if($this->level == 'level_1'): ?>
-<div class="row">
-	<div class="visible-xs col-xs-4"></div>
-	<div class="visible-xs hidden-print col-xs-8">
-		<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+<?php if ($this->level == 'level_1'): ?>
+    <div class="row">
+        <div class="visible-xs col-xs-4"></div>
+        <div class="visible-xs hidden-print col-xs-8">
+            <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".navbar-collapse">
 			<span class="navbar-toggle-inner">
 				<span class="sr-only">Toggle navigation</span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</span>
-		</button>
-	</div>
-</div>
+            </button>
+        </div>
+    </div>
 <div class="navbar-inner navbar-collapse collapse">
-	<div class="collapse-inner">
-		<?php endif; ?>
-		<ul
-			class="<?php echo $this->level; ?> nav-collapse nav<?php if($this->level == 'level_1'): ?> pull-left navbar-nav<?php else: ?> dropdown-menu<?php endif; ?>"
-			role="menu" <?php if($this->level == 'level_2'): ?> data-equal-height="ul.nav" data-equal-height-breakpoint-min="768"<?php endif; ?>>
-			
-			<?php if($this->level != 'level_1'): ?>
-				<li class="submenu-wrapper">
-					<ul class="nav">
-			<?php endif; ?>
-			
-			<?php foreach ($this->items as $item): ?>
-				<li <?php if ($item['class']): ?>class="<?php echo $item['class']; ?><?php if($this->level != 'level_1' && (strpos($item['class'], 'trail') !== false || (strpos($item['class'], 'active') !== false))): ?> show<?php endif; ?>" <?php endif; ?>>
-					<a href="<?php echo $item['href']; ?>"
-					<?php if ($item['class'] || $item['subpages'] > 0): ?>
-					class="<?php echo $item['class']; ?><?php if($item['subitems']):?> dropdown-toggle<?php endif; ?>"
-					<?php endif; ?>
-					<?php if ($item['accesskey'] != ''): ?>
-					accesskey="<?php echo $item['accesskey']; ?>"
-					<?php endif; ?>
-					<?php if ($item['tabindex']): ?>
-					tabindex="<?php echo $item['tabindex']; ?>"
-					<?php endif; ?>
-					<?php if ($item['nofollow']): ?>
-					rel="nofollow"
-					<?php endif; ?>
-					<?php echo $item['target']; ?>
-					<?php if($item['subitems']):?>
-						data-hover="dropdown"
-						<?php if($this->level != 'level_1'): ?>
-							data-close-others="true"
-							data-delay-open="300"
-							data-delay-switch="250"
-							data-delay-close="1000"
-						<?php else: ?>
-							data-delay-open="0"
-							data-delay-switch="50"
-							data-delay-close="250"
-						<?php endif; ?>
-					<?php endif; ?>>
-						<span><?php echo $item['link']; ?></span>
-					</a>
-					<?php echo $item['subitems']; ?>
-				</li>
-			<?php endforeach; ?>
-			
-			<?php if($this->level != 'level_1'): ?>
-				</ul></li>
-			<?php endif; ?>
-		</ul>
-		<?php if($this->level == 'level_1'): ?>
-	</div>
+    <div class="collapse-inner">
+        <?php endif; ?>
+        <ul
+                class="<?php echo $this->level; ?> nav-collapse nav<?php if ($this->level == 'level_1'): ?> pull-left navbar-nav<?php else: ?> dropdown-menu<?php endif; ?>"
+                role="menu" <?php if ($this->level == 'level_2'): ?> data-equal-height="ul.nav" data-equal-height-breakpoint-min="768"<?php endif; ?>>
+
+            <?php if ($this->level != 'level_1'): ?>
+            <li class="submenu-wrapper">
+                <ul class="nav">
+                    <?php endif; ?>
+
+                    <?php foreach ($this->items as $item): ?>
+                        <li <?php if ($item['class']): ?>class="<?php echo $item['class']; ?><?php if ($this->level != 'level_1' && (strpos($item['class'], 'trail') !== false || (strpos($item['class'], 'active') !== false))): ?> show<?php endif; ?>" <?php endif; ?>>
+                            <a href="<?php echo $item['href']; ?>"
+                                <?php if ($item['class'] || $item['subpages'] > 0): ?>
+                                    class="<?php echo $item['class']; ?><?php if ($item['subitems']): ?> dropdown-toggle<?php endif; ?>"
+                                <?php endif; ?>
+                                <?php if ($item['accesskey'] != ''): ?>
+                                    accesskey="<?php echo $item['accesskey']; ?>"
+                                <?php endif; ?>
+                                <?php if ($item['tabindex']): ?>
+                                    tabindex="<?php echo $item['tabindex']; ?>"
+                                <?php endif; ?>
+                                <?php if ($item['nofollow']): ?>
+                                    rel="nofollow"
+                                <?php endif; ?>
+                                <?php echo $item['target']; ?>
+                                <?php if ($item['subitems']): ?>
+                                    data-hover="dropdown"
+                                    <?php if ($this->level != 'level_1'): ?>
+                                        data-close-others="true"
+                                        data-delay-open="300"
+                                        data-delay-switch="250"
+                                        data-delay-close="1000"
+                                    <?php else: ?>
+                                        data-delay-open="0"
+                                        data-delay-switch="50"
+                                        data-delay-close="250"
+                                    <?php endif; ?>
+                                <?php endif; ?>>
+                                <span><?php echo $item['link']; ?></span>
+                            </a>
+                            <?php echo $item['subitems']; ?>
+                        </li>
+                    <?php endforeach; ?>
+
+                    <?php if ($this->level != 'level_1'): ?>
+                </ul>
+            </li>
+        <?php endif; ?>
+        </ul>
+        <?php if ($this->level == 'level_1'): ?>
+    </div>
 </div>
 <?php endif; ?>

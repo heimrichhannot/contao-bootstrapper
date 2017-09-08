@@ -1,5 +1,4 @@
 {
-
   "attention_seekers": {
     "bounce": true,
     "flash": true,
@@ -10,7 +9,6 @@
     "tada": true,
     "wobble": true
   },
-
   "bouncing_entrances": {
     "bounceIn": true,
     "bounceInDown": true,
@@ -18,7 +16,6 @@
     "bounceInRight": true,
     "bounceInUp": true
   },
-
   "bouncing_exits": {
     "bounceOut": true,
     "bounceOutDown": true,
@@ -26,7 +23,6 @@
     "bounceOutRight": true,
     "bounceOutUp": true
   },
-
   "fading_entrances": {
     "fadeIn": true,
     "fadeInDown": true,
@@ -38,7 +34,6 @@
     "fadeInUp": true,
     "fadeInUpBig": true
   },
-
   "fading_exits": {
     "fadeOut": true,
     "fadeOutDown": true,
@@ -50,7 +45,6 @@
     "fadeOutUp": true,
     "fadeOutUpBig": true
   },
-
   "flippers": {
     "flip": true,
     "flipInX": true,
@@ -58,12 +52,10 @@
     "flipOutX": true,
     "flipOutY": true
   },
-
   "lightspeed": {
     "lightSpeedIn": true,
     "lightSpeedOut": true
   },
-
   "rotating_entrances": {
     "rotateIn": true,
     "rotateInDownLeft": true,
@@ -71,7 +63,6 @@
     "rotateInUpLeft": true,
     "rotateInUpRight": true
   },
-
   "rotating_exits": {
     "rotateOut": true,
     "rotateOutDownLeft": true,
@@ -79,13 +70,11 @@
     "rotateOutUpLeft": true,
     "rotateOutUpRight": true
   },
-
   "specials": {
     "hinge": true,
     "rollIn": true,
     "rollOut": true
   },
-
   "zooming_entrances": {
     "zoomIn": true,
     "zoomInDown": true,
@@ -93,7 +82,6 @@
     "zoomInRight": true,
     "zoomInUp": true
   },
-
   "zooming_exits": {
     "zoomOut": true,
     "zoomOutDown": true,
@@ -101,14 +89,12 @@
     "zoomOutRight": true,
     "zoomOutUp": true
   },
-
   "sliding_entrances": {
     "slideInDown": true,
     "slideInLeft": true,
     "slideInRight": true,
     "slideInUp": true
   },
-
   "sliding_exits": {
     "slideOutDown": true,
     "slideOutLeft": true,

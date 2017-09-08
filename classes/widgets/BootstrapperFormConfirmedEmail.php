@@ -15,17 +15,16 @@ use HeimrichHannot\Bootstrapper;
 
 class BootstrapperFormConfirmedEmail extends BootstrapperFormField
 {
-	protected $strTemplate = 'bootstrapper_form_confirmed_email';
+    protected $strTemplate = 'bootstrapper_form_confirmed_email';
 
-	protected function compile()
-	{
-		$this->Template->addConfirmation = method_exists($this->objWidget, 'generateConfirmationLabel');
+    protected function compile()
+    {
+        $this->Template->addConfirmation = method_exists($this->objWidget, 'generateConfirmationLabel');
 
-		if($this->Template->addConfirmation)
-		{
-			$this->Template->confirmationLabel = sprintf($GLOBALS['TL_LANG']['MSC']['confirmedEmailConfirmation'], $this->objWidget->label);
+        if ($this->Template->addConfirmation) {
+            $this->Template->confirmationLabel = sprintf($GLOBALS['TL_LANG']['MSC']['confirmedEmailConfirmation'], $this->objWidget->label);
 
-			$this->Template->confirmationGroupClass = str_replace($this->objWidget->id, $this->objWidget->id . '-confirm', $this->getGroupCssClasses());
-		}
-	}
+            $this->Template->confirmationGroupClass = str_replace($this->objWidget->id, $this->objWidget->id . '-confirm', $this->getGroupCssClasses());
+        }
+    }
 }

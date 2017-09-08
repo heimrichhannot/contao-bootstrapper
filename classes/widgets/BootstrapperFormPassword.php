@@ -13,17 +13,16 @@ namespace HeimrichHannot\Bootstrapper;
 
 class BootstrapperFormPassword extends BootstrapperFormField
 {
-	protected $strTemplate = 'bootstrapper_form_password';
+    protected $strTemplate = 'bootstrapper_form_password';
 
-	protected function compile()
-	{
-		$this->Template->addConfirmation = method_exists($this->objWidget, 'generateConfirmationLabel');
+    protected function compile()
+    {
+        $this->Template->addConfirmation = method_exists($this->objWidget, 'generateConfirmationLabel');
 
-		if($this->Template->addConfirmation)
-		{
-			$this->Template->confirmationLabel = sprintf($GLOBALS['TL_LANG']['MSC']['confirmation'], $this->get);
+        if ($this->Template->addConfirmation) {
+            $this->Template->confirmationLabel = sprintf($GLOBALS['TL_LANG']['MSC']['confirmation'], $this->get);
 
-			$this->Template->confirmationGroupClass = str_replace($this->objWidget->id, $this->objWidget->id . '-confirm', $this->getGroupCssClasses());
-		}
-	}
+            $this->Template->confirmationGroupClass = str_replace($this->objWidget->id, $this->objWidget->id . '-confirm', $this->getGroupCssClasses());
+        }
+    }
 }

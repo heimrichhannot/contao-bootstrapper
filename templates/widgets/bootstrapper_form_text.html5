@@ -1,34 +1,34 @@
 <div class="<?= $this->groupClass; ?><?php if ($this->invisible): ?> invisible<?php endif; ?>">
-	<?php if(!$this->hideLabel): ?>
-		<label id="lbl_<?= $this->field->id; ?>" for="ctrl_<?= $this->field->id; ?>" class="control-label"><?= $this->field->label; ?>
-			<?= ($this->field->mandatory ? '<span class="invisible">'.$GLOBALS['TL_LANG']['MSC']['mandatory'].'</span> ' : ''); ?>
-			<?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
-		</label>
-	<?php endif; ?>
+    <?php if (!$this->hideLabel): ?>
+        <label id="lbl_<?= $this->field->id; ?>" for="ctrl_<?= $this->field->id; ?>" class="control-label"><?= $this->field->label; ?>
+            <?= ($this->field->mandatory ? '<span class="invisible">' . $GLOBALS['TL_LANG']['MSC']['mandatory'] . '</span> ' : ''); ?>
+            <?= ($this->field->mandatory ? '<span class="mandatory">*</span>' : ''); ?>
+        </label>
+    <?php endif; ?>
 
-	<?php if ($this->datepicker): ?>
-		<div class="input-group datepicker">
-	<?php endif; ?>
+    <?php if ($this->datepicker): ?>
+    <div class="input-group datepicker">
+        <?php endif; ?>
 
-	<?php if ($this->timepicker && !$this->datepicker): ?>
-		<div class="input-group timepicker">
-	<?php endif; ?>
+        <?php if ($this->timepicker && !$this->datepicker): ?>
+        <div class="input-group timepicker">
+            <?php endif; ?>
 
-	<input type="text" name="<?= $this->field->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control <?= $this->class; ?>" value="<?= $this->field->value; ?>"<?= $this->attributes; ?><?= $this->placeholder; ?>>
+            <input type="text" name="<?= $this->field->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control <?= $this->class; ?>" value="<?= $this->field->value; ?>"<?= $this->attributes; ?><?= $this->placeholder; ?>>
 
-	<?php if ($this->timepicker && !$this->datepicker): ?>
-			<span class="input-group-addon"><i class="ei ei-clock_alt"></i></span>
-		</div>
-	<?php endif; ?>
+            <?php if ($this->timepicker && !$this->datepicker): ?>
+            <span class="input-group-addon"><i class="ei ei-clock_alt"></i></span>
+        </div>
+    <?php endif; ?>
 
-	<?php if($this->datepicker): ?>
-			<span class="input-group-addon"><i class="ei ei-calendar"></i></span>
-		</div>
-	<?php endif; ?>
+        <?php if ($this->datepicker): ?>
+        <span class="input-group-addon"><i class="ei ei-calendar"></i></span>
+    </div>
+<?php endif; ?>
 
-	<?php if ($this->field->explanation): ?>
-		<div class="explanation"><?= $this->field->explanation ?></div>
-	<?php endif; ?>
+    <?php if ($this->field->explanation): ?>
+        <div class="explanation"><?= $this->field->explanation ?></div>
+    <?php endif; ?>
 
-	<?= $this->help; ?>
+    <?= $this->help; ?>
 </div>

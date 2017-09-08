@@ -20,7 +20,7 @@ class DatabaseUpdater
 
         $arrRenameFields = [
             'tl_layout' => [
-                'bs_disable_components' => [
+                'bs_disable_components'  => [
                     'name'      => 'disableComponents',
                     'syncValue' => true,
                 ],
@@ -31,33 +31,27 @@ class DatabaseUpdater
             ],
         ];
 
-        foreach ($arrRenameFields as $strTable => $arrFields)
-        {
-            if (!$objDatabase->tableExists($strTable))
-            {
+        foreach ($arrRenameFields as $strTable => $arrFields) {
+            if (!$objDatabase->tableExists($strTable)) {
                 continue;
             }
 
             \Controller::loadDataContainer($strTable);
 
-            foreach ($arrFields as $strOldName => $arrConfig)
-            {
-                if (!$objDatabase->fieldExists($strOldName, $strTable))
-                {
+            foreach ($arrFields as $strOldName => $arrConfig) {
+                if (!$objDatabase->fieldExists($strOldName, $strTable)) {
                     continue;
                 }
 
                 $strNewName = $arrConfig['name'];
                 $sql        = &$GLOBALS['TL_DCA']['tl_module']['fields'][$strNewName]['sql'];
 
-                if (!$objDatabase->fieldExists($arrConfig['name'], $strTable) && $sql)
-                {
+                if (!$objDatabase->fieldExists($arrConfig['name'], $strTable) && $sql) {
                     $sql = &$GLOBALS['TL_DCA']['tl_module']['fields'][$strNewName]['sql'];
                     $objDatabase->query("ALTER TABLE $strTable ADD `$strNewName` $sql");
                 }
 
-                if (!$arrConfig['syncValue'])
-                {
+                if (!$arrConfig['syncValue']) {
                     continue;
                 }
 

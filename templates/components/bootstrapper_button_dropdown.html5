@@ -1,25 +1,25 @@
 <!-- Single button -->
 <div class="btn-group">
-	<?php if($this->btnIsAnchor): ?>
-		<?= $this->btnText; ?>
-		<?php if($this->hasLinks): ?>
-			<button type="button" class="<?= $this->btnClass; ?> dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="caret"></span>
-				<span class="sr-only">Toggle Dropdown</span>
-			</button>
-		<?php endif; ?>
-	<?php else: ?>
-		<button type="button" class="<?= $this->btnClass; ?> dropdown-toggle"<?php if($this->hasLinks):?> data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"<?php endif; ?>>
-			<?= $this->btnText; ?> <span class="caret"></span>
-		</button>
-	<?php endif; ?>
-	<ul class="dropdown-menu">
-		<?php foreach($this->links as $link): ?>
-			<?php if($link == 'separator'): ?>
-				<li role="separator" class="divider"></li>
-			<?php else: ?>
-				<li><?= $link; ?></li>
-			<?php endif; ?>
-		<?php endforeach; ?>
-	</ul>
+    <?php if ($this->btnIsAnchor): ?>
+        <?= $this->btnText; ?>
+        <?php if ($this->hasLinks): ?>
+            <button type="button" class="<?= $this->btnClass; ?> dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+        <?php endif; ?>
+    <?php else: ?>
+        <button type="button" class="<?= $this->btnClass; ?> dropdown-toggle"<?php if ($this->hasLinks): ?> data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"<?php endif; ?>>
+            <?= $this->btnText; ?> <span class="caret"></span>
+        </button>
+    <?php endif; ?>
+    <ul class="dropdown-menu">
+        <?php foreach ($this->links as $link): ?>
+            <?php if ($link == 'separator'): ?>
+                <li role="separator" class="divider"></li>
+            <?php else: ?>
+                <li><?= $link; ?></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>
 </div>

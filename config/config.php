@@ -7,9 +7,9 @@
 define('BOOTSTRAPPER_JS_COMPONENT_DIR', 'system/modules/bootstrapper/assets/js/components');
 
 $GLOBALS['TL_COMPONENTS']['bs.core'] = [
-    'js'  => [
+    'js' => [
         'files' => [
-	    'assets/bootstrap/dist/js/popper.min.js|static',
+            'assets/bootstrap/dist/js/popper.min.js|static',
             'assets/bootstrap/dist/js/bootstrap.min.js|static'
         ],
     ]
@@ -151,12 +151,9 @@ $GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['HeimrichHannot\BootstrapperHooks
 $GLOBALS['TL_HOOKS']['processFormData'][]   = ['HeimrichHannot\BootstrapperHooks', 'processFormDataHook'];
 $GLOBALS['TL_HOOKS']['compileFormFields'][] = ['HeimrichHannot\BootstrapperHooks', 'compileFormFieldsHook'];
 
-if (is_array($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags']))
-{
+if (is_array($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'])) {
     array_insert($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'], 0, [['HeimrichHannot\BootstrapperHooks', 'hookReplaceDynamicScriptTagsHook']]);
-}
-else
-{
+} else {
     $GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'][] = ['HeimrichHannot\BootstrapperHooks', 'hookReplaceDynamicScriptTagsHook'];
 }
 
@@ -171,8 +168,7 @@ $GLOBALS['TL_USER_CSS']['animate'] = 'system/modules/bootstrapper/assets/vendor/
 /**
  * JS
  */
-if (TL_MODE == 'FE')
-{
+if (TL_MODE == 'FE') {
 
     $GLOBALS['TL_JAVASCRIPT']['fastclick'] = '/system/modules/bootstrapper/assets/vendor/fastclick/lib/fastclick.js|static';
 
@@ -185,7 +181,7 @@ if (TL_MODE == 'FE')
         . '.js|static';
 
     $GLOBALS['TL_JAVASCRIPT']['numeral-languages'] = 'system/modules/bootstrapper/assets/vendor/numeral' . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '/min' : '') . '/languages'
-                                                     . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
+        . (!$GLOBALS['TL_CONFIG']['debugMode'] ? '.min' : '') . '.js|static';
 
     // bootstrap gallery gesture/touch support
     $GLOBALS['TL_JAVASCRIPT']['jquery-validation']        = 'system/modules/bootstrapper/assets/vendor/validation/jquery.validate.min.js|static';
