@@ -27,7 +27,7 @@
     "heimrichhannot/bootstrap": "4.0.0-beta",
     "heimrichhannot/elegant-icons": "^1.1",
     "heimrichhannot/font-awesome": ">=4.4,<5-dev",
-    "heimrichhannot/contao-components": "~1.0",
+    "heimrichhannot/contao-components": "^1.1",
     "heimrichhannot/contao-haste_plus": ">=1.4.0",
     "heimrichhannot/bootstrap-select": "^1.12.3"
   },
