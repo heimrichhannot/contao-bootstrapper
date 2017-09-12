@@ -12,6 +12,7 @@ $GLOBALS['TL_COMPONENTS']['bs.core'] = [
             'assets/bootstrap/dist/js/popper.min.js|static',
             'assets/bootstrap/dist/js/bootstrap.min.js|static'
         ],
+        'after'  => 0 //load after jquery
     ]
 ];
 

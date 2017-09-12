@@ -12,17 +12,18 @@ namespace HeimrichHannot\Bootstrapper;
 
 class BootstrapperRunOnce extends \Controller
 {
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
-    public function run()
-    {
-        if (class_exists('\HeimrichHannot\Bootstrapper\DatabaseUpdater')) {
-            \HeimrichHannot\Bootstrapper\DatabaseUpdater::run();
-        }
-    }
+	public function __construct()
+	{
+		parent::__construct();
+	}
+	
+	public function run()
+	{
+		if(class_exists('\HeimrichHannot\Bootstrapper\DatabaseUpdater'))
+		{
+			\HeimrichHannot\Bootstrapper\DatabaseUpdater::run();
+		}
+	}
 }
 
 $objRunOnce = new \HeimrichHannot\Bootstrapper\BootstrapperRunOnce();
