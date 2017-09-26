@@ -433,7 +433,7 @@
       }
 
       // toggle anchor panel id
-      $toggle.addClass('in');
+      $toggle.addClass('in show');
       $link.removeClass('collapsed');
 
       // scroll to panel
