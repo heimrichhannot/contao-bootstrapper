@@ -108,7 +108,7 @@
 
                     <?php if ($this->field->type == 'email'): ?>
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="ei ei-comment_alt"></i></span>
+                        <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
                         <?php endif; ?>
 
                         <?php echo $this->field->generate(); ?>
