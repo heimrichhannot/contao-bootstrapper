@@ -1,10 +1,11 @@
 <?php if ($this->level == 'level_1'): ?>
 <div class="navbar-inner">
     <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+        <a class="navbar-brand" href="#"></a>
+
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">Navbar</a>
 
         <div class="collapse navbar-collapse" id="navbar-content">
             <?php endif; ?>
