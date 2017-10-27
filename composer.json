@@ -25,6 +25,7 @@
     "contao/core-bundle": "^3.5.1 || ~4.1",
     "contao-community-alliance/composer-plugin": "~2.4 || ~3.0",
     "heimrichhannot/bootstrap": "^4.0.0-beta",
+    "heimrichhannot/popper.js": "^1.12.6",
     "heimrichhannot/elegant-icons": "^1.1",
     "heimrichhannot/font-awesome": ">=4.4,<5-dev",
     "heimrichhannot/contao-components": "^1.1",
