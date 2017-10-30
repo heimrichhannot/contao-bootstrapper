@@ -420,7 +420,7 @@
       if (!hash) return false;
 
       var $toggle = $('#' + hash + '.collapse'),
-          $link = $('[href=\'#' + hash + '\']');
+          $link = $('[href=\'#' + hash + '\'], [data-target=\'#' + hash + '\']');
 
       if ($toggle.length < 1) return false;
 
