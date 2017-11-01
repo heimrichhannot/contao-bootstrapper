@@ -9,7 +9,7 @@ define('BOOTSTRAPPER_JS_COMPONENT_DIR', 'system/modules/bootstrapper/assets/js/c
 $GLOBALS['TL_COMPONENTS']['bs.core'] = [
     'js' => [
         'files' => [
-            'assets/popper.js/dist/umd/popper.min.js|static',
+            'assets/bootstrap/dist/js/bootstrap.bundle.min.js|static',
             'assets/bootstrap/dist/js/bootstrap.min.js|static'
         ],
         'after'  => 0 //load after jquery
