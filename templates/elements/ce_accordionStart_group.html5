@@ -28,7 +28,7 @@ if ($this->ptable && $this->pid > 0) {
             </h4>
         </div>
 
-        <div class="panel-collapse collapse<?php if ($this->open): ?> in <?php endif; ?>" id="<?= $this->accordionID ?>">
+        <div class="panel-collapse collapse<?php if ($this->open): ?> in show <?php endif; ?>" id="<?= $this->accordionID ?>">
             <div class="panel-body">
                 <div class="<?= $this->accordion; ?>">
                     <div>
