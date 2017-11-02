@@ -5,29 +5,32 @@ $accordionIterator++;
 $this->accordionID = standardize($this->cssID ? (str_replace(['id=', '"', ' '], '', $this->cssID)) : (strtolower($objPage->title) . $accordionIterator));
 $this->open        = $accordionIterator == 1;
 
-if ($this->ptable == 'tl_article' || $this->ptable == 'tl_block_module') {
-    $objArticle = \ArticleModel::findByPk($this->pid);
+if ($this->ptable && $this->pid > 0) {
 
-    if ($objArticle !== null) {
-        $arrCss         = deserialize($objArticle->cssID, true);
-        $this->parentID = ($arrCss[0] ? $arrCss[0] : standardize($objArticle->alias)) . '_collapse';
+    $strClass = \Model::getClassFromTable($this->ptable);
+
+    if (class_exists($strClass) && ($parent = $strClass::findByPk($this->pid)) !== null) {
+        $arrCss = deserialize($parent->cssID, true);
+        if ($arrCss[0]) {
+            $this->parentID = $arrCss[0];
+        }
     }
 }
 
 ?>
 
-<div class="panel-group" id="<?php echo $this->parentID; ?>" role="tablist" aria-multiselectable="false">
+<div class="panel-group" id="<?= $this->parentID; ?>" role="tablist" aria-multiselectable="false">
 
-    <section class="panel panel-default <?php echo $this->class; ?> ce_accordion block"<?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
-        <div class="panel-heading <?php echo $this->toggler; ?>"<?php if ($this->headlineStyle): ?> style="<?php echo $this->headlineStyle; ?>"<?php endif; ?>>
+    <section class="panel panel-default <?= $this->class; ?> ce_accordion block"<?php if ($this->style): ?> style="<?= $this->style; ?>"<?php endif; ?>>
+        <div class="panel-heading <?= $this->toggler; ?>"<?php if ($this->headlineStyle): ?> style="<?= $this->headlineStyle; ?>"<?php endif; ?>>
             <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#<?php echo $this->parentID; ?>" href="#<?php echo $this->accordionID; ?>"><?php echo $this->headline; ?></a>
+                <a data-toggle="collapse" <?php if ($this->parentID): ?> data-parent="#<?= $this->parentID; ?>"<?php endif; ?> href="#<?= $this->accordionID; ?>"><?= $this->headline; ?></a>
             </h4>
         </div>
 
-        <div class="panel-collapse collapse<?php if ($this->open): ?> in <?php endif; ?>" id="<?php echo $this->accordionID ?>">
+        <div class="panel-collapse collapse<?php if ($this->open): ?> in <?php endif; ?>" id="<?= $this->accordionID ?>">
             <div class="panel-body">
-                <div class="<?php echo $this->accordion; ?>">
+                <div class="<?= $this->accordion; ?>">
                     <div>
                     </div>
                 </div>
