@@ -1,6 +1,7 @@
-<label id="<?= $this->label->id; ?>" for="<?= $this->label->for; ?>"<?= $this->label->class; ?><?= $this->labelAttributes; ?>>
-    <input type="<?= $this->type; ?>" name="<?= $this->name; ?>" id="<?= $this->id; ?>" class="<?= $this->class; ?>"
+<label id="<?= $this->label->id; ?>" for="<?= $this->label->for; ?>"<?= $this->label->class ? str_replace('="', '="custom-control custom-radio ', $this->label->class) : ' class="custom-control custom-radio"'; ?><?= $this->labelAttributes; ?>>
+    <input type="<?= $this->type; ?>" name="<?= $this->name; ?>" id="<?= $this->id; ?>" class="custom-control-input <?= $this->class; ?>"
            value="<?= $this->value; ?>"<?= $this->checked; ?><?= $this->attributes; ?><?= $this->tagEnding; ?>
+    <span class="custom-control-indicator"></span>
     <span class="<?= $this->type; ?>-icon"></span>
-    <span class="<?= $this->type; ?>-label"><?= $this->label->value; ?></span>
+    <span class="custom-control-description <?= $this->type; ?>-label"><?= $this->label->value; ?></span>
 </label>

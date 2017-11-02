@@ -35,10 +35,6 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
             $blnShowGroupLabel      = false;
         }
 
-        if (Components::isActive('bs.awesomeInputs')) {
-            $this->strTemplate .= '_awesome';
-        }
-
         $strOptionTemplate = $this->strTemplate . '_option';
 
         try {
@@ -76,12 +72,7 @@ class BootstrapperFormCheckBox extends BootstrapperFormField
         $objLabel      = new \stdClass();
         $objLabel->id  = 'lbl_' . $this->objWidget->id . '_' . $strKey;
         $objLabel->for = 'opt_' . $this->objWidget->id . '_' . $strKey;
-
-        if (Components::isActive('bs.awesomeInputs')) {
-            $objLabel->class = $this->getSetting(BOOTSTRAPPER_OPTION_INLINE) ? $this->objWidget->type . '-inline' : '';
-        } else {
-            $objLabel->class = $this->getSetting(BOOTSTRAPPER_OPTION_INLINE) ? ' class="' . $this->objWidget->type . '-inline"' : '';
-        }
+        $objLabel->class = $this->getSetting(BOOTSTRAPPER_OPTION_INLINE) ? ' class="' . $this->objWidget->type . '-inline"' : '';
 
         $objLabel->value      = $arrOption['label'];
         $objLabel->attributes = [];

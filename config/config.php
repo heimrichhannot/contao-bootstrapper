@@ -87,14 +87,6 @@ $GLOBALS['TL_COMPONENTS']['modernizr'] = [
     ],
 ];
 
-$GLOBALS['TL_COMPONENTS']['bs.awesomeInputs'] = [
-    'css' => [
-        'files' => [
-            'system/modules/bootstrapper/assets/vendor/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css|screen|static',
-        ],
-    ],
-];
-
 $GLOBALS['TL_COMPONENTS']['bs.switch'] = [
     'js'  => [
         'files' => [
