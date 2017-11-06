@@ -27,12 +27,12 @@ $GLOBALS['TL_COMPONENTS']['bs.datetimepicker'] = [
 ];
 $GLOBALS['TL_COMPONENTS']['bs.select']         = [
     'js'  => [
-        'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js|static',
+        'assets/bootstrap-select/dist/js/bootstrap-select.min.js|static',
         BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.i18n.min.js|static',
         BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.min.js|static',
     ],
     'css' => [
-        'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/css/bootstrap-select.css|screen|static|1.10.0',
+        'assets/bootstrap-select/dist/css/bootstrap-select.min.css|screen|static',
     ],
 ];
 
@@ -129,24 +129,21 @@ if (is_array($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'])) {
 //$GLOBALS['TL_USER_CSS']['jasny-bootstrap']  = 'system/modules/bootstrapper/assets/vendor/jasny-bootstrap/less/jasny-bootstrap.less|screen|static|3.1.3';
 
 array_insert($GLOBALS['TL_USER_CSS'], 1, [
-    'contao-bootstrap'     => 'system/modules/bootstrapper/assets/css/contao.less|screen|static|3.1.1',
-    'pagination-bootstrap' => 'system/modules/bootstrapper/assets/css/pagination.less|screen|static|3.1.1',
-    'maps-bootstrap'       => 'system/modules/bootstrapper/assets/css/maps.less|screen|static|3.1.1',
-    'carousel-bootstrap'   => 'system/modules/bootstrapper/assets/css/carousel.less|screen|static|3.1.1',
-    'colorbox-bootstrap'   => 'system/modules/bootstrapper/assets/css/colorbox.less|screen|static|3.1.1',
-    'bs.datetimepicker'    => 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css|screen|static',
-    'animate'              => 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static',
-    'bootstrap-slider'     => 'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css|screen|static',
-    'bootstrap-select'     => 'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/css/bootstrap-select.css|screen|static|1.10.0',
+    'bs.datetimepicker' => 'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css|screen|static',
+    'animate'           => 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static',
+    'bootstrap-slider'  => 'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css|screen|static',
+    'boostrap-select'   => 'assets/bootstrap-select/dist/css/bootstrap-select.min.css|screen|static',
+    'bs.switch'         => 'system/modules/bootstrapper/assets/vendor/bootstrap-switch/dist/css/bootstrap-switch.css|screen|static',
 ]);
 
 /**
  * JS
  */
+$GLOBALS['TL_JAVASCRIPT']['bs.core'] = 'assets/bootstrap/dist/js/bootstrap.bundle.min.js|static';
+
 if (TL_MODE == 'FE') {
 
     array_insert($GLOBALS['TL_JAVASCRIPT'], 1, [
-        'bs.core'                  => 'assets/bootstrap/dist/js/bootstrap.bundle.min.js|static',
         'fastclick'                => '/system/modules/bootstrapper/assets/vendor/fastclick/lib/fastclick.js|static',
         // bootstrap-datetimepicker
         'moment'                   => 'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales.min.js|static',
@@ -170,11 +167,13 @@ if (TL_MODE == 'FE') {
         'bs.tooltip'               => BOOTSTRAPPER_JS_COMPONENT_DIR . '/tooltip/bs.tooltip.min.js|static',
         'bootstrap-slider'         => 'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js|static',
         'bs.inputSlider'           => BOOTSTRAPPER_JS_COMPONENT_DIR . '/input-slider/bs.inputSlider.min.js|static',
-        'boostrap-select'          => 'system/modules/bootstrapper/assets/vendor/bootstrap-select/dist/js/bootstrap-select.min.js|static',
-        'bs.select.i18'            => BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.i18n.min.js|static',
-        'bs.select'                => BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.min.js|static',
-        'boostrap-switch'          => 'system/modules/bootstrapper/assets/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js|static',
-        'bs.switch'                => BOOTSTRAPPER_JS_COMPONENT_DIR . '/switch/bs.switch.min.js|static',
+
+        'boostrap-select' => 'assets/bootstrap-select/dist/js/bootstrap-select.min.js|static',
+        'bs.select.i18'   => BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.i18n.min.js|static',
+        'bs.select'       => BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.min.js|static',
+
+        'boostrap-switch' => 'system/modules/bootstrapper/assets/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js|static',
+        'bs.switch'       => BOOTSTRAPPER_JS_COMPONENT_DIR . '/switch/bs.switch.min.js|static',
         // currently no bs4 support
         // 'jasny-bootstrap'          => 'system/modules/bootstrapper/assets/vendor/jasny-bootstrap/dist/js/jasny-bootstrap.min.js|static',
     ]);
