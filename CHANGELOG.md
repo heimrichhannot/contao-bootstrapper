@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.4.10] - 2017-07.03
+## [1.4.10] - 2017-07-03
 
 ### Fixed
 - removed initCollapse function, fixed marginBottom
