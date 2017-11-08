@@ -139,9 +139,9 @@ array_insert($GLOBALS['TL_USER_CSS'], 1, [
 /**
  * JS
  */
-$GLOBALS['TL_JAVASCRIPT']['bs.core'] = 'assets/bootstrap/dist/js/bootstrap.bundle.min.js|static';
-
 if (TL_MODE == 'FE') {
+
+    $GLOBALS['TL_JAVASCRIPT']['bs.core'] = 'assets/bootstrap/dist/js/bootstrap.bundle.min.js|static';
 
     array_insert($GLOBALS['TL_JAVASCRIPT'], 1, [
         'fastclick'                => '/system/modules/bootstrapper/assets/vendor/fastclick/lib/fastclick.js|static',
