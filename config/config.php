@@ -139,7 +139,7 @@ array_insert($GLOBALS['TL_USER_CSS'], 1, [
 /**
  * JS
  */
-if (TL_MODE == 'FE') {
+if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
 
     $GLOBALS['TL_JAVASCRIPT']['bs.core'] = 'assets/bootstrap/dist/js/bootstrap.bundle.min.js|static';
 
