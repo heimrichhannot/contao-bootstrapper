@@ -455,7 +455,7 @@
             }
 
             // toggle anchor panel id
-            $toggle.addClass('in show');
+            $toggle.collapse('show');
             $link.removeClass('collapsed');
 
             // scroll to panel
