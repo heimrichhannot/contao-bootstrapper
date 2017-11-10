@@ -541,7 +541,7 @@
             FastClick.attach(document.body);
         },
         initIosLabelBugFix: function() {
-            $('.ios .checkbox-label').each(function() {
+            $('.ios .checkbox-label, .ios .custom-control-description').each(function() {
                 $(this).on('click', function() {
                     var $input = $(this).siblings('input');
 
