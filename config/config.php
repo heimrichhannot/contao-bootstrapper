@@ -16,6 +16,12 @@ $GLOBALS['TL_COMPONENTS']['bs.core'] = [
 /**
  * Asset Components
  */
+$GLOBALS['TL_COMPONENTS']['bs.collapse'] = [
+    'js' => [
+        BOOTSTRAPPER_JS_COMPONENT_DIR . '/collapse/bs.collapse.min.js|static',
+    ]
+];
+
 $GLOBALS['TL_COMPONENTS']['bs.datetimepicker'] = [
     'js'  => [
         'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js|static',
@@ -25,7 +31,8 @@ $GLOBALS['TL_COMPONENTS']['bs.datetimepicker'] = [
         'system/modules/bootstrapper/assets/vendor/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css|screen|static',
     ],
 ];
-$GLOBALS['TL_COMPONENTS']['bs.select']         = [
+
+$GLOBALS['TL_COMPONENTS']['bs.select'] = [
     'js'  => [
         'assets/bootstrap-select/dist/js/bootstrap-select.min.js|static',
         BOOTSTRAPPER_JS_COMPONENT_DIR . '/select/bs.select.i18n.min.js|static',
@@ -35,7 +42,6 @@ $GLOBALS['TL_COMPONENTS']['bs.select']         = [
         'assets/bootstrap-select/dist/css/bootstrap-select.min.css|screen|static',
     ],
 ];
-
 
 $GLOBALS['TL_COMPONENTS']['bs.inputSlider'] = [
     'js'  => [
@@ -174,6 +180,7 @@ if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
 
         'boostrap-switch' => 'system/modules/bootstrapper/assets/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js|static',
         'bs.switch'       => BOOTSTRAPPER_JS_COMPONENT_DIR . '/switch/bs.switch.min.js|static',
+        'bs.collapse'     => BOOTSTRAPPER_JS_COMPONENT_DIR . '/collapse/bs.collapse.min.js|static',
         // currently no bs4 support
         // 'jasny-bootstrap'          => 'system/modules/bootstrapper/assets/vendor/jasny-bootstrap/dist/js/jasny-bootstrap.min.js|static',
     ]);
