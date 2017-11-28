@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.1] - 2017-11-28
+
+### Fixed
+- removed non existing js function
+
 ## [1.5.0] - 2017-11-28
 
 ### Changed

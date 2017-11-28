@@ -30,7 +30,6 @@
         locale: 'de',
         ajaxComplete: function() {
             this.initJQueryValidation();
-            this.initDatetimePicker();
         },
         slideUpCollapse: function() {
             $('.collapse.slideup').on('show.bs.collapse', function() {
