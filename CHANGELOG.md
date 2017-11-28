@@ -1,6 +1,17 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - 2017-11-28
+
+### Changed
+- added `heimrichhannot/contao-components` version 2.x support
+
+### Fixed 
+- linked Datetimepicker min/max date behavior
+
+### Added
+- inputType password_noConfirm -> bypass password confirmation in forms
+
 ## [1.4.13] - 2017-08-08
 
 ### Added

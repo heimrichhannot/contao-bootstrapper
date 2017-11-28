@@ -1,10 +1,7 @@
-(function ($) {
+(function($) {
     Bootstrapper = {
-        init: function () {
+        init: function() {
             this.initFastClick();
-            this.toggleCollapseFromHash();
-            this.openModalFromHash();
-            this.toggleTabFromHash();
             this.initModalNavigation();
             //this.initModalRemoteUpdate();
             this.initNavbar();
@@ -12,7 +9,6 @@
             this.supportNestedDropdowns();
 
             this.initModal();
-            this.initCollapse();
             this.loadModalFromUrl();
             this.onCloseModal();
             this.initCarouselProgressBar();
@@ -21,7 +17,6 @@
             this.initAjaxForms();
             this.initScrollClass();
             this.megaMenuEqualHeight();
-            this.setHashFromCollapse();
             this.initFileUpload();
             this.slideUpCollapse();
 
@@ -33,25 +28,26 @@
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
         locale: 'de',
-        ajaxComplete: function () {
+        ajaxComplete: function() {
             this.initJQueryValidation();
+            this.initDatetimePicker();
         },
-        slideUpCollapse: function () {
-            $('.collapse.slideup').on('show.bs.collapse', function () {
-                $("html, body").animate({scrollTop: $(document).height()}, "slow");
+        slideUpCollapse: function() {
+            $('.collapse.slideup').on('show.bs.collapse', function() {
+                $('html, body').animate({scrollTop: $(document).height()}, 'slow');
             });
         },
-        initFileUpload: function () {
+        initFileUpload: function() {
             // clear fileinput always (as long as value is provided by server)
-            $('.fileinput [data-dismiss]').on('click', function () {
+            $('.fileinput [data-dismiss]').on('click', function() {
                 var $fileInput = $(this).parent('.fileinput');
                 $fileInput.fileinput('clear');
                 $fileInput.find('input[type=file]').attr('value', '');
             });
         },
-        megaMenuEqualHeight: function () {
+        megaMenuEqualHeight: function() {
 
-            $(window).on('resize', function () {
+            $(window).on('resize', function() {
                 makeEqualHeight();
             });
 
@@ -60,7 +56,7 @@
             function makeEqualHeight() {
                 // if level_3 submenu higher than level_2, we need to determine the max height of both and set it
                 // otherwise, menu items will overlap the parent wrapper, because absolute positioned items wont inflate the parent wrapper
-                $('[data-equal-height="ul.nav"]').each(function () {
+                $('[data-equal-height="ul.nav"]').each(function() {
 
                     var $this = $(this),
                         minBreakpoint = $this.data('equal-height-breakpoint-min'),
@@ -73,7 +69,7 @@
                         return true;
                     }
 
-                    $this.find($this.data('equal-height')).each(function () {
+                    $this.find($this.data('equal-height')).each(function() {
                         var actualInnerHeight = $(this).actual('innerHeight');
                         actualOuterHeight = $(this).actual('outerHeight', {includeMargin: true});
 
@@ -92,8 +88,8 @@
             }
 
         },
-        supportNestedDropdowns: function () {
-            $('ul.dropdown-menu').on('click', 'a[data-toggle="dropdown"]', function (event) {
+        supportNestedDropdowns: function() {
+            $('ul.dropdown-menu').on('click', 'a[data-toggle="dropdown"]', function(event) {
                 // Avoid following the href location when clicking
                 event.preventDefault();
                 // Avoid having the menu to close when clicking
@@ -104,12 +100,12 @@
                 $(this).parent().addClass('open');
             });
         },
-        initScrollClass: function () {
-            $(window).on('scroll', function (e) {
+        initScrollClass: function() {
+            $(window).on('scroll', function(e) {
 
                 var distanceY = $(window).scrollTop();
 
-                $('[data-spy="scroll"]').each(function () {
+                $('[data-spy="scroll"]').each(function() {
                     var $this = $(this),
                         scrollClass = $this.data('scrollclass'),
                         offset = $this.data('offset') ? $this.data('offset') : 1;
@@ -124,12 +120,12 @@
                 });
             });
         },
-        initNavbar: function () {
-            $('.navbar-collapse').on('shown.bs.collapse', function () {
+        initNavbar: function() {
+            $('.navbar-collapse').on('shown.bs.collapse', function() {
                 $('body').addClass('navbar-xs-open');
             });
 
-            $('.navbar-collapse').on('hide.bs.collapse', function () {
+            $('.navbar-collapse').on('hide.bs.collapse', function() {
                 $('body').removeClass('navbar-xs-open');
             });
 
@@ -138,23 +134,23 @@
                 $('body').addClass('navbar-xs-open');
             }
         },
-        addPlaceholderTagSupport: function () {
+        addPlaceholderTagSupport: function() {
             if (!Modernizr.input.placeholder) {
                 $('input, textarea').placeholder();
             }
         },
-        initJQueryValidation: function () {
+        initJQueryValidation: function() {
             var $forms = $('form.jquery-validation');
 
             if ($forms.length > 0) {
                 $.validator.addMethod
                 (
-                    'checkbox', function (value, element) {
+                    'checkbox', function(value, element) {
                         var blnChecked = false,
                             $group = $(element).closest('.form-group');
 
                         if ($group.find('.control-label:first .mandatory').length > 0) {
-                            $group.find('input[type=checkbox]').each(function () {
+                            $group.find('input[type=checkbox]').each(function() {
                                 if (this.checked) {
                                     blnChecked = true;
                                     return false;
@@ -167,11 +163,11 @@
                     $.validator.format('Dieses Feld ist ein Pflichtfeld.')
                 );
 
-                $forms.each(function () {
+                $forms.each(function() {
                     $(this).validate({
                         errorClass: 'error',
                         focusInvalid: false,
-                        errorPlacement: function (error, element) {
+                        errorPlacement: function(error, element) {
                             var $inputGroup = element.closest('.input-group');
 
                             if ($inputGroup.length > 0) {
@@ -185,8 +181,8 @@
                 });
             }
         },
-        initAjaxForms: function () {
-            $('body').on('submit', '.ajax-form', function (e) {
+        initAjaxForms: function() {
+            $('body').on('submit', '.ajax-form', function(e) {
 
                 var $form = $(this),
                     $formData = $form.serializeArray();
@@ -203,7 +199,7 @@
                     {
                         data: $formData,
                         method: $(this).attr('method'),
-                        success: function (data) {
+                        success: function(data) {
 
                             var replace,
                                 data = '<div>' + data + '</div>';
@@ -241,7 +237,7 @@
                 );
             });
         },
-        initCarouselProgressBar: function () {
+        initCarouselProgressBar: function() {
 
             var percent = 0,
                 bar = $('.carousel-progress .progress-bar'),
@@ -277,24 +273,22 @@
             crsl.carousel({
                 interval: false,
                 pause: false
-            })
-                .on('slide.bs.carousel', function () {
-                    clearInterval(barInterval);
-                })
-                .on('slid.bs.carousel', function () {
-                    percent = 0;
-                    barInterval = setInterval(progressBarCarousel, delay);
-                });
+            }).on('slide.bs.carousel', function() {
+                clearInterval(barInterval);
+            }).on('slid.bs.carousel', function() {
+                percent = 0;
+                barInterval = setInterval(progressBarCarousel, delay);
+            });
 
             // hover support
-            crsl.hover(function () {
+            crsl.hover(function() {
                 clearInterval(barInterval);
-            }, function () {
+            }, function() {
                 barInterval = setInterval(progressBarCarousel, delay);
             });
 
             // click support
-            crsl.on('click', '.carousel-control, .carousel-indicators', function () {
+            crsl.on('click', '.carousel-control, .carousel-indicators', function() {
                 percent = 0;
                 clearInterval(barInterval);
                 bar.addClass('carousel-transition').css({width: '0%'});
@@ -302,10 +296,9 @@
 
             // gestures/touch support
 
-
         },
-        initModal: function () {
-            $('body').on('click', '[data-toggle="modal"]', function (e) {
+        initModal: function() {
+            $('body').on('click', '[data-toggle="modal"]', function(e) {
                 var $this = $(this),
                     $modal = $($this.data('target')),
                     $replace = $modal.find('.modal-dialog');
@@ -327,14 +320,13 @@
                     }
                 }
 
-
                 $.ajax({
                     'url': $this.attr('href'),
                     'data': {
                         'scope': 'modal',
                         'target': $modal.attr('id')
                     }
-                }).done(function (responseText, textStatus, jqXHR) {
+                }).done(function(responseText, textStatus, jqXHR) {
                     try {
                         dataJson = $.parseJSON(responseText);
 
@@ -342,7 +334,7 @@
                             if (typeof history.replaceState !== 'undefined') {
                                 history.replaceState({url: dataJson.url}, null, dataJson.url);
                             }
-                            $replace.load(dataJson.url, function (responseText, textStatus, jqXHR) {
+                            $replace.load(dataJson.url, function(responseText, textStatus, jqXHR) {
                                 $modal.modal('show');
                             });
 
@@ -359,17 +351,12 @@
                 return false;
             });
         },
-        initCollapse: function () {
-            $('[data-toggle="collapse"]').on('click', function () {
-                HASTE_PLUS.scrollTo($(this), 100, 500);
-            });
-        },
-        onCloseModal: function () {
-            $(document).on('hide.bs.modal', '.modal', function (e) {
+        onCloseModal: function() {
+            $(document).on('hide.bs.modal', '.modal', function(e) {
                 var $this = $(this);
 
                 // stop embedded videos like youtube
-                $this.find('iframe').each(function () {
+                $this.find('iframe').each(function() {
                     var $this = $(this);
 
                     // reset the src will stop the video
@@ -377,7 +364,7 @@
                 });
 
                 // stop embedded audio/video
-                $this.find('audio, video').each(function () {
+                $this.find('audio, video').each(function() {
                     this.pause();
                 });
 
@@ -391,105 +378,29 @@
                 }
             });
         },
-        loadModalFromUrl: function () {
+        loadModalFromUrl: function() {
             if ($('.modal.in').length > 0)
                 $('.modal.in').modal('show');
         },
-        setHashFromCollapse: function () {
-            var $collapse = $('.collapse');
-
-            $collapse.each(function () {
-                var $this = $(this);
-
-                $this.on('shown.bs.collapse', function (e) {
-                    if (this.id && window.history && window.history.pushState) {
-                        history.pushState({}, document.title, location.pathname + location.search + '#' + this.id);
-                    }
-                });
-
-                $this.on('hidden.bs.collapse', function (e) {
-                    if (this.id && typeof history.replaceState !== 'undefined') {
-                        history.replaceState({}, document.title, location.pathname + location.search);
-                    }
-                });
-            });
-        },
-        toggleCollapseFromHash: function () {
-            var hash = location.hash.replace(/#/g, ""); // remove if more than # sign
-
-            if (!hash) return false;
-
-            var $toggle = $('#' + hash + '.collapse'),
-                $link = $("[href='#" + hash + "']");
-
-            if ($toggle.length < 1) return false;
-
-            var $parent = $($link.data('parent'));
-
-            // close all open panels
-            if ($parent.length > 0) {
-                $($link.data('parent')).find('.collapse').removeClass('in');
-                $($link.data('parent')).find('[data-toggle=collapse]').addClass('collapsed');
-            }
-
-            // toggle anchor panel id
-            $toggle.addClass('in');
-            $link.removeClass('collapsed');
-
-            // scroll to panel
-            HASTE_PLUS.scrollTo($toggle, 100, 500);
-        },
-        openModalFromHash: function () {
-            var hash = location.hash.replace(/#/g, "").replace(/is/g, "or"); // remove if more than # sign
-
-            if (!hash) return false;
-
-            var $toggle = $('#' + hash);
-
-            if ($toggle.length < 1 || !$toggle.hasClass('modal')) return false;
-
-            $toggle.modal('show');
-        },
-        toggleTabFromHash: function () {
-            var hash = location.hash.replace(/#/g, ""); // remove if more than # sign
-
-            if (!hash) return false;
-
-            var $pane = $('#' + hash),
-                $link = $("[href='#" + hash + "']");
-
-            var $links = $link.closest('.tabcontrol_tabs'),
-                $panes = $pane.closest('.tabcontrol_panes');
-
-            // close all open panels
-            if ($links.length > 0 && $panes.length > 0) {
-                $links.find('a').parent().removeClass('active');
-                $panes.find('.tab-pane').removeClass('in').removeClass('active');
-
-                // toggle anchor panel id
-                $pane.addClass('active').addClass('in');
-                $link.parent().addClass('active');
-            }
-        },
-        initModalNavigation: function () {
-            $('.modal').on('click', '.modal-next', function (e) {
+        initModalNavigation: function() {
+            $('.modal').on('click', '.modal-next', function(e) {
                 e.preventDefault();
 
                 window.location = $(this).attr('href');
             });
         },
-        initModalRemoteUpdate: function () {
-            $('body').on('hidden.bs.modal', '.modal', function () {
+        initModalRemoteUpdate: function() {
+            $('body').on('hidden.bs.modal', '.modal', function() {
                 $(this).removeData('bs.modal');
             });
 
-            $('a[data-toggle="modal"][data-remote]').on('click', function (e) {
+            $('a[data-toggle="modal"][data-remote]').on('click', function(e) {
                 e.preventDefault();
 
                 var $this = $(this),
                     $target = $($this.data('target'));
 
-                $.ajax({url: $this.attr('href')}).done(function (data) {
+                $.ajax({url: $this.attr('href')}).done(function(data) {
                     $target.find('.modal-content').replaceWith(data).end().modal();
                 });
 
@@ -498,9 +409,9 @@
                 return false;
             });
         },
-        navFollowLinkIfItemsOpen: function () {
+        navFollowLinkIfItemsOpen: function() {
             // trigger click on open items
-            $('.nav-collapse').on('click', 'a[data-toggle="dropdown"]', function (e) {
+            $('.nav-collapse').on('click', 'a[data-toggle="dropdown"]', function(e) {
                 var $this = $(this),
                     $parent = $this.parent('li');
 
@@ -515,47 +426,39 @@
                 }
             });
         },
-        initFastClick: function () {
+        initFastClick: function() {
             FastClick.attach(document.body);
         },
-        initIosLabelBugFix: function () {
-            $('.ios .checkbox-label').each(function () {
-                $(this).on('click', function () {
-                    var $input = $(this).siblings('input'),
-                        $inputAwesome = $(this).closest('.checkbox.checkbox-inline');
+        initIosLabelBugFix: function() {
+            $('.ios .checkbox-label, .ios .custom-control-description').each(function() {
+                $(this).on('click', function() {
+                    var $input = $(this).siblings('input');
 
                     if ($input.length > 0)
                         $input.trigger('click');
-
-                    if ($inputAwesome.length > 0)
-                        $inputAwesome.find('input').trigger('click');
-                })
+                });
             });
 
-            $('.ios .radio-label').each(function () {
-                $(this).on('click', function () {
-                    var $input = $(this).siblings('input'),
-                        $inputAwesome = $(this).closest('.radio.radio-inline');
+            $('.ios .radio-label').each(function() {
+                $(this).on('click', function() {
+                    var $input = $(this).siblings('input');
 
                     if ($input.length > 0)
                         $input.trigger('click');
-
-                    if ($inputAwesome.length > 0)
-                        $inputAwesome.find('input').trigger('click');
-                })
+                });
             });
         },
-        initTinyMceModalBugFix: function () {
-            $(document).on('focusin', function (e) {
+        initTinyMceModalBugFix: function() {
+            $(document).on('focusin', function(e) {
                 if ($(e.target).closest('.mce-window').length) {
                     e.stopImmediatePropagation();
                 }
             });
         },
-        setLocale: function (locale) {
+        setLocale: function(locale) {
             this.locale = locale;
         },
-        confirm: function (message, success, error) {
+        confirm: function(message, success, error) {
             bootbox.dialog({
                 message: message,
                 buttons: {
@@ -574,7 +477,7 @@
         }
     };
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         Bootstrapper.init();
     });
 

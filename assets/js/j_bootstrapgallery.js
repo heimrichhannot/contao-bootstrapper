@@ -35,7 +35,7 @@
             var target = event.target || event.srcElement,
                 link = target.src ? target.parentNode : target,
                 options = {index: link, event: event},
-                $gallery = $('[data-gallery=' + $(this).data('gallery') + ']'),
+                $gallery = $('[data-gallery="' + $(this).data('gallery') + '"]'),
                 links = [this];
 
             if ($gallery.length > 0) {

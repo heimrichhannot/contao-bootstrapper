@@ -24,7 +24,7 @@
     "contao/core": ">=3.2,<4-dev",
     "contao-legacy/countryselect": ">=1.2.0,<2-dev",
     "heimrichhannot/contao-extassets": "~1.0",
-    "heimrichhannot/contao-components": "~1.0",
+    "heimrichhannot/contao-components": "^2.0",
     "contao-community-alliance/composer-installer": "*"
   },
   "autoload": {

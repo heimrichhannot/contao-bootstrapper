@@ -1,13 +1,13 @@
-(function ($) {
+(function($) {
     var BsDatetimePicker = {
-        init: function () {
+        init: function() {
 
             this.initDateTimePicker();
 
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
-        initDateTimePicker: function () {
+        initDateTimePicker: function() {
             var defaults = {
                 locale: $('html').attr('lang'),
                 icons: {
@@ -22,7 +22,7 @@
                 }
             };
 
-            $('.datepicker, .timepicker').each(function (k, item) {
+            $('.datepicker, .timepicker').each(function(k, item) {
                 var $this = $(this),
                     $input = $this.find('input'),
                     data = $input.data(),
@@ -33,12 +33,11 @@
 
                 for (var k in data) {
                     if (options[k] != undefined) {
-                        switch (k)
-                        {
+                        switch (k) {
                             case 'minDate':
                             case 'maxDate':
                                 continue;
-                            break;
+                                break;
                         }
 
                         options[k] = data[k];
@@ -49,34 +48,35 @@
 
                 // set min date
                 if (moment(data.minDate, data.format).isValid()) {
-                    $this.data("DateTimePicker").minDate(moment(data.minDate, data.format));
+                    $this.data('DateTimePicker').minDate(moment(data.minDate, data.format));
                 }
 
                 // set max date
                 if (moment(data.maxDate, data.format).isValid()) {
-                    $this.data("DateTimePicker").maxDate(moment(data.maxDate, data.format));
+                    $this.data('DateTimePicker').maxDate(moment(data.maxDate, data.format));
                 }
 
                 // is end -> link to start
                 if ($linkedStart.length > 0) {
                     // set default min date
                     if (moment($linkedStart.val(), data.format).isValid()) {
-                        $this.data("DateTimePicker").minDate(moment($linkedStart.val(), data.format));
+                        $this.data('DateTimePicker').minDate(moment($linkedStart.val(), data.format));
                     }
 
                     // on change - update start
-                    $this.on("dp.change", function (e) {
+                    $this.on('dp.change', function(e) {
                         if (moment(e.date).isValid()) {
 
                             // intelligent adjustment of start
                             if (data.linkedUnlock) {
                                 // set start to same date as end, if end is before start
-                                if (e.date.isBefore($linkedStart.closest('.datepicker').data("DateTimePicker").date())) {
-                                    $linkedStart.closest('.datepicker').data("DateTimePicker").date(e.date);
+                                if (e.date.isBefore($linkedStart.closest('.datepicker').data('DateTimePicker').date())) {
+                                    $linkedStart.closest('.datepicker').data('DateTimePicker').date(e.date);
                                 }
                                 // set max date
-                            } else {
-                                $linkedStart.closest('.datepicker').data("DateTimePicker").maxDate(e.date);
+                                else {
+                                    $linkedStart.closest('.datepicker').data('DateTimePicker').maxDate(e.date);
+                                }
                             }
                         }
                     });
@@ -86,34 +86,35 @@
                 if ($linkedEnd.length > 0) {
 
                     if (moment($linkedEnd.val(), data.format).isValid()) {
-                        $this.data("DateTimePicker").maxDate(moment($linkedEnd.val(), data.format));
+                        $this.data('DateTimePicker').maxDate(moment($linkedEnd.val(), data.format));
                     }
 
                     // on change - update end
-                    $this.on("dp.change", function (e) {
+                    $this.on('dp.change', function(e) {
                         if (moment(e.date).isValid()) {
 
                             // intelligent adjustment of end
                             if (data.linkedUnlock) {
                                 // set end to same date as start, if start is after end
-                                if (e.date.isAfter($linkedEnd.closest('.datepicker').data("DateTimePicker").date())) {
-                                    $linkedEnd.closest('.datepicker').data("DateTimePicker").date(e.date);
+                                if (e.date.isAfter($linkedEnd.closest('.datepicker').data('DateTimePicker').date())) {
+                                    $linkedEnd.closest('.datepicker').data('DateTimePicker').date(e.date);
                                 }
                                 // set min date
-                            } else {
-                                $linkedEnd.closest('.datepicker').data("DateTimePicker").minDate(e.date);
+                                else {
+                                    $linkedEnd.closest('.datepicker').data('DateTimePicker').minDate(e.date);
+                                }
                             }
                         }
                     });
                 }
             });
         },
-        ajaxComplete: function () {
+        ajaxComplete: function() {
             this.initDateTimePicker();
         }
-    }
+    };
 
-    $(document).ready(function () {
+    $(document).ready(function() {
         BsDatetimePicker.init();
     });
 
