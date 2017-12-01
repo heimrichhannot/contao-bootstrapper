@@ -46,6 +46,12 @@
 
                 $this.datetimepicker($.extend(options, defaults));
 
+                $input.on('keyup', function (e) {
+                    if (e.keyCode == 13) {
+                        $input.closest('form').submit();
+                    }
+                });
+
                 // set min date
                 if (moment(data.minDate, data.format).isValid()) {
                     $this.data('DateTimePicker').minDate(moment(data.minDate, data.format));
