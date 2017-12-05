@@ -1,14 +1,14 @@
-<div id="tabcontrol_<?php echo $this->id; ?>" class="<?php echo $this->class; ?> block"<?php echo $this->cssID; ?><?php if ($this->style): ?> style="<?php echo $this->style; ?>"<?php endif; ?>>
+<div id="tabcontrol_<?= $this->id; ?>" class="<?= $this->class; ?> block"<?= $this->cssID; ?><?php if ($this->style): ?> style="<?= $this->style; ?>"<?php endif; ?>>
 
     <?php if ($this->headline): ?>
-    <<?php echo $this->hl; ?>><?php echo $this->headline; ?></<?php echo $this->hl; ?>>
+    <<?= $this->hl; ?>><?= $this->headline; ?></<?= $this->hl; ?>>
 <?php endif; ?>
 
 <div class="tabcontrol_tabs block">
     <ul class="nav nav-tabs" role="tablist">
         <?php foreach ($this->titles as $key => $title) : ?>
-            <li role="presentation" class="<?php echo $this->tabs . ' tab_' . $key; ?><?php if ($key == $this->tab_tabs_default): ?> active<?php endif; ?>" id="<?php echo $this->id . "_" . $key ?>">
-                <a href="#pane_<?php echo $this->id; ?>_<?php echo $key + 1; ?>" aria-controls="pane_<?php echo $this->id; ?>_<?php echo $key + 1; ?>" role="tab" data-toggle="tab"><?php echo $title; ?></a>
+            <li role="presentation" class="nav-item <?= $this->tabs . ' tab_' . $key; ?>" id="<?= $this->id . "_" . $key ?>">
+                <a class="nav-link<?php if ($key == $this->tab_tabs_default): ?> active<?php endif; ?>" href="#pane_<?= $this->id; ?>_<?= $key + 1; ?>" aria-controls="pane_<?= $this->id; ?>_<?= $key + 1; ?>" role="tab" data-toggle="tab"><?= $title; ?></a>
             </li>
         <?php endforeach; ?>
     </ul>
