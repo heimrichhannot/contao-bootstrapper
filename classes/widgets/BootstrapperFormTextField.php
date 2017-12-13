@@ -21,93 +21,74 @@ class BootstrapperFormTextField extends BootstrapperFormField
     {
         $arrEval = $this->arrDca['eval'];
 
-        if ($arrEval['rgxp'] == 'datim') {
-            $this->Template->datepicker = true;
-            $this->Template->timepicker = true;
+        $this->Template->datepicker   = $arrEval['rgxp'] == 'datim' || $arrEval['rgxp'] == 'date';
+        $this->Template->timepicker   = $arrEval['rgxp'] == 'time';
+        $this->Template->datimepicker = $arrEval['rgxp'] == 'datim';
+        $mode                         = $arrEval['rgxp'];
+        $format                       = $flatPickrFormat = '';
 
-            $this->objWidget->addAttribute('data-format',
-                Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['datimFormat']));
+        switch ($arrEval['rgxp']) {
+            case 'datim':
+                $flatPickrFormat = Bootstrapper::formatPhpDateToJsDateForFlatPickr($GLOBALS['TL_CONFIG']['datimFormat']);
+                $format          = Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['datimFormat']);
+                break;
+            case 'date':
+                $flatPickrFormat = Bootstrapper::formatPhpDateToJsDateForFlatPickr($GLOBALS['TL_CONFIG']['dateFormat']);
+                $format          = Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat']);
+                break;
+            case 'time':
+                $flatPickrFormat = Bootstrapper::formatPhpDateToJsDateForFlatPickr($GLOBALS['TL_CONFIG']['timeFormat']);
+                $format          = Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat']);
+                break;
+        }
 
+        $this->objWidget->addAttribute('data-date-format', $flatPickrFormat);
+        $this->objWidget->addAttribute('data-moment-date-format', $format);
+
+        if ($this->objWidget->value)
+        {
+            $this->Template->defaultValue = $this->arrDca['default'];
+        }
+
+        if ($mode == 'datim' || $mode == 'date' || $mode == 'time') {
+            $this->objWidget->addAttribute('data-input', '1');
+        }
+
+        if ($mode == 'datim' || $mode == 'time') {
+            $this->objWidget->addAttribute('data-enable-time', 'true');
+
+            if ($this->getSetting(BOOTSTRAPPER_OPTION_MINUTE_STEPS)) {
+                $this->objWidget->addAttribute('data-minute-increment', $this->getSetting(BOOTSTRAPPER_OPTION_MINUTE_STEPS));
+            }
+        }
+
+        if ($mode == 'time') {
+            $this->objWidget->addAttribute('data-no-calendar', 'true');
+        }
+
+        if ($mode == 'datim' || $mode == 'date') {
             if ($this->getSetting(BOOTSTRAPPER_OPTION_LINKED_START)) {
-                if ($this->getSetting(BOOTSTRAPPER_OPTION_LINKED_UNLOCK)) {
-                    $this->objWidget->addAttribute('data-linked-unlock', $this->getSetting(BOOTSTRAPPER_OPTION_LINKED_UNLOCK));
-                }
-
                 $this->objWidget->addAttribute('data-linked-start', $this->getSetting(BOOTSTRAPPER_OPTION_LINKED_START));
                 $this->objWidget->addAttribute('data-toggle', 'tooltip');
                 $this->objWidget->addAttribute('data-title', $this->label);
             }
 
             if ($this->getSetting(BOOTSTRAPPER_OPTION_LINKED_END)) {
-                if ($this->getSetting(BOOTSTRAPPER_OPTION_LINKED_UNLOCK)) {
-                    $this->objWidget->addAttribute('data-linked-unlock', $this->getSetting(BOOTSTRAPPER_OPTION_LINKED_UNLOCK));
-                }
-
                 $this->objWidget->addAttribute('data-linked-end', $this->getSetting(BOOTSTRAPPER_OPTION_LINKED_END));
                 $this->objWidget->addAttribute('data-toggle', 'tooltip');
                 $this->objWidget->addAttribute('data-title', $this->label);
             }
 
             if ($this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE)) {
-                $this->objWidget->addAttribute('data-min-date', $this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE));
+                $this->objWidget->addAttribute('data-min-date',
+                    date($format, $this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE))
+                );
             }
 
             if ($this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE)) {
-                $this->objWidget->addAttribute('data-max-date', $this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE));
-            }
-
-            if ($this->getSetting(BOOTSTRAPPER_OPTION_MINUTE_STEPS)) {
-                $this->objWidget->addAttribute('data-steps', $this->getSetting(BOOTSTRAPPER_OPTION_MINUTE_STEPS));
-            }
-        } elseif ($arrEval['datepicker'] || $arrEval['rgxp'] == 'date') {
-            $this->Template->datepicker = true;
-
-            $this->objWidget->addAttribute('data-format',
-                Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat']));
-
-            if ($this->getSetting(BOOTSTRAPPER_OPTION_LINKED_START)) {
-                if ($this->getSetting(BOOTSTRAPPER_OPTION_LINKED_UNLOCK)) {
-                    $this->objWidget->addAttribute('data-linked-unlock', $this->getSetting(BOOTSTRAPPER_OPTION_LINKED_UNLOCK));
-                }
-
-                $this->objWidget->addAttribute('data-linked-start', $this->getSetting(BOOTSTRAPPER_OPTION_LINKED_START));
-                $this->objWidget->addAttribute('data-toggle', 'tooltip');
-                $this->objWidget->addAttribute('data-title', $this->label);
-            }
-
-            if ($this->getSetting(BOOTSTRAPPER_OPTION_LINKED_END)) {
-                if ($this->getSetting(BOOTSTRAPPER_OPTION_LINKED_UNLOCK)) {
-                    $this->objWidget->addAttribute('data-linked-unlock', $this->getSetting(BOOTSTRAPPER_OPTION_LINKED_UNLOCK));
-                }
-
-                $this->objWidget->addAttribute('data-linked-end', $this->getSetting(BOOTSTRAPPER_OPTION_LINKED_END));
-                $this->objWidget->addAttribute('data-toggle', 'tooltip');
-                $this->objWidget->addAttribute('data-title', $this->label);
-            }
-
-            if ($this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE)) {
-                $this->objWidget->addAttribute('data-min-date', $this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE));
-            }
-
-            if ($this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE)) {
-                $this->objWidget->addAttribute('data-max-date', $this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE));
-            }
-        } elseif ($arrEval['timepicker'] || $arrEval['rgxp'] == 'time') {
-            $this->Template->timepicker = true;
-
-            $this->objWidget->addAttribute('data-format',
-                Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat']));
-
-            if ($this->getSetting(BOOTSTRAPPER_OPTION_MINUTE_STEPS)) {
-                $this->objWidget->addAttribute('data-steps', $this->getSetting(BOOTSTRAPPER_OPTION_MINUTE_STEPS));
-            }
-
-            if ($this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE)) {
-                $this->objWidget->addAttribute('data-minDate', $this->getSetting(BOOTSTRAPPER_OPTION_MIN_DATE));
-            }
-
-            if ($this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE)) {
-                $this->objWidget->addAttribute('data-maxDate', $this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE));
+                $this->objWidget->addAttribute('data-max-date',
+                    date($format, $this->getSetting(BOOTSTRAPPER_OPTION_MAX_DATE))
+                );
             }
         }
     }

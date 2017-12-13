@@ -7,7 +7,6 @@
             this.initNavbar();
             this.navFollowLinkIfItemsOpen(); // must be initialized before supportNestedDropdowns, becaus supportNestedDropdowns adds class .open to links
             this.supportNestedDropdowns();
-            this.initDatetimePicker();
 
             this.initModal();
             this.loadModalFromUrl();
@@ -31,7 +30,6 @@
         locale: 'de',
         ajaxComplete: function() {
             this.initJQueryValidation();
-            this.initDatetimePicker();
         },
         slideUpCollapse: function() {
             $('.collapse.slideup').on('show.bs.collapse', function() {
@@ -44,26 +42,6 @@
                 var $fileInput = $(this).parent('.fileinput');
                 $fileInput.fileinput('clear');
                 $fileInput.find('input[type=file]').attr('value', '');
-            });
-        },
-        initDatetimePicker: function() {
-            $('.datepicker').on('dp.show', function() {
-                $('.bootstrap-datetimepicker-widget .picker-switch.accordion-toggle').on('click', function() {
-                    var $list = $(this).closest('.list-unstyled');
-
-                    if ($(this).hasClass('time'))
-                    {
-                        $list.find('.collapse.in').show();
-                        $list.find('.collapse:not(.in)').hide();
-                        $(this).removeClass('time');
-                    }
-                    else
-                    {
-                        $list.find('.collapse.in').hide();
-                        $list.find('.collapse:not(.in)').show();
-                        $(this).addClass('time');
-                    }
-                })
             });
         },
         megaMenuEqualHeight: function() {

@@ -21,7 +21,7 @@ Contao external CSS & JS assets groups with bootstrap and font-awesome support.
 Disable in Page-layout, if you dont want to use these components.
 
 - [bootstrap-select] (https://github.com/silviomoreto/bootstrap-select) : styled select input with live-search, groups and mobile support - *boostrap.js is required, Extassets\ExtJs group with added bootstrapper.js should be added to tl_layout*
-- [bootstrap-datetimepicker] (https://github.com/Eonasdan/bootstrap-datetimepicker) : styled datepicker with time and datepicker
+- [bootstrap-flatpickr] (https://github.com/chmln/flatpickr) : styled datepicker with time and datepicker inclduing native support on mobile devices
 - [bootstrap-slider] (https://github.com/seiyria/bootstrap-slider) : input slider with ranged slider support
 - [bootstrap-tooltips] (http://getbootstrap.com/javascript/#tooltips) : auto-initialize default bootstrap tooltips `[data-toggle="tooltip"]` - *boostrap.js is required, Extassets\ExtJs group with added bootstrapper.js should be added to tl_layout*
 - scroll-smooth : Scroll smooth to anchor targets 
@@ -69,8 +69,6 @@ disableOptGroups | array | array() | select | Enter the name of the optgroups th
 size | integer | | select | The value of the size attribute
 linkedStart | string | | text | The selector of the start date/time input field linking to the end date/time input field (e.g. #ctrl_startDate).
 linkedEnd | string | | text | The selector of the end date/time input field linking to the start date/time input field (e.g. #ctrl_endDate).
-linkedUnlock | boolean | | text |
-linkedLock | boolean | | text |
 minDate | string | | text | A formatted date/time constraining the date/time picker to a certain minimum date/time.
 maxDate | string | | text | A formatted date/time constraining the date/time picker to a certain maximum date/time.
 minuteSteps | integer | text | The number of seconds in a minute

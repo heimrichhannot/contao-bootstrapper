@@ -29,8 +29,6 @@ define('BOOTSTRAPPER_OPTION_CONTENTCSS', 'content_css');
 define('BOOTSTRAPPER_OPTION_DISABLEOPTGROUPS', 'disableOptGroups');
 define('BOOTSTRAPPER_OPTION_LINKED_START', 'linkedStart');
 define('BOOTSTRAPPER_OPTION_LINKED_END', 'linkedEnd');
-define('BOOTSTRAPPER_OPTION_LINKED_UNLOCK', 'linkedUnlock');
-define('BOOTSTRAPPER_OPTION_LINKED_LOCK', 'linkedLock');
 define('BOOTSTRAPPER_OPTION_MIN_DATE', 'minDate');
 define('BOOTSTRAPPER_OPTION_MAX_DATE', 'maxDate');
 define('BOOTSTRAPPER_OPTION_MINUTE_STEPS', 'minuteSteps');
