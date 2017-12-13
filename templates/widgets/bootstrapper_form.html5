@@ -43,13 +43,13 @@
             <?php elseif ($this->field->rgxp == 'date'): ?>
                 <?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat'])); ?>
             <?php endif; ?>
-            
+
             <?php if ($this->field->linkedStart): ?>
                 <?php $this->field->addAttribute('data-linked-start', $this->field->linkedStart); ?>
                 <?php $this->field->addAttribute('data-toggle', 'tooltip'); ?>
                 <?php $this->field->addAttribute('data-title', $this->field->label); ?>
             <?php endif; ?>
-    
+
             <?php if ($this->field->linkedEnd): ?>
                 <?php $this->field->addAttribute('data-linked-end', $this->field->linkedEnd); ?>
                 <?php $this->field->addAttribute('data-toggle', 'tooltip'); ?>
@@ -63,11 +63,11 @@
             <?php if ($this->field->maxDate): ?>
                 <?php $this->field->addAttribute('data-maxDate', $this->field->maxDate); ?>
             <?php endif; ?>
-    
+
             <?php if ($this->field->minuteSteps): ?>
                 <?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
             <?php endif; ?>
-    
+
             <div class="input-group datepicker">
         <?php elseif ($this->field->timepicker || $this->field->rgxp == 'time'): ?>
             <?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat'])); ?>
@@ -84,7 +84,7 @@
             <?php if ($this->field->minuteSteps): ?>
                 <?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
             <?php endif; ?>
-            
+
             <div class="input-group timepicker">
         <?php endif; ?>
 

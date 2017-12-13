@@ -12,6 +12,7 @@
 namespace HeimrichHannot\Bootstrapper;
 
 use HeimrichHannot\Bootstrapper;
+use HeimrichHannot\Haste\DateUtil;
 
 class BootstrapperFormTextField extends BootstrapperFormField
 {
@@ -29,16 +30,16 @@ class BootstrapperFormTextField extends BootstrapperFormField
 
         switch ($arrEval['rgxp']) {
             case 'datim':
-                $flatPickrFormat = Bootstrapper::formatPhpDateToJsDateForFlatPickr($GLOBALS['TL_CONFIG']['datimFormat']);
-                $format          = Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['datimFormat']);
+                $flatPickrFormat = \Config::get('dateFormat');
+                $format          = DateUtil::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['datimFormat']);
                 break;
             case 'date':
-                $flatPickrFormat = Bootstrapper::formatPhpDateToJsDateForFlatPickr($GLOBALS['TL_CONFIG']['dateFormat']);
-                $format          = Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat']);
+                $flatPickrFormat = \Config::get('dateFormat');
+                $format          = DateUtil::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat']);
                 break;
             case 'time':
-                $flatPickrFormat = Bootstrapper::formatPhpDateToJsDateForFlatPickr($GLOBALS['TL_CONFIG']['timeFormat']);
-                $format          = Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat']);
+                $flatPickrFormat = \Config::get('dateFormat');
+                $format          = DateUtil::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat']);
                 break;
         }
 

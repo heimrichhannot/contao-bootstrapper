@@ -14,7 +14,7 @@
         <div class="input-group timepicker">
     <?php endif; ?>
 
-    <input type="text" name="<?= $this->field->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control <?= $this->class; ?>" value="<?= $this->field->value; ?>"<?= $this->attributes; ?><?= $this->placeholder; ?><?php if ($this->field->value): ?> data-default-value="<?= $this->field->value ?>"<?php endif; ?>>
+    <input type="text" name="<?= $this->field->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control <?= $this->class; ?>" value="<?= $this->field->value; ?>"<?= $this->attributes; ?><?= $this->placeholder; ?>>
 
     <?php if ($this->timepicker && !$this->datepicker): ?>
             <a class="input-button input-group-addon" data-toggle>
