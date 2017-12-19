@@ -103,7 +103,6 @@ $GLOBALS['TL_FFL_BOOTSTRAPPER'] = [
 $GLOBALS['TL_FFL']['slider']             = 'HeimrichHannot\Bootstrapper\FormSlider';
 $GLOBALS['TL_FFL']['submit']             = 'HeimrichHannot\FormButtonSubmit';
 $GLOBALS['TL_FFL']['successGroup']       = 'HeimrichHannot\FormSuccessGroup';
-$GLOBALS['TL_FFL']['password_noConfirm'] = 'HeimrichHannot\FormPasswordNoConfirm';
 
 /**
  * Front end modules

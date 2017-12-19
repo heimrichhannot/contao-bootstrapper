@@ -25,7 +25,6 @@ ClassLoader::addClasses(array
 (
 	// Forms
 	'HeimrichHannot\FormButtonSubmit'                            => 'system/modules/bootstrapper/forms/FormButtonSubmit.php',
-	'HeimrichHannot\FormPasswordNoConfirm'                       => 'system/modules/bootstrapper/forms/FormPasswordNoConfirm.php',
 	'HeimrichHannot\Bootstrapper\FormSlider'                     => 'system/modules/bootstrapper/forms/FormSlider.php',
 	'HeimrichHannot\FormSuccessGroup'                            => 'system/modules/bootstrapper/forms/FormSuccessGroup.php',
 
