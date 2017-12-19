@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.2] - 2017-12-19
+
+### Fixed
+- `tabcontrol` cookie handling for active 
+
 ## [1.5.1] - 2017-11-28
 
 ### Fixed

@@ -9,6 +9,12 @@ define('BOOTSTRAPPER_JS_COMPONENT_DIR', 'system/modules/bootstrapper/assets/js/c
 /**
  * Asset Components
  */
+$GLOBALS['TL_COMPONENTS']['bs.tabcontrol'] = [
+    'js' => [
+        BOOTSTRAPPER_JS_COMPONENT_DIR . '/tabcontrol/bs.tabcontrol.min.js|static',
+    ]
+];
+
 $GLOBALS['TL_COMPONENTS']['bs.collapse'] = [
     'js' => [
         BOOTSTRAPPER_JS_COMPONENT_DIR . '/collapse/bs.collapse.min.js|static',
@@ -189,5 +195,6 @@ if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
         'boostrap-switch' => 'system/modules/bootstrapper/assets/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js|static',
         'bs.switch'       => BOOTSTRAPPER_JS_COMPONENT_DIR . '/switch/bs.switch.min.js|static',
         'bs.collapse'     => BOOTSTRAPPER_JS_COMPONENT_DIR . '/collapse/bs.collapse.min.js|static',
+        'bs.tabcontrol'   => BOOTSTRAPPER_JS_COMPONENT_DIR . '/tabcontrol/bs.tabcontrol.min.js|static',
     ]);
 }
