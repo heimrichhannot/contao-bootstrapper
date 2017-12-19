@@ -1,3 +1,2 @@
-<div role="tabpanel" class="ce_tabcontrol_pane tab-pane pane_<?= $this->paneindex; ?> block<?php if ($this->paneindex == $this->tab_tabs_default + 1): ?> active<?php endif; ?>" id="pane_<?= $this->parentTabControlTab; ?>_<?= $this->paneindex; ?>">
-    <div class="<?= $this->panes; ?>"<?= $this->cssID; ?>>
-        <div>
+<div role="tabpanel" class="ce_tabcontrol_pane tab-pane pane_<?= $this->paneindex; ?> block<?= $this->active ? ' active show' : ''; ?>" id="pane_<?= $this->parentTabControlTab;?>_<?= $this->paneindex; ?>">
+	<div class="<?= $this->panes; ?>"<?= $this->cssID; ?>><div>

@@ -1,4 +1,4 @@
-<div id="tabcontrol_<?= $this->id; ?>" class="<?= $this->class; ?> block"<?= $this->cssID; ?><?php if ($this->style): ?> style="<?= $this->style; ?>"<?php endif; ?>>
+<div id="tabcontrol_<?= $this->id; ?>" class="<?= $this->class; ?> block"<?= $this->cssID; ?><?php if ($this->style): ?> style="<?= $this->style; ?>"<?php endif; ?> data-cookie="<?= $this->tabControlCookies; ?>" data-remember="<?= (bool)$this->tab_remember; ?>">
 
     <?php if ($this->headline): ?>
     <<?= $this->hl; ?>><?= $this->headline; ?></<?= $this->hl; ?>>
@@ -6,9 +6,9 @@
 
 <div class="tabcontrol_tabs block">
     <ul class="nav nav-tabs" role="tablist">
-        <?php foreach ($this->titles as $key => $title) : ?>
-            <li role="presentation" class="nav-item <?= $this->tabs . ' tab_' . $key; ?>" id="<?= $this->id . "_" . $key ?>">
-                <a class="nav-link<?php if ($key == $this->tab_tabs_default): ?> active<?php endif; ?>" href="#pane_<?= $this->id; ?>_<?= $key + 1; ?>" aria-controls="pane_<?= $this->id; ?>_<?= $key + 1; ?>" role="tab" data-toggle="tab"><?= $title; ?></a>
+        <?php foreach ($this->titles as $key => $data) : ?>
+            <li role="presentation" class="<?= $this->tabs . ' tab_' . $key; ?><?php if ($key == $this->tab_tabs_default): ?> active<?php endif; ?>" id="<?= $this->id . "_" . $key ?>">
+                <a data-cookie-value="<?= $data['cookieValue']; ?>" href="#pane_<?= $this->id; ?>_<?= $key; ?>" aria-controls="pane_<?= $this->id; ?>_<?= $key; ?>" role="tab" data-toggle="tab" class="tab_toggle_<?= $key; ?><?php if ($key == $this->tab_tabs_default): ?> active<?php endif; ?>"><?= $data['tab_tabs_name']; ?></a>
             </li>
         <?php endforeach; ?>
     </ul>

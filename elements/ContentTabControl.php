@@ -17,19 +17,33 @@ class ContentTabControl extends \ContentElement
 {
 
     /**
-     * Contains the default classes used in our tab-template
-     */
-    private static $defaultClasses = ['tabs', 'panes'];
-    /**
      * Template
      */
     protected $strTemplate = 'ce_tabcontrol_tab';
+
+
+    /**
+     * Contains the default classes used in our tab-template
+     */
+    private static $defaultClasses = ['tabs', 'panes'];
+
+    /**
+     * The current tab model
+     * @var \Contao\ContentModel
+     */
+    protected $tabModel;
 
     /**
      * Generate content element
      */
     protected function compile()
     {
+        $this->tabModel = $this->getModel();
+
+        if ($this->parentTabControlTab > 0 && null !== ($tabModel = \Contao\ContentModel::findByPk($this->parentTabControlTab))) {
+            $this->tabModel = $tabModel;
+        }
+
         static $panelIndex = 0;
         $classes    = deserialize($this->tabClasses);
         $arrTabTabs = deserialize($this->tab_tabs);
@@ -68,11 +82,17 @@ class ContentTabControl extends \ContentElement
             // Panel - start
             case 'tabcontrolstart':
                 if (TL_MODE == 'FE') {
-                    $this->Template            = new FrontendTemplate($this->tab_template_start);
-                    $this->Template->paneindex = ++$panelIndex;
+                    $this->Template = new FrontendTemplate($this->tab_template_start);
+
+                    if (null !== ($config = $this->getTabConfig($panelIndex))) {
+                        $this->Template->active = $this->check($config, $panelIndex);
+                    }
+
+                    $this->Template->paneindex = $panelIndex;
+                    $panelIndex++;
                 } else {
                     $this->Template           = new BackendTemplate('be_wildcard');
-                    $this->Template->wildcard = '### TABCONTROL: ' . (++$panelIndex) . '. SECTION START ###';
+                    $this->Template->wildcard = '### TABCONTROL: ' . ($panelIndex++) . '. SECTION START ###';
                 }
                 break;
 
@@ -118,18 +138,20 @@ class ContentTabControl extends \ContentElement
             $default         = 0;
             $arrTabTitles    = [];
 
-            foreach ($arrTabTabs as $index => $title) {
-                $arrTabTitles[] = $title['tab_tabs_name'];
-
-                if ($title['tab_tabs_default']) {
+            foreach ($arrTabTabs as $index => $data) {
+                if ($data['tab_tabs_default']) {
                     $default = $index;
                 }
 
                 if ($this->tabControlCookies) {
-                    if ($this->check($title, $this->tabControlCookies)) {
+                    if ($this->check($data, $index)) {
                         $defaultByCookie = $index;
                     }
                 }
+
+                $data['cookieValue'] = strlen($data['tab_tabs_cookies_value']) > 0 ? $data['tab_tabs_cookies_value'] : $index;
+
+                $arrTabTitles[] = $data;
             }
 
             if ($defaultByCookie != '') {
@@ -169,22 +191,44 @@ class ContentTabControl extends \ContentElement
         return null;
     }
 
+    /**
+     * Get the tab config for given index
+     * @param int $index The tab index
+     * @return array|null Return the config array or null if none found for given index
+     */
+    protected function getTabConfig($index)
+    {
+        $config = null;
+
+        if (null === $this->tabModel) {
+            return null;
+        }
+
+        $tabs = deserialize($this->tabModel->tab_tabs, true);
+
+        if (isset($tabs[$index]) && is_array($tabs[$index])) {
+            $config = $tabs[$index];
+        }
+
+        return $config;
+    }
 
     /**
      * Set default tab by cookie
      */
-    protected function check($title, $cookieName)
+    protected function check($data, $index)
     {
+        $cookieName  = $this->tabModel->tabControlCookies;
         $cookieValue = Input::cookie($cookieName);
 
-        if ($cookieValue) {
-            if ($title['tab_tabs_cookies_value'] == $cookieValue) {
+        if ($cookieValue !== null && strlen($cookieValue) > 0) {
+            if ($data['tab_tabs_cookies_value'] == $cookieValue || (string) $index === $cookieValue) {
                 return true;
             }
+        } elseif ($cookieValue === null && $data['tab_tabs_default']) {
+            return true;
         }
 
         return false;
     }
 }
-
-?>
