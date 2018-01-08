@@ -66,8 +66,6 @@
               $('html, body').animate({scrollTop: ($anchor.offset().top - intOffset)}, intDuration, $.easing.hasOwnProperty(easing) ? easing : null, function() {
                 if ($(this).is('body')) return;
 
-                console.log(window.location.href + hash);
-
                 if (history.pushState) {
                   history.pushState(null, null, window.location.href.split('#')[0] + hash);
                 }
