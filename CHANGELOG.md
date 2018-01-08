@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.4] - 2018-01-08
+
+### Fixed
+- removed console.log() in bs.scroll-smooth js
+
 ## [1.5.3] - 2017-12-19
 
 ### Fixed
