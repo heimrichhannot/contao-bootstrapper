@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.5] - 2018-01-11
+
+### Fixed
+- scrollTo inside .modal within bs.scroll-smooth js
+
 ## [1.5.4] - 2018-01-08
 
 ### Fixed

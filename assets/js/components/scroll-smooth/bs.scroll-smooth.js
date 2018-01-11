@@ -63,7 +63,15 @@
                     if ($anchor.length > 0) {
                         event.preventDefault();
 
-                        $('html, body').animate({scrollTop: ($anchor.offset().top - intOffset)}, intDuration, $.easing.hasOwnProperty(easing) ? easing : null, function() {
+                        var context = 'html, body',
+                            $modal = $anchor.parents('.modal');
+
+                        // scroll to anchor inside modal
+                        if ($modal.length > 0) {
+                            context += ', .modal';
+                        }
+
+                        $(context).animate({scrollTop: ($anchor.offset().top - intOffset)}, intDuration, $.easing.hasOwnProperty(easing) ? easing : null, function() {
                             if ($(this).is('body')) return;
 
                             if (history.pushState) {
