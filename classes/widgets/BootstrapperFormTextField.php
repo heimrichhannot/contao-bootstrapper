@@ -30,16 +30,16 @@ class BootstrapperFormTextField extends BootstrapperFormField
 
         switch ($arrEval['rgxp']) {
             case 'datim':
-                $flatPickrFormat = \Config::get('dateFormat');
-                $format          = DateUtil::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['datimFormat']);
+                $flatPickrFormat = \Config::get('datimFormat');
+                $format          = DateUtil::formatPhpDateToJsDate(\Config::get('datimFormat'));
                 break;
             case 'date':
                 $flatPickrFormat = \Config::get('dateFormat');
-                $format          = DateUtil::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['dateFormat']);
+                $format          = DateUtil::formatPhpDateToJsDate(\Config::get('dateFormat'));
                 break;
             case 'time':
                 $flatPickrFormat = \Config::get('dateFormat');
-                $format          = DateUtil::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat']);
+                $format          = DateUtil::formatPhpDateToJsDate(\Config::get('timeFormat'));
                 break;
         }
 
