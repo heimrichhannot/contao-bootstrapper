@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.6] - 2018-01-29
+
+### Fixed
+- Modernizr.touch replaced with Modernizr.touchevents within bootstrap-hover-dropdow
+
+### Changed
+
+- LGPL-3.0+ to LGPL-3.0-or-later
+
 ## [1.5.5] - 2018-01-11
 
 ### Fixed

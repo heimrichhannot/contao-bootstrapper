@@ -153,7 +153,7 @@
     jQuery(document).ready(function () {
 
         // touch support -> click
-        if (Modernizr.touch) {
+        if (Modernizr.touchevents) {
             var $allDropDowns = $('[data-hover="dropdown"]'),
                 $allActiveDropDowns = $('[data-hover="dropdown"].trail, [data-hover="dropdown"].active'),
                 isMobile = Modernizr.mq("screen and (max-width: 767px)");
