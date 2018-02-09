@@ -1,9 +1,13 @@
-<?php global $radioCount; if (!isset($radioCount)) $radioCount = 0; ?>
+<?php global $radioCount;
+if (!isset($radioCount)) {
+    $radioCount = 0;
+} ?>
 
-<label id="<?= $this->label->id; ?>" for="<?= $this->label->for . '_' . $radioCount; ?>"<?= $this->label->class ? str_replace('="', '="custom-control custom-radio ', $this->label->class) : ' class="custom-control custom-radio"'; ?><?= $this->labelAttributes; ?>>
-    <input type="<?= $this->type; ?>" name="<?= $this->name; ?>" id="<?= $this->id . '_' . $radioCount++; ?>" class="custom-control-input <?= $this->class; ?>"
+<div class="custom-control custom-radio">
+    <input type="<?= $this->type; ?>" name="<?= $this->name; ?>" id="<?= $this->id . '_' . $radioCount; ?>" class="custom-control-input <?= $this->class; ?>"
            value="<?= $this->value; ?>"<?= $this->checked; ?><?= $this->attributes; ?><?= $this->tagEnding; ?>
-    <span class="custom-control-indicator"></span>
-    <span class="<?= $this->type; ?>-icon"></span>
-    <span class="custom-control-description <?= $this->type; ?>-label"><?= $this->label->value; ?></span>
-</label>
+    <label id="<?= $this->label->id; ?>" for="<?= $this->label->for . '_' . $radioCount; ?>"<?= $this->label->class ? str_replace('="', '="custom-control-label ', $this->label->class) : ' class="custom-control-label"'; ?><?= $this->labelAttributes; ?>>
+        <?= $this->label->value; ?>
+    </label>
+    <?php $radioCount++; ?>
+</div>

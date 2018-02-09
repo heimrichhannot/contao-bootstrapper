@@ -1,3 +1,8 @@
+<?php $inputGroup = false; ?>
+<?php if ($this->field->datepicker || $this->field->rgxp == 'datim' || $this->field->rgxp == 'date' || $this->field->timepicker || $this->field->rgxp == 'time' || in_array($this->field->type, ['password', 'email', 'captcha'])): ?>
+    <?php $inputGroup = true; ?>
+<?php endif; ?>
+
 <div class="form-group <?= $this->field->id; ?><?= $this->field->hasErrors() ? ' has-error' : ''; ?><?= $this->field->groupClass ? ' ' . $this->field->groupClass : ''; ?><?php if ($this->invisible): ?> invisible<?php endif; ?>">
     <?php if (!$this->hideLabel): ?>
         <?php $this->field->addAttributes(['class' => 'control-label']); ?>
@@ -24,16 +29,23 @@
     <?php if ($this->field->chosen && ($this->field->blankOptionLabel || $this->field->placeHolder)): ?>
         <?php $this->field->addAttribute('data-placeholder', $this->field->placeHolder ? $this->field->placeHolder : $this->field->blankOptionLabel) ?>
     <?php endif; ?>
-    
+
     <?php if ($this->field->type == 'captcha'): ?>
         <div class="clearfix">
             <?php $strField = $this->field->generate(); ?>
+
             <div class="<?= $this->field->class ? str_replace('form-control', '', $this->field->class) : ''; ?>">
-                <?= $strField; ?>
+
+                <div class="input-group input-group-sm captcha">
+                    <div class="input-group-prepend">
+                        <?php $strQuestion = $this->field->generateQuestion(); ?>
+                        <?php $strQuestion = str_replace($this->field->class, 'control-label', $strQuestion); ?>
+                        <?= str_replace('captcha_text', 'captcha_text input-group-text', $strQuestion); ?>
+                    </div>
+                    <?= $strField; ?>
+                </div>
             </div>
-            <?php $strQuestion = $this->field->generateQuestion(); ?>
-            <?php $strQuestion = str_replace($this->field->class, 'control-label', $strQuestion); ?>
-            <?= $strQuestion; ?>
+
         </div>
     <?php else: ?>
         <?php if ($this->field->datepicker || $this->field->rgxp == 'datim' || $this->field->rgxp == 'date'): ?>
@@ -68,7 +80,6 @@
                 <?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
             <?php endif; ?>
 
-            <div class="input-group datepicker">
         <?php elseif ($this->field->timepicker || $this->field->rgxp == 'time'): ?>
             <?php $this->field->addAttribute('data-format', HeimrichHannot\Bootstrapper::formatPhpDateToJsDate($GLOBALS['TL_CONFIG']['timeFormat'])); ?>
             <?php $this->field->addAttribute('data-enable-time', 1); ?>
@@ -84,13 +95,15 @@
             <?php if ($this->field->minuteSteps): ?>
                 <?php $this->field->addAttribute('data-steps', $this->field->minuteSteps); ?>
             <?php endif; ?>
-
-            <div class="input-group timepicker">
         <?php endif; ?>
 
         <?php if ($this->field->type == 'password'): // confirmation ?>
             <div class="input-group password">
-                <span class="input-group-addon"><i class="ei ei-lock"></i></span>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ei ei-lock"></i></span>
+                </div>
+                <?= $this->field->generate(); ?>
+            </div>
         <?php endif; ?>
 
         <?php if ($this->field->type == 'select' && $this->field->multiple): ?>
@@ -99,27 +112,33 @@
 
         <?php if ($this->field->type == 'email'): ?>
             <div class="input-group">
-                <span class="input-group-addon"><i class="fa fa-envelope-o"></i></span>
-        <?php endif; ?>
-
-        <?= $this->field->generate(); ?>
-
-        <?php if ($this->field->type == 'email'): ?>
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
+                </div>
+                <?= $this->field->generate(); ?>
             </div>
         <?php endif; ?>
 
-        <?php if ($this->field->type == 'password'): // confirmation ?>
-            </div>
+        <?php if (false === $inputGroup): ?>
+            <?= $this->field->generate(); ?>
         <?php endif; ?>
 
 
         <?php if ($this->field->datepicker || $this->field->rgxp == 'date' || $this->field->rgxp == 'datim'): ?>
-                <span class="input-group-addon" data-toggle><i class="ei ei-calendar"></i></span>
+            <div class="input-group datepicker">
+                <?= $this->field->generate(); ?>
+                <div class="input-group-append">
+                    <span class="input-group-text" data-toggle><i class="ei ei-calendar"></i></span>
+                </div>
             </div>
         <?php endif; ?>
 
         <?php if ($this->field->timepicker || $this->field->rgxp == 'time'): ?>
-                <span class="input-group-addon" data-toggle><i class="ei ei-clock-alt"></i></span>
+            <div class="input-group timepicker">
+                <?= $this->field->generate(); ?>
+                <div class="input-group-append">
+                    <span class="input-group-text" data-toggle><i class="ei ei-clock-alt"></i></span>
+                </div>
             </div>
         <?php endif; ?>
     <?php endif; ?>
@@ -140,11 +159,13 @@
             <?php if (method_exists($this->field, 'generateConfirmationLabel')) {
                 echo $this->field->generateConfirmationLabel();
             } ?>
-                <?php $this->field->addAttributes(['class' => '']); ?>
+            <?php $this->field->addAttributes(['class' => '']); ?>
         <?php endif; ?>
 
         <div class="input-group password">
-            <span class="input-group-addon"><i class="ei ei-lock"></i></span>
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="ei ei-lock"></i></span>
+            </div>
             <?php if (method_exists($this->field, 'generateConfirmation')) {
                 echo $this->field->generateConfirmation();
             } ?>
