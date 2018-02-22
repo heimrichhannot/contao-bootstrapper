@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.7] - 2018-02-22
+
+### Fixed
+- use decodeURIComponent within `bs.collapse` when using hash as selector for special characters like umlauts
+
 ## [1.5.6] - 2018-01-29
 
 ### Fixed
