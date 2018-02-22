@@ -14,8 +14,8 @@
 
             if (!hash) return false;
 
-            var $toggle = $('#' + hash + '.collapse'),
-                $link = $('[href=\'#' + hash + '\'], [data-target=\'#' + hash + '\']');
+            var $toggle = $('#' + decodeURIComponent(hash) + '.collapse'),
+                $link = $('[href="#' + decodeURIComponent(hash) + '"], [data-target="' + decodeURIComponent(hash) + '"]');
 
             if ($toggle.length < 1) return false;
 
@@ -39,7 +39,7 @@
 
             if (!hash) return false;
 
-            var $toggle = $('#' + hash);
+            var $toggle = $('#' + decodeURIComponent(hash));
 
             if ($toggle.length < 1 || !$toggle.hasClass('modal')) return false;
 
@@ -50,8 +50,8 @@
 
             if (!hash) return false;
 
-            var $pane = $('#' + hash),
-                $link = $('[href=\'#' + hash + '\']');
+            var $pane = $('#' + decodeURIComponent(hash)),
+                $link = $('[href="#' + decodeURIComponent(hash) + '"]');
 
             var $links = $link.closest('.tabcontrol_tabs'),
                 $panes = $pane.closest('.tabcontrol_panes');
