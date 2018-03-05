@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.3-beta] - 2018-03-05
+
+### Fixed
+- added minified versions of bootbox and fastclick
+
 ## [3.0.2-beta] - 2018-02-22
 
 ### Fixed

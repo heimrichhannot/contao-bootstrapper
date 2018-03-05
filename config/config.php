@@ -157,7 +157,7 @@ if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
     $GLOBALS['TL_JAVASCRIPT']['bs.core'] = 'assets/bootstrap/dist/js/bootstrap.bundle.min.js|static';
 
     array_insert($GLOBALS['TL_JAVASCRIPT'], 1, [
-        'fastclick'                => '/system/modules/bootstrapper/assets/vendor/fastclick/lib/fastclick.js|static',
+        'fastclick'                => '/system/modules/bootstrapper/assets/vendor/fastclick/lib/fastclick.min.js|static',
         // bootstrap-datetimepicker
         'moment'                   => 'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales.min.js|static',
         'numeral'                  => 'system/modules/bootstrapper/assets/vendor/numeral/min/numeral.min.js|static',
@@ -172,7 +172,7 @@ if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
         // needs to be after vendor libs
         'bootstrapper-widgets'     => 'system/modules/bootstrapper/assets/js/jquery.bootstrapper-widgets.min.js|static',
         'bootstrapper'             => 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.min.js|static',
-        'bootbox'                  => 'system/modules/bootstrapper/assets/vendor/bootbox.js/bootbox.js|static',
+        'bootbox'                  => 'system/modules/bootstrapper/assets/vendor/bootbox.js/bootbox.min.js|static',
         'flatpickr'                => 'system/modules/bootstrapper/assets/vendor/flatpickr/flatpickr.min.js|static',
         'flatpickr.de'             => 'system/modules/bootstrapper/assets/vendor/flatpickr/l10n/de.min.js|static',
         'bs-flatpickr'             => BOOTSTRAPPER_JS_COMPONENT_DIR . '/flatpickr/bs.flatpickr.min.js|static',
