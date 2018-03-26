@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.4-beta] - 2018-03-26
+
+### Fixed
+- replaced missing multiColumnWizard with multiColumnEditor 
+
 ## [3.0.3-beta] - 2018-03-05
 
 ### Fixed

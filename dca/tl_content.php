@@ -112,31 +112,33 @@ $arrDca['fields']['tabControlCookies'] = [
 $arrDca['fields']['tab_tabs'] = [
     'label'     => &$GLOBALS['TL_LANG']['tl_content']['tab_tabs'],
     'exclude'   => true,
-    'inputType' => 'multiColumnWizard',
+    'inputType' => 'multiColumnEditor',
     'eval'      => [
-        'columnFields' => [
-            'tab_tabs_name'          => [
-                'label'     => &$GLOBALS['TL_LANG']['tl_content']['tab_tabs_name'],
-                'inputType' => 'text',
-                'eval'      => [
-                    'mandatory' => true,
-                    'style'     => 'width:400px',
-                    'allowHtml' => true,
+        'multiColumnEditor' => [
+            'fields' => [
+                'tab_tabs_name'          => [
+                    'label'     => &$GLOBALS['TL_LANG']['tl_content']['tab_tabs_name'],
+                    'inputType' => 'text',
+                    'eval'      => [
+                        'mandatory' => true,
+                        'groupStyle' => 'width:60%',
+                        'allowHtml' => true,
+                    ],
+                ],
+                'tab_tabs_cookies_value' => [
+                    'label'     => &$GLOBALS['TL_LANG']['tl_content']['tab_tabs_cookies_value'],
+                    'inputType' => 'text',
+                    'eval'      => ['groupStyle' => 'width:10%'],
+                ],
+                'tab_tabs_default'       => [
+                    'label'     => &$GLOBALS['TL_LANG']['tl_content']['tab_tabs_default'],
+                    'exclude'   => true,
+                    'inputType' => 'checkbox',
+                    'eval'      => ['groupStyle' => 'width:10%',],
+
                 ],
             ],
-            'tab_tabs_cookies_value' => [
-                'label'     => &$GLOBALS['TL_LANG']['tl_content']['tab_tabs_cookies_value'],
-                'inputType' => 'text',
-                'eval'      => ['style' => 'width:75px'],
-            ],
-            'tab_tabs_default'       => [
-                'label'     => &$GLOBALS['TL_LANG']['tl_content']['tab_tabs_default'],
-                'exclude'   => true,
-                'inputType' => 'checkbox',
-                'eval'      => ['style' => 'width:40px'],
-
-            ],
-        ],
+        ]
     ],
     'sql'       => "blob NULL",
 ];
