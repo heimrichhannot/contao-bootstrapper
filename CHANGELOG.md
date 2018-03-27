@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.5-beta] - 2018-03-27
+
+### Added
+- add `animate.css` component to better disable css
+
 ## [3.0.4-beta] - 2018-03-26
 
 ### Fixed

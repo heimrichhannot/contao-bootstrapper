@@ -88,6 +88,12 @@ $GLOBALS['TL_COMPONENTS']['bs.switch'] = [
     ],
 ];
 
+$GLOBALS['TL_COMPONENTS']['animate.css'] = [
+    'css' => [
+        'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static',
+    ],
+];
+
 /**
  * Boostrapper Widgets
  */
@@ -142,11 +148,11 @@ if (is_array($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'])) {
 //$GLOBALS['TL_USER_CSS']['jasny-bootstrap']  = 'system/modules/bootstrapper/assets/vendor/jasny-bootstrap/less/jasny-bootstrap.less|screen|static|3.1.3';
 
 array_insert($GLOBALS['TL_USER_CSS'], 1, [
-    'bs.flatpickr'      => 'system/modules/bootstrapper/assets/vendor/flatpickr/flatpickr.min.css|screen|static',
-    'animate'           => 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static',
-    'bootstrap-slider'  => 'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css|screen|static',
-    'boostrap-select'   => 'assets/bootstrap-select/dist/css/bootstrap-select.min.css|screen|static',
-    'bs.switch'         => 'system/modules/bootstrapper/assets/vendor/bootstrap-switch/dist/css/bootstrap-switch.css|screen|static',
+    'bs.flatpickr'     => 'system/modules/bootstrapper/assets/vendor/flatpickr/flatpickr.min.css|screen|static',
+    'animate'          => 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static',
+    'bootstrap-slider' => 'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css|screen|static',
+    'boostrap-select'  => 'assets/bootstrap-select/dist/css/bootstrap-select.min.css|screen|static',
+    'bs.switch'        => 'system/modules/bootstrapper/assets/vendor/bootstrap-switch/dist/css/bootstrap-switch.css|screen|static',
 ]);
 
 /**
@@ -189,7 +195,7 @@ if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
         'boostrap-switch' => 'system/modules/bootstrapper/assets/vendor/bootstrap-switch/dist/js/bootstrap-switch.min.js|static',
         'bs.switch'       => BOOTSTRAPPER_JS_COMPONENT_DIR . '/switch/bs.switch.min.js|static',
         'bs.collapse'     => BOOTSTRAPPER_JS_COMPONENT_DIR . '/collapse/bs.collapse.min.js|static',
-	'bs.tabcontrol'   => BOOTSTRAPPER_JS_COMPONENT_DIR . '/tabcontrol/bs.tabcontrol.min.js|static',
+        'bs.tabcontrol'   => BOOTSTRAPPER_JS_COMPONENT_DIR . '/tabcontrol/bs.tabcontrol.min.js|static',
         // currently no bs4 support
         // 'jasny-bootstrap'          => 'system/modules/bootstrapper/assets/vendor/jasny-bootstrap/dist/js/jasny-bootstrap.min.js|static',
     ]);
