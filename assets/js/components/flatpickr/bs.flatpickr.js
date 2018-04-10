@@ -39,7 +39,7 @@
                 }
 
                 function setNativeValue($mobileInput, dateStr) {
-                    $mobileInput.val(moment(dateStr, data['momentDateFormat']).format(getDatimeFormat($this)));
+                    $mobileInput.val(moment(dateStr, (data['iso8601Format'] || data['momentDateFormat'])).format(getDatimeFormat($this)));
                 }
 
                 options.defaultDate = $input.val();
@@ -62,9 +62,8 @@
                     var date = selectedDates[0];
 
                     if ($linkedStart.length > 0) {
-                        if ($linkedStart.val() !== '' && moment(date).isBefore(moment($linkedStart.val(), $linkedStart.data('momentDateFormat')))) {
+                        if ($linkedStart.val() !== '' && moment(date).isBefore(moment($linkedStart.val(), ($linkedStart.data('iso8601Format') || $linkedStart.data('momentDateFormat'))))) {
                             $linkedStart.val(dateStr);
-
 
                             // native support
                             setNativeValue($linkedStart.closest('.flatpickr-input').next('.flatpickr-mobile'), dateStr);
@@ -72,7 +71,7 @@
                     }
 
                     if ($linkedEnd.length > 0) {
-                        if ($linkedEnd.val() !== '' && moment(date).isAfter(moment($linkedEnd.val(), $linkedEnd.data('momentDateFormat')))) {
+                        if ($linkedEnd.val() !== '' && moment(date).isAfter(moment($linkedEnd.val(), ($linkedEnd.data('iso8601Format') || $linkedEnd.data('momentDateFormat'))))) {
                             $linkedEnd.val(dateStr);
 
                             // native support
