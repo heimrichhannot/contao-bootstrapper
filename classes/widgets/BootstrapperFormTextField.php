@@ -22,11 +22,13 @@ class BootstrapperFormTextField extends BootstrapperFormField
     {
         $arrEval = $this->arrDca['eval'];
 
-        $this->Template->datepicker   = $arrEval['rgxp'] == 'datim' || $arrEval['rgxp'] == 'date';
-        $this->Template->timepicker   = $arrEval['rgxp'] == 'time';
-        $this->Template->datimepicker = $arrEval['rgxp'] == 'datim';
-        $mode                         = $arrEval['rgxp'];
-        $format                       = $flatPickrFormat = '';
+        $this->Template->datepicker        = $arrEval['rgxp'] == 'datim' || $arrEval['rgxp'] == 'date';
+        $this->Template->timepicker        = $arrEval['rgxp'] == 'time';
+        $this->Template->datimepicker      = $arrEval['rgxp'] == 'datim';
+        $this->Template->inputGroupPrepend = $arrEval['inputGroupPrepend'];
+        $this->Template->inputGroupAppend  = $arrEval['inputGroupAppend'];
+        $mode                              = $arrEval['rgxp'];
+        $format                            = $flatPickrFormat = '';
 
         switch ($arrEval['rgxp']) {
             case 'datim':
@@ -38,7 +40,7 @@ class BootstrapperFormTextField extends BootstrapperFormField
                 $format          = DateUtil::formatPhpDateToJsDate(\Config::get('dateFormat'));
                 break;
             case 'time':
-                $flatPickrFormat = \Config::get('dateFormat');
+                $flatPickrFormat = \Config::get('timeFormat');
                 $format          = DateUtil::formatPhpDateToJsDate(\Config::get('timeFormat'));
                 break;
         }
@@ -46,8 +48,7 @@ class BootstrapperFormTextField extends BootstrapperFormField
         $this->objWidget->addAttribute('data-date-format', $flatPickrFormat);
         $this->objWidget->addAttribute('data-moment-date-format', $format);
 
-        if ($this->objWidget->value)
-        {
+        if ($this->objWidget->value) {
             $this->Template->defaultValue = $this->arrDca['default'];
         }
 

@@ -69,6 +69,8 @@ disableOptGroups | array | array() | select | Enter the name of the optgroups th
 size | integer | | select | The value of the size attribute
 slider | array | | slider | Contains information for the bootstrap input slider
 invisible | boolean | false | all | Determines whether a field should be invisible (css display: none); the field still is in the markup!
+inputGroupPrepend | string | null | Add custom `input-group-prepend` content 
+inputGroupAppend | string | null | Add custom `input-group-append` content 
 
 ### Flatpickr (datepicker) data attributes
 

@@ -8,29 +8,51 @@
 
     <?php if ($this->datepicker): ?>
         <div class="input-group datepicker<?php if ($this->datimepicker): ?> datimepicker<?php endif; ?>">
+            <?php if($this->inputGroupPrepend): ?>
+                <div class="input-group-prepend">
+                    <?= $this->inputGroupPrepend; ?>
+                </div>
+            <?php endif; ?>
     <?php endif; ?>
 
     <?php if ($this->timepicker && !$this->datepicker): ?>
         <div class="input-group timepicker">
+            <?php if($this->inputGroupPrepend): ?>
+                <div class="input-group-prepend">
+                    <?= $this->inputGroupPrepend; ?>
+                </div>
+            <?php endif; ?>
     <?php endif; ?>
 
     <input type="text" name="<?= $this->field->name; ?>" id="ctrl_<?= $this->field->id; ?>" class="form-control <?= $this->class; ?>" value="<?= $this->field->value; ?>"<?= $this->attributes; ?><?= $this->placeholder; ?>>
 
     <?php if ($this->timepicker && !$this->datepicker): ?>
-            <div class="input-group-append">
-                <a class="btn btn-outline-secondary" data-toggle>
-                    <i class="ei ei-clock_alt"></i>
-                </a>
-            </div>
+            <?php if(false !== $this->inputGroupAppend): ?>
+                <div class="input-group-append">
+                    <?php if($this->inputGroupAppend): ?>
+                        <?= $this->inputGroupAppend; ?>
+                    <?php else: ?>
+                    <a class="btn btn-outline-secondary" data-toggle>
+                        <i class="ei ei-clock_alt"></i>
+                    </a>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 
     <?php if ($this->datepicker): ?>
-            <div class="input-group-append">
-                <a class="btn btn-outline-secondary" data-toggle>
-                    <i class="ei ei-calendar"></i>
-                </a>
-            </div>
+            <?php if(false !== $this->inputGroupAppend): ?>
+                <div class="input-group-append">
+                    <?php if($this->inputGroupAppend): ?>
+                        <?= $this->inputGroupAppend; ?>
+                    <?php else: ?>
+                    <a class="btn btn-outline-secondary" data-toggle>
+                        <i class="ei ei-calendar"></i>
+                    </a>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         </div>
     <?php endif; ?>
 

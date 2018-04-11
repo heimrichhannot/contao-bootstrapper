@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.6-beta] - 2018-04-11
+
+### Added
+- `eval` attribute `inputGroupPrepend` and `inputGroupPrepend` to add custom text input-group-append or input-group-prepend input-groups 
+
 ## [3.0.5-beta] - 2018-03-27
 
 ### Added
