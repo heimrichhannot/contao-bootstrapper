@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.8-beta] - 2018-04-12
+
+### Fixed
+- `button_dropdown` component
+
 ## [3.0.7-beta] - 2018-04-11
 
 ### Added

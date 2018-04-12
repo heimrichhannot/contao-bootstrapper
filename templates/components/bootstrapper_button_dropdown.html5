@@ -13,13 +13,13 @@
             <?= $this->btnText; ?> <span class="caret"></span>
         </button>
     <?php endif; ?>
-    <ul class="dropdown-menu">
+    <div class="dropdown-menu">
         <?php foreach ($this->links as $link): ?>
             <?php if ($link == 'separator'): ?>
-                <li role="separator" class="divider"></li>
+                <div class="dropdown-divider"></div>
             <?php else: ?>
-                <li><?= $link; ?></li>
+                <?= $link; ?>
             <?php endif; ?>
         <?php endforeach; ?>
-    </ul>
+    </div>
 </div>
