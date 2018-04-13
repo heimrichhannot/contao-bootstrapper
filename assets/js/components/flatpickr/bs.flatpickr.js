@@ -50,12 +50,41 @@
                     }
                 }
 
+                function setPlaceholder($mobileInput, placeholder) {
+                    $mobileInput.attr('placeholder',placeholder);
+                }
+
+                function getDateFromInput($mobileInput) {
+                    return $mobileInput.find('input:not(.flatpickr-mobile)').val();
+                }
+
+                function getPlaceholderFromInput($mobileInput) {
+                    return $mobileInput.find('input:not(.flatpickr-mobile)').attr('placeholder');
+                }
+
                 options.onReady = function() {
-                    var dateStr = $this.find('input:not(.flatpickr-mobile)').val();
+                    var dateStr = getDateFromInput($this),
+                        placeholder = getPlaceholderFromInput($this),
+                        $mobileInput = $this.siblings('.flatpickr-mobile'),
+                        selector = $this.find('input').attr('id');
+
+                    if ($linkedStart.length > 0) {
+                        $mobileInput = $('.' + selector + '.flatpickr-mobile');
+                    }
+
+                    if ($linkedEnd.length > 0) {
+                        $mobileInput = $('.' + selector + '.flatpickr-mobile');
+                    }
 
                     if (dateStr !== '') {
-                        setNativeValue($this.siblings('.flatpickr-mobile'), dateStr);
+                        setNativeValue($mobileInput, dateStr);
                     }
+
+                    if(placeholder !== '') {
+                        setPlaceholder($mobileInput,placeholder);
+                    }
+
+                    $mobileInput.wrap('<div class="input-group-wrapper '+ selector +'"></div>');
                 };
 
                 options.onChange = function(selectedDates, dateStr, instance) {
@@ -66,7 +95,7 @@
                             $linkedStart.val(dateStr);
 
                             // native support
-                            setNativeValue($linkedStart.closest('.flatpickr-input').next('.flatpickr-mobile'), dateStr);
+                            setNativeValue($('.' +  $linkedStart.attr('id') + '.flatpickr-mobile'), dateStr);
                         }
                     }
 
@@ -75,7 +104,7 @@
                             $linkedEnd.val(dateStr);
 
                             // native support
-                            setNativeValue($linkedEnd.closest('.flatpickr-input').next('.flatpickr-mobile'), dateStr);
+                            setNativeValue($('.' +  $linkedEnd.attr('id') + '.flatpickr-mobile'), dateStr);
                         }
                     }
 

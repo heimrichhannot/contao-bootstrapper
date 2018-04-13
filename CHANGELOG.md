@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.9-beta] - 2018-04-13
+
+### Fixed
+- set `dateStr` and `placeholder` for current `flatprickr-mobile` 
+
+### Added
+- add wrapper to `flatpickr-mobile` 
+
 ## [3.0.8-beta] - 2018-04-12
 
 ### Fixed
