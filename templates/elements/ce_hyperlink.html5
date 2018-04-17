@@ -1,4 +1,4 @@
-<?php $this->extend('block_searchable'); ?>
+<?php $this->extend('block_button'); ?>
 
 <?php $this->block('content'); ?>
 
@@ -18,7 +18,7 @@
     </figure>
 <?php else: ?>
     <?= $this->embed_pre ?>
-    <a href="<?= $this->href ?>" class="hyperlink_txt" title="<?= $this->linkTitle ?>"<?= $this->attribute ?><?= $this->target ?>><?= $this->link ?></a>
+    <a href="<?= $this->href ?>" class="hyperlink_txt<?php if(!empty($arrMatches[1])):?> <?php echo $this->class; ?><?php endif; ?>" title="<?= $this->linkTitle ?>"<?= $this->attribute ?><?= $this->target ?>><?= $this->link ?></a>
     <?= $this->embed_post ?>
 <?php endif; ?>
 
