@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.10-beta] - 2018-04-17
+
+### Fixed
+- adjusted `ce_accordion*` templates to make work with bootstrap 4, migrate `panel` to `cards` and fixed parentID
+
 ## [3.0.9-beta] - 2018-04-13
 
 ### Fixed
