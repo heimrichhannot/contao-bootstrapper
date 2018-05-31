@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.11-beta] - 2018-05-31
+
+### Fixed
+- remove `typeof($.fn.dropdown) !== 'undefined'` for proper encore-bundle and footer js support
+
 ## [3.0.10-beta] - 2018-04-17
 
 ### Fixed
