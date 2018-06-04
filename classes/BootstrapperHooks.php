@@ -166,32 +166,32 @@ class BootstrapperHooks extends \Controller
         $params = preg_split('/::/', $strTag);
 
         if (is_array($params) && !empty($params)) {
-            if (strpos($params[0], 'small') === 0) {
+            if ($params[0] === 'small') {
                 return '<small>';
             }
 
-            if (strpos($params[0], '/small') === 0) {
+            if ($params[0] === '/small') {
                 return '</small>';
             }
 
-            if (strpos($params[0], 'u') === 0) {
+            if ($params[0] === 'u') {
                 return '<u>';
             }
 
-            if (strpos($params[0], '/u') === 0) {
+            if ($params[0] === '/u') {
                 return '</u>';
             }
 
-            if (strpos($params[0], 'i') === 0) {
+            if ($params[0] === 'i') {
                 $strClass = $params[1] ? ' class="' . $params[1] . '"' : '';
                 return '<i' . $strClass . '>';
             }
 
-            if (strpos($params[0], '/i') === 0) {
+            if ($params[0] === '/i') {
                 return '</i>';
             }
 
-            if (strpos($params[0], 'loremipsum') === 0) {
+            if ($params[0] === 'loremipsum') {
                 $text = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
                 Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
                 Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
@@ -215,12 +215,12 @@ class BootstrapperHooks extends \Controller
                 return $text;
             }
 
-            if (strpos($params[0], 'btn-dropdown') === 0) {
+            if ($params[0] === 'btn-dropdown') {
                 $objTag = new \HeimrichHannot\Bootstrapper\BootstrapperButtonDropdown($strTag, $params);
                 return $objTag->generate();
             }
 
-            if (strpos($params[0], 'btn') === 0) {
+            if ($params[0] === 'btn') {
                 $objTag = new \HeimrichHannot\Bootstrapper\BootstrapperButton($strTag, $params);
                 return $objTag->generate();
             }

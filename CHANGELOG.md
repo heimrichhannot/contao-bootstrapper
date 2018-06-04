@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.12-beta] - 2018-06-04
+
+### Fixed
+- BootstrapperHooks::replaceInsertTagsHooks
+
 ## [3.0.11-beta] - 2018-05-31
 
 ### Fixed
