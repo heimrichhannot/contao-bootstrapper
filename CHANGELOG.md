@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.8] - 2018-07-10
+
+### Added
+- Skip certain classes within parseWidget Hook
+
 ## [1.5.7] - 2018-02-22
 
 ### Fixed

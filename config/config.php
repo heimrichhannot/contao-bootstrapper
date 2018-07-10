@@ -197,3 +197,9 @@ if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
         'bs.tabcontrol'   => BOOTSTRAPPER_JS_COMPONENT_DIR . '/tabcontrol/bs.tabcontrol.min.js|static',
     ]);
 }
+
+
+/**
+ * Skip certain classes within parseWidget Hook
+ */
+$GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_CLASSES'] = is_array($GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_CLASSES']) ? array_merge(['MadeYourDay\Contao\Form\AntispamField'], $GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_CLASSES']) : ['MadeYourDay\Contao\Form\AntispamField'];
