@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.13-beta] - 2018-07-12
+
+### Changed
+* removed bundled modernizr library and use composer package instead (heimrichhannot-contao-components/modernizr)
+
 ## [3.0.12-beta] - 2018-06-04
 
 ### Fixed

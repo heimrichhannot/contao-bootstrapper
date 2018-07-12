@@ -30,7 +30,8 @@
     "heimrichhannot/contao-components": "^2.0",
     "heimrichhannot/contao-haste_plus": ">=1.4.0",
     "heimrichhannot/bootstrap-select": "^1.12.3",
-    "heimrichhannot/contao-multi_column_editor": "^1.4"
+    "heimrichhannot/contao-multi_column_editor": "^1.4",
+    "heimrichhannot-contao-components/modernizr": "^1.0"
   },
   "autoload": {
     "classmap": [

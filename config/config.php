@@ -74,7 +74,7 @@ $GLOBALS['TL_COMPONENTS']['bs.scrollSmooth'] = [
 
 $GLOBALS['TL_COMPONENTS']['modernizr'] = [
     'js' => [
-        'system/modules/bootstrapper/assets/vendor/modernizr.min.js|static',
+        'assets/modernizr/dist/modernizr-custom.js|static',
     ],
 ];
 
@@ -182,7 +182,7 @@ if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
         'flatpickr'                => 'system/modules/bootstrapper/assets/vendor/flatpickr/flatpickr.min.js|static',
         'flatpickr.de'             => 'system/modules/bootstrapper/assets/vendor/flatpickr/l10n/de.min.js|static',
         'bs-flatpickr'             => BOOTSTRAPPER_JS_COMPONENT_DIR . '/flatpickr/bs.flatpickr.min.js|static',
-        'modernizr'                => 'system/modules/bootstrapper/assets/vendor/modernizr.min.js|static',
+        'modernizr'                => 'assets/modernizr/dist/modernizr-custom.js|static',
         'bs.scrollSmooth'          => BOOTSTRAPPER_JS_COMPONENT_DIR . '/scroll-smooth/bs.scroll-smooth.min.js|static',
         'bs.tooltip'               => BOOTSTRAPPER_JS_COMPONENT_DIR . '/tooltip/bs.tooltip.min.js|static',
         'bootstrap-slider'         => 'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js|static',
