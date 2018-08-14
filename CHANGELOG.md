@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.14-beta] - 2018-08-14
+
+### Changed 
+* removed old nav_navbar_collapse_hover template, use contao-bootstrap-hover-dropdown-bundle instead
+
 ## [3.0.13-beta] - 2018-07-12
 
 ### Changed

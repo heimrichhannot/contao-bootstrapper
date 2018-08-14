@@ -64,7 +64,6 @@ TemplateLoader::addFiles([
     'nav_navbar'                                => 'system/modules/bootstrapper/templates/navigation',
     'nav_list_unstyles'                         => 'system/modules/bootstrapper/templates/navigation',
     'nav_navbar_collapse'                       => 'system/modules/bootstrapper/templates/navigation',
-    'nav_navbar_collapse_hover'                 => 'system/modules/bootstrapper/templates/navigation',
     'pagination'                                => 'system/modules/bootstrapper/templates/pagination',
     'fe_page'                                   => 'system/modules/bootstrapper/templates/frontend',
     'fe_page_styleguide'                        => 'system/modules/bootstrapper/templates/frontend',
