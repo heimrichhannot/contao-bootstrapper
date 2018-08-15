@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.1.0-beta] - 2018-08-15
+
+### Changed
+* removed DatabaseUpdater class and runonce
+
+### Fixed
+* mysterious changes to enable components in layout
+
 ## [3.0.14-beta] - 2018-08-14
 
 ### Changed 

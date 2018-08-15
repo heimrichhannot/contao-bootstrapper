@@ -34,7 +34,6 @@ ClassLoader::addClasses([
 
     // Classes
     'HeimrichHannot\Bootstrapper\BootstrapperAssets'             => 'system/modules/bootstrapper/classes/BootstrapperAssets.php',
-    'HeimrichHannot\Bootstrapper\DatabaseUpdater'                => 'system/modules/bootstrapper/classes/DatabaseUpdater.php',
     'HeimrichHannot\Bootstrapper\BootstrapperComponent'          => 'system/modules/bootstrapper/classes/BootstrapperComponent.php',
     'HeimrichHannot\Bootstrapper\BootstrapperFormField'          => 'system/modules/bootstrapper/classes/BootstrapperFormField.php',
     'HeimrichHannot\Bootstrapper\Backend\Layout'                 => 'system/modules/bootstrapper/classes/Backend/Layout.php',
