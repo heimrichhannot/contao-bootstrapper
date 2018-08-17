@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.1.1-beta] - 2018-08-17
+
+### Changed
+* outsources fastclick to own bundle
+
 ## [3.1.0-beta] - 2018-08-15
 
 ### Changed

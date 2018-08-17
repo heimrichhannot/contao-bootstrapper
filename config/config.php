@@ -135,9 +135,11 @@ $GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['HeimrichHannot\BootstrapperHooks
 $GLOBALS['TL_HOOKS']['processFormData'][]   = ['HeimrichHannot\BootstrapperHooks', 'processFormDataHook'];
 $GLOBALS['TL_HOOKS']['compileFormFields'][] = ['HeimrichHannot\BootstrapperHooks', 'compileFormFieldsHook'];
 
-if (is_array($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'])) {
+if (is_array($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags']))
+{
     array_insert($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'], 0, [['HeimrichHannot\BootstrapperHooks', 'hookReplaceDynamicScriptTagsHook']]);
-} else {
+} else
+{
     $GLOBALS['TL_HOOKS']['replaceDynamicScriptTags'][] = ['HeimrichHannot\BootstrapperHooks', 'hookReplaceDynamicScriptTagsHook'];
 }
 
@@ -158,12 +160,13 @@ array_insert($GLOBALS['TL_USER_CSS'], 1, [
 /**
  * JS
  */
-if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
+if (\HeimrichHannot\Haste\Util\Container::isFrontend())
+{
 
     $GLOBALS['TL_JAVASCRIPT']['bs.core'] = 'assets/bootstrap/dist/js/bootstrap.bundle.min.js|static';
 
     array_insert($GLOBALS['TL_JAVASCRIPT'], 1, [
-        'fastclick'                => '/system/modules/bootstrapper/assets/vendor/fastclick/lib/fastclick.min.js|static',
+        'huh_components_fastclick' => 'assets/fastclick/lib/fastclick.min.js|static',
         // bootstrap-datetimepicker
         'moment'                   => 'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales.min.js|static',
         'numeral'                  => 'system/modules/bootstrapper/assets/vendor/numeral/min/numeral.min.js|static',
