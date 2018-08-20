@@ -77,6 +77,11 @@ $GLOBALS['TL_COMPONENTS']['modernizr'] = [
         'assets/modernizr/dist/modernizr-custom.js|static',
     ],
 ];
+$GLOBALS['TL_COMPONENTS']['fastclick'] = [
+    'js' => [
+        'assets/fastclick/lib/fastclick.min.js|static',
+    ],
+];
 
 $GLOBALS['TL_COMPONENTS']['bs.switch'] = [
     'js'  => [
@@ -166,7 +171,7 @@ if (\HeimrichHannot\Haste\Util\Container::isFrontend())
     $GLOBALS['TL_JAVASCRIPT']['bs.core'] = 'assets/bootstrap/dist/js/bootstrap.bundle.min.js|static';
 
     array_insert($GLOBALS['TL_JAVASCRIPT'], 1, [
-        'huh_components_fastclick' => 'assets/fastclick/lib/fastclick.min.js|static',
+        'fastclick' => 'assets/fastclick/lib/fastclick.min.js|static',
         // bootstrap-datetimepicker
         'moment'                   => 'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales.min.js|static',
         'numeral'                  => 'system/modules/bootstrapper/assets/vendor/numeral/min/numeral.min.js|static',

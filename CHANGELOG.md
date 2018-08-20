@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.2.0-beta] - 2018-08-20
+
+#### Changed
+* FastClick can now be deactivated in layout
+
 ## [3.1.1-beta] - 2018-08-17
 
 ### Changed
