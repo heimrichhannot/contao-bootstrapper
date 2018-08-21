@@ -433,7 +433,9 @@
             });
         },
         initFastClick: function() {
-            FastClick.attach(document.body);
+            if (typeof(FastClick) !== undefined && typeof(FastClick) !== "undefined" && typeof(FastClick) !== null) {
+                FastClick.attach(document.body);
+            }
         },
         initIosLabelBugFix: function() {
             $('.ios .checkbox-label, .ios .custom-control-description').each(function() {

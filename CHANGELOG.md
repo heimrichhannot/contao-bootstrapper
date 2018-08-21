@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.2.1-beta] - 2018-08-21
+
+#### Fixed
+* undefined error if fastclick is deactivated
+
 ## [3.2.0-beta] - 2018-08-20
 
 #### Changed
