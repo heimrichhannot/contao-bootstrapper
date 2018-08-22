@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.2.2-beta] - 2018-08-22
+
+#### Changed
+* outsources flatpickr to own bundle
+
 ## [3.2.1-beta] - 2018-08-21
 
 #### Fixed

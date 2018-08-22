@@ -30,12 +30,12 @@ $GLOBALS['TL_COMPONENTS']['bs.collapse'] = [
 
 $GLOBALS['TL_COMPONENTS']['bs.flatpickr'] = [
     'js'  => [
-        'system/modules/bootstrapper/assets/vendor/flatpickr/flatpickr.min.js|static',
-        'system/modules/bootstrapper/assets/vendor/flatpickr/l10n/de.min.js|static',
+        'assets/flatpickr/dist/flatpickr.min.js|static',
+        'assets/flatpickr/dist/l10n/de.js|static',
         BOOTSTRAPPER_JS_COMPONENT_DIR . '/flatpickr/bs.flatpickr.min.js|static',
     ],
     'css' => [
-        'system/modules/bootstrapper/assets/vendor/flatpickr/flatpickr.min.css|screen|static',
+        'assets/flatpickr/dist/flatpickr.min.css|screen|static',
     ],
 ];
 
@@ -155,7 +155,7 @@ if (is_array($GLOBALS['TL_HOOKS']['replaceDynamicScriptTags']))
 //$GLOBALS['TL_USER_CSS']['jasny-bootstrap']  = 'system/modules/bootstrapper/assets/vendor/jasny-bootstrap/less/jasny-bootstrap.less|screen|static|3.1.3';
 
 array_insert($GLOBALS['TL_USER_CSS'], 1, [
-    'bs.flatpickr'     => 'system/modules/bootstrapper/assets/vendor/flatpickr/flatpickr.min.css|screen|static',
+    'bs.flatpickr'     => 'assets/flatpickr/dist/flatpickr.min.css|screen|static',
     'animate'          => 'system/modules/bootstrapper/assets/vendor/animate/animate.min.css|screen|static',
     'bootstrap-slider' => 'system/modules/bootstrapper/assets/vendor/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min.css|screen|static',
     'boostrap-select'  => 'assets/bootstrap-select/dist/css/bootstrap-select.min.css|screen|static',
@@ -187,8 +187,8 @@ if (\HeimrichHannot\Haste\Util\Container::isFrontend())
         'bootstrapper-widgets'     => 'system/modules/bootstrapper/assets/js/jquery.bootstrapper-widgets.min.js|static',
         'bootstrapper'             => 'system/modules/bootstrapper/assets/js/jquery.bootstrapper.min.js|static',
         'bootbox'                  => 'system/modules/bootstrapper/assets/vendor/bootbox.js/bootbox.min.js|static',
-        'flatpickr'                => 'system/modules/bootstrapper/assets/vendor/flatpickr/flatpickr.min.js|static',
-        'flatpickr.de'             => 'system/modules/bootstrapper/assets/vendor/flatpickr/l10n/de.min.js|static',
+        'flatpickr'                => 'assets/flatpickr/dist/flatpickr.min.js|static',
+        'flatpickr.de'             => 'assets/flatpickr/dist/l10n/de.js|static',
         'bs-flatpickr'             => BOOTSTRAPPER_JS_COMPONENT_DIR . '/flatpickr/bs.flatpickr.min.js|static',
         'modernizr'                => 'assets/modernizr/dist/modernizr-custom.js|static',
         'bs.scrollSmooth'          => BOOTSTRAPPER_JS_COMPONENT_DIR . '/scroll-smooth/bs.scroll-smooth.min.js|static',

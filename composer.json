@@ -32,7 +32,8 @@
     "heimrichhannot/bootstrap-select": "^1.12.3",
     "heimrichhannot/contao-multi_column_editor": "^1.4",
     "heimrichhannot-contao-components/modernizr": "^1.0",
-    "heimrichhannot-contao-components/fastclick": "^1.0"
+    "heimrichhannot-contao-components/fastclick": "^1.0",
+    "heimrichhannot-contao-components/flatpickr": "^1.0"
   },
   "autoload": {
     "classmap": [
