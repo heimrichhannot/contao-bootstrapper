@@ -113,7 +113,7 @@
         <?php if ($this->field->type == 'email'): ?>
             <div class="input-group">
                 <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fa fa-envelope-o"></i></span>
+                    <span class="input-group-text"><i class="fa fa-envelope-o fa-envelope"></i></span>
                 </div>
                 <?= $this->field->generate(); ?>
             </div>
