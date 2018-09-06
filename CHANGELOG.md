@@ -1,7 +1,7 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [3.2.3-beta] - 2018-08-22
+## [3.2.4-beta] - 2018-09-06
 
 #### Fixed
 * flatpickr data check if none set
