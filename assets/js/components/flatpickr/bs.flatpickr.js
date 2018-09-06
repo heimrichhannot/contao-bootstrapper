@@ -1,25 +1,25 @@
-(function($) {
+(function ($) {
     var FlatPickr = {
-        init: function() {
+        init: function () {
             this.initFlatPickr();
 
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
-        initFlatPickr: function() {
+        initFlatPickr: function () {
             var defaults = {
                 allowInput: true,
                 locale: $('html').attr('lang'),
                 time_24hr: true
             };
 
-            $('.datepicker, .timepicker').each(function() {
+            $('.datepicker, .timepicker').each(function () {
                 var $this = $(this),
                     $form = $this.closest('form'),
                     $input = $this.find('input'),
                     data = $input.data(),
-                    $linkedStart = $form.find(data.linkedStart),
-                    $linkedEnd = $form.find(data.linkedEnd),
+                    $linkedStart = 'undefined' !== typeof data && 'linkedStart' in data ? $form.find(data.linkedStart) : null,
+                    $linkedEnd = 'undefined' !== typeof data && 'linkedEnd' in data ? $form.find(data.linkedEnd) : null,
                     options = $.extend({}, flatpickr.defaultConfig, defaults);
 
                 function getDatimeFormat($input) {
@@ -39,6 +39,12 @@
                 }
 
                 function setNativeValue($mobileInput, dateStr) {
+
+                    if ('undefined' === typeof data) {
+                        return;
+
+                    }
+
                     $mobileInput.val(moment(dateStr, (data['iso8601Format'] || data['momentDateFormat'])).format(getDatimeFormat($this)));
                 }
 
@@ -51,7 +57,7 @@
                 }
 
                 function setPlaceholder($mobileInput, placeholder) {
-                    $mobileInput.attr('placeholder',placeholder);
+                    $mobileInput.attr('placeholder', placeholder);
                 }
 
                 function getDateFromInput($mobileInput) {
@@ -62,17 +68,17 @@
                     return $mobileInput.find('input:not(.flatpickr-mobile)').attr('placeholder');
                 }
 
-                options.onReady = function() {
+                options.onReady = function () {
                     var dateStr = getDateFromInput($this),
                         placeholder = getPlaceholderFromInput($this),
                         $mobileInput = $this.siblings('.flatpickr-mobile'),
                         selector = $this.find('input').attr('id');
 
-                    if ($linkedStart.length > 0) {
+                    if (null !== $linkedStart && $linkedStart.length > 0) {
                         $mobileInput = $('.' + selector + '.flatpickr-mobile');
                     }
 
-                    if ($linkedEnd.length > 0) {
+                    if (null !== $linkedEnd && $linkedEnd.length > 0) {
                         $mobileInput = $('.' + selector + '.flatpickr-mobile');
                     }
 
@@ -80,31 +86,31 @@
                         setNativeValue($mobileInput, dateStr);
                     }
 
-                    if(placeholder !== '') {
-                        setPlaceholder($mobileInput,placeholder);
+                    if (placeholder !== '') {
+                        setPlaceholder($mobileInput, placeholder);
                     }
 
-                    $mobileInput.wrap('<div class="input-group-wrapper '+ selector +'"></div>');
+                    $mobileInput.wrap('<div class="input-group-wrapper ' + selector + '"></div>');
                 };
 
-                options.onChange = function(selectedDates, dateStr, instance) {
+                options.onChange = function (selectedDates, dateStr, instance) {
                     var date = selectedDates[0];
 
-                    if ($linkedStart.length > 0) {
+                    if (null !== $linkedStart && $linkedStart.length > 0) {
                         if ($linkedStart.val() !== '' && moment(date).isBefore(moment($linkedStart.val(), ($linkedStart.data('iso8601Format') || $linkedStart.data('momentDateFormat'))))) {
                             $linkedStart.val(dateStr);
 
                             // native support
-                            setNativeValue($('.' +  $linkedStart.attr('id') + '.flatpickr-mobile'), dateStr);
+                            setNativeValue($('.' + $linkedStart.attr('id') + '.flatpickr-mobile'), dateStr);
                         }
                     }
 
-                    if ($linkedEnd.length > 0) {
+                    if (null !== $linkedEnd && $linkedEnd.length > 0) {
                         if ($linkedEnd.val() !== '' && moment(date).isAfter(moment($linkedEnd.val(), ($linkedEnd.data('iso8601Format') || $linkedEnd.data('momentDateFormat'))))) {
                             $linkedEnd.val(dateStr);
 
                             // native support
-                            setNativeValue($('.' +  $linkedEnd.attr('id') + '.flatpickr-mobile'), dateStr);
+                            setNativeValue($('.' + $linkedEnd.attr('id') + '.flatpickr-mobile'), dateStr);
                         }
                     }
 
@@ -113,19 +119,19 @@
 
                 $this.flatpickr(options);
 
-                $input.on('keyup', function(e) {
+                $input.on('keyup', function (e) {
                     if (e.keyCode === 13) {
                         $input.closest('form').submit();
                     }
                 });
             });
         },
-        ajaxComplete: function() {
+        ajaxComplete: function () {
             this.initFlatPickr();
         }
     };
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         FlatPickr.init();
     });
 
