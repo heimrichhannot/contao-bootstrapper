@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.2.5-beta] - 2018-09-07
+
+#### Fixed
+* flatpickr set `defaultDate` to `new Date()` if none is given from input
+
 ## [3.2.4-beta] - 2018-09-06
 
 #### Fixed

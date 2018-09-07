@@ -48,7 +48,7 @@
                     $mobileInput.val(moment(dateStr, (data['iso8601Format'] || data['momentDateFormat'])).format(getDatimeFormat($this)));
                 }
 
-                options.defaultDate = $input.val();
+                options.defaultDate = $input.val() ? $input.val() : new Date();
 
                 for (var k in data) {
                     if (data.hasOwnProperty(k)) {
