@@ -26,11 +26,20 @@
             }
 
             if (!$this.data('gallery') && galleryId) {
+                var title = $this.find('img').attr('alt');
+
+                if ($this.closest('.image_container').find('.copyright').length > 0)
+                {
+                    title += ' (' + $this.closest('.image_container').find('.copyright').text().trim() + ')';
+                }
+
+                $this.attr('title', title);
                 $this.attr('data-gallery', '#blueimp-gallery-' + galleryId);
             }
         });
 
         $('a[data-lightbox]').on('click', function (event) {
+
             event = event || window.event;
             var target = event.target || event.srcElement,
                 link = target.src ? target.parentNode : target,
