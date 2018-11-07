@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.10] - 2018-11-07
+
+### Fixed
+- Remove `IndexedDB` feature from modernizr build
+
 ## [1.5.9] - 2018-11-07
 
 ### Added
