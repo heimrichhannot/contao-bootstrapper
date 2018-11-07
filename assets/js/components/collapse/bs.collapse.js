@@ -1,6 +1,6 @@
-(function($) {
+(function ($) {
     var BsCollapsePicker = {
-        init: function() {
+        init: function () {
             this.toggleCollapseFromHash();
             this.openModalFromHash();
             this.toggleTabFromHash();
@@ -9,7 +9,7 @@
             // ajax complete
             $(document).ajaxComplete($.proxy(this.ajaxComplete, this));
         },
-        toggleCollapseFromHash: function() {
+        toggleCollapseFromHash: function () {
             var hash = location.hash.replace(/#/g, ''); // remove if more than # sign
 
             if (!hash) return false;
@@ -32,9 +32,9 @@
             $link.removeClass('collapsed');
 
             // scroll to panel
-            HASTE_PLUS.scrollTo($toggle, 100, 500);
+            BsScrollSmooth.scrollToHash(null, '#' + hash, window.location.href);
         },
-        openModalFromHash: function() {
+        openModalFromHash: function () {
             var hash = location.hash.replace(/#/g, '').replace(/is/g, 'or'); // remove if more than # sign
 
             if (!hash) return false;
@@ -45,7 +45,7 @@
 
             $toggle.modal('show');
         },
-        toggleTabFromHash: function() {
+        toggleTabFromHash: function () {
             var hash = location.hash.replace(/#/g, ''); // remove if more than # sign
 
             if (!hash) return false;
@@ -66,33 +66,33 @@
                 $link.parent().addClass('active');
             }
         },
-        setHashFromCollapse: function() {
-            var $collapse = $('.collapse');
+        setHashFromCollapse: function () {
+            var $collapse = $('.collapse:not([data-toggle-hash="false"])');
 
-            $collapse.each(function() {
+            $collapse.each(function () {
                 var $this = $(this);
 
                 if ($this.hasClass('navbar-collapse'))
                     return;
 
-                $this.on('shown.bs.collapse', function(e) {
+                $this.on('shown.bs.collapse', function (e) {
                     if (this.id && window.history && window.history.pushState) {
                         history.pushState({}, document.title, location.pathname + location.search + '#' + this.id);
                     }
                 });
 
-                $this.on('hidden.bs.collapse', function(e) {
+                $this.on('hidden.bs.collapse', function (e) {
                     if (this.id && typeof history.replaceState !== 'undefined') {
                         history.replaceState({}, document.title, location.pathname + location.search);
                     }
                 });
             });
         },
-        ajaxComplete: function() {
+        ajaxComplete: function () {
         }
     };
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         BsCollapsePicker.init();
     });
 

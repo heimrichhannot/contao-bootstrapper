@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.11] - 2018-11-07
+
+### Fixed
+- `bs.scroll-smooth`, removed marginBottom and make callable from outside plugin
+- `bs.collapse`, now scrolls to collapse using `bs.scroll-smooth` plugin
+
+### Added
+- `bs.collapse` now supports `data-toggle-hash="false"` attribute on `.collapse` element to prevent toggle hash to url on shown collapse
+
 ## [1.5.10] - 2018-11-07
 
 ### Fixed
