@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.12] - 2018-11-07
+
+### Fixed
+- using ajax forms and send submission through notification center did not work, because `processFormData` HOOK in `BootstrapperHooks` died in order to return ajax response (put notification_center beforehand in autoload.ini)
+
 ## [1.5.11] - 2018-11-07
 
 ### Fixed
