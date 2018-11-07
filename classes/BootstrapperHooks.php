@@ -21,7 +21,11 @@ class BootstrapperHooks extends \Controller
 
     public function parseWidgetHook($strBuffer, $objWidget)
     {
-        if(TL_MODE == 'BE' || (is_array($GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_CLASSES']) && in_array(get_class($objWidget), $GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_CLASSES']))) return $strBuffer;
+        if(TL_MODE == 'BE') return $strBuffer;
+
+	if((is_array($GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_CLASSES']) && in_array(get_class($objWidget), $GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_CLASSES']))) return $strBuffer;
+
+	if((is_array($GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_TYPES']) && in_array($objWidget->type, $GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_TYPES']))) return $strBuffer;
 
         return Bootstrapper::generateForm($objWidget, strlen($objWidget->label) == 0);
     }

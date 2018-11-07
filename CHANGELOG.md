@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.9] - 2018-11-07
+
+### Added
+- $GLOBAL `TL_FFL_BOOTSTRAPPER_SKIP_TYPES` to completely ignore form manipulation for certain form types
+
 ## [1.5.8] - 2018-07-10
 
 ### Added

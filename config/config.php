@@ -203,3 +203,4 @@ if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
  * Skip certain classes within parseWidget Hook
  */
 $GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_CLASSES'] = is_array($GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_CLASSES']) ? array_merge(['MadeYourDay\Contao\Form\AntispamField'], $GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_CLASSES']) : ['MadeYourDay\Contao\Form\AntispamField'];
+$GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_TYPES'] = is_array($GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_TYPES']) ? array_merge(['html'], $GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_TYPES']) : ['html'];
