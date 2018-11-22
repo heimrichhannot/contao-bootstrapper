@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.13] - 2018-11-22
+
+### Fixed
+- `bs.scroll-smooth` for anchors on same page, now do not load front-page
+
 ## [1.5.12] - 2018-11-07
 
 ### Fixed
