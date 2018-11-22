@@ -44,10 +44,12 @@
 
                     parser.href = href;
 
-                    // if link url is different to current, first load the page
-                    if (parser.href.split('#')[0] != window.location.href.split('#')[0]) {
-                        return true;
-                    }
+                    var anchor = parser.href.split('#')[1];
+
+		   // if link url is different to current and link href does not only contain an #anchor, first load the page
+		   if ((('/#'+anchor) != parser.href.replace(window.location.origin, '')) && (parser.href.split('#')[0] != window.location.href.split('#')[0])) {
+		       return true;
+		   }
 
                     self.setOffset();
 

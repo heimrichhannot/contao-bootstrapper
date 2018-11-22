@@ -1,7 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [3.2.5-beta] - 2018-09-07
+## [3.2.7-beta] - 2018-11-22
+
+#### Fixed
+* `bs.scroll-smooth` for anchors on same page, now do not load front-page
+
+## [3.2.5-beta & 3.2.6-beta] - 2018-09-07
 
 #### Fixed
 * flatpickr set `defaultDate` to `new Date()` if none is given from input
