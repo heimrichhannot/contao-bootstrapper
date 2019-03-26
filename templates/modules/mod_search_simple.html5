@@ -1,3 +1,7 @@
+<?php $this->extend('block_unsearchable'); ?>
+
+<?php $this->block('content'); ?>
+
 <form<?php if ($this->action): ?> action="<?php echo $this->action; ?>"<?php endif; ?> method="get" class="form-horizontal">
 	<div class="formbody">
 		<?php if ($this->id): ?>
@@ -11,3 +15,11 @@
 		</div>
 	</div>
 </form>
+
+<?php if ($this->header): ?>
+    <p class="header"><?= $this->header ?> (<?= $this->duration ?>)</p>
+<?php endif; ?>
+
+<?= $this->results . $this->pagination ?>
+
+<?php $this->endblock(); ?>

@@ -21,11 +21,10 @@
     "issues": "https://github.com/heimrichhannot/contao-bootstrapper/issues"
   },
   "require": {
-    "contao/core": ">=3.2,<4-dev",
-    "contao-legacy/countryselect": ">=1.2.0,<2-dev",
+    "contao/core-bundle": "^3.5.1|^4.1",
     "heimrichhannot/contao-extassets": "~1.0",
     "heimrichhannot/contao-components": "^2.0",
-    "contao-community-alliance/composer-installer": "*"
+    "contao-community-alliance/composer-plugin": "~2.4 || ~3.0"
   },
   "autoload": {
     "classmap": [
