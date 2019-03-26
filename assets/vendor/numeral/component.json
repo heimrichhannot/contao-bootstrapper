@@ -11,6 +11,8 @@
     "money",
     "percentage"
   ],
-  "scripts": [ "numeral.js" ],
+  "scripts": [
+    "numeral.js"
+  ],
   "main": "numeral.js"
 }

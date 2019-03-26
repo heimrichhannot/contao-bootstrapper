@@ -1,198 +1,125 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.5.13] - 2018-11-22
+## [3.2.7-beta] - 2018-11-22
+
+#### Fixed
+* `bs.scroll-smooth` for anchors on same page, now do not load front-page
+
+## [3.2.5-beta & 3.2.6-beta] - 2018-09-07
+
+#### Fixed
+* flatpickr set `defaultDate` to `new Date()` if none is given from input
+
+## [3.2.4-beta] - 2018-09-06
+
+#### Fixed
+* flatpickr data check if none set
+
+## [3.2.2-beta] - 2018-08-22
+
+#### Changed
+* outsources flatpickr to own bundle
+
+## [3.2.1-beta] - 2018-08-21
+
+#### Fixed
+* undefined error if fastclick is deactivated
+
+## [3.2.0-beta] - 2018-08-20
+
+#### Changed
+* FastClick can now be deactivated in layout
+
+## [3.1.1-beta] - 2018-08-17
+
+### Changed
+* outsources fastclick to own bundle
+
+## [3.1.0-beta] - 2018-08-15
+
+### Changed
+* removed DatabaseUpdater class and runonce
 
 ### Fixed
-- `bs.scroll-smooth` for anchors on same page, now do not load front-page
+* mysterious changes to enable components in layout
 
-## [1.5.12] - 2018-11-07
+## [3.0.14-beta] - 2018-08-14
+
+### Changed 
+* removed old nav_navbar_collapse_hover template, use contao-bootstrap-hover-dropdown-bundle instead
+
+## [3.0.13-beta] - 2018-07-12
+
+### Changed
+* removed bundled modernizr library and use composer package instead (heimrichhannot-contao-components/modernizr)
+
+## [3.0.12-beta] - 2018-06-04
 
 ### Fixed
-- using ajax forms and send submission through notification center did not work, because `processFormData` HOOK in `BootstrapperHooks` died in order to return ajax response (put notification_center beforehand in autoload.ini)
+- BootstrapperHooks::replaceInsertTagsHooks
 
-## [1.5.11] - 2018-11-07
+## [3.0.11-beta] - 2018-05-31
 
 ### Fixed
-- `bs.scroll-smooth`, removed marginBottom and make callable from outside plugin
-- `bs.collapse`, now scrolls to collapse using `bs.scroll-smooth` plugin
+- remove `typeof($.fn.dropdown) !== 'undefined'` for proper encore-bundle and footer js support
+
+## [3.0.10-beta] - 2018-04-17
+
+### Fixed
+- adjusted `ce_accordion*` templates to make work with bootstrap 4, migrate `panel` to `cards` and fixed parentID
+
+## [3.0.9-beta] - 2018-04-13
+
+### Fixed
+- set `dateStr` and `placeholder` for current `flatprickr-mobile` 
+- restored `btn-` class swap between `ce_hyperlink` div and nested `anchor`
 
 ### Added
-- `bs.collapse` now supports `data-toggle-hash="false"` attribute on `.collapse` element to prevent toggle hash to url on shown collapse
+- add wrapper to `flatpickr-mobile` 
 
-## [1.5.10] - 2018-11-07
+## [3.0.8-beta] - 2018-04-12
 
 ### Fixed
-- Remove `IndexedDB` feature from modernizr build
+- `button_dropdown` component
 
-## [1.5.9] - 2018-11-07
-
-### Added
-- $GLOBAL `TL_FFL_BOOTSTRAPPER_SKIP_TYPES` to completely ignore form manipulation for certain form types
-
-## [1.5.8] - 2018-07-10
+## [3.0.7-beta] - 2018-04-11
 
 ### Added
-- Skip certain classes within parseWidget Hook
+- `eval` attribute `inputGroupPrepend` and `inputGroupPrepend` to add custom text input-group-append or input-group-prepend input-groups 
 
-## [1.5.7] - 2018-02-22
+## [3.0.6-beta] - 2018-04-11
+
+### Fixed
+- flatpickr linked pickers
+
+## [3.0.5-beta] - 2018-03-27
+
+### Added
+- add `animate.css` component to better disable css
+
+## [3.0.4-beta] - 2018-03-26
+
+### Fixed
+- replaced missing multiColumnWizard with multiColumnEditor 
+
+## [3.0.3-beta] - 2018-03-05
+
+### Fixed
+- added minified versions of bootbox and fastclick
+
+## [3.0.2-beta] - 2018-02-22
 
 ### Fixed
 - use decodeURIComponent within `bs.collapse` when using hash as selector for special characters like umlauts
 
-## [1.5.6] - 2018-01-29
+## [3.0.1-beta] - 2018-02-09
 
 ### Fixed
-- Modernizr.touch replaced with Modernizr.touchevents within bootstrap-hover-dropdow
+- checkboxes (make usage of `custom-control-input`) and input-groups within form widgets
+
+## [3.0.0-beta] - 2018-02-09
 
 ### Changed
+- use bootstrap 4.0 stable
 
-- LGPL-3.0+ to LGPL-3.0-or-later
-
-## [1.5.5] - 2018-01-11
-
-### Fixed
-- scrollTo inside .modal within bs.scroll-smooth js
-
-## [1.5.4] - 2018-01-08
-
-### Fixed
-- removed console.log() in bs.scroll-smooth js
-
-## [1.5.3] - 2017-12-19
-
-### Fixed
-- removed `HeimrichHannot\FormPasswordNoConfirm` from bootstrapper, moved to `heimrichhannot/contao-member_plus` previously
-
-## [1.5.2] - 2017-12-19
-
-### Fixed
-- `tabcontrol` cookie handling for active tab
-
-## [1.5.1] - 2017-11-28
-
-### Fixed
-- removed non existing js function
-
-## [1.5.0] - 2017-11-28
-
-### Changed
-- added `heimrichhannot/contao-components` version 2.x support
-
-### Fixed 
-- linked Datetimepicker min/max date behavior
-
-### Added
-- inputType password_noConfirm -> bypass password confirmation in forms
-
-## [1.4.13] - 2017-08-08
-
-### Added
-- inputType password_noConfirm -> bypass password confirmation in forms
-
-## [1.4.12] - 2017-07-21
-
-### Fixed
-- location of blueimp gallery images
-- blueimp gallery -> jump to selected image 
-
-## [1.4.11] - 2017-07-21
-
-### Fixed
-- add unique data-gallery id for slick sliders within same page
-
-## [1.4.10] - 2017-06-30
-
-### Changed
-- `multifileupload` fields are now styles by bootstrapper
-
-## [1.4.9] - 2017-05-12
-
-### Fixed
-- bootstrapper modal interfere with `heimrichhannot/contao-modal` within ajax scope
-
-## [1.4.8] - 2017-05-09
-
-### Fixed
-- php 7 support
-
-## [1.4.7] - 2017-05-09
-
-### Fixed
-- php 7 support
-
-## [1.4.6] - 2017-05-09
-
-### Fixed
-- php 7 support
-
-## [1.4.5] - 2017-05-02
-
-### Changed
-- readded `multifileupload` to allowed field types for bootstrapper field replacement
-
-## [1.4.4] - 2017-04-18
-
-### Fixed
-- added marginBottom of body on smooth-scroll
-
-## [1.4.3] - 2017-04-11
-
-### Changed
-- added `multifileupload` to allowed field types for bootstrapper field replacement
-- added eval `labelAfterField`, to render label after field for legacy form fields currently only! `bootstrapper_form.html5`
-
-### Added
-- php7 support
-
-
-## [1.4.2] - 2017-03-22
-
-### Fixed
-- moved followAnchor from jquery.bootstrapper.js to component scrollSmooth and fixed behavior
-
-## [1.4.1] - 2017-03-22
-
-### Fixed
-- `$GLOBALS['TL_COMPONENTS']` was overwritten not extended by bootstrapper
-
-## [1.4.0] - 2017-03-21
-
-### Changed
-- `$GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS']` are now handled within new module `heimrichhannot/contao-components`, database updater comes with release to copy values form old tl_layout fields to new fields 
-
-## [1.3.19] - 2017-02-08
-
-### Changed
-- BootstrapperFormField: fields can add the correct dca by themselves
-
-## [1.3.18] - 2017-01-31
-
-### Added
-- added name and value attribute in button generation to enable export-button in frontend
-
-## [1.3.17] - 2016-12-22
-
-### Changed
-- setHashFromCollapse, do not set hash for collapse when '.in' css class is present, otherwise will jump on every page load to collapse with '.in' class set
-
-## [1.3.16] - 2016-12-13
-
-### Added
-- data-equal-height-breakpoint-min="768" added to "nav_navbar_collapse_hover.html5" to stop equal height behavior at 768px window width 
-
-## [1.3.15] - 2016-12-05
-
-### Changed
-- showModal: href & data-title from link attributes is now taken into account to set document.title and url
-- onCloseModal: history-base & history-base-title from modal data-attributes is now taken into account to restore document.title and url
-
-## [1.3.14] - 2016-11-15
-
-### Changed
-- Update bootstrap-select to v1.11.2
-
-## [1.3.13] - 2016-11-14
-
-### Fixed
-- fixed set minDate and maxDate for datetimepicker initially

@@ -21,7 +21,7 @@ Contao external CSS & JS assets groups with bootstrap and font-awesome support.
 Disable in Page-layout, if you dont want to use these components.
 
 - [bootstrap-select] (https://github.com/silviomoreto/bootstrap-select) : styled select input with live-search, groups and mobile support - *boostrap.js is required, Extassets\ExtJs group with added bootstrapper.js should be added to tl_layout*
-- [bootstrap-datetimepicker] (https://github.com/Eonasdan/bootstrap-datetimepicker) : styled datepicker with time and datepicker
+- [bootstrap-flatpickr] (https://github.com/chmln/flatpickr) : styled datepicker with time and datepicker inclduing native support on mobile devices
 - [bootstrap-slider] (https://github.com/seiyria/bootstrap-slider) : input slider with ranged slider support
 - [bootstrap-tooltips] (http://getbootstrap.com/javascript/#tooltips) : auto-initialize default bootstrap tooltips `[data-toggle="tooltip"]` - *boostrap.js is required, Extassets\ExtJs group with added bootstrapper.js should be added to tl_layout*
 - scroll-smooth : Scroll smooth to anchor targets 
@@ -67,15 +67,47 @@ toolbar | string | undo redo &#124; bold italic &#124; bullist numlist outdent i
 content_css | string | false | textarea | Add a valid location to an css file, that should be loaded as tinyMCE content.css.
 disableOptGroups | array | array() | select | Enter the name of the optgroups that should be disabled.
 size | integer | | select | The value of the size attribute
-linkedStart | string | | text | The selector of the start date/time input field linking to the end date/time input field (e.g. #ctrl_startDate).
-linkedEnd | string | | text | The selector of the end date/time input field linking to the start date/time input field (e.g. #ctrl_endDate).
-linkedUnlock | boolean | | text |
-linkedLock | boolean | | text |
-minDate | string | | text | A formatted date/time constraining the date/time picker to a certain minimum date/time.
-maxDate | string | | text | A formatted date/time constraining the date/time picker to a certain maximum date/time.
-minuteSteps | integer | text | The number of seconds in a minute
 slider | array | | slider | Contains information for the bootstrap input slider
 invisible | boolean | false | all | Determines whether a field should be invisible (css display: none); the field still is in the markup!
+inputGroupPrepend | string | null | Add custom `input-group-prepend` content 
+inputGroupAppend | string | null | Add custom `input-group-append` content 
+
+### Flatpickr (datepicker) data attributes
+
+Attribute | Contao dca eval | Type | Default | InputTypes | Description
+------ | ---- | ---- | ------- | ----------- | -----------
+data-linked-start | linkedStart | string | | text | The selector of the start date/time input field linking to the end date/time input field (e.g. #ctrl_startDate).
+data-linked-end | linkedEnd | string | | text | The selector of the end date/time input field linking to the start date/time input field (e.g. #ctrl_endDate).
+data-min-date | minDate | string | | text | A formatted date/time constraining the date/time picker to a certain minimum date/time.
+data-max-date | maxDate | string | | text | A formatted date/time constraining the date/time picker to a certain maximum date/time.
+data-minute-steps | minuteSteps | integer | text | The number of seconds in a minute
+data-date-format | dateFormat | string | text | The php date format (see: https://chmln.github.io/flatpickr/formatting/)
+data-moment-date-format | dateFormat | string | text | The javascript/moment version of data-date-format (Use HeimrichHannot\Haste\Util\DateUtil::formatPhpDateToJsDate() for conversion
+
+#### Example 1: Flatpickr (datepicker only with linked picker)
+
+```
+<div class="form-group datepicker">
+    <input type="text" id="f_datepicker" name="f[datepicker]" placeholder="von" data-date-format="d.m.Y" data-moment-date-format="DD.MM.YYYY" data-linked-end="#f_datepicker_range" class="form-control" value="16.11.2017">
+</div>
+```
+
+#### Example 2: Flatpickr (datepicker with timepicker)
+
+```
+<div class="form-group datepicker datimepicker">
+    <input type="text" id="f_datepicker" name="f[datepicker]" placeholder="von" data-enable-time="true" data-date-format="d.m.Y H:i" data-moment-date-format="DD.MM.YYYY HH:mm"  class="form-control" value="16.11.2017 14:28">
+</div>
+```
+
+#### Example 3: Flatpickr (timepicker)
+
+```
+<div class="form-group timepicker">
+    <input type="text" id="f_datepicker" name="f[datepicker]" placeholder="von" data-enable-time="true" data-no-calendar="true" data-date-format="H:i" data-moment-date-format="HH:mm" class="form-control" value="14:28">
+</div>
+```
+
 
 ###### Bootstrapper input slider eval extension
  

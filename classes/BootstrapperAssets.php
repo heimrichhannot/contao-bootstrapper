@@ -14,118 +14,108 @@ namespace HeimrichHannot\Bootstrapper;
 class BootstrapperAssets extends \Frontend
 {
 
-	public static function addComponents($strGroup, $arrNew = array(), $arrCurrent = array())
-	{
-		if(!isset($arrNew['files']))
-		{
-			return $arrCurrent;
-		}
+    public static function registerComponents(\LayoutModel $objLayout)
+    {
+        $arrComponents = static::getActiveComponents($objLayout);
 
-		$arrFiles = $arrNew['files'];
-		$intIndex = $arrNew['sort'];
+        if (!is_array($arrComponents)) {
+            return false;
+        }
 
-		if(!is_array($arrFiles))
-		{
-			$arrFiles = array($arrFiles);
-		}
+        $arrJs  = is_array($GLOBALS['TL_JAVASCRIPT']) ? $GLOBALS['TL_JAVASCRIPT'] : [];
+        $arrCss = is_array($GLOBALS['TL_USER_CSS']) ? $GLOBALS['TL_USER_CSS'] : [];
 
-		if(!is_array($arrCurrent))
-		{
-			$arrCurrent = array($arrCurrent);
-		}
+        foreach ($arrComponents as $group => $arrComponent) {
+            $arrJs  = static::addComponents($group, $arrComponent['js'], $arrJs);
+            $arrCss = static::addComponents($group, $arrComponent['css'], $arrCss);
+        }
 
-		$arrReplace = array();
+        $GLOBALS['TL_JAVASCRIPT'] = $arrJs;
+        $GLOBALS['TL_USER_CSS']   = $arrCss;
+    }
 
-		foreach ($arrFiles as $key => $strFile)
-		{
-		    // do not add the same file multiple times
-		    if(in_array($strFile, $arrCurrent)) continue;
+    public static function getActiveComponents(\LayoutModel $objLayout)
+    {
+        $arrAvailable = static::getComponents();
 
-			$arrReplace[$strGroup. '.' . $key] = $strFile;
-		}
+        if ($objLayout->bs_disable_components) {
+            $arrDisabled = deserialize($objLayout->bs_disabled_components, true);
 
-		if($intIndex !== null)
-		{
-			array_insert($arrCurrent, $intIndex, $arrReplace);
-			return $arrCurrent;
-		}
+            $arrAvailable = array_diff_key($arrAvailable, array_flip($arrDisabled));
+        }
 
-		return $arrCurrent + $arrReplace;
-	}
+        return $arrAvailable;
+    }
 
-	public static function registerComponents(\LayoutModel $objLayout)
-	{
-		$arrComponents = static::getActiveComponents($objLayout);
+    /**
+     * Return assets components as array
+     * @return array of components
+     */
+    public static function getComponents($blnGroup = false)
+    {
+        $arrOptions = [];
 
-		if(!is_array($arrComponents))
-		{
-			return false;
-		}
+        $arrComponents = $GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'];
 
-		$arrJs = is_array($GLOBALS['TL_JAVASCRIPT']) ? $GLOBALS['TL_JAVASCRIPT'] : array();
-		$arrCss = is_array($GLOBALS['TL_USER_CSS']) ? $GLOBALS['TL_USER_CSS'] : array();
+        if (!is_array($arrComponents)) {
+            return $arrOptions;
+        }
 
-		foreach($arrComponents as $group => $arrComponent)
-		{
-			$arrJs = static::addComponents($group, $arrComponent['js'], $arrJs);
-			$arrCss = static::addComponents($group, $arrComponent['css'], $arrCss);
-		}
-		
-		$GLOBALS['TL_JAVASCRIPT'] = $arrJs;
-		$GLOBALS['TL_USER_CSS'] = $arrCss;
-	}
+        foreach ($arrComponents as $groupKey => $arrGroup) {
+            $varValue = $arrGroup;
 
-	public static function getActiveComponents(\LayoutModel $objLayout)
-	{
-		$arrAvailable = static::getComponents();
-		
-		if($objLayout->bs_disable_components)
-		{
-			$arrDisabled = deserialize($objLayout->bs_disabled_components, true);
+            if ($blnGroup) {
+                $varValue = $groupKey;
+            }
 
-			$arrAvailable = array_diff_key($arrAvailable, array_flip($arrDisabled));
-		}
+            $arrOptions[$groupKey] = $varValue;
+        }
 
-		return $arrAvailable;
-	}
+        return $arrOptions;
+    }
 
+    public static function addComponents($strGroup, $arrNew = [], $arrCurrent = [])
+    {
+        if (!isset($arrNew['files'])) {
+            return $arrCurrent;
+        }
 
-	/**
-	 * Return assets components as array
-	 * @return array of components
-	 */
-	public static function getComponents($blnGroup = false)
-	{
-		$arrOptions = array();
+        $arrFiles = $arrNew['files'];
+        $intIndex = $arrNew['sort'];
 
-		$arrComponents = $GLOBALS['BOOTSTRAPPER_ASSET_COMPONENTS'];
+        if (!is_array($arrFiles)) {
+            $arrFiles = [$arrFiles];
+        }
 
-		if(!is_array($arrComponents))
-		{
-			return $arrOptions;
-		}
+        if (!is_array($arrCurrent)) {
+            $arrCurrent = [$arrCurrent];
+        }
 
-		foreach($arrComponents as $groupKey => $arrGroup)
-		{
-			$varValue = $arrGroup;
+        $arrReplace = [];
 
-			if($blnGroup)
-			{
-				$varValue = $groupKey;
-			}
+        foreach ($arrFiles as $key => $strFile) {
+            // do not add the same file multiple times
+            if (in_array($strFile, $arrCurrent)) {
+                continue;
+            }
 
-			$arrOptions[$groupKey] = $varValue;
-		}
+            $arrReplace[$strGroup . '.' . $key] = $strFile;
+        }
 
-		return $arrOptions;
-	}
+        if ($intIndex !== null) {
+            array_insert($arrCurrent, $intIndex, $arrReplace);
+            return $arrCurrent;
+        }
 
-	/**
-	 * Return key as value of javascript components as array
-	 * @return array of js components
-	 */
-	public static function getComponentGroups()
-	{
-		return static::getComponents(true);
-	}
+        return $arrCurrent + $arrReplace;
+    }
+
+    /**
+     * Return key as value of javascript components as array
+     * @return array of js components
+     */
+    public static function getComponentGroups()
+    {
+        return static::getComponents(true);
+    }
 }

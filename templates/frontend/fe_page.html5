@@ -1,131 +1,149 @@
 <!DOCTYPE html>
 <html lang="<?= $this->language ?>"<?php if ($this->isRTL): ?> dir="rtl"<?php endif; ?>>
 <head>
-	<?php $this->block('head'); ?>
-		<meta charset="<?= $this->charset; ?>">
-		<title><?= $this->pageTitle == 'Startseite' ? $this->mainTitle : $this->title; ?></title>
-		<base href="<?= $this->base; ?>">
 
-		<?php $this->block('meta'); ?>
-			<meta name="robots" content="<?= $this->robots; ?>">
-			<meta name="description" content="<?= $this->description; ?>">
-			<meta name="keywords" content="<?= $this->keywords; ?>">
-			<meta name="generator" content="Contao Open Source CMS">
-			<meta name="apple-mobile-web-app-capable" content="yes">
+    <?php $this->block('head'); ?>
+    <meta charset="<?= $this->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-			<meta property="og:title" content="<?= $this->pageTitle; ?>">
-			<meta property="og:url" content="<?= $this->Environment->url . '/' . $this->Environment->request; ?>">
-			<meta property="og:site_name" content="<?= $this->mainTitle; ?>" />
-			<meta property="og:description" content="<?= $this->description; ?>" />
-		<?php $this->endblock(); ?>
+    <title><?= $this->pageTitle == 'Startseite' ? $this->mainTitle : $this->title; ?></title>
+    <base href="<?= $this->base ?>">
 
-		<link rel="shortcut icon" href="/files/{CHANGE_THIS}/theme/img/favicon.ico" type="image/x-icon">
-		<link rel="apple-touch-icon" href="/files/{CHANGE_THIS}/theme/img/apple-touch-icon-precomposed.png">
+    <?php $this->block('meta'); ?>
+    <meta name="robots" content="<?= $this->robots ?>">
+    <meta name="description" content="<?= $this->description ?>">
+    <meta name="generator" content="Contao Open Source CMS">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-		<script src="/system/modules/bootstrapper/assets/vendor/modernizr.min.js"></script>
-		<?= $this->viewport; ?>
-		<?= $this->framework; ?>
-		<?= $this->stylesheets; ?>
-		<?= $this->mooScripts; ?>
-		<?= $this->head; ?>
+    <meta property="og:title" content="<?= $this->pageTitle; ?>">
+    <meta property="og:url" content="<?= $this->Environment->url . '/' . $this->Environment->request; ?>">
+    <meta property="og:site_name" content="<?= $this->mainTitle; ?>"/>
+    <meta property="og:description" content="<?= $this->description; ?>"/>
+    <?php $this->endblock(); ?>
 
-		<?php $this->block('html5shiv'); ?>
-			<!--[if lt IE 9]><script src="<?= TL_ASSETS_URL ?>assets/html5shiv/<?= $GLOBALS['TL_ASSETS']['HTML5SHIV'] ?>/html5shiv-printshiv.min.js"></script><![endif]-->
-		<?php $this->endblock(); ?>
-	<?php $this->endblock(); ?>
+    <link rel="shortcut icon" href="/files/{CHANGE_THIS}/theme/img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/files/{CHANGE_THIS}/theme/img/apple-touch-icon-precomposed.png">
+
+    <?= $this->viewport ?>
+    <?= $this->framework ?>
+    <?= $this->stylesheets ?>
+
+    <link rel="stylesheet" href="files/themes/{CHANGE_THIS}/css/{CHANGE_THIS}.css">
+
+    <?= $this->mooScripts ?>
+    <?= $this->head ?>
+
+    <?php $this->block('html5shiv'); ?>
+    <!--[if lt IE 9]>
+    <script src="<?= TL_ASSETS_URL ?>assets/html5shiv/js/html5shiv-printshiv.min.js"></script><![endif]-->
+    <?php $this->endblock(); ?>
+    <?php $this->endblock(); ?>
+
 </head>
-<body id="top" class="<?= str_replace('/', '_', \Controller::replaceInsertTags('{{page::alias}}')) ?> {{ua::class}}<?php if ($this->class) echo ' ' . $this->class; ?>"<?php if ($this->onload): ?> onload="<?= $this->onload; ?>"<?php endif; ?>>
+<body id="top" class="<?= str_replace('/', '_', \Controller::replaceInsertTags('{{page::alias}}')) ?> {{ua::class}}<?php if ($this->class) {
+    echo ' ' . $this->class;
+} ?>"<?php if ($this->onload): ?> onload="<?= $this->onload ?>"<?php endif; ?> itemscope itemtype="http://schema.org/WebPage">
 
 <?php $this->block('body'); ?>
 
 <?php $this->block('fixed'); ?>
-<?php if ($this->sections['Fixed']): ?>
-	<?= $this->sections['Fixed']; ?>
+<?php if ($this->sections['fixed']): ?>
+    <?= $this->sections['fixed']; ?>
 <?php endif; ?>
 <?php $this->endblock(); ?>
 
-<?php $this->block('header'); ?>
-<?php if ($this->header): ?>
-	<header id="header" data-spy="scroll" data-scrollClass="shrink" data-offset="150">
-		<div class="inside">
-			<?= $this->header; ?>
-		</div>
-	</header>
-<?php endif; ?>
-<?php $this->endblock(); ?>
+<div id="wrapper">
 
-<?php if ($this->sections['Stage']): ?>
-	<div id="wrapper-stage" class="hidden-print">
-		<div id="stage">
-			<div>
-				<div class="inside">
-					<?= $this->sections['Stage']; ?>
-				</div>
-			</div>
-		</div>
-	</div>
-<?php endif; ?>
-<div id="page">
-	<div id="wrapper" class="container">
+    <?php $this->block('header'); ?>
+    <?php if ($this->header): ?>
+        <header id="header" itemscope itemtype="http://schema.org/WPHeader" data-spy="scroll" data-scrollClass="shrink" data-offset="150">
+            <div class="inside">
+                <?= $this->header ?>
+            </div>
+        </header>
+    <?php endif; ?>
+    <?php $this->endblock(); ?>
 
-		<?php $this->block('container'); ?>
-		<div id="container" class="row">
+    <?php if ($this->sections['stage']): ?>
+        <div id="wrapper-stage" class="hidden-print">
+            <div id="stage">
+                <div>
+                    <div class="inside">
+                        <?= $this->sections['stage']; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
 
-			<?php $this->block('main'); ?>
-			<div id="main"
-				 class="col-xs-12 <?php if ($this->right): ?>col-sm-12 col-md-8 col-lg-8<?php else: ?>col-sm-12 col-md-12 col-lg-12<?php endif; ?>">
-				<div class="inside">
-					<?= $this->main; ?>
-				</div>
-				<?= $this->sections('main'); ?>
-			</div>
-			<?php $this->endblock(); ?>
+    <div id="page">
+        <div id="wrapper" class="container">
 
-			<?php $this->block('left'); ?>
-			<?php if ($this->left): ?>
-				<aside id="left">
-					<div class="inside">
-						<?= $this->left; ?>
-					</div>
-				</aside>
-			<?php endif; ?>
-			<?php $this->endblock(); ?>
+            <?php $this->block('container'); ?>
+            <div id="container">
 
-			<?php $this->block('right'); ?>
-			<?php if ($this->right): ?>
-				<aside id="right" class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-					<div class="inside">
-						<?= $this->right; ?>
-					</div>
-				</aside>
-			<?php endif; ?>
-			<?php $this->endblock(); ?>
+                <?php $this->block('main'); ?>
+                <main id="main" itemscope itemtype="http://schema.org/WebPageElement" itemprop="mainContentOfPage">
+                    <div class="inside">
+                        <?= $this->main ?>
+                    </div>
+                    <?php $this->sections('main'); ?>
+                </main>
+                <?php $this->endblock(); ?>
 
-			<?php if ($this->sections['Main-Footer']): ?>
-				<div id="main-footer" class="col-sm-12 col-md-12 col-lg-12">
-					<?= $this->sections['Main-Footer']; ?>
-				</div>
-			<?php endif; ?>
+                <?php $this->block('left'); ?>
+                <?php if ($this->left): ?>
+                    <aside id="left">
+                        <div class="inside">
+                            <?= $this->left ?>
+                        </div>
+                    </aside>
+                <?php endif; ?>
+                <?php $this->endblock(); ?>
 
-		</div>
-		<?php $this->endblock(); ?>
+                <?php $this->block('right'); ?>
+                <?php if ($this->right): ?>
+                    <aside id="right">
+                        <div class="inside">
+                            <?= $this->right ?>
+                        </div>
+                    </aside>
+                <?php endif; ?>
+                <?php $this->endblock(); ?>
 
-	</div>
+            </div>
+            <?php $this->endblock(); ?>
+
+            <?php if ($this->sections['preFooter']): ?>
+                <div id="wrapper-pre-footer" class="hidden-print">
+                    <div id="pre-footer">
+                        <div>
+                            <div class="inside">
+                                <?= $this->sections['preFooter']; ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+        </div>
+    </div>
+
+    <?php $this->block('footer'); ?>
+    <?php if ($this->footer): ?>
+        <footer id="footer" class="hidden-print" itemscope itemtype="http://schema.org/WPFooter">
+            <div class="inside">
+                <?= $this->footer ?>
+            </div>
+        </footer>
+    <?php endif; ?>
+    <?php $this->endblock(); ?>
+
 </div>
-<?php $this->block('footer'); ?>
-<?php if ($this->footer): ?>
-	<footer id="footer" class="hidden-print">
-		<div class="inside container">
-			<?= $this->footer; ?>
-		</div>
-	</footer>
-<?php endif; ?>
-<?php $this->endblock(); ?>
-
 
 <?php $this->endblock(); ?>
 
-<?= $this->mootools; ?>
+<?= $this->mootools ?>
 
 </body>
 </html>

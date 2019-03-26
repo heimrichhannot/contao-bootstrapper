@@ -1,0 +1,42 @@
+<?php if ($this->level == 'level_1'): ?>
+<div class="navbar-inner">
+    <nav class="navbar navbar-toggleable-sm navbar-light bg-faded">
+        <a class="navbar-brand" href="#"></a>
+
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <?php endif; ?>
+            <ul class="<?= $this->level ?><?php if ($this->level == 'level_1'): ?> navbar-nav mr-auto<?php endif; ?>">
+                <?php foreach ($this->items as $item): ?>
+                    <li class="nav-item<?= !empty($item['subitems']) ? ' dropdown' : '' ?><?= $item['class'] ? ' ' . $item['class'] : '' ?>">
+                        <a href="<?= $item['href'] ?: './' ?>" title="<?= $item['pageTitle'] ?: $item['title'] ?>"
+                           class="nav-link<?= $item['isActive'] ? ' active' : '' ?><?= !empty($item['subitems']) ? ' dropdown-toggle' : '' ?><?= $item['class'] ? ' ' . $item['class'] : '' ?>"
+                            <?php if (!empty($item['subitems'])): ?> data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"<?php endif; ?>
+                            <?php if ($item['accesskey']) {
+                                echo ' accesskey="' . $item['accesskey'] . '"';
+                            } ?>
+                            <?php if ($item['tabindex']) {
+                                echo ' tabindex="' . $item['tabindex'] . '"';
+                            } ?>
+                            <?php if ($item['nofollow']) {
+                                echo ' rel="nofollow"';
+                            } ?><?= $item['target'] ?>
+                            <?php if (!empty($item['subitems'])) {
+                                echo ' aria-haspopup="true"';
+                            } ?> itemprop="url">
+                            <span itemprop="name"><?= $item['link'] ?></span>
+                        </a>
+                        <div class="dropdown-menu">
+                            <?= $item['subitems'] ?>
+                        </div>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <?php if ($this->level == 'level_1'): ?>
+        </div>
+    </nav>
+</div>
+<?php endif; ?>

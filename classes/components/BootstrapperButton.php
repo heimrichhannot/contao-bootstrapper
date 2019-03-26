@@ -14,20 +14,19 @@ namespace HeimrichHannot\Bootstrapper;
 
 class BootstrapperButton extends BootstrapperComponent
 {
-	protected $strTemplate = 'bootstrapper_button';
+    protected $strTemplate = 'bootstrapper_button';
 
-	protected function compile()
-	{
-		$this->Template->btnClass = 'btn' . ($this->arrParam[1] ? ' ' . $this->arrParam[1] : '');
-		$this->Template->btnText = $this->arrParam[2];
+    protected function compile()
+    {
+        $this->Template->btnClass = 'btn' . ($this->arrParam[1] ? ' ' . $this->arrParam[1] : '');
+        $this->Template->btnText  = $this->arrParam[2];
 
-		$this->Template->btnIsAnchor = false;
+        $this->Template->btnIsAnchor = false;
 
-		// handle links inside text as anchor, not as button
-		if(preg_match('#(<a\s+[^>]+>)#', $this->Template->btnText))
-		{
-			$this->Template->btnIsAnchor = true;
-			$this->Template->btnText = preg_replace('#(^<a)#', '<a class="' . $this->Template->btnClass . '"', $this->Template->btnText);
-		}
-	}
+        // handle links inside text as anchor, not as button
+        if (preg_match('#(<a\s+[^>]+>)#', $this->Template->btnText)) {
+            $this->Template->btnIsAnchor = true;
+            $this->Template->btnText     = preg_replace('#(^<a)#', '<a class="' . $this->Template->btnClass . '"', $this->Template->btnText);
+        }
+    }
 }

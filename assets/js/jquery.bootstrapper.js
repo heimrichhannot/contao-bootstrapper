@@ -120,17 +120,24 @@
             });
         },
         initNavbar: function() {
+            $('.navbar-collapse').on('show.bs.collapse', function() {
+                $(this).addClass('open'); //  support (non .collapsing transition)
+                $('body').addClass('navbar-open'); // immediately css transition support (non .collapsing transition)
+            });
+
             $('.navbar-collapse').on('shown.bs.collapse', function() {
-                $('body').addClass('navbar-xs-open');
+                $('body').addClass('navbar-show');
             });
 
             $('.navbar-collapse').on('hide.bs.collapse', function() {
-                $('body').removeClass('navbar-xs-open');
+                $('body').removeClass('navbar-show navbar-open');
+                $(this).removeClass('open'); // immediately css transition support (non .collapsing transition)
             });
 
             // initial set
-            if ($('.navbar-collapse').hasClass('in')) {
-                $('body').addClass('navbar-xs-open');
+            if ($('.navbar-collapse').hasClass('show')) {
+                $('body').addClass('navbar-show navbar-open');
+                $(this).addClass('open'); // immediately css transition support (non .collapsing transition)
             }
         },
         addPlaceholderTagSupport: function() {
@@ -175,7 +182,7 @@
                             else {
                                 error.appendTo(element.closest('.form-group'));
                             }
-                        }
+                        },
                     });
                 });
             }
@@ -190,7 +197,7 @@
 
                 $formData.push({
                     name: 'isAjax',
-                    value: '1'
+                    value: '1',
                 });
 
                 $.ajax(
@@ -228,10 +235,10 @@
                                 var alertOffset = alert.offset();
 
                                 $('html,body').animate({
-                                    scrollTop: parseInt(alertOffset.top) - 70 + 'px'
+                                    scrollTop: parseInt(alertOffset.top) - 70 + 'px',
                                 }, 500);
                             }
-                        }
+                        },
                     }
                 );
             });
@@ -271,7 +278,7 @@
             // disable default interval
             crsl.carousel({
                 interval: false,
-                pause: false
+                pause: false,
             }).on('slide.bs.carousel', function() {
                 clearInterval(barInterval);
             }).on('slid.bs.carousel', function() {
@@ -323,8 +330,8 @@
                     'url': $this.attr('href'),
                     'data': {
                         'scope': 'modal',
-                        'target': $modal.attr('id')
-                    }
+                        'target': $modal.attr('id'),
+                    },
                 }).done(function(responseText, textStatus, jqXHR) {
                     try {
                         dataJson = $.parseJSON(responseText);
@@ -426,7 +433,9 @@
             });
         },
         initFastClick: function() {
-            FastClick.attach(document.body);
+            if (typeof(FastClick) !== undefined && typeof(FastClick) !== "undefined" && typeof(FastClick) !== null) {
+                FastClick.attach(document.body);
+            }
         },
         initIosLabelBugFix: function() {
             $('.ios .checkbox-label, .ios .custom-control-description').each(function() {
@@ -464,16 +473,16 @@
                     error: {
                         label: this.locale == 'en' ? 'No' : 'Nein',
                         className: 'btn-default',
-                        callback: error
+                        callback: error,
                     },
                     success: {
                         label: this.locale == 'en' ? 'Yes' : 'Ja',
                         className: 'btn-primary',
-                        callback: success
-                    }
-                }
+                        callback: success,
+                    },
+                },
             });
-        }
+        },
     };
 
     $(document).ready(function() {

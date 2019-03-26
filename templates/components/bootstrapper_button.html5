@@ -1,6 +1,6 @@
-<?php if($this->btnIsAnchor): ?>
-	<?= $this->btnText; ?>
+<?php if ($this->btnIsAnchor): ?>
+    <?= $this->btnText; ?>
 <?php else: ?>
-	<button class="<?= $this->btnClass; ?>" type="button"><?= $this->btnText; ?></button>
+    <button class="<?= $this->btnClass; ?>" type="button"><?= $this->btnText; ?></button>
 <?php endif; ?>
 

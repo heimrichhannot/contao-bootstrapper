@@ -14,17 +14,16 @@ namespace HeimrichHannot\Bootstrapper;
 
 class BootstrapperFormTextArea extends BootstrapperFormField
 {
-	protected $strTemplate = 'bootstrapper_form_textarea';
+    protected $strTemplate = 'bootstrapper_form_textarea';
 
-	protected function compile()
-	{
-		if ($this->objWidget->rte == 'tinyMCE')
-		{
-			$this->Template->tinyMCE = true;
-			$this->addCssClass($this->objWidget->rte);
+    protected function compile()
+    {
+        if ($this->objWidget->rte == 'tinyMCE') {
+            $this->Template->tinyMCE = true;
+            $this->addCssClass($this->objWidget->rte);
 
-			$this->Template->toolbar = $this->getSetting('toolbar');
-			$this->Template->contentCss = $this->getSetting('content_css');
-		}
-	}
+            $this->Template->toolbar    = $this->getSetting('toolbar');
+            $this->Template->contentCss = $this->getSetting('content_css');
+        }
+    }
 }

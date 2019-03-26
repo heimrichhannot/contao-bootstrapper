@@ -88,9 +88,7 @@
     };
 
     $(function() {
-        if (typeof($.fn.dropdown) !== 'undefined') {
-            BsSelect.init();
-        }
+        BsSelect.init();
     });
 
 })(jQuery);

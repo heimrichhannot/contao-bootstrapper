@@ -12,18 +12,18 @@ namespace HeimrichHannot\Bootstrapper\Backend;
 
 class Layout extends \Backend
 {
-	protected static $strTable = 'tl_layout';
+    protected static $strTable = 'tl_layout';
 
 
-	/**
-	 * Return all Bootstrapper Javascript Components
-	 * @param \DataContainer $dc
-	 *
-	 * @return array
-	 */
-	public function getComponentsAsOption(\DataContainer $dc)
-	{
-		return \HeimrichHannot\Bootstrapper\BootstrapperAssets::getComponentGroups();
-	}
-	
+    /**
+     * Return all Bootstrapper Javascript Components
+     * @param \DataContainer $dc
+     *
+     * @return array
+     */
+    public function getComponentsAsOption(\DataContainer $dc)
+    {
+        return \HeimrichHannot\Bootstrapper\BootstrapperAssets::getComponentGroups();
+    }
+
 }

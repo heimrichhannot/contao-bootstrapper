@@ -1,0 +1,36 @@
+<?php
+global $objPage;
+global $accordionIterator;
+$accordionIterator++;
+$this->accordionID = standardize($this->cssID ? (str_replace(['id=', '"', ' '], '', $this->cssID)) : (strtolower($objPage->title) . $accordionIterator));
+$this->open        = $accordionIterator == 1;
+
+if ($this->ptable && $this->pid > 0) {
+
+    $strClass = \Model::getClassFromTable($this->ptable);
+
+    if (class_exists($strClass) && ($parent = $strClass::findByPk($this->pid)) !== null) {
+        $arrCss = deserialize($parent->cssID, true);
+        if ($arrCss[0]) {
+            $this->parentID = $arrCss[0] ?? 'article-' . $parent->id;
+        }
+    }
+}
+
+?>
+
+<div class="accordion" id="<?= $this->parentID; ?>" role="tablist" aria-multiselectable="false">
+
+    <section class="card <?= $this->class; ?> ce_accordion block"<?php if ($this->style): ?> style="<?= $this->style; ?>"<?php endif; ?>>
+        <div class="card-header <?= $this->toggler; ?>"<?php if ($this->headlineStyle): ?> style="<?= $this->headlineStyle; ?>"<?php endif; ?>>
+            <h4 class="card-title">
+                <a data-toggle="collapse" href="#<?= $this->accordionID; ?>"><?= $this->headline; ?></a>
+            </h4>
+        </div>
+
+        <div class="card-collapse collapse<?php if ($this->open): ?> show <?php endif; ?>" id="<?= $this->accordionID ?>"<?php if ($this->parentID): ?> data-parent="#<?= $this->parentID; ?>"<?php endif; ?>>
+            <div class="card-body">
+                <div class="<?= $this->accordion; ?>">
+                    <div>
+                    </div>
+                </div>

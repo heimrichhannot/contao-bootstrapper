@@ -19,10 +19,10 @@ namespace HeimrichHannot\Bootstrapper;
  */
 class BootstrapperFormLegacy extends BootstrapperFormField
 {
-	protected $strTemplate = 'bootstrapper_form';
+    protected $strTemplate = 'bootstrapper_form';
 
-	protected function compile()
-	{
+    protected function compile()
+    {
 
-	}
+    }
 }

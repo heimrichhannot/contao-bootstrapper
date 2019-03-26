@@ -7,8 +7,8 @@
 <div class="tabcontrol_tabs block">
     <ul class="nav nav-tabs" role="tablist">
         <?php foreach ($this->titles as $key => $data) : ?>
-            <li role="presentation" class="<?= $this->tabs . ' tab_' . $key; ?><?php if ($key == $this->tab_tabs_default): ?> active<?php endif; ?>" id="<?= $this->id . "_" . $key ?>">
-                <a data-cookie-value="<?= $data['cookieValue']; ?>" href="#pane_<?= $this->id; ?>_<?= $key; ?>" aria-controls="pane_<?= $this->id; ?>_<?= $key; ?>" role="tab" data-toggle="tab" class="tab_toggle_<?= $key; ?><?php if ($key == $this->tab_tabs_default): ?> active<?php endif; ?>"><?= $data['tab_tabs_name']; ?></a>
+            <li role="presentation" class="nav-item <?= $this->tabs . ' tab_' . $key; ?><?php if ($key == $this->tab_tabs_default): ?> active<?php endif; ?>" id="<?= $this->id . "_" . $key ?>">
+                <a data-cookie-value="<?= $data['cookieValue']; ?>" href="#pane_<?= $this->id; ?>_<?= $key; ?>" aria-controls="pane_<?= $this->id; ?>_<?= $key; ?>" role="tab" data-toggle="tab" class="nav-link tab_toggle_<?= $key; ?><?php if ($key == $this->tab_tabs_default): ?> active<?php endif; ?>"><?= $data['tab_tabs_name']; ?></a>
             </li>
         <?php endforeach; ?>
     </ul>

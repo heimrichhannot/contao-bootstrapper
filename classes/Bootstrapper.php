@@ -6,32 +6,32 @@ use HeimrichHannot\Bootstrapper\BootstrapperFormField;
 
 class Bootstrapper extends \Controller
 {
-    protected static $arrSkipTypes = array('hidden', 'fieldset', 'explanation', 'subEventList', 'successGroup', 'formcolstart', 'formcolpart', 'formcolend', 'multiColumnWizard', 'form_multiColumnWizard', 'multifileupload', 'rocksolid_antispam');
+    protected static $arrSkipTypes = ['hidden', 'fieldset', 'subEventList', 'explanation', 'successGroup', 'formcolstart', 'formcolpart', 'formcolend', 'multiColumnEditor', 'form_multiColumnEditor', 'multifileupload'];
 
-
-    public static function generateForm(\Widget $objWidget, $hideLabel=false)
+    public static function generateForm(\Widget $objWidget, $hideLabel = false, $strBuffer)
     {
-        if(in_array($objWidget->type, static::$arrSkipTypes))
-        {
+        if (in_array($objWidget->type, static::$arrSkipTypes)) {
             return $objWidget->generate();
+        }
+
+        // honeypot captcha support for contao 4.4+
+        if ($objWidget->type == 'captcha' && !$objWidget->hasErrors() && version_compare(VERSION, '4.4', '>=')) {
+            return $strBuffer;
         }
 
         $strClass = $GLOBALS['TL_FFL_BOOTSTRAPPER']['legacy'];
 
-        if(isset($GLOBALS['TL_FFL_BOOTSTRAPPER'][$objWidget->type]))
-        {
+        if (isset($GLOBALS['TL_FFL_BOOTSTRAPPER'][$objWidget->type])) {
             $strClass = $GLOBALS['TL_FFL_BOOTSTRAPPER'][$objWidget->type];
         }
 
-        if(!class_exists($strClass))
-        {
+        if (!class_exists($strClass)) {
             return $objWidget->generate();
         }
 
         $objField = new $strClass($objWidget);
 
-        if(!$objField instanceof BootstrapperFormField)
-        {
+        if (!$objField instanceof BootstrapperFormField) {
             return $objWidget->generate();
         }
 
@@ -40,8 +40,9 @@ class Bootstrapper extends \Controller
         return $objField->generate();
     }
 
-    public static function formatPhpDateToJsDate($php_format) {
-        $SYMBOLS_MATCHING = array (
+    public static function formatPhpDateToJsDate($php_format)
+    {
+        $SYMBOLS_MATCHING = [
             // Day
             'd' => 'DD',
             'D' => 'D',
@@ -75,33 +76,35 @@ class Bootstrapper extends \Controller
             'i' => 'mm',
             's' => '',
             'u' => ''
-        );
+        ];
 
         $jqueryui_format = "";
-        $escaping = false;
+        $escaping        = false;
 
-        for($i = 0; $i < strlen ( $php_format ); $i ++)
-        {
+        for ($i = 0; $i < strlen($php_format); $i++) {
             $char = $php_format [$i];
-            if ($char === '\\') 			// PHP date format escaping character
+            if ($char === '\\')            // PHP date format escaping character
             {
-                $i ++;
-                if ($escaping)
+                $i++;
+                if ($escaping) {
                     $jqueryui_format .= $php_format [$i];
-                else
+                } else {
                     $jqueryui_format .= '\'' . $php_format [$i];
+                }
                 $escaping = true;
             } else {
                 if ($escaping) {
                     $jqueryui_format .= "'";
-                    $escaping = false;
+                    $escaping        = false;
                 }
-                if (isset ( $SYMBOLS_MATCHING [$char] ))
+                if (isset ($SYMBOLS_MATCHING [$char])) {
                     $jqueryui_format .= $SYMBOLS_MATCHING [$char];
-                else
+                } else {
                     $jqueryui_format .= $char;
+                }
             }
         }
         return $jqueryui_format;
     }
+
 }

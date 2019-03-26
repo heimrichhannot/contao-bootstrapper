@@ -13,18 +13,17 @@ namespace HeimrichHannot\Bootstrapper;
 
 class BootstrapperFormSubmit extends BootstrapperFormField
 {
-	protected $strTemplate = 'bootstrapper_form_submit';
+    protected $strTemplate = 'bootstrapper_form_submit';
 
-	protected function compile()
-	{
-		$this->Template->label = $this->objWidget->slabel;
+    protected function compile()
+    {
+        $this->Template->label = $this->objWidget->slabel;
 
-		$this->addGroupCssClass('submit');
+        $this->addGroupCssClass('submit');
 
-		if(!in_array('btn', $this->arrCssClasses))
-		{
-			$this->arrCssClasses[] = 'btn';
-			$this->arrCssClasses[] = 'btn-primary';
-		}
-	}
+        if (!in_array('btn', $this->arrCssClasses)) {
+            $this->arrCssClasses[] = 'btn';
+            $this->arrCssClasses[] = 'btn-primary';
+        }
+    }
 }
