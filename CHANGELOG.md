@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.14] - 2019-04-01
+
+### Fixed
+- `FormSlider` min, max, range, value handling
+
 ## [1.5.13] - 2018-11-22
 
 ### Fixed
