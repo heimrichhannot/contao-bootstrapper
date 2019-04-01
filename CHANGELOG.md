@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.15] - 2019-04-01
+
+### Fixed
+- `FormSlider` callback `value_callback` is triggered before value is validated and set
+
 ## [1.5.14] - 2019-04-01
 
 ### Fixed

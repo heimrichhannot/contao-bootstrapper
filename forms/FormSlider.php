@@ -112,7 +112,7 @@ class FormSlider extends \Widget
             // set the orientation. Accepts 'vertical' or 'horizontal'
             'orientation'        => 'horizontal',
             // initial value. Use array to have a range slider.
-            'value'              => 5,
+            'value'              => "",
             // make range slider. Optional if initial value is an array. If initial value is scalar, max will be used for second value.
             'range'              => false,
             // selection placement. Accepts: 'before', 'after' or 'none'. In case of a range slider, the selection will be placed between the handles
@@ -168,9 +168,6 @@ class FormSlider extends \Widget
                 case 'max_callback' :
                     $arrConfig['max'] = $this->getConfigValue($varValue);
                     break;
-                case 'value_callback' :
-                    $arrConfig['value'] = $this->getConfigValue($varValue);
-                    break;
                 case 'step_callback' :
                     $arrConfig['step'] = $this->getConfigValue($varValue);
                     break;
@@ -185,6 +182,10 @@ class FormSlider extends \Widget
 
         $min = $arrConfig['min'];
         $max = $arrConfig['max'];
+
+        if (isset($arrConfig['value_callback'])) {
+            $this->varValue = $this->getConfigValue($arrConfig['value_callback']);
+        }
 
         if ($arrConfig['range'] == true) {
             $arrRange           = $this->varValue ? trimsplit(',', $this->varValue) : [$min, $max];
