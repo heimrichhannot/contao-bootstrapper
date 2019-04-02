@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.16] - 2019-04-02
+
+### Fixed
+- `FormSlider` function getConfigValue on callable callbacks
+
 ## [1.5.15] - 2019-04-01
 
 ### Fixed

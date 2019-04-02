@@ -239,7 +239,7 @@ class FormSlider extends \Widget
 
             return $this->{$varValue[0]}->{$varValue[1]}($this->objDca, $this->arrSliderConfig);
         } elseif (is_callable($varValue)) {
-            return $varValue;
+            return $varValue($this->objDca, $this->arrSliderConfig);
         } else {
             return 0;
         }
