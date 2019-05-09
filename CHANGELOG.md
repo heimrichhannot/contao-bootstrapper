@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.17] - 2019-05-09
+
+#### Fixed
+- `Syntax error, unrecognized expression: #` js error when `data-parent="#"` in accordion start templates
+
 ## [1.5.16] - 2019-04-02
 
 ### Fixed
