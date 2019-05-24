@@ -45,11 +45,11 @@ class ContentTabControl extends \ContentElement
         }
 
         static $panelIndex = 0;
-        $classes    = deserialize($this->tabClasses);
-        $arrTabTabs = deserialize($this->tab_tabs);
+        $classes    = deserialize($this->tabClasses, true);
+        $arrTabTabs = deserialize($this->tab_tabs, true);
 
         //default classes if neccessary
-        if (!count($classes)) {
+        if (empty($classes)) {
             $classes = self::$defaultClasses;
         } else {
             if (!strlen($classes[0])) {

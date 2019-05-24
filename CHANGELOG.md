@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.2.8-beta] - 2019-05-24
+
+#### Fixed
+* forced array on deserialize for classes and tabs in `ContentTabControl`
+
 ## [3.2.7-beta] - 2018-11-22
 
 #### Fixed
