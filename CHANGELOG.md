@@ -1,6 +1,26 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.5.17] - 2019-05-09
+
+#### Fixed
+- `Syntax error, unrecognized expression: #` js error when `data-parent="#"` in accordion start templates
+
+## [1.5.16] - 2019-04-02
+
+### Fixed
+- `FormSlider` function getConfigValue on callable callbacks
+
+## [1.5.15] - 2019-04-01
+
+### Fixed
+- `FormSlider` callback `value_callback` is triggered before value is validated and set
+
+## [1.5.14] - 2019-04-01
+
+### Fixed
+- `FormSlider` min, max, range, value handling
+
 ## [1.5.13] - 2018-11-22
 
 ### Fixed
