@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 
 ### Changed
 - Contao 4 compatibility
+- renamed fe_page template
 
 ## [1.5.17] - 2019-05-09
 
