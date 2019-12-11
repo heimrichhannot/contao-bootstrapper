@@ -2,11 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 ## [2.0-dev] - 2019-10-08
-
-### Changed
-- Contao 4 compatibility
+- added Contao 4 compatibility
 - renamed fe_page template
 - updated eonasdan-bootstrap-datetimepicker dependency
+- updated bootstrap-select dependency
 - updated various template for contao 4 compatibility
 
 ## [1.5.17] - 2019-05-09
