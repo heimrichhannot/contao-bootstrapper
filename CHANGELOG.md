@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 - updated eonasdan-bootstrap-datetimepicker dependency
 - updated bootstrap-select dependency
 - updated various template for contao 4 compatibility
+- fixed wrong bs.select init condition
 
 ## [1.5.17] - 2019-05-09
 

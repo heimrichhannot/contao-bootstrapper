@@ -88,7 +88,7 @@
     };
 
     $(function() {
-        if (typeof($.fn.dropdown) !== 'undefined') {
+        if (typeof($.fn.selectpicker) !== 'undefined') {
             BsSelect.init();
         }
     });
