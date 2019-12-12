@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 - updated bootstrap-select dependency
 - updated various template for contao 4 compatibility
 - fixed wrong bs.select init condition
+- fixed model not closing when containing iframe hasn't src attribute
 
 ## [1.5.17] - 2019-05-09
 
