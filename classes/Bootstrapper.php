@@ -6,14 +6,14 @@ use HeimrichHannot\Bootstrapper\BootstrapperFormField;
 
 class Bootstrapper extends \Controller
 {
-    protected static $arrSkipTypes = array('hidden', 'fieldset', 'explanation', 'subEventList', 'successGroup', 'formcolstart', 'formcolpart', 'formcolend', 'multiColumnWizard', 'form_multiColumnWizard', 'multifileupload', 'rocksolid_antispam');
+    protected static $arrSkipTypes = array('captcha', 'hidden', 'fieldset', 'explanation', 'subEventList', 'successGroup', 'formcolstart', 'formcolpart', 'formcolend', 'multiColumnWizard', 'form_multiColumnWizard', 'multifileupload', 'rocksolid_antispam');
 
 
-    public static function generateForm(\Widget $objWidget, $hideLabel=false)
+    public static function generateForm(\Widget $objWidget, $hideLabel=false, $strBuffer = '')
     {
         if(in_array($objWidget->type, static::$arrSkipTypes))
         {
-            return $objWidget->generate();
+            return $strBuffer;
         }
 
         $strClass = $GLOBALS['TL_FFL_BOOTSTRAPPER']['legacy'];

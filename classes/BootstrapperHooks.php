@@ -27,7 +27,7 @@ class BootstrapperHooks extends \Controller
 
 	if((is_array($GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_TYPES']) && in_array($objWidget->type, $GLOBALS['TL_FFL_BOOTSTRAPPER_SKIP_TYPES']))) return $strBuffer;
 
-        return Bootstrapper::generateForm($objWidget, strlen($objWidget->label) == 0);
+        return Bootstrapper::generateForm($objWidget, strlen($objWidget->label) == 0, $strBuffer);
     }
 
     public function processFormDataHook($arrSubmitted, $arrData, $arrFiles, $arrLabels, $objForm)
