@@ -107,6 +107,9 @@ abstract class BootstrapperFormField extends \Widget
             $this->strTemplate = $strCustomTemplate;
         } catch (\Exception $e) {
         }
+
+        // generate a unique ID
+        $objWidget->id = $objWidget->id . '_' . rand(1000, 9999);
     }
 
     /**

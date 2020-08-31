@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.2.8-beta2] - 2020-08-31
+
+- added random digit to form field id's for accessibility reasons
+
 ## [3.2.8-beta] - 2019-05-24
 
 #### Fixed

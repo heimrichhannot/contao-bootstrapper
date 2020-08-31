@@ -3,7 +3,7 @@
     <?php $inputGroup = true; ?>
 <?php endif; ?>
 
-<div class="form-group <?= $this->field->id; ?><?= $this->field->hasErrors() ? ' has-error' : ''; ?><?= $this->field->groupClass ? ' ' . $this->field->groupClass : ''; ?><?php if ($this->invisible): ?> invisible<?php endif; ?>">
+<div class="form-group <?= $this->field->id; ?> <?= $this->field->name; ?><?= $this->field->hasErrors() ? ' has-error' : ''; ?><?= $this->field->groupClass ? ' ' . $this->field->groupClass : ''; ?><?php if ($this->invisible): ?> invisible<?php endif; ?>">
     <?php if (!$this->hideLabel): ?>
         <?php $this->field->addAttributes(['class' => 'control-label']); ?>
         <?= $this->field->generateLabel(); ?>
