@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.2.8-beta3] - 2020-09-23
+
+- added accessibility for formfields and help/explanation messages
+
 ## [3.2.8-beta2] - 2020-08-31
 
 - added random digit to form field id's for accessibility reasons

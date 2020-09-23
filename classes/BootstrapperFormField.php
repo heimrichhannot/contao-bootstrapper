@@ -132,12 +132,32 @@ abstract class BootstrapperFormField extends \Widget
 
         $this->compile();
 
+
+
         $this->Template->class       = $this->getCssClasses();
         $this->Template->groupClass  = $this->getGroupCssClasses();
-        $this->Template->attributes  = $this->objWidget->getAttributes();
+        $this->Template->attributes  = $this->modifyAttributes();
         $this->Template->placeholder = $this->parsePlaceholder();
 
         return $this->Template->parse();
+    }
+
+    public function modifyAttributes()
+    {
+        $describedBy = '';
+
+        if($this->objWidget->hasErrors()) {
+            $describedBy = 'help_'.$this->objWidget->id;
+        } elseif ($this->Template->explanation) {
+            $describedBy = 'explanation_'.$this->objWidget->id;
+        }
+
+        if($describedBy) {
+            $this->objWidget->addAttribute('aria-describedby', $describedBy);
+        }
+
+
+        return $this->objWidget->getAttributes();
     }
 
     /**
@@ -158,7 +178,10 @@ abstract class BootstrapperFormField extends \Widget
             }
         }
 
-        return strlen($strText) > 0 ? sprintf('<span class="%s">%s</span>', implode(' ', $arrCssClasses), $strText) : '';
+        $templateData = $this->Template->getData();
+        $field = $templateData['field'];
+
+        return strlen($strText) > 0 ? sprintf('<span class="%s" id="help_%s">%s</span>', implode(' ', $arrCssClasses),$field->id, $strText) : '';
     }
 
     /**

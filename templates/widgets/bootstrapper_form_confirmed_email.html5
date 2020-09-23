@@ -34,5 +34,5 @@
 <?php endif; ?>
 
 <?php if ($this->field->explanation): ?>
-    <div class="explanation"><?= $this->field->explanation ?></div>
+    <div class="explanation" id="explanation_<?= $this->field->id ?>"><?= $this->field->explanation ?></div>
 <?php endif; ?>

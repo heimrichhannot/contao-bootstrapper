@@ -10,6 +10,7 @@ class Bootstrapper extends \Controller
 
     public static function generateForm(\Widget $objWidget, $hideLabel = false, $strBuffer)
     {
+
         if (in_array($objWidget->type, static::$arrSkipTypes)) {
             return $objWidget->generate();
         }
