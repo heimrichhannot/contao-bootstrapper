@@ -162,7 +162,6 @@ if (\Config::get('useAwesomeInputs')) {
  */
 if (\HeimrichHannot\Haste\Util\Container::isFrontend()) {
     array_insert($GLOBALS['TL_JAVASCRIPT'], 1, [
-        'fastclick'                => '/system/modules/bootstrapper/assets/vendor/fastclick/lib/fastclick.js|static',
         // bootstrap-datetimepicker
         'moment'                   => 'system/modules/bootstrapper/assets/vendor/moment/min/moment-with-locales.min.js|static',
         'numeral'                  => 'system/modules/bootstrapper/assets/vendor/numeral/min/numeral.min.js|static',

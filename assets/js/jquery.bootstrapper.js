@@ -1,7 +1,6 @@
 (function($) {
     Bootstrapper = {
         init: function() {
-            this.initFastClick();
             this.initModalNavigation();
             //this.initModalRemoteUpdate();
             this.initNavbar();
@@ -425,9 +424,6 @@
 
                 }
             });
-        },
-        initFastClick: function() {
-            FastClick.attach(document.body);
         },
         initIosLabelBugFix: function() {
             $('.ios .checkbox-label, .ios .custom-control-description').each(function() {
